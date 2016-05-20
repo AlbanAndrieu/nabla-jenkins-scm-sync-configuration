@@ -520,7 +520,7 @@ mvn codenarc:codenarc&#xd;
         <url>http://home.nabla.mobi:8280/manager/</url>
       </adapter>
       <contextPath>visma</contextPath>
-      <war>gui/target/*.war</war>
+      <war>gui/target/visma.war</war>
       <onFailure>false</onFailure>
     </hudson.plugins.deploy.DeployPublisher>
     <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.3.6">
