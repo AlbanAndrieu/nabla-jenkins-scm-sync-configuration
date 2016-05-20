@@ -790,8 +790,8 @@ mvn codenarc:codenarc&#xd;
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <org.jenkinsci.plugins.tattletale.TattletaleReportArchiver plugin="tattletale-plugin@0.3">
-      <tattletaleReportDir>gui/target/site/tattletale-report</tattletaleReportDir>
-      <keepAll>true</keepAll>
+      <tattletaleReportDir>tattletale-report</tattletaleReportDir>
+      <keepAll>false</keepAll>
     </org.jenkinsci.plugins.tattletale.TattletaleReportArchiver>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
@@ -831,6 +831,16 @@ mvn codenarc:codenarc&#xd;
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
+    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
+      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
+        <userName>admin</userName>
+        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
+        <url>http://home.nabla.mobi:8280/manager/</url>
+      </adapter>
+      <contextPath>visma</contextPath>
+      <war>gui/target/*.war</war>
+      <onFailure>false</onFailure>
+    </hudson.plugins.deploy.DeployPublisher>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
