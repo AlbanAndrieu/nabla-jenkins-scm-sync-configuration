@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>365</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>7</artifactDaysToKeep>
+    <artifactNumToKeep>3</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
+      <tagOnCompletion>false</tagOnCompletion>
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.17.1">
+      <projectUrl>https://github.com/AlbanAndrieu/nabla-servers/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.2">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/AlbanAndrieu/nabla-servers.git</url>
+        <credentialsId>f364db9f-b4fe-44fc-b02c-87dd3d0b5204</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <browser class="hudson.plugins.git.browser.GithubWeb">
+      <url>https://github.com/AlbanAndrieu/nabla-servers/</url>
+    </browser>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H H(0-6) H/7 * 1-5</spec>
+    </hudson.triggers.TimerTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>H/5 0-9,20-23 * * 1-5</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo DISPLAY : $DISPLAY
+echo JAVA_HOME : $JAVA_HOME
+echo USER : $USER
+env
+#export DISPLAY=:1;
+#*chrome /opt/google/chrome/chrome
+#http://localhost:8280/welcome/
+#src/test/selenium/SimpleSTestSuite.html
+#target/test-reports/chrome-results.html
+#-Dwebdriver.chrome.driver=/var/lib/chromedriver -port 6666 -log=/jenkins/selenium.log -debug=true 
+#-firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/
+# -firefoxProfileTemplate=/workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/
+wget --http-user=admin --http-password=microsoft &quot;http://localhost:8280/manager/text/undeploy?path=/welcome&quot; -O -
+
+/usr/bin/firefox --version
+firefox -v
+/opt/google/chrome/chrome --version
+/usr/bin/google-chrome  --version
+chromium-browser --version
+
+cd ~/.mozilla
+find . -name &apos;.parentlock&apos; -exec rm {} \;
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Maven>
+      <targets>tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
+      <mavenName>(Default)</mavenName>
+      <pom>sample/jsf-simple/pom.xml</pom>
+      <properties>java.awt.headless=true</properties>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+    </hudson.tasks.Maven>
+    <hudson.plugins.seleniumhq.SeleniumhqBuilder plugin="seleniumhq@0.4">
+      <browser>*firefox /usr/lib/firefox/firefox</browser>
+      <startURL>http://localhost:8280/welcome/</startURL>
+      <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
+      <resultFile>sample/jsf-simple/target/test-reports/firefox-results.html</resultFile>
+      <other>-Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver -port 6666 -timeout 600 -log=/jenkins/selenium.log -debug=true</other>
+    </hudson.plugins.seleniumhq.SeleniumhqBuilder>
+    <hudson.tasks.Shell>
+      <command>wget --http-user=admin --http-password=microsoft &quot;http://localhost:8280/manager/text/undeploy?path=/welcome&quot; -O -
+# -firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Maven>
+      <targets>tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
+      <mavenName>(Default)</mavenName>
+      <pom>sample/jsf-simple/pom.xml</pom>
+      <properties>java.awt.headless=true</properties>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+    </hudson.tasks.Maven>
+    <hudson.plugins.seleniumhq.SeleniumhqBuilder plugin="seleniumhq@0.4">
+      <browser>*googlechrome</browser>
+      <startURL>http://localhost:8280/welcome/</startURL>
+      <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
+      <resultFile>sample/jsf-simple/target/test-reports/chrome-results.html</resultFile>
+      <other>-Dwebdriver.chrome.driver=/var/lib/chromedriver -port 6666 -timeout 600 -log=/jenkins/selenium.log -debug=true</other>
+    </hudson.plugins.seleniumhq.SeleniumhqBuilder>
+  </builders>
+  <publishers>
+    <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
+      <daysToKeep>365</daysToKeep>
+      <numToKeep>-1</numToKeep>
+      <resultsToDiscard>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+      </resultsToDiscard>
+      <minLogFileSize>0</minLogFileSize>
+      <maxLogFileSize>0</maxLogFileSize>
+      <intervalDaysToKeep>-1</intervalDaysToKeep>
+      <intervalNumToKeep>-1</intervalNumToKeep>
+      <regexp></regexp>
+    </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+    <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.1"/>
+    <hudson.plugins.seleniumhq.SeleniumhqPublisher plugin="seleniumhq@0.4">
+      <testResults>sample/jsf-simple/target/test-reports/*results.html</testResults>
+      <useTestCommands>false</useTestCommands>
+    </hudson.plugins.seleniumhq.SeleniumhqPublisher>
+  </publishers>
+  <buildWrappers>
+    <org.jenkinsci.plugins.xvfb.Xvfb plugin="xvfb@1.1.2">
+      <installationName>Xvfb</installationName>
+      <screen>1024x768x24</screen>
+      <debug>false</debug>
+      <timeout>10</timeout>
+      <displayNameOffset>2</displayNameOffset>
+      <additionalOptions>-ac</additionalOptions>
+      <shutdownWithBuild>true</shutdownWithBuild>
+      <autoDisplayName>false</autoDisplayName>
+      <assignedLabels></assignedLabels>
+      <parallelBuild>false</parallelBuild>
+    </org.jenkinsci.plugins.xvfb.Xvfb>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.28">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.16">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>30</timeoutMinutes>
+      </strategy>
+      <operationList>
+        <hudson.plugins.build__timeout.operations.FailOperation/>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.7.4"/>
+  </buildWrappers>
+</project>

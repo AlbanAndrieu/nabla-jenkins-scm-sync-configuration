@@ -1,0 +1,879 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<maven2-moduleset plugin="maven-plugin@2.12.1">
+  <actions/>
+  <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Bower sample&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
+The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
+It keeps build history for trend analyses.&lt;br&gt;&#xd;
+&lt;br&gt;&#xd;
+Report as much as possible (like the equivalent continuous job):&#xd;
+&lt;ul&gt;&#xd;
+  &lt;li&gt;tests results&lt;/li&gt;&#xd;
+  &lt;li&gt;coding style&lt;/li&gt;&#xd;
+  &lt;li&gt;formatter&lt;/li&gt;&#xd;
+  &lt;li&gt;pmd&lt;/li&gt;&#xd;
+  &lt;li&gt;cpd&lt;/li&gt;&#xd;
+  &lt;li&gt;checkstyle&lt;/li&gt;  &#xd;
+  &lt;li&gt;findbugs&lt;/li&gt;&#xd;
+  &lt;li&gt;sonargraph&lt;/li&gt;  &#xd;
+  &lt;li&gt;javadoc&lt;/li&gt;   &#xd;
+  &lt;li&gt;cobertura/clover/jacoco&lt;/li&gt;  &#xd;
+  &lt;li&gt;pitest&lt;/li&gt; &#xd;
+  &lt;li&gt;sonar&lt;/li&gt;     &#xd;
+&lt;/ul&gt;&#xd;
+as soon it does not take too long.&#xd;
+&lt;p&gt;&#xd;
+For clover to work.&lt;br&gt;&#xd;
+&lt;code&gt;&#xd;
+clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-managed -Dserver=jboss7x&#xd;
+-U -Dsurefire.useFile=false clover2:setup install clover2:aggregate clover2:clover pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs -Psample,arq-jbossas-managed -Dserver=jboss7x&#xd;
+&lt;/code&gt;&#xd;
+&lt;/p&gt;&#xd;
+&lt;p&gt;&#xd;
+For jacoco to work.&lt;br&gt;&#xd;
+&lt;code&gt;&#xd;
+do not use org.jacoco:jacoco-maven-plugin:prepare-agent&#xd;
+  but&#xd;
+mvn verify -Psample,run-its,coverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
+&lt;/code&gt;&#xd;
+&lt;/p&gt;&#xd;
+&lt;p&gt;&#xd;
+For pitest to work.&lt;br&gt;&#xd;
+&lt;code&gt;&#xd;
+mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
+&lt;/code&gt;&#xd;
+&lt;/p&gt;&#xd;
+&lt;p&gt;&#xd;
+For integration test to work.&lt;br&gt;&#xd;
+&lt;code&gt;&#xd;
+mvn install -Prun-its&#xd;
+mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,arq-weld-ee-embedded&#xd;
+&lt;/code&gt;&#xd;
+&lt;/p&gt;&#xd;
+&lt;p&gt;&#xd;
+For sonargraph test to work.&lt;br&gt;&#xd;
+&lt;code&gt;&#xd;
+package -Dmaven.test.skip=true com.hello2morrow.sonargraph:maven-sonargraph-plugin:7.2.1:architect-report -Dsonargraph.activationCode=2356-F3B2-E2C6-CC70 -Dsonargraph.prepareForJenkins=true -Dsonargraph.reportDirectory=${WORKSPACE}/target/sonargraph-report -Dsonargraph.reportName=sonargraph-report -Dsonargraph.reportType=HTML -Dsonargraph.prepareForSonar=true&#xd;
+&lt;/code&gt;&#xd;
+&lt;/p&gt;&#xd;
+&lt;p&gt;&#xd;
+For codenarc report to work.&lt;br&gt;&#xd;
+&lt;code&gt;&#xd;
+mvn codenarc:codenarc&#xd;
+&lt;/code&gt;&#xd;
+&lt;/p&gt;&#xd;
+</description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>365</daysToKeep>
+    <numToKeep>10</numToKeep>
+    <artifactDaysToKeep>1</artifactDaysToKeep>
+    <artifactNumToKeep>1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
+      <mainModulePattern></mainModulePattern>
+      <dependenciesPattern></dependenciesPattern>
+      <assignName>false</assignName>
+      <nameTemplate></nameTemplate>
+      <assignDescription>false</assignDescription>
+      <descriptionTemplate></descriptionTemplate>
+    </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
+      <tagOnCompletion>false</tagOnCompletion>
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.15.0">
+      <projectUrl>https://github.com/AlbanAndrieu/nabla-servers-bower-sample/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.tikal.hudson.plugins.notification.HudsonNotificationProperty plugin="notification@1.10">
+      <endpoints>
+        <com.tikal.hudson.plugins.notification.Endpoint>
+          <protocol>HTTP</protocol>
+          <format>JSON</format>
+          <url>https://webhooks.gitter.im/e/4b9bad5cec79c3e65b89</url>
+          <event>finalized</event>
+          <timeout>30000</timeout>
+          <loglines>0</loglines>
+        </com.tikal.hudson.plugins.notification.Endpoint>
+      </endpoints>
+    </com.tikal.hudson.plugins.notification.HudsonNotificationProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>true</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <EnvInjectJobProperty plugin="envinject@1.92.1">
+      <info>
+        <scriptContent>PATH=$PATH:$ZAPROXY_HOME</scriptContent>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+      <on>true</on>
+      <keepJenkinsSystemVariables>true</keepJenkinsSystemVariables>
+      <keepBuildVariables>true</keepBuildVariables>
+      <overrideBuildParameters>false</overrideBuildParameters>
+      <contributors/>
+    </EnvInjectJobProperty>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/AlbanAndrieu/nabla-servers-bower-sample.git</url>
+        <credentialsId>f364db9f-b4fe-44fc-b02c-87dd3d0b5204</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/feature/**</name>
+      </hudson.plugins.git.BranchSpec>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/bugfix/**</name>
+      </hudson.plugins.git.BranchSpec>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/alban</name>
+      </hudson.plugins.git.BranchSpec>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/bababou</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <browser class="hudson.plugins.git.browser.GithubWeb">
+      <url>https://github.com/AlbanAndrieu/nabla-servers-bower-sample</url>
+    </browser>
+    <submoduleCfg class="list"/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.LocalBranch>
+        <localBranch>alban</localBranch>
+      </hudson.plugins.git.extensions.impl.LocalBranch>
+    </extensions>
+  </scm>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H H(0-6) H/7 * 1-5</spec>
+    </hudson.triggers.TimerTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>H/5 0-9,20-23 * * 1-5</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <rootModule>
+    <groupId>com.nabla.project.servers.sample</groupId>
+    <artifactId>bower-sample</artifactId>
+  </rootModule>
+  <goals>-B -U -e -Dsurefire.useFile=false install -Dcargo.rmi.port=$CARGO_RMI_PORT -Djetty.port=$JETTY_PORT -Dserver=jetty9x -P!jacoco</goals>
+  <defaultGoals>install</defaultGoals>
+  <aggregatorStyleBuild>true</aggregatorStyleBuild>
+  <incrementalBuild>false</incrementalBuild>
+  <ignoreUpstremChanges>true</ignoreUpstremChanges>
+  <archivingDisabled>false</archivingDisabled>
+  <siteArchivingDisabled>false</siteArchivingDisabled>
+  <fingerprintingDisabled>false</fingerprintingDisabled>
+  <resolveDependencies>false</resolveDependencies>
+  <processPlugins>false</processPlugins>
+  <mavenValidationLevel>30</mavenValidationLevel>
+  <runHeadless>true</runHeadless>
+  <settingConfigId></settingConfigId>
+  <globalSettingConfigId></globalSettingConfigId>
+  <disableTriggerDownstreamProjects>false</disableTriggerDownstreamProjects>
+  <blockTriggerWhenBuilding>true</blockTriggerWhenBuilding>
+  <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+  <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+  <reporters>
+    <hudson.plugins.checkstyle.CheckStyleReporter plugin="checkstyle@3.44">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[CHECKSTYLE] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <dontComputeNew>true</dontComputeNew>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+    </hudson.plugins.checkstyle.CheckStyleReporter>
+    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.63">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[FINDBUGS] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <dontComputeNew>true</dontComputeNew>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <isRankActivated>false</isRankActivated>
+      <excludePattern></excludePattern>
+      <includePattern></includePattern>
+    </hudson.plugins.findbugs.FindBugsReporter>
+    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.43">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[PMD] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <dontComputeNew>true</dontComputeNew>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+    </hudson.plugins.pmd.PmdReporter>
+    <hudson.plugins.dry.DryReporter plugin="dry@2.43">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[DRY] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <dontComputeNew>true</dontComputeNew>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <highThreshold>50</highThreshold>
+      <normalThreshold>25</normalThreshold>
+    </hudson.plugins.dry.DryReporter>
+    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.47">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[TASKS] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <dontComputeNew>true</dontComputeNew>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <pattern>**/*.java, **/*.xml, **/*.jsp</pattern>
+      <excludePattern></excludePattern>
+      <high>FIXME</high>
+      <normal>TODO</normal>
+      <low>@deprecated</low>
+      <ignoreCase>false</ignoreCase>
+      <asRegexp>false</asRegexp>
+    </hudson.plugins.tasks.TasksReporter>
+    <hudson.plugins.violations.hudson.maven.ViolationsMavenReporter plugin="violations@0.7.11">
+      <config>
+        <suppressions class="sorted-set"/>
+        <typeConfigs>
+          <entry>
+            <string>checkstyle</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>checkstyle</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>codenarc</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>codenarc</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>cpd</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>cpd</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>cpplint</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>cpplint</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>csslint</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>csslint</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>findbugs</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>findbugs</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>fxcop</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>fxcop</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>gendarme</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>gendarme</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>jcreport</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>jcreport</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>jslint</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>jslint</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>pep8</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>pep8</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>perlcritic</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>perlcritic</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>pmd</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>pmd</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>pylint</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>pylint</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>simian</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>simian</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+          <entry>
+            <string>stylecop</string>
+            <hudson.plugins.violations.TypeConfig>
+              <type>stylecop</type>
+              <min>10</min>
+              <max>999</max>
+              <unstable>999</unstable>
+              <usePattern>false</usePattern>
+              <pattern></pattern>
+            </hudson.plugins.violations.TypeConfig>
+          </entry>
+        </typeConfigs>
+        <limit>100</limit>
+        <encoding>default</encoding>
+      </config>
+    </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
+  </reporters>
+  <publishers>
+    <org.tap4j.plugin.TapPublisher plugin="tap@1.24">
+      <testResults>target/yslow*.tap</testResults>
+      <failIfNoResults>false</failIfNoResults>
+      <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
+      <outputTapToConsole>false</outputTapToConsole>
+      <enableSubtests>false</enableSubtests>
+      <discardOldReports>false</discardOldReports>
+      <todoIsFailure>false</todoIsFailure>
+      <includeCommentDiagnostics>false</includeCommentDiagnostics>
+      <validateNumberOfTests>false</validateNumberOfTests>
+      <planRequired>false</planRequired>
+      <verbose>true</verbose>
+    </org.tap4j.plugin.TapPublisher>
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.3.3">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[DependencyCheck] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+      <pattern> **/target/**/dependency-check-report.xml</pattern>
+    </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.51">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[WARNINGS] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+      <parserConfigurations/>
+      <consoleParsers>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>Java Compiler (javac)</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>Maven</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
+      </consoleParsers>
+    </hudson.plugins.warnings.WarningsPublisher>
+    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.46">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[ANALYSIS-COLLECTOR] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+      <isCheckStyleDeactivated>false</isCheckStyleDeactivated>
+      <isDryDeactivated>false</isDryDeactivated>
+      <isFindBugsDeactivated>false</isFindBugsDeactivated>
+      <isPmdDeactivated>false</isPmdDeactivated>
+      <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
+      <isWarningsDeactivated>false</isWarningsDeactivated>
+    </hudson.plugins.analysis.collector.AnalysisPublisher>
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.10">
+      <includeFailedBuilds>false</includeFailedBuilds>
+    </hudson.tasks.test.AggregatedTestResultPublisher>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
+      <allowEmptyArchive>true</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
+    <hudson.maven.RedeployPublisher>
+      <id>nexus-snapshots</id>
+      <url>http://home.nabla.mobi:8081/nexus/content/repositories/snapshots</url>
+      <uniqueVersion>true</uniqueVersion>
+      <evenIfUnstable>true</evenIfUnstable>
+    </hudson.maven.RedeployPublisher>
+    <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.1"/>
+    <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
+      <regexp>.war</regexp>
+    </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.10">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>ZaProxy Report</reportName>
+          <reportDir>build/reports/zaproxy/</reportDir>
+          <reportFiles>report.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Phantomas Report</reportName>
+          <reportDir>phantomas/</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>SiteSpeedIo Report 2015-08-26-17-15-21</reportName>
+          <reportDir>build/sitespeedio/home.nabla.mobi/2015-08-26-17-15-21/</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>WebPageTest Report</reportName>
+          <reportDir>build/sideroad/</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>GhPages Report</reportName>
+          <reportDir>.grunt/grunt-gh-pages/gh-pages/src/</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Desktop CSS Report</reportName>
+          <reportDir>screenshots/desktop/</reportDir>
+          <reportFiles>index.html.png</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>false</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Mobile CSS Report</reportName>
+          <reportDir>screenshots/mobile/</reportDir>
+          <reportFiles>index.html.png</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>false</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
+    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.3">
+      <jdk>java</jdk>
+      <branch></branch>
+      <mavenOpts></mavenOpts>
+      <jobAdditionalProperties>-P!jacoco -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver  -Dcargo.rmi.port=$CARGO_RMI_PORT -Djetty.port=$JETTY_PORT -Dserver=jetty9x -Dwebdriver.base.url=http://localhost:$JETTY_PORT</jobAdditionalProperties>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <usePrivateRepository>false</usePrivateRepository>
+    </hudson.plugins.sonar.SonarPublisher>
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
+      <errorFailedThreshold>100</errorFailedThreshold>
+      <errorUnstableThreshold>50</errorUnstableThreshold>
+      <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
+      <relativeFailedThresholdPositive>55.0</relativeFailedThresholdPositive>
+      <relativeFailedThresholdNegative>55.0</relativeFailedThresholdNegative>
+      <relativeUnstableThresholdPositive>25.0</relativeUnstableThresholdPositive>
+      <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
+      <nthBuildNumber>0</nthBuildNumber>
+      <modeRelativeThresholds>false</modeRelativeThresholds>
+      <configType>ART</configType>
+      <modeOfThreshold>false</modeOfThreshold>
+      <compareBuildPrevious>true</compareBuildPrevious>
+      <xml></xml>
+      <modePerformancePerTestCase>true</modePerformancePerTestCase>
+      <parsers>
+        <hudson.plugins.performance.JUnitParser>
+          <glob>**/target/**/TEST-*.xml</glob>
+        </hudson.plugins.performance.JUnitParser>
+      </parsers>
+      <modeThroughput>false</modeThroughput>
+    </hudson.plugins.performance.PerformancePublisher>
+    <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
+      <analyzer>Cobertura</analyzer>
+      <verbose>false</verbose>
+      <excludeGetterSetter>false</excludeGetterSetter>
+      <locateTopMost>true</locateTopMost>
+    </hudson.plugins.covcomplplot.CovComplPlotPublisher>
+    <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
+      <daysToKeep>365</daysToKeep>
+      <numToKeep>-1</numToKeep>
+      <resultsToDiscard>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+      </resultsToDiscard>
+      <minLogFileSize>0</minLogFileSize>
+      <maxLogFileSize>10000000</maxLogFileSize>
+      <intervalDaysToKeep>-1</intervalDaysToKeep>
+      <intervalNumToKeep>15</intervalNumToKeep>
+      <regexp></regexp>
+    </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.7"/>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.28">
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>false</cleanWhenUnstable>
+      <cleanWhenFailure>false</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.15.1">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>180</timeoutMinutes>
+      </strategy>
+      <operationList>
+        <hudson.plugins.build__timeout.operations.FailOperation/>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.7.2"/>
+    <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
+      <ports>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>CARGO_RMI_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>JETTY_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>TOMCAT_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>JBOSS_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+      </ports>
+    </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
+      <info>
+        <scriptContent>PATH=$PATH:$ZAPROXY_HOME</scriptContent>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.5.1">
+      <template>#${GIT_BRANCH}</template>
+    </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
+  </buildWrappers>
+  <prebuilders>
+    <hudson.tasks.Shell>
+      <command>#git clean -fdx
+svn --version
+echo USER $USER
+#bower cache clean
+#npm cache clean
+echo PATH $PATH
+
+echo DISPLAY $DISPLAY
+
+export ZAP_PORT=8090
+export JETTY_PORT=9090
+export SERVER_HOST=localhost
+
+echo &quot;ZAP_PORT : $ZAP_PORT&quot;
+echo &quot;CARGO_RMI_PORT : $CARGO_RMI_PORT&quot;
+echo &quot;JETTY_PORT : $JETTY_PORT&quot;
+echo &quot;SERVER_HOST : $SERVER_HOST&quot;
+echo &quot;ZAPROXY_HOME : $ZAPROXY_HOME&quot;
+
+rm ./zap.sh || true
+#ln -s ${ZAPROXY_HOME}/zap.sh zap.sh &gt;/dev/null 2&gt;&amp;1 || true
+ln -s ${ZAPROXY_HOME}/zap.sh zap.sh
+
+#browser version
+/usr/bin/firefox  -V
+/usr/lib/firefox/firefox -V
+/usr/bin/chromium-browser --version
+/opt/google/chrome/chrome --version
+
+#npm install --global phantomjs
+phantomjs --version
+
+lsof -i :$CARGO_RMI_PORT || true
+
+# If Server is still running we will get its PID
+PORT_WHERE_SERVER_MIGHT_RUN=$ZAP_PORT
+
+PID=$(lsof -t -i:$PORT_WHERE_SERVER_MIGHT_RUN) || true
+
+# -z is zero length (unset or empty string&quot;
+# if NOT zero length =&gt; then kill it...
+if [ ! -z &quot;$PID&quot; ]; then
+    echo &quot;Found running Server at port: &quot;$PORT_WHERE_SERVER_MIGHT_RUN&quot; (PID: &quot;$PID&quot;)&quot;
+    echo &quot;I am killing that Server. A previous build seems to have gone wrong.&quot;
+    # Kill it... hooray!
+#    kill $PID
+
+else
+    echo &quot;No running Server found at port &quot;$PORT_WHERE_SERVER_MIGHT_RUN&quot;. This is what I&apos;d anticipate. Great!&quot;   
+fi
+
+#./zap.sh -port $ZAP_PORT -daemon</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Maven>
+      <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Dserver=jetty9x</targets>
+      <mavenName>(Default)</mavenName>
+      <usePrivateRepository>true</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+    </hudson.tasks.Maven>
+  </prebuilders>
+  <postbuilders>
+    <hudson.tasks.Shell>
+      <command>#node --version
+./node/node --version
+#npm --version
+./npm --version
+#./clean.sh
+./bower --version
+./bower list</command>
+    </hudson.tasks.Shell>
+  </postbuilders>
+  <runPostStepsIfResult>
+    <name>UNSTABLE</name>
+    <ordinal>1</ordinal>
+    <color>YELLOW</color>
+    <completeBuild>true</completeBuild>
+  </runPostStepsIfResult>
+</maven2-moduleset>

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Test ansible scripts using vagrant</description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>365</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>30</artifactDaysToKeep>
+    <artifactNumToKeep>10</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7">
+      <googlecodeWebsite>https://code.google.com/p/alban/</googlecodeWebsite>
+    </hudson.plugins.googlecode.GoogleCodeProjectProperty>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.2">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.21">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.23"/>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.4.4"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>master</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <jdk>(Default)</jdk>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>@monthly</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+set -xv
+
+echo &quot;user : ${USER}&quot;
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
+      <daysToKeep>30</daysToKeep>
+      <numToKeep>-1</numToKeep>
+      <resultsToDiscard/>
+      <minLogFileSize>0</minLogFileSize>
+      <maxLogFileSize>0</maxLogFileSize>
+      <intervalDaysToKeep>-1</intervalDaysToKeep>
+      <intervalNumToKeep>15</intervalNumToKeep>
+      <regexp></regexp>
+    </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+    <org.jenkinsci.plugins.nexus.NexusTaskPublisher plugin="nexus-task-runner@0.9.2">
+      <tasks>nabla-main-snapshots-cleanup</tasks>
+      <selectedNexus>
+        <name>nexus</name>
+        <url>http://localhost:8081/nexus</url>
+        <user>admin</user>
+        <password>admin123</password>
+      </selectedNexus>
+      <nexusName>nexus</nexusName>
+    </org.jenkinsci.plugins.nexus.NexusTaskPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.12.2">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>60</timeoutMinutes>
+      </strategy>
+      <failBuild>true</failBuild>
+      <writingDescription>false</writingDescription>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.5.8"/>
+  </buildWrappers>
+</project>

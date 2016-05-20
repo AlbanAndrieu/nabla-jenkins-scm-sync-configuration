@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Kill Jenkins thread that hang because of SCM polling</description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7"/>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.3">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.22">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>java</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <jdk>(Default)</jdk>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.groovy.Groovy plugin="groovy@1.24">
+      <scriptSource class="hudson.plugins.groovy.StringScriptSource">
+        <command>Thread.getAllStackTraces().keySet().each() {
+  item -&gt;
+  if (item.getName().contains(&quot;SCM polling&quot;) ) {
+    println &quot;[Interrupting thread &quot; + item.getName()+&quot;]&quot;;
+    item.interrupt();
+  }
+}</command>
+      </scriptSource>
+      <groovyName>Groovy-2.1-9</groovyName>
+      <parameters></parameters>
+      <scriptParameters></scriptParameters>
+      <properties></properties>
+      <javaOpts></javaOpts>
+      <classPath></classPath>
+    </hudson.plugins.groovy.Groovy>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.14.1">
+      <strategy class="hudson.plugins.build_timeout.impl.ElasticTimeOutStrategy">
+        <timeoutPercentage>150</timeoutPercentage>
+        <numberOfBuilds>3</numberOfBuilds>
+        <timeoutMinutesElasticDefault>60</timeoutMinutesElasticDefault>
+      </strategy>
+      <operationList class="java.util.Arrays$ArrayList">
+        <a class="hudson.plugins.build_timeout.BuildTimeOutOperation-array">
+          <hudson.plugins.build__timeout.operations.FailOperation/>
+        </a>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.5.15"/>
+  </buildWrappers>
+</project>

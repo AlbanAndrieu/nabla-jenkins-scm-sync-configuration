@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>365</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>7</artifactDaysToKeep>
+    <artifactNumToKeep>10</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
+      <tagOnCompletion>false</tagOnCompletion>
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.18.1">
+      <projectUrl>https://github.com/AlbanAndrieu/nabla-cpp/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.4">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/AlbanAndrieu/nabla-cpp.git</url>
+        <credentialsId>f364db9f-b4fe-44fc-b02c-87dd3d0b5204</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <browser class="hudson.plugins.git.browser.GithubWeb">
+      <url>https://github.com/AlbanAndrieu/nabla-cpp</url>
+    </browser>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>master</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>@weekly</spec>
+    </hudson.triggers.TimerTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>@daily</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;WORKSPACE ${WORKSPACE}&quot;
+
+cmake --version
+
+export PROJECT_SRC=${WORKSPACE}
+export PROJECT_TARGET_PATH=${WORKSPACE}/target
+export ARCH=linux
+
+echo &quot;PROJECT_SRC : $PROJECT_SRC - PROJECT_TARGET_PATH : $PROJECT_TARGET_PATH&quot;
+
+cd $PROJECT_SRC/sample/build-${ARCH}
+
+./build.sh
+
+cd $PROJECT_SRC/
+
+#./cpplint.sh &gt; /dev/null 2&gt;&amp;1 || true
+./cpplint.sh || true
+./cppcheck.sh || true
+./rats.sh || true
+
+#./tree.sh
+
+rm -rf ${WORKSPACE}/clangScanBuildReports
+clang --version
+cd $PROJECT_SRC/sample/build-${ARCH}
+scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-analyzer=/usr/bin/clang make
+</command>
+    </hudson.tasks.Shell>
+    <hudson.plugins.sonar.SonarRunnerBuilder plugin="sonar@2.3">
+      <project>sonar-runner.properties</project>
+      <properties></properties>
+      <javaOpts></javaOpts>
+      <additionalArguments></additionalArguments>
+      <jdk>(Inherit From Job)</jdk>
+      <task></task>
+    </hudson.plugins.sonar.SonarRunnerBuilder>
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder plugin="dependency-check-jenkins-plugin@1.3.5">
+      <skipOnScmChange>false</skipOnScmChange>
+      <skipOnUpstreamChange>false</skipOnUpstreamChange>
+      <scanpath>sample/microsoft, sample/build-linux</scanpath>
+      <outdir></outdir>
+      <datadir></datadir>
+      <suppressionFile></suppressionFile>
+      <zipExtensions></zipExtensions>
+      <isAutoupdateDisabled>false</isAutoupdateDisabled>
+      <isVerboseLoggingEnabled>false</isVerboseLoggingEnabled>
+      <includeHtmlReports>false</includeHtmlReports>
+      <useMavenArtifactsScanPath>false</useMavenArtifactsScanPath>
+    </org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder>
+  </builders>
+  <publishers>
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.3.5">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[DependencyCheck] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.76">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <unstableNewAll></unstableNewAll>
+        <unstableNewHigh></unstableNewHigh>
+        <unstableNewNormal></unstableNewNormal>
+        <unstableNewLow></unstableNewLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+        <failedNewAll></failedNewAll>
+        <failedNewHigh></failedNewHigh>
+        <failedNewNormal></failedNewNormal>
+        <failedNewLow></failedNewLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
+      <pattern></pattern>
+    </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.52">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[WARNINGS] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.76">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <unstableNewAll></unstableNewAll>
+        <unstableNewHigh></unstableNewHigh>
+        <unstableNewNormal></unstableNewNormal>
+        <unstableNewLow></unstableNewLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+        <failedNewAll></failedNewAll>
+        <failedNewHigh></failedNewHigh>
+        <failedNewNormal></failedNewNormal>
+        <failedNewLow></failedNewLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+      <includePattern></includePattern>
+      <excludePattern></excludePattern>
+      <messagesPattern></messagesPattern>
+      <parserConfigurations/>
+      <consoleParsers>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>GNU C Compiler 4 (gcc)</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>CppLint</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>CodeAnalysis</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
+      </consoleParsers>
+    </hudson.plugins.warnings.WarningsPublisher>
+    <org.jenkinsci.plugins.clamav.ClamAvRecorder plugin="clamav@0.3">
+      <includes>**/target/**</includes>
+      <excludes>.git/**/</excludes>
+    </org.jenkinsci.plugins.clamav.ClamAvRecorder>
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.0">
+      <unstableOnWarning>false</unstableOnWarning>
+      <failBuildOnError>false</failBuildOnError>
+      <showGraphs>false</showGraphs>
+      <parsingRulesPath>/workspace/users/albandri10/env/scripts/zfs-log_parsing_rules</parsingRulesPath>
+      <useProjectRule>false</useProjectRule>
+    </hudson.plugins.logparser.LogParserPublisher>
+    <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
+      <mSites>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://albandri:7070/CDash/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+      </mSites>
+    </hudson.plugins.sitemonitor.SiteMonitorRecorder>
+    <jenkins.plugins.clangscanbuild.publisher.ClangScanBuildPublisher plugin="clang-scanbuild-plugin@1.7">
+      <bugThreshold>0</bugThreshold>
+      <clangexcludedpaths></clangexcludedpaths>
+      <reportFolderName>clangScanBuildReports</reportFolderName>
+      <markBuildUnstableWhenThresholdIsExceeded>false</markBuildUnstableWhenThresholdIsExceeded>
+    </jenkins.plugins.clangscanbuild.publisher.ClangScanBuildPublisher>
+    <hudson.plugins.cppncss.CppNCSSPublisher plugin="cppncss@1.1">
+      <reportFilenamePattern>cppncss-reports/**/cppncss-result-*.xml</reportFilenamePattern>
+      <targets/>
+    </hudson.plugins.cppncss.CppNCSSPublisher>
+    <org.jenkinsci.plugins.cppcheck.CppcheckPublisher plugin="cppcheck@1.21">
+      <cppcheckConfig>
+        <pattern>cppcheck-reports/**/cppcheck-result-*.xml</pattern>
+        <ignoreBlankFiles>false</ignoreBlankFiles>
+        <allowNoReport>true</allowNoReport>
+        <configSeverityEvaluation>
+          <threshold></threshold>
+          <newThreshold></newThreshold>
+          <failureThreshold></failureThreshold>
+          <newFailureThreshold></newFailureThreshold>
+          <healthy></healthy>
+          <unHealthy></unHealthy>
+          <severityError>true</severityError>
+          <severityWarning>true</severityWarning>
+          <severityStyle>true</severityStyle>
+          <severityPerformance>true</severityPerformance>
+          <severityInformation>true</severityInformation>
+          <severityNoCategory>true</severityNoCategory>
+          <severityPortability>true</severityPortability>
+        </configSeverityEvaluation>
+        <configGraph>
+          <xSize>500</xSize>
+          <ySize>200</ySize>
+          <numBuildsInGraph>0</numBuildsInGraph>
+          <displayAllErrors>true</displayAllErrors>
+          <displayErrorSeverity>false</displayErrorSeverity>
+          <displayWarningSeverity>false</displayWarningSeverity>
+          <displayStyleSeverity>false</displayStyleSeverity>
+          <displayPerformanceSeverity>false</displayPerformanceSeverity>
+          <displayInformationSeverity>false</displayInformationSeverity>
+          <displayNoCategorySeverity>false</displayNoCategorySeverity>
+          <displayPortabilitySeverity>false</displayPortabilitySeverity>
+        </configGraph>
+      </cppcheckConfig>
+    </org.jenkinsci.plugins.cppcheck.CppcheckPublisher>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.11">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>HTML DOC Report</reportName>
+          <reportDir>sample/build-linux/doc/html</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>HTML RATS Report</reportName>
+          <reportDir>rats-reports/</reportDir>
+          <reportFiles>rats-result-SAMPLE.html</reportFiles>
+          <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
+    <xunit plugin="xunit@1.101">
+      <types>
+        <CTestType>
+          <pattern>sample/build-linux/src/test/cpp/Testing/**/Test.xml</pattern>
+          <skipNoTestFiles>true</skipNoTestFiles>
+          <failIfNotNew>true</failIfNotNew>
+          <deleteOutputFiles>true</deleteOutputFiles>
+          <stopProcessingIfError>true</stopProcessingIfError>
+        </CTestType>
+      </types>
+      <thresholds>
+        <org.jenkinsci.plugins.xunit.threshold.FailedThreshold>
+          <unstableThreshold></unstableThreshold>
+          <unstableNewThreshold></unstableNewThreshold>
+          <failureThreshold></failureThreshold>
+          <failureNewThreshold></failureNewThreshold>
+        </org.jenkinsci.plugins.xunit.threshold.FailedThreshold>
+        <org.jenkinsci.plugins.xunit.threshold.SkippedThreshold>
+          <unstableThreshold></unstableThreshold>
+          <unstableNewThreshold></unstableNewThreshold>
+          <failureThreshold></failureThreshold>
+          <failureNewThreshold></failureNewThreshold>
+        </org.jenkinsci.plugins.xunit.threshold.SkippedThreshold>
+      </thresholds>
+      <thresholdMode>1</thresholdMode>
+      <extraConfiguration>
+        <testTimeMargin>3000</testTimeMargin>
+      </extraConfiguration>
+    </xunit>
+    <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
+      <daysToKeep>365</daysToKeep>
+      <numToKeep>-1</numToKeep>
+      <resultsToDiscard>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+      </resultsToDiscard>
+      <minLogFileSize>-1</minLogFileSize>
+      <maxLogFileSize>-1</maxLogFileSize>
+      <intervalDaysToKeep>-1</intervalDaysToKeep>
+      <intervalNumToKeep>15</intervalNumToKeep>
+      <regexp></regexp>
+    </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.28">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.16">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>300</timeoutMinutes>
+      </strategy>
+      <operationList>
+        <hudson.plugins.build__timeout.operations.FailOperation/>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.7.4"/>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+  </buildWrappers>
+</project>

@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>The job is responsible for sendig emails with daily summary of the most important jobs (builds, acceptance tests, integration tests).</description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7"/>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.2">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.21">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.23"/>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>java-small</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <jdk>(Default)</jdk>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H 7 * * 1-5</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.groovy.SystemGroovy plugin="groovy@1.16">
+      <scriptSource class="hudson.plugins.groovy.StringScriptSource">
+        <command>import java.util.concurrent.TimeUnit;
+import hudson.model.*
+  
+ourNodes = [&quot;ec2-0&quot;, &quot;master&quot;];
+ourJobs    = [&quot;nabla-build-tools&quot;, &quot;nabla-dependencies&quot;, &quot;nabla-main&quot;, &quot;nabla-maven&quot;, &quot;nabla-custom&quot;];
+
+jenkins = hudson.model.Hudson.instance;
+
+int week = 604800000;
+int day = 86400000;
+int hour = 360000;
+
+Date date = new Date();
+today = date.format(&quot;yyyy-MM-dd&quot;);
+dateToday = Date.parse(&quot;yyyy-MM-dd&quot;,today); 
+
+println(today);
+
+def columns = &quot;&lt;table border=\&quot;1\&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Node&lt;/th&gt;&lt;th&gt;Number&lt;/th&gt;&lt;th&gt;Start time&lt;/th&gt;&lt;th&gt;Stop time&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Duration&lt;/th&gt;&lt;th&gt;Summary&lt;/th&gt;&lt;th&gt;Result&lt;/th&gt;&lt;/tr&gt;&quot;;
+def summaryTable = new StringBuilder(&quot;&quot;);
+
+nodes = jenkins.nodes.findAll{node -&gt; ourNodes.contains(node.getComputer().getDisplayName()) };
+
+def jenkinsUrl = &quot;http://home.nabla.mobi:8380/jenkins/job/&quot;;
+
+nodes.each{ node -&gt; 
+      joblist = jenkins.items.findAll{ job -&gt; ourJobs.contains(job.getDisplayName()) &amp;&amp; job.getNewBuilds().node(node) }
+      joblist.each{ job -&gt; 
+            builds = job.getNewBuilds().subList(0,8);
+            summaryTable &lt;&lt;= &quot;&lt;span style=\&quot;font-weight: bold; font-family: Times New Roman; font-size : 20\&quot;&gt;&quot; + job.getDisplayName() + &quot;&lt;/span&gt;&quot; + columns;
+            builds.each{ build -&gt;
+                  print( node.getComputer().getDisplayName());
+                  print (&quot;;  &quot;);
+                  if (build != null) { 
+                  print (build.getNumber());
+                  print (&quot;; &quot;);
+                  print(new Date(build.getStartTimeInMillis()).format(&quot;kk:mm:ss&quot;));
+                  print(&quot;; &quot;);
+                  print(new Date(build.getDuration()+build.getStartTimeInMillis()).format(&quot;kk:mm:ss&quot;));
+                  print(&quot;; &quot;);
+                  print(new Date(build.getStartTimeInMillis()).format(&quot;yyyy-MM-dd&quot;));
+                  print(&quot;; &quot;);
+                  print(build.getDurationString());    
+                  print(&quot;; &quot;);
+                  print(build.getBuildStatusSummary().message); 
+                  print(&quot;; &quot;);
+                  print(build.result);    
+                  println();
+                  
+                  def href = &quot;&lt;a href=&quot; + jenkinsUrl + job.getDisplayName() + &quot;/&quot; + build.getNumber() + &quot;&gt;&quot;;
+                  def out  = &quot;&lt;a href=&quot; + jenkinsUrl + job.getDisplayName() + &quot;/&quot; + build.getNumber() + &quot;/console &gt;&quot;;
+                  def test = &quot;&lt;a href=&quot; + jenkinsUrl + job.getDisplayName() + &quot;/&quot; + build.getNumber() + &quot;/testReport &gt;&quot;;
+                  def nod = &quot;&lt;a href = \&quot;http://home.nabla.mobi:8380/jenkins/computer/\&quot; &quot; + node.getComputer().getDisplayName() + &quot;&gt;&quot;;
+                   
+                  summaryTable &lt;&lt;= &quot;&lt;tr&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + nod + node.getComputer().getDisplayName() + &quot;&lt;/a&gt;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + build.getNumber() + out  + &quot;(output)&lt;/a&gt;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + new Date(build.getStartTimeInMillis()).format(&quot;kk:mm:ss&quot;) + &quot;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + new Date(build.getDuration()+build.getStartTimeInMillis()).format(&quot;kk:mm:ss&quot;) + &quot;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + new Date(build.getStartTimeInMillis()).format(&quot;yyyy-MM-dd&quot;) + &quot;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + build.getDurationString() + &quot;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + test + build.getBuildStatusSummary().message + &quot;&lt;/a&gt;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;td&gt;&quot; + out + build.result +&quot;&lt;/a&gt;&lt;/td&gt;&quot;;
+                  summaryTable &lt;&lt;= &quot;&lt;/tr&gt;&quot;;
+                       }
+            }
+            summaryTable &lt;&lt;= &quot;&lt;/tbody&gt;&lt;/table&gt;&lt;br/&gt;&quot;; 
+      }
+}
+
+def pa = new ParametersAction([
+      new StringParameterValue(&quot;summaryTable&quot;, summaryTable.toString())
+])
+
+// add variable to current job
+Thread.currentThread().executable.addAction(pa)</command>
+      </scriptSource>
+      <bindings></bindings>
+      <classpath></classpath>
+    </hudson.plugins.groovy.SystemGroovy>
+  </builders>
+  <publishers>
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.37.2.2">
+      <recipientList>$DEFAULT_RECIPIENTS</recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+          <email>
+            <recipientList></recipientList>
+            <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+            <body>$PROJECT_DEFAULT_CONTENT</body>
+            <sendToDevelopers>true</sendToDevelopers>
+            <sendToRequester>true</sendToRequester>
+            <includeCulprits>true</includeCulprits>
+            <sendToRecipientList>true</sendToRecipientList>
+            <attachmentsPattern></attachmentsPattern>
+            <attachBuildLog>false</attachBuildLog>
+            <compressBuildLog>false</compressBuildLog>
+            <replyTo>$PROJECT_DEFAULT_REPLYTO</replyTo>
+            <contentType>project</contentType>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+      </configuredTriggers>
+      <contentType>default</contentType>
+      <defaultSubject>$DEFAULT_SUBJECT</defaultSubject>
+      <defaultContent>&lt;pre&gt;${summaryTable}&lt;/pre&gt;</defaultContent>
+      <attachmentsPattern></attachmentsPattern>
+      <presendScript></presendScript>
+      <attachBuildLog>false</attachBuildLog>
+      <compressBuildLog>false</compressBuildLog>
+      <replyTo>$DEFAULT_REPLYTO</replyTo>
+      <saveOutput>false</saveOutput>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.13">
+      <strategy class="hudson.plugins.build_timeout.impl.ElasticTimeOutStrategy">
+        <timeoutPercentage>150</timeoutPercentage>
+        <numberOfBuilds>3</numberOfBuilds>
+        <timeoutMinutesElasticDefault>60</timeoutMinutesElasticDefault>
+      </strategy>
+      <operationList>
+        <hudson.plugins.build__timeout.operations.FailOperation/>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.5.11"/>
+  </buildWrappers>
+</project>

@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<maven2-moduleset plugin="maven-plugin@2.12">
+  <actions/>
+  <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>365</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>7</artifactDaysToKeep>
+    <artifactNumToKeep>10</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
+      <mainModulePattern></mainModulePattern>
+      <dependenciesPattern></dependenciesPattern>
+      <assignName>false</assignName>
+      <nameTemplate></nameTemplate>
+      <assignDescription>false</assignDescription>
+      <descriptionTemplate></descriptionTemplate>
+    </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
+    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7">
+      <googlecodeWebsite>https://code.google.com/p/alban/</googlecodeWebsite>
+    </hudson.plugins.googlecode.GoogleCodeProjectProperty>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.9.3">
+      <tagOnCompletion>false</tagOnCompletion>
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.13.3">
+      <projectUrl>https://github.com/AlbanAndrieu/nabla-maven/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/AlbanAndrieu/nabla-maven.git</url>
+        <credentialsId>f364db9f-b4fe-44fc-b02c-87dd3d0b5204</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <browser class="hudson.plugins.git.browser.GithubWeb">
+      <url>https://github.com/AlbanAndrieu/nabla-maven</url>
+    </browser>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>java-medium&amp;&amp;git</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>@weekly</spec>
+    </hudson.triggers.TimerTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>@daily</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <rootModule>
+    <groupId>com.nabla.project</groupId>
+    <artifactId>maven</artifactId>
+  </rootModule>
+  <goals>-B -U -e -Dsurefire.useFile=false clean install site</goals>
+  <aggregatorStyleBuild>true</aggregatorStyleBuild>
+  <incrementalBuild>true</incrementalBuild>
+  <ignoreUpstremChanges>true</ignoreUpstremChanges>
+  <archivingDisabled>false</archivingDisabled>
+  <siteArchivingDisabled>false</siteArchivingDisabled>
+  <fingerprintingDisabled>false</fingerprintingDisabled>
+  <resolveDependencies>false</resolveDependencies>
+  <processPlugins>false</processPlugins>
+  <mavenValidationLevel>30</mavenValidationLevel>
+  <runHeadless>false</runHeadless>
+  <settingConfigId></settingConfigId>
+  <globalSettingConfigId></globalSettingConfigId>
+  <disableTriggerDownstreamProjects>false</disableTriggerDownstreamProjects>
+  <blockTriggerWhenBuilding>true</blockTriggerWhenBuilding>
+  <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+  <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+  <reporters>
+    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.45">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[TASKS] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.72">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <dontComputeNew>true</dontComputeNew>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <pattern></pattern>
+      <excludePattern></excludePattern>
+      <high></high>
+      <normal></normal>
+      <low></low>
+      <ignoreCase>false</ignoreCase>
+      <asRegexp>false</asRegexp>
+    </hudson.plugins.tasks.TasksReporter>
+  </reporters>
+  <publishers>
+    <hudson.maven.RedeployPublisher>
+      <id>nexus-snapshots</id>
+      <url>http://home.nabla.mobi:8081/nexus/content/repositories/snapshots</url>
+      <uniqueVersion>true</uniqueVersion>
+      <evenIfUnstable>false</evenIfUnstable>
+    </hudson.maven.RedeployPublisher>
+    <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
+      <daysToKeep>30</daysToKeep>
+      <numToKeep>-1</numToKeep>
+      <resultsToDiscard>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+      </resultsToDiscard>
+      <minLogFileSize>0</minLogFileSize>
+      <maxLogFileSize>0</maxLogFileSize>
+      <intervalDaysToKeep>-1</intervalDaysToKeep>
+      <intervalNumToKeep>15</intervalNumToKeep>
+      <regexp></regexp>
+    </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.4.7">
+      <configs/>
+      <downstreamProjectNames>nabla-dependencies</downstreamProjectNames>
+    </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.28">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.15">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>120</timeoutMinutes>
+      </strategy>
+      <operationList>
+        <hudson.plugins.build__timeout.operations.FailOperation/>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.7.2"/>
+  </buildWrappers>
+  <prebuilders>
+    <hudson.tasks.Maven>
+      <targets>-B -U -e -Dsurefire.useFile=false clean validate</targets>
+      <mavenName>(Default)</mavenName>
+      <usePrivateRepository>true</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+    </hudson.tasks.Maven>
+  </prebuilders>
+  <postbuilders/>
+  <runPostStepsIfResult>
+    <name>FAILURE</name>
+    <ordinal>2</ordinal>
+    <color>RED</color>
+    <completeBuild>true</completeBuild>
+  </runPostStepsIfResult>
+</maven2-moduleset>

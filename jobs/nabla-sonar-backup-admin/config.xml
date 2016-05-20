@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>This job creates a backup of Sonar configuration and data</description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7"/>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.3">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.22">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.4">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>http://albandri:80/git/Nabla.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>false</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <jdk>(Default)</jdk>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>@weekly</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cd /backup;
+mkdir -p ${BUILD_NUMBER}/sonar;
+cp -Rf /workspace/sonar/conf ${BUILD_NUMBER}/sonar/conf;
+cp -Rf /workspace/sonar/extensions/plugins ${BUILD_NUMBER}/sonar/plugins;
+cd ${BUILD_NUMBER}/sonar;
+mysqldump -u root -pmicrosoft  --all-databases | gzip &gt; database_data.sql.gz
+git add *;
+git commit -m SonarBackup;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.git.GitPublisher plugin="git@2.3.4">
+      <configVersion>2</configVersion>
+      <pushMerge>false</pushMerge>
+      <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
+      <forcePush>false</forcePush>
+      <branchesToPush>
+        <hudson.plugins.git.GitPublisher_-BranchToPush>
+          <targetRepoName>origin</targetRepoName>
+          <branchName>master</branchName>
+        </hudson.plugins.git.GitPublisher_-BranchToPush>
+      </branchesToPush>
+    </hudson.plugins.git.GitPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.25">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.14.1">
+      <strategy class="hudson.plugins.build_timeout.impl.ElasticTimeOutStrategy">
+        <timeoutPercentage>150</timeoutPercentage>
+        <numberOfBuilds>3</numberOfBuilds>
+        <timeoutMinutesElasticDefault>60</timeoutMinutesElasticDefault>
+      </strategy>
+      <operationList class="java.util.Arrays$ArrayList">
+        <a class="hudson.plugins.build_timeout.BuildTimeOutOperation-array">
+          <hudson.plugins.build__timeout.operations.FailOperation/>
+        </a>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.5.15"/>
+  </buildWrappers>
+</project>

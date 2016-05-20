@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<matrix-project plugin="matrix-project@1.4">
+  <actions/>
+  <description>&lt;p&gt;Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Databases&lt;/i&gt; matrix after the nightly job.&lt;br&gt;&#xd;
+The main goals of this job is to test our projet build regards multiple environemnet, it provide quick feedback to release manager.&lt;br&gt;&#xd;
+It does not keep build history.&lt;br&gt;&#xd;
+&lt;br&gt;&#xd;
+This build check that our project can be delivered on targeted environments.&#xd;
+&lt;/p&gt;</description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>7</daysToKeep>
+    <numToKeep>3</numToKeep>
+    <artifactDaysToKeep>7</artifactDaysToKeep>
+    <artifactNumToKeep>3</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7">
+      <googlecodeWebsite>https://code.google.com/p/alban/</googlecodeWebsite>
+    </hudson.plugins.googlecode.GoogleCodeProjectProperty>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.8">
+      <tagOnCompletion>false</tagOnCompletion>
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.11">
+      <projectUrl>https://github.com/AlbanAndrieu/nabla-databases/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.22">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/AlbanAndrieu/nabla-databases.git</url>
+        <credentialsId>f364db9f-b4fe-44fc-b02c-87dd3d0b5204</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <browser class="hudson.plugins.git.browser.GithubWeb">
+      <url>https://github.com/AlbanAndrieu/nabla-databases/</url>
+    </browser>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>true</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <axes>
+    <hudson.matrix.TextAxis>
+      <name>database</name>
+      <values>
+        <string>mysql</string>
+        <string>sybase</string>
+        <string>derby</string>
+        <string>h2</string>
+        <string>hsqldb</string>
+        <string>oracle</string>
+        <string>postgresql</string>
+        <string>sqlserver</string>
+      </values>
+    </hudson.matrix.TextAxis>
+    <hudson.matrix.TextAxis>
+      <name>os</name>
+      <values>
+        <string>x86linux</string>
+        <string>x86sol</string>
+        <string>winnt</string>
+        <string>macos</string>
+      </values>
+    </hudson.matrix.TextAxis>
+    <hudson.matrix.JDKAxis>
+      <name>jdk</name>
+      <values>
+        <string>java8</string>
+        <string>java7</string>
+      </values>
+    </hudson.matrix.JDKAxis>
+  </axes>
+  <combinationFilter>(database==&quot;sqlserver&quot; &amp;&amp; os==&quot;winnt&quot;)</combinationFilter>
+  <builders>
+    <hudson.tasks.Maven>
+      <targets>-U -Dsurefire.useFile=false install -Psample</targets>
+      <mavenName>Maven-3.0.4</mavenName>
+      <jvmOptions>-Xms256m -Xmx512m -XX:PermSize=80M -XX:MaxPermSize=256M</jvmOptions>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+    </hudson.tasks.Maven>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.14.1">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>300</timeoutMinutes>
+      </strategy>
+      <operationList>
+        <hudson.plugins.build__timeout.operations.FailOperation/>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.6"/>
+  </buildWrappers>
+  <executionStrategy class="hudson.matrix.DefaultMatrixExecutionStrategyImpl">
+    <runSequentially>false</runSequentially>
+    <touchStoneCombinationFilter>(database==&quot;mysql&quot;) &amp;&amp; (database==&quot;derby&quot;) &amp;&amp; (database==&quot;h2&quot;) &amp;&amp; (database==&quot;hsqldb&quot;) &amp;&amp; (os==&quot;x86linux&quot;)</touchStoneCombinationFilter>
+    <touchStoneResultCondition>
+      <name>SUCCESS</name>
+      <ordinal>0</ordinal>
+      <color>BLUE</color>
+      <completeBuild>true</completeBuild>
+    </touchStoneResultCondition>
+  </executionStrategy>
+</matrix-project>

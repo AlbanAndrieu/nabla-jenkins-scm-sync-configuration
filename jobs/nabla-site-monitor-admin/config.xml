@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Check sites availability</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>365</daysToKeep>
+        <numToKeep>100</numToKeep>
+        <artifactDaysToKeep>3</artifactDaysToKeep>
+        <artifactNumToKeep>1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
+      <tagOnCompletion>false</tagOnCompletion>
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
+      <skip>false</skip>
+    </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>master</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <jdk>(System)</jdk>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H H(5-10) * * 1-5</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#sudo /usr/share/awstats/tools/buildstatic.sh
+sudo /usr/share/awstats/tools/update.sh || exit 1</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
+      <mSites>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://home.nabla.mobi:8081/nexus/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://home.nabla.mobi:7070</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://home.nabla.mobi:9000/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7070/phpmyadmin/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://mafreebox.free.fr/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:8280/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://albandri:7070/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7070/cgi-bin/awstats.pl?config=home.nabla.mobi</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7071/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7072/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7073/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7074/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7075/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://localhost:7076/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://home.nabla.mobi:5678/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://nabla.freeboxos.fr:7072/download/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://nabla.freeboxos.fr/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://home.nabla.mobi/CDash/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>https://nabla.freeboxos.fr:20726/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+      </mSites>
+    </hudson.plugins.sitemonitor.SiteMonitorRecorder>
+  </publishers>
+  <buildWrappers/>
+</project>

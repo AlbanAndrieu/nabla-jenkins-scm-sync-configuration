@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jenkins.plugins.logstash.LogstashInstallation_-Descriptor plugin="logstash@1.1.1">
+  <installations class="jenkins.plugins.logstash.LogstashInstallation-array"/>
+  <type>RABBIT_MQ</type>
+  <host>localhost</host>
+  <port>5000</port>
+  <username></username>
+  <password></password>
+  <key>logstash</key>
+</jenkins.plugins.logstash.LogstashInstallation_-Descriptor>
