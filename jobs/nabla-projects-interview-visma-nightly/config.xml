@@ -513,6 +513,16 @@ mvn codenarc:codenarc&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
+    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
+      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
+        <userName>admin</userName>
+        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
+        <url>http://home.nabla.mobi:8280/manager/</url>
+      </adapter>
+      <contextPath>visma</contextPath>
+      <war>gui/target/*.war</war>
+      <onFailure>false</onFailure>
+    </hudson.plugins.deploy.DeployPublisher>
     <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.3.6">
       <healthy></healthy>
       <unHealthy></unHealthy>
@@ -831,16 +841,6 @@ mvn codenarc:codenarc&#xd;
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
-    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
-      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
-        <userName>admin</userName>
-        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
-        <url>http://home.nabla.mobi:8280/manager/</url>
-      </adapter>
-      <contextPath>visma</contextPath>
-      <war>gui/target/*.war</war>
-      <onFailure>false</onFailure>
-    </hudson.plugins.deploy.DeployPublisher>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
