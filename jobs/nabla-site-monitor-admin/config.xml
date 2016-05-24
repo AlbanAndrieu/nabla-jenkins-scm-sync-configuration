@@ -115,15 +115,11 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://nabla.freeboxos.fr/</mUrl>
+          <mUrl>http://nabla.freeboxos.fr:7070/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi/CDash/</mUrl>
-          <successResponseCodes/>
-        </hudson.plugins.sitemonitor.model.Site>
-        <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>https://nabla.freeboxos.fr:20726/</mUrl>
+          <mUrl>http://home.nabla.mobi:7070/CDash/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
