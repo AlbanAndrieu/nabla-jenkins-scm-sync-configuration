@@ -649,12 +649,12 @@ mvn codenarc:codenarc&#xd;
     <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.11">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
-          <reportName>GC Report</reportName>
-          <reportDir>target/</reportDir>
-          <reportFiles>gc.png</reportFiles>
+          <reportName>Phantomas Report</reportName>
+          <reportDir>build/phantomas/</reportDir>
+          <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
-          <allowMissing>false</allowMissing>
+          <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>jmeter-ResponseTimesOverTime Report</reportName>
@@ -682,15 +682,15 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>ZaProxy Report</reportName>
-          <reportDir>build/reports/zaproxy/</reportDir>
+          <reportDir>gui/build/reports/zaproxy/</reportDir>
           <reportFiles>report.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
-          <keepAll>false</keepAll>
+          <keepAll>true</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Phantomas Sample Report</reportName>
-          <reportDir>build/phantomas/</reportDir>
+          <reportDir>gui/build/phantomas/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
@@ -698,7 +698,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Desktop CSS Diff Report</reportName>
-          <reportDir>screenshots/desktop/</reportDir>
+          <reportDir>gui/screenshots/desktop/</reportDir>
           <reportFiles>index.html.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
@@ -706,7 +706,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Mobile CSS Diff Report</reportName>
-          <reportDir>screenshots/mobile/</reportDir>
+          <reportDir>gui/screenshots/mobile/</reportDir>
           <reportFiles>index.html.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
@@ -714,7 +714,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>HAR Report</reportName>
-          <reportDir>target/</reportDir>
+          <reportDir>gui/target/</reportDir>
           <reportFiles>target/</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
@@ -722,7 +722,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>GC Report</reportName>
-          <reportDir>target/</reportDir>
+          <reportDir>gui/target/</reportDir>
           <reportFiles>gc.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
