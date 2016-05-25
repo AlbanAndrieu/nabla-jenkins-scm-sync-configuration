@@ -1013,7 +1013,7 @@ java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${
         <zapHome>ZAPROXY_HOME</zapHome>
         <timeoutInSec>60</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
-        <targetURL>http://localhost:9090</targetURL>
+        <targetURL>http://home.nabla.mobi:8280/visma/</targetURL>
         <excludedUrl></excludedUrl>
         <scanMode>NOT_AUTHENTICATED</scanMode>
         <spiderURL>true</spiderURL>
