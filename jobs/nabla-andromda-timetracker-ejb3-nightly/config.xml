@@ -26,12 +26,6 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
 -U -Dsurefire.useFile=false clover2:setup install clover2:aggregate clover2:clover pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs -Psample,arq-jbossas-managed -Dserver=jboss7x&#xd;
 &lt;/code&gt;&#xd;
 &lt;/p&gt;</description>
-  <logRotator class="hudson.tasks.LogRotator">
-    <daysToKeep>365</daysToKeep>
-    <numToKeep>100</numToKeep>
-    <artifactDaysToKeep>7</artifactDaysToKeep>
-    <artifactNumToKeep>1</artifactNumToKeep>
-  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
@@ -42,6 +36,14 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <assignDescription>false</assignDescription>
       <descriptionTemplate></descriptionTemplate>
     </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>365</daysToKeep>
+        <numToKeep>100</numToKeep>
+        <artifactDaysToKeep>7</artifactDaysToKeep>
+        <artifactNumToKeep>1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
     <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
       <tagOnCompletion>false</tagOnCompletion>
@@ -49,7 +51,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.17.1">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-andromda/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -68,6 +70,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>true</blockBuildWhenUpstreamBuilding>
+  <jdk>(System)</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>H H(0-6) H/7 * 1-5</spec>
@@ -417,7 +420,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.52">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.53">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -499,7 +502,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
       <isWarningsDeactivated>false</isWarningsDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.11">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.13">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -508,12 +511,19 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
       <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
       <daysToKeep>365</daysToKeep>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
         <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
@@ -524,12 +534,6 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -561,13 +565,17 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       </parsers>
       <modeThroughput>false</modeThroughput>
     </hudson.plugins.performance.PerformancePublisher>
-    <hudson.plugins.testng.Publisher plugin="testng-plugin@1.10">
+    <hudson.plugins.testng.Publisher plugin="testng-plugin@1.12">
       <reportFilenamePattern>**/testng-result.xml</reportFilenamePattern>
       <escapeTestDescp>true</escapeTestDescp>
       <escapeExceptionMsg>true</escapeExceptionMsg>
-      <showFailedBuilds>false</showFailedBuilds>
-      <unstableOnSkippedTests>false</unstableOnSkippedTests>
       <failureOnFailedTestConfig>false</failureOnFailedTestConfig>
+      <showFailedBuilds>false</showFailedBuilds>
+      <unstableSkips>100</unstableSkips>
+      <unstableFails>100</unstableFails>
+      <failedSkips>100</failedSkips>
+      <failedFails>100</failedFails>
+      <thresholdMode>2</thresholdMode>
     </hudson.plugins.testng.Publisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.0.1">
       <execPattern>**/**.exec</execPattern>
@@ -589,7 +597,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <maximumClassCoverage>0</maximumClassCoverage>
       <changeBuildStatus>false</changeBuildStatus>
     </hudson.plugins.jacoco.JacocoPublisher>
-    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.3">
+    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.4">
       <branch></branch>
       <mavenOpts></mavenOpts>
       <jobAdditionalProperties>-Psample,arq-jbossas-managed,run-its,coverage -Dserver=jboss7x -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.skippedModules=web</jobAdditionalProperties>
@@ -605,7 +613,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
     </hudson.plugins.covcomplplot.CovComplPlotPublisher>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.28">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.29">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
@@ -638,8 +646,10 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.5.1">
-      <template>#${BUILD_NUMBER} ${ENV,var=&quot;MVN_RELEASE_VERSION&quot;}</template>
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
+      <template>#${GIT_BRANCH}</template>
+      <runAtStart>true</runAtStart>
+      <runAtEnd>true</runAtEnd>
     </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
   </buildWrappers>
   <prebuilders>
