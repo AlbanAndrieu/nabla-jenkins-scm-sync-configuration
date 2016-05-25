@@ -641,6 +641,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.13">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
+    <hudson.plugins.disk__usage.project.DiskUsagePostBuildCalculation plugin="disk-usage@0.28"/>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.1"/>
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
@@ -856,6 +857,17 @@ mvn codenarc:codenarc&#xd;
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+    <org.jenkinsci.plugins.pitmutation.PitPublisher plugin="pitmutation@1.0-13">
+      <buildConditions__>
+        <org.jenkinsci.plugins.pitmutation.PitPublisher_-1>
+          <val_-percentage>0.0</val_-percentage>
+          <outer-class reference="../../.."/>
+        </org.jenkinsci.plugins.pitmutation.PitPublisher_-1>
+      </buildConditions__>
+      <mutationStatsFile__></mutationStatsFile__>
+      <killRatioMustImprove__>false</killRatioMustImprove__>
+      <minimumKillRatio__>0.0</minimumKillRatio__>
+    </org.jenkinsci.plugins.pitmutation.PitPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
       <deleteDirs>false</deleteDirs>
