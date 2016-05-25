@@ -649,10 +649,10 @@ mvn codenarc:codenarc&#xd;
     <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.11">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
-          <reportName>Phantomas Report</reportName>
-          <reportDir>build/phantomas/</reportDir>
+          <reportName>Site Report</reportName>
+          <reportDir>target/site/</reportDir>
           <reportFiles>index.html</reportFiles>
-          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -722,7 +722,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>GC Report</reportName>
-          <reportDir>gui/target/</reportDir>
+          <reportDir>target/</reportDir>
           <reportFiles>gc.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
