@@ -664,6 +664,11 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
     </hudson.tasks.Maven>
+    <EnvInjectBuilder plugin="envinject@1.92.1">
+      <info>
+        <propertiesFilePath>sonar-branch</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Maven>
