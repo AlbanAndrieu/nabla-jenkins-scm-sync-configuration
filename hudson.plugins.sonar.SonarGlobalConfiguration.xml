@@ -9,7 +9,7 @@
       <mojoVersion></mojoVersion>
       <databaseUrl></databaseUrl>
       <databaseLogin></databaseLogin>
-      <additionalProperties>-Dsonar.forceAnalysis=true -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/..</additionalProperties>
+      <additionalProperties>-Dsonar.forceAnalysis=true -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.branch=${SONAR_BRANCH}</additionalProperties>
       <additionalAnalysisProperties></additionalAnalysisProperties>
       <triggers>
         <skipScmCause>false</skipScmCause>
