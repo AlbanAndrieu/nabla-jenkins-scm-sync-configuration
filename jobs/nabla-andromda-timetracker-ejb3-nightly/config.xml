@@ -653,6 +653,9 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
     </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
   </buildWrappers>
   <prebuilders>
+    <hudson.tasks.Shell>
+      <command>echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
+    </hudson.tasks.Shell>
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dsurefire.useFile=false clean -Psample,arq-jbossas-managed -Dserver=jboss7x</targets>
       <mavenName>(Default)</mavenName>
