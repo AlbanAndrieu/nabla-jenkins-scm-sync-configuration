@@ -737,14 +737,6 @@ mvn codenarc:codenarc&#xd;
           <keepAll>false</keepAll>
           <allowMissing>false</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
-        <htmlpublisher.HtmlPublisherTarget>
-          <reportName>Deploy link</reportName>
-          <reportDir>http://home.nabla.mobi:8280/visma/</reportDir>
-          <reportFiles>index.html</reportFiles>
-          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
-          <keepAll>false</keepAll>
-          <allowMissing>false</allowMissing>
-        </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
     <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
