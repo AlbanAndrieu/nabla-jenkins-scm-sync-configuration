@@ -809,8 +809,8 @@ mvn codenarc:codenarc&#xd;
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <org.jenkinsci.plugins.tattletale.TattletaleReportArchiver plugin="tattletale-plugin@0.3">
-      <tattletaleReportDir>gui/target/site/tattletale-report/</tattletaleReportDir>
-      <keepAll>true</keepAll>
+      <tattletaleReportDir>tattletale-report</tattletaleReportDir>
+      <keepAll>false</keepAll>
     </org.jenkinsci.plugins.tattletale.TattletaleReportArchiver>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
@@ -1031,7 +1031,7 @@ java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${
         <autoInstall>true</autoInstall>
         <toolUsed>ZAPROXY</toolUsed>
         <zapHome>ZAPROXY_HOME</zapHome>
-        <timeoutInSec>60</timeoutInSec>
+        <timeoutInSec>180</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
         <targetURL>http://home.nabla.mobi:8280/visma/</targetURL>
         <excludedUrl></excludedUrl>
