@@ -825,12 +825,6 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>SUCCESS</name>
-          <ordinal>0</ordinal>
-          <color>BLUE</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
@@ -841,6 +835,12 @@ mvn codenarc:codenarc&#xd;
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -1031,7 +1031,7 @@ java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${
         <autoInstall>true</autoInstall>
         <toolUsed>ZAPROXY</toolUsed>
         <zapHome>ZAPROXY_HOME</zapHome>
-        <timeoutInSec>180</timeoutInSec>
+        <timeoutInSec>360</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
         <targetURL>http://home.nabla.mobi:8280/visma/</targetURL>
         <excludedUrl></excludedUrl>
