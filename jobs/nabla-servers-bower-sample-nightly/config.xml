@@ -838,16 +838,16 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -993,7 +993,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <autoInstall>true</autoInstall>
         <toolUsed>ZAPROXY</toolUsed>
         <zapHome>ZAPROXY_HOME</zapHome>
-        <timeoutInSec>180</timeoutInSec>
+        <timeoutInSec>360</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
         <targetURL>http://localhost:9090/</targetURL>
         <excludedUrl></excludedUrl>
