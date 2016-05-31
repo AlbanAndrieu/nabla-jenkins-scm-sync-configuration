@@ -2,14 +2,16 @@
 <project>
   <actions/>
   <description></description>
-  <logRotator class="hudson.tasks.LogRotator">
-    <daysToKeep>365</daysToKeep>
-    <numToKeep>100</numToKeep>
-    <artifactDaysToKeep>7</artifactDaysToKeep>
-    <artifactNumToKeep>10</artifactNumToKeep>
-  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>365</daysToKeep>
+        <numToKeep>100</numToKeep>
+        <artifactDaysToKeep>7</artifactDaysToKeep>
+        <artifactNumToKeep>10</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
     <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
       <tagOnCompletion>false</tagOnCompletion>
@@ -17,7 +19,7 @@
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.18.1">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-cpp/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -55,6 +57,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <jdk>(System)</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
@@ -94,9 +97,15 @@ rm -rf ${WORKSPACE}/clangScanBuildReports
 clang --version
 cd $PROJECT_SRC/sample/build-${ARCH}
 scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-analyzer=/usr/bin/clang make
-</command>
+
+echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
     </hudson.tasks.Shell>
-    <hudson.plugins.sonar.SonarRunnerBuilder plugin="sonar@2.3">
+    <EnvInjectBuilder plugin="envinject@1.92.1">
+      <info>
+        <propertiesFilePath>sonar-branch</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <hudson.plugins.sonar.SonarRunnerBuilder plugin="sonar@2.4">
       <project>sonar-runner.properties</project>
       <properties></properties>
       <javaOpts></javaOpts>
@@ -104,7 +113,7 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
       <jdk>(Inherit From Job)</jdk>
       <task></task>
     </hudson.plugins.sonar.SonarRunnerBuilder>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder plugin="dependency-check-jenkins-plugin@1.3.5">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder plugin="dependency-check-jenkins-plugin@1.3.6">
       <skipOnScmChange>false</skipOnScmChange>
       <skipOnUpstreamChange>false</skipOnUpstreamChange>
       <scanpath>sample/microsoft, sample/build-linux</scanpath>
@@ -119,7 +128,7 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder>
   </builders>
   <publishers>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.3.5">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.3.6">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -152,7 +161,7 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern></pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.52">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.53">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -283,7 +292,7 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
-    <xunit plugin="xunit@1.101">
+    <xunit plugin="xunit@1.102">
       <types>
         <CTestType>
           <pattern>sample/build-linux/src/test/cpp/Testing/**/Test.xml</pattern>
@@ -317,12 +326,6 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
@@ -334,6 +337,12 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>-1</minLogFileSize>
       <maxLogFileSize>-1</maxLogFileSize>
@@ -343,7 +352,7 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.28">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.29">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
@@ -360,5 +369,10 @@ scan-build -o ${WORKSPACE}/clangScanBuildReports -v -v --use-cc clang --use-anal
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
+      <template>#${GIT_BRANCH}-${BUILD_NUMBER}</template>
+      <runAtStart>true</runAtStart>
+      <runAtEnd>true</runAtEnd>
+    </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
   </buildWrappers>
 </project>
