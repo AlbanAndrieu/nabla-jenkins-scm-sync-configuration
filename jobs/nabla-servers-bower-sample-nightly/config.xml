@@ -110,22 +110,6 @@ mvn codenarc:codenarc&#xd;
       <autoRebuild>true</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <EnvInjectJobProperty plugin="envinject@1.92.1">
-      <info>
-        <scriptContent>PATH=$PATH:$ZAPROXY_HOME</scriptContent>
-        <loadFilesFromMaster>false</loadFilesFromMaster>
-      </info>
-      <on>true</on>
-      <keepJenkinsSystemVariables>true</keepJenkinsSystemVariables>
-      <keepBuildVariables>true</keepBuildVariables>
-      <overrideBuildParameters>false</overrideBuildParameters>
-      <contributors>
-        <net.nemerosa.ontrack.jenkins.OntrackDSLEnvInjectJobPropertyContributor plugin="ontrack@2.19.0">
-          <scriptText></scriptText>
-          <ontrackLog>false</ontrackLog>
-        </net.nemerosa.ontrack.jenkins.OntrackDSLEnvInjectJobPropertyContributor>
-      </contributors>
-    </EnvInjectJobProperty>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.4">
@@ -887,12 +871,6 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
-      <info>
-        <scriptContent>PATH=$PATH:$ZAPROXY_HOME</scriptContent>
-        <loadFilesFromMaster>false</loadFilesFromMaster>
-      </info>
-    </EnvInjectBuildWrapper>
     <org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper plugin="m2release@0.14.0">
       <scmUserEnvVar></scmUserEnvVar>
       <scmPasswordEnvVar></scmPasswordEnvVar>
@@ -920,7 +898,9 @@ svn --version
 echo USER $USER
 #bower cache clean
 #npm cache clean
+#export PATH=$PATH:$ZAPROXY_HOME
 echo PATH $PATH
+export NODE_PATH=$NODE_PATH:$WORKSPACE/lib/node_modules
 
 echo DISPLAY $DISPLAY
 
