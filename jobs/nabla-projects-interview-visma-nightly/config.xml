@@ -1079,7 +1079,12 @@ java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${
         <filenameSaveSession></filenameSaveSession>
         <zapDefaultDir></zapDefaultDir>
         <chosenPolicy></chosenPolicy>
-        <cmdLinesZAP/>
+        <cmdLinesZAP>
+          <fr.novia.zaproxyplugin.ZAPcmdLine>
+            <cmdLineOption>-addoninstallall</cmdLineOption>
+            <cmdLineValue></cmdLineValue>
+          </fr.novia.zaproxyplugin.ZAPcmdLine>
+        </cmdLinesZAP>
         <jdk>InheritFromJob</jdk>
         <createJiras>false</createJiras>
         <jiraBaseURL></jiraBaseURL>
