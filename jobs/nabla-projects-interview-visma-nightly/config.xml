@@ -813,6 +813,17 @@ mvn codenarc:codenarc&#xd;
       <maximumClassCoverage>0</maximumClassCoverage>
       <changeBuildStatus>false</changeBuildStatus>
     </hudson.plugins.jacoco.JacocoPublisher>
+    <org.jenkinsci.plugins.pitmutation.PitPublisher plugin="pitmutation@1.0-13">
+      <buildConditions__>
+        <org.jenkinsci.plugins.pitmutation.PitPublisher_-1>
+          <val_-percentage>0.0</val_-percentage>
+          <outer-class reference="../../.."/>
+        </org.jenkinsci.plugins.pitmutation.PitPublisher_-1>
+      </buildConditions__>
+      <mutationStatsFile__></mutationStatsFile__>
+      <killRatioMustImprove__>false</killRatioMustImprove__>
+      <minimumKillRatio__>0.0</minimumKillRatio__>
+    </org.jenkinsci.plugins.pitmutation.PitPublisher>
     <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
       <analyzer>Cobertura</analyzer>
       <verbose>false</verbose>
@@ -826,8 +837,8 @@ mvn codenarc:codenarc&#xd;
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <org.jenkinsci.plugins.tattletale.TattletaleReportArchiver plugin="tattletale-plugin@0.3">
-      <tattletaleReportDir>gui/target/site/tattletale-report</tattletaleReportDir>
-      <keepAll>true</keepAll>
+      <tattletaleReportDir>tattletale-report</tattletaleReportDir>
+      <keepAll>false</keepAll>
     </org.jenkinsci.plugins.tattletale.TattletaleReportArchiver>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
@@ -866,17 +877,6 @@ mvn codenarc:codenarc&#xd;
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <org.jenkinsci.plugins.pitmutation.PitPublisher plugin="pitmutation@1.0-13">
-      <buildConditions__>
-        <org.jenkinsci.plugins.pitmutation.PitPublisher_-1>
-          <val_-percentage>0.0</val_-percentage>
-          <outer-class reference="../../.."/>
-        </org.jenkinsci.plugins.pitmutation.PitPublisher_-1>
-      </buildConditions__>
-      <mutationStatsFile__></mutationStatsFile__>
-      <killRatioMustImprove__>false</killRatioMustImprove__>
-      <minimumKillRatio__>0.0</minimumKillRatio__>
-    </org.jenkinsci.plugins.pitmutation.PitPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
       <deleteDirs>false</deleteDirs>
