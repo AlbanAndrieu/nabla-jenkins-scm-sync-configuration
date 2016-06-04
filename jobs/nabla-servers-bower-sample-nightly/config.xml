@@ -665,6 +665,16 @@ mvn codenarc:codenarc&#xd;
       <includes>**/target/**</includes>
       <excludes>.git/**/,**/target/**/*.war,**/target/**/*-*.jar</excludes>
     </org.jenkinsci.plugins.clamav.ClamAvRecorder>
+    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
+      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
+        <userName>admin</userName>
+        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
+        <url>http://home.nabla.mobi:8280/</url>
+      </adapter>
+      <contextPath>test</contextPath>
+      <war>target/test.war</war>
+      <onFailure>false</onFailure>
+    </hudson.plugins.deploy.DeployPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
@@ -812,16 +822,6 @@ mvn codenarc:codenarc&#xd;
       <excludeGetterSetter>false</excludeGetterSetter>
       <locateTopMost>true</locateTopMost>
     </hudson.plugins.covcomplplot.CovComplPlotPublisher>
-    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
-      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
-        <userName>admin</userName>
-        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
-        <url>http://home.nabla.mobi:8280/</url>
-      </adapter>
-      <contextPath></contextPath>
-      <war>test.war</war>
-      <onFailure>false</onFailure>
-    </hudson.plugins.deploy.DeployPublisher>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
       <daysToKeep>365</daysToKeep>
       <numToKeep>-1</numToKeep>
