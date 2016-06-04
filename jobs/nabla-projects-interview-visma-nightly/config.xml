@@ -738,6 +738,14 @@ mvn codenarc:codenarc&#xd;
           <keepAll>false</keepAll>
           <allowMissing>false</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Cargo Log</reportName>
+          <reportDir>gui/target/</reportDir>
+          <reportFiles>cargo.log</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
     <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
