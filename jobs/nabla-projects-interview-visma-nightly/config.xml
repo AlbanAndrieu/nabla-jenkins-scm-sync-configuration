@@ -555,7 +555,7 @@ mvn codenarc:codenarc&#xd;
       <shouldDetectModules>false</shouldDetectModules>
       <dontComputeNew>true</dontComputeNew>
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
-      <pattern> **/dependency-check-report.xml</pattern>
+      <pattern>gui/target/dependency-check-report.xml</pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
     <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.54">
       <healthy></healthy>
