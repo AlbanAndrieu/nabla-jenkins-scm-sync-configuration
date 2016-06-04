@@ -92,7 +92,7 @@
           <instanceCap>1</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>0</idleMinutes>
+            <idleMinutes>10</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -136,7 +136,7 @@
           <instanceCap>2</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>0</idleMinutes>
+            <idleMinutes>10</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -348,7 +348,7 @@
       <includeRegex>nabla.*integration</includeRegex>
       <recurse>false</recurse>
     </listView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.7">
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.10">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-dashboard</name>
       <filterExecutors>false</filterExecutors>
@@ -400,7 +400,7 @@
         <hudson.views.BuildButtonColumn/>
         <org.jenkins.ci.plugins.progress__bar.ProgressBarColumn plugin="progress-bar-column-plugin@1.0"/>
         <org.jenkinsci.plugins.violationcolumns.FailedTestsColumn plugin="violation-columns@1.6"/>
-        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@1.47">
+        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@1.48">
           <warningsAggregator>
             <isCheckStyleActivated>true</isCheckStyleActivated>
             <isDryActivated>true</isDryActivated>
@@ -449,6 +449,7 @@
           <skippedColor>FDB813</skippedColor>
           <successColor>71E66D</successColor>
           <failureColor>E86850</failureColor>
+          <hideZeroTestProjects>false</hideZeroTestProjects>
         </hudson.plugins.view.dashboard.test.TestStatisticsPortlet>
         <hudson.plugins.view.dashboard.test.TestStatisticsChart>
           <id>dashboard_portlet_28561</id>
@@ -463,7 +464,7 @@
           <dateShift>0</dateShift>
           <displayStatus>ALL</displayStatus>
         </hudson.plugins.view.dashboard.test.TestTrendChart>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet plugin="analysis-collector@1.47">
+        <hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet plugin="analysis-collector@1.48">
           <id>dashboard_portlet_24505</id>
           <name>Warnings per project</name>
           <canHideZeroWarningsProjects>false</canHideZeroWarningsProjects>
@@ -487,7 +488,7 @@
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.53">
+        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.54">
           <id>dashboard_portlet_27756</id>
           <name>Compiler warnings trend graph (totals)</name>
           <width>500</width>
@@ -497,14 +498,14 @@
             <parserName>AcuCobol Compiler</parserName>
           </actionSelector>
         </hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@2.44">
+        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@2.45">
           <id>dashboard_portlet_19073</id>
           <name>Duplicate code trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet plugin="findbugs@4.64">
+        <hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet plugin="findbugs@4.65">
           <id>dashboard_portlet_4305</id>
           <name>FindBugs warnings trend graph (totals)</name>
           <width>500</width>
@@ -525,7 +526,7 @@
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet plugin="analysis-collector@1.47">
+        <hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet plugin="analysis-collector@1.48">
           <id>dashboard_portlet_4342</id>
           <name>Warnings trend graph (totals)</name>
           <width>500</width>
@@ -721,7 +722,7 @@
       <includeRegex>(nabla-.*)-all.*</includeRegex>
       <recurse>false</recurse>
     </listView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.2">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.3.1">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-databases-pipeline</name>
       <description>&lt;b&gt;Pipeline view of nabla databases&lt;/b&gt;</description>
@@ -742,7 +743,7 @@
       <refreshFrequency>3</refreshFrequency>
       <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.2">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.3.1">
       <owner class="hudson" reference="../../.."/>
       <name>andromda-pipeline</name>
       <filterExecutors>false</filterExecutors>
@@ -762,7 +763,7 @@
       <refreshFrequency>3</refreshFrequency>
       <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.2">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.3.1">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-servers-pipeline</name>
       <description>&lt;b&gt;Pipeline view of nabla servers&lt;/b&gt;</description>
@@ -783,7 +784,7 @@
       <refreshFrequency>3</refreshFrequency>
       <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.2">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.3.1">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-project-pipeline</name>
       <description>&lt;b&gt;Pipeline view of nabla project&lt;/b&gt;</description>
@@ -804,7 +805,7 @@
       <refreshFrequency>3</refreshFrequency>
       <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.2">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.3.1">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-uml-pipeline</name>
       <description>&lt;b&gt;Pipeline view of nabla uml&lt;/b&gt;</description>
@@ -825,7 +826,7 @@
       <refreshFrequency>3</refreshFrequency>
       <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.2">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.3.1">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-nabla-pipeline</name>
       <description>&lt;b&gt;Pipeline view of nabla nabla&lt;/b&gt;</description>
