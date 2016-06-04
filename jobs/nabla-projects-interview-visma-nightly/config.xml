@@ -746,6 +746,14 @@ mvn codenarc:codenarc&#xd;
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Swagger JSON</reportName>
+          <reportDir>target/jaxrs-analyzer/</reportDir>
+          <reportFiles>swagger.json</reportFiles>
+          <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
     <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
