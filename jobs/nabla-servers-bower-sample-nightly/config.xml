@@ -653,14 +653,6 @@ mvn codenarc:codenarc&#xd;
     <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.13">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
-    <hudson.tasks.ArtifactArchiver>
-      <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
-      <allowEmptyArchive>true</allowEmptyArchive>
-      <onlyIfSuccessful>false</onlyIfSuccessful>
-      <fingerprint>false</fingerprint>
-      <defaultExcludes>true</defaultExcludes>
-      <caseSensitive>true</caseSensitive>
-    </hudson.tasks.ArtifactArchiver>
     <org.jenkinsci.plugins.clamav.ClamAvRecorder plugin="clamav@0.3">
       <includes>**/target/**</includes>
       <excludes>.git/**/,**/target/**/*.war,**/target/**/*-*.jar</excludes>
@@ -686,6 +678,34 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp>.war</regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
+      <errorFailedThreshold>100</errorFailedThreshold>
+      <errorUnstableThreshold>50</errorUnstableThreshold>
+      <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
+      <relativeFailedThresholdPositive>55.0</relativeFailedThresholdPositive>
+      <relativeFailedThresholdNegative>55.0</relativeFailedThresholdNegative>
+      <relativeUnstableThresholdPositive>25.0</relativeUnstableThresholdPositive>
+      <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
+      <nthBuildNumber>0</nthBuildNumber>
+      <modeRelativeThresholds>false</modeRelativeThresholds>
+      <configType>ART</configType>
+      <modeOfThreshold>false</modeOfThreshold>
+      <compareBuildPrevious>true</compareBuildPrevious>
+      <xml></xml>
+      <modePerformancePerTestCase>true</modePerformancePerTestCase>
+      <parsers>
+        <hudson.plugins.performance.JUnitParser>
+          <glob>**/target/**/TEST-com.test.project*.xml</glob>
+        </hudson.plugins.performance.JUnitParser>
+      </parsers>
+      <modeThroughput>true</modeThroughput>
+    </hudson.plugins.performance.PerformancePublisher>
+    <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
+      <analyzer>Cobertura</analyzer>
+      <verbose>false</verbose>
+      <excludeGetterSetter>false</excludeGetterSetter>
+      <locateTopMost>true</locateTopMost>
+    </hudson.plugins.covcomplplot.CovComplPlotPublisher>
     <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.11">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
@@ -794,34 +814,14 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
-      <errorFailedThreshold>100</errorFailedThreshold>
-      <errorUnstableThreshold>50</errorUnstableThreshold>
-      <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
-      <relativeFailedThresholdPositive>55.0</relativeFailedThresholdPositive>
-      <relativeFailedThresholdNegative>55.0</relativeFailedThresholdNegative>
-      <relativeUnstableThresholdPositive>25.0</relativeUnstableThresholdPositive>
-      <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
-      <nthBuildNumber>0</nthBuildNumber>
-      <modeRelativeThresholds>false</modeRelativeThresholds>
-      <configType>ART</configType>
-      <modeOfThreshold>false</modeOfThreshold>
-      <compareBuildPrevious>true</compareBuildPrevious>
-      <xml></xml>
-      <modePerformancePerTestCase>true</modePerformancePerTestCase>
-      <parsers>
-        <hudson.plugins.performance.JUnitParser>
-          <glob>**/target/**/TEST-com.test.project*.xml</glob>
-        </hudson.plugins.performance.JUnitParser>
-      </parsers>
-      <modeThroughput>true</modeThroughput>
-    </hudson.plugins.performance.PerformancePublisher>
-    <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
-      <analyzer>Cobertura</analyzer>
-      <verbose>false</verbose>
-      <excludeGetterSetter>false</excludeGetterSetter>
-      <locateTopMost>true</locateTopMost>
-    </hudson.plugins.covcomplplot.CovComplPlotPublisher>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
+      <allowEmptyArchive>true</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
       <daysToKeep>365</daysToKeep>
       <numToKeep>-1</numToKeep>
