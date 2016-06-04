@@ -695,8 +695,8 @@ mvn codenarc:codenarc&#xd;
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
-          <reportName>SiteSpeedIo Report 2015-08-26-17-15-21</reportName>
-          <reportDir>build/sitespeedio/home.nabla.mobi/2015-08-26-17-15-21/</reportDir>
+          <reportName>SiteSpeedIo Report 2016-06-04-09-49-35</reportName>
+          <reportDir>build/sitespeedio/home.nabla.mobi/2016-06-04-09-49-35/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
