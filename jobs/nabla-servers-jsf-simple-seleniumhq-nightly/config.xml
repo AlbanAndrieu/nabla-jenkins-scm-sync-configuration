@@ -97,11 +97,11 @@ cd $WORKSPACE
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>clean install -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
+      <targets>-B -U -e clean install tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
-      <usePrivateRepository>false</usePrivateRepository>
+      <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
     </hudson.tasks.Maven>
@@ -117,11 +117,11 @@ cd $WORKSPACE
 # -firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
+      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
-      <usePrivateRepository>false</usePrivateRepository>
+      <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
     </hudson.tasks.Maven>
