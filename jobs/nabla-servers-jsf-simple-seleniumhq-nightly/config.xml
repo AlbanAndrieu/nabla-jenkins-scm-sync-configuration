@@ -97,7 +97,7 @@ cd $WORKSPACE
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e clean install tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
+      <targets>-B -U -e clean install tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=$TOMCAT_PORT -Djacoco.outputDir=${WORKSPACE}/target</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
@@ -117,7 +117,7 @@ cd $WORKSPACE
 # -firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby</targets>
+      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=$TOMCAT_PORT -Djacoco.outputDir=${WORKSPACE}/target</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
@@ -196,5 +196,18 @@ cd $WORKSPACE
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.2"/>
+    <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
+      <ports>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>CARGO_RMI_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>TOMCAT_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>JETTY_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+      </ports>
+    </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
   </buildWrappers>
 </project>
