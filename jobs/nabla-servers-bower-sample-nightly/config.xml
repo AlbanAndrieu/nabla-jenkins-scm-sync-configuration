@@ -949,9 +949,9 @@ PID=$(lsof -t -i:$PORT_WHERE_SERVER_MIGHT_RUN) || true
 # if NOT zero length =&gt; then kill it...
 if [ ! -z &quot;$PID&quot; ]; then
     echo &quot;Found running Server at port: &quot;$PORT_WHERE_SERVER_MIGHT_RUN&quot; (PID: &quot;$PID&quot;)&quot;
-    echo &quot;I am killing that Server. A previous build seems to have gone wrong.&quot;
+    #echo &quot;I am killing that Server. A previous build seems to have gone wrong.&quot;
     # Kill it... hooray!
-#    kill $PID
+    #kill $PID
 
 else
     echo &quot;No running Server found at port &quot;$PORT_WHERE_SERVER_MIGHT_RUN&quot;. This is what I&apos;d anticipate. Great!&quot;   
