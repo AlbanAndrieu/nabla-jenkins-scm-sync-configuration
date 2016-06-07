@@ -164,6 +164,18 @@ cd $WORKSPACE
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
     <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.1"/>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.11">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Tomcat Welcome App</reportName>
+          <reportDir>http://home.nabla.mobi:8280/welcome/</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
     <hudson.plugins.seleniumhq.SeleniumhqPublisher plugin="seleniumhq@0.4">
       <testResults>sample/jsf-simple/target/test-reports/*results.html</testResults>
       <useTestCommands>false</useTestCommands>
