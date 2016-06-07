@@ -684,7 +684,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>ZaProxy Report</reportName>
-          <reportDir>gui/build/reports/zaproxy/</reportDir>
+          <reportDir>build/reports/zaproxy/</reportDir>
           <reportFiles>report.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>true</keepAll>
@@ -753,6 +753,14 @@ mvn codenarc:codenarc&#xd;
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Tattletale Report</reportName>
+          <reportDir>gui/target/site/tattletale-report/</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>false</keepAll>
+          <allowMissing>false</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
