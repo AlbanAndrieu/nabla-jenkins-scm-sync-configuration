@@ -845,8 +845,8 @@ mvn codenarc:codenarc&#xd;
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <org.jenkinsci.plugins.tattletale.TattletaleReportArchiver plugin="tattletale-plugin@0.3">
-      <tattletaleReportDir>tattletale-report</tattletaleReportDir>
-      <keepAll>false</keepAll>
+      <tattletaleReportDir>gui/target/site/tattletale-report/</tattletaleReportDir>
+      <keepAll>true</keepAll>
     </org.jenkinsci.plugins.tattletale.TattletaleReportArchiver>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
