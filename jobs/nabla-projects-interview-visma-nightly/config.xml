@@ -518,7 +518,7 @@ mvn codenarc:codenarc&#xd;
       <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
         <userName>admin</userName>
         <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
-        <url>http://home.nabla.mobi:8280/manager/</url>
+        <url>http://home.nabla.mobi:8280</url>
       </adapter>
       <contextPath>visma</contextPath>
       <war>gui/target/visma.war</war>
