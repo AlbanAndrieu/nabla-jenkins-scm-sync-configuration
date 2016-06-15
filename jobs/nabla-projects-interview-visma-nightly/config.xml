@@ -736,7 +736,7 @@ mvn codenarc:codenarc&#xd;
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
-          <allowMissing>false</allowMissing>
+          <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Cargo Log</reportName>
@@ -760,7 +760,7 @@ mvn codenarc:codenarc&#xd;
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
-          <allowMissing>false</allowMissing>
+          <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
