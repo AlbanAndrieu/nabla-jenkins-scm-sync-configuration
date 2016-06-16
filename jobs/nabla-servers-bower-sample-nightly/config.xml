@@ -935,6 +935,8 @@ ln -s ${ZAPROXY_HOME}/zap.sh zap.sh
 /usr/bin/chromium-browser --version
 /opt/google/chrome/chrome --version
 
+export PHANTOMJS_BIN=`which phantomjs`
+
 #npm install --global phantomjs
 phantomjs --version
 
