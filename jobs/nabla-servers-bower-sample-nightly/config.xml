@@ -157,7 +157,7 @@ mvn codenarc:codenarc&#xd;
     <groupId>com.nabla.project.servers.sample</groupId>
     <artifactId>bower-sample</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install -Pjacoco,run-its -Dcargo.rmi.port=$CARGO_RMI_PORT -Djetty.port=$JETTY_PORT -Dserver=jetty9x -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch=${SONAR_BRANCH} sonar:sonar -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.jdbc.url=jdbc:h2:tcp://home.nabla.mobi:9092/sonar -Dsonar.jdbc.driver=org.h2.Driver site</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install -Pjacoco,run-its -Dcargo.rmi.port=$CARGO_RMI_PORT -Djetty.port=$JETTY_PORT -Dserver=jetty9x -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch=${SONAR_BRANCH} sonar:sonar -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.jdbc.url=jdbc:h2:tcp://home.nabla.mobi:9092/sonar -Dsonar.jdbc.driver=org.h2.Driver -Dreport.type=executive -Dsonar.pdf.username=admin -Dsonar.pdf.password=microsoft site</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx1024m -Djava.awt.headless=true -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc.log -XX:+HeapDumpOnOutOfMemoryError</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
