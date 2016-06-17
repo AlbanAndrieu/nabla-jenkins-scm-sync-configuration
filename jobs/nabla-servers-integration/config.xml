@@ -105,7 +105,7 @@ This build check that all reports can still be generated and is doing sone addit
     <groupId>com.nabla.project</groupId>
     <artifactId>servers</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,arq-weld-ee-embedded,integration -Darquillian=arq-weld-ee-embedded -Dwebdriver.base.url=http://localhost:$JBOSS_PORT -Djboss.port=$JBOSS_PORT -Dserver=jboss5x -Djsf-simple-saucelabs.test.excludes=&quot;**/*STest.java&quot; site</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,arq-weld-ee-embedded,integration -Darquillian=arq-weld-ee-embedded -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*STest.java&quot; site</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx512m</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -702,12 +702,15 @@ This build check that all reports can still be generated and is doing sone addit
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
           <name>JETTY_PORT</name>
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>TOMCAT_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Dwebdriver.base.url=http://localhost:$JBOSS_PORT -Djboss.port=$JBOSS_PORT -Dserver=jboss5x</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Djboss.port=$JBOSS_PORT -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -716,7 +719,7 @@ This build check that all reports can still be generated and is doing sone addit
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Maven>
-      <targets>javadoc:aggregate -Psample -Dwebdriver.base.url=http://localhost:$JBOSS_PORT -Djboss.port=$JBOSS_PORT -Dserver=jboss5x -Djsf-simple-saucelabs.test.excludes=&quot;**/*STest.java&quot;</targets>
+      <targets>javadoc:aggregate -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*STest.java&quot;</targets>
       <mavenName>(Default)</mavenName>
       <jvmOptions>-Xms256m -Xmx512m</jvmOptions>
       <properties>java.awt.headless=true</properties>
@@ -725,7 +728,7 @@ This build check that all reports can still be generated and is doing sone addit
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>dashboard:dashboard -Psample -Dwebdriver.base.url=http://localhost:$JBOSS_PORT -Djboss.port=$JBOSS_PORT -Dserver=jboss5x -Djsf-simple-saucelabs.test.excludes=&quot;**/*STest.java&quot;</targets>
+      <targets>dashboard:dashboard -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*STest.java&quot;</targets>
       <mavenName>(Default)</mavenName>
       <jvmOptions>-Xms256m -Xmx512m</jvmOptions>
       <properties>java.awt.headless=true</properties>
