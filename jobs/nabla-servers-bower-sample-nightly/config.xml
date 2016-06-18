@@ -661,7 +661,7 @@ mvn codenarc:codenarc&#xd;
       <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
         <userName>admin</userName>
         <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
-        <url>http://home.nabla.mobi:8280/</url>
+        <url>http://home.nabla.mobi:8280/test</url>
       </adapter>
       <contextPath>test</contextPath>
       <war>target/test.war</war>
@@ -989,7 +989,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <zapHome>ZAPROXY_HOME</zapHome>
         <timeoutInSec>360</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
-        <targetURL>http://localhost:9090/</targetURL>
+        <targetURL>http://home.nabla.mobi:8280/test</targetURL>
         <excludedUrl></excludedUrl>
         <scanMode>NOT_AUTHENTICATED</scanMode>
         <spiderURL>true</spiderURL>
