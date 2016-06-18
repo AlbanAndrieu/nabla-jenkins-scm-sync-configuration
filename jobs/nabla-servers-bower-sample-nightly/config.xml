@@ -522,6 +522,16 @@ mvn codenarc:codenarc&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
+    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
+      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
+        <userName>admin</userName>
+        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
+        <url>http://home.nabla.mobi:8280/test</url>
+      </adapter>
+      <contextPath>test</contextPath>
+      <war>target/test.war</war>
+      <onFailure>false</onFailure>
+    </hudson.plugins.deploy.DeployPublisher>
     <org.tap4j.plugin.TapPublisher plugin="tap@1.24">
       <testResults>target/yslow*.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
@@ -657,16 +667,6 @@ mvn codenarc:codenarc&#xd;
       <includes>**/target/**</includes>
       <excludes>.git/**/,**/target/**/*.war,**/target/**/*-*.jar</excludes>
     </org.jenkinsci.plugins.clamav.ClamAvRecorder>
-    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
-      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
-        <userName>admin</userName>
-        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
-        <url>http://home.nabla.mobi:8280/test</url>
-      </adapter>
-      <contextPath>test</contextPath>
-      <war>target/test.war</war>
-      <onFailure>false</onFailure>
-    </hudson.plugins.deploy.DeployPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
@@ -989,7 +989,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <zapHome>ZAPROXY_HOME</zapHome>
         <timeoutInSec>360</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
-        <targetURL>http://home.nabla.mobi:8280/test</targetURL>
+        <targetURL>http://home.nabla.mobi:8280/</targetURL>
         <excludedUrl></excludedUrl>
         <scanMode>NOT_AUTHENTICATED</scanMode>
         <spiderURL>true</spiderURL>
