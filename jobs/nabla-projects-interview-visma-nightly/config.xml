@@ -774,7 +774,7 @@ mvn codenarc:codenarc&#xd;
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
       <modeRelativeThresholds>false</modeRelativeThresholds>
-      <configType>ART</configType>
+      <configType></configType>
       <modeOfThreshold>false</modeOfThreshold>
       <compareBuildPrevious>true</compareBuildPrevious>
       <xml></xml>
@@ -833,10 +833,6 @@ mvn codenarc:codenarc&#xd;
       <uniqueVersion>true</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
-    <org.jenkinsci.plugins.tattletale.TattletaleReportArchiver plugin="tattletale-plugin@0.3">
-      <tattletaleReportDir>target/tattletale-report</tattletaleReportDir>
-      <keepAll>false</keepAll>
-    </org.jenkinsci.plugins.tattletale.TattletaleReportArchiver>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
       <allowEmptyArchive>false</allowEmptyArchive>
