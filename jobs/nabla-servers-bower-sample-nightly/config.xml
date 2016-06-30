@@ -980,8 +980,37 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
     </hudson.tasks.Maven>
   </prebuilders>
   <postbuilders>
+    <hudson.tasks.Shell>
+      <command>#node --version
+./node/node --version
+#npm --version
+npm --version
+#./clean.sh
+bower --version
+#./bower list
+nsp --version
+nsp check
+
+#./npm install codecov.io --save
+
+export CODECOV_TOKEN=&quot;23ccf822-ee60-4d0f-8332-9c692389b2e2&quot;
+
+#istanbul cover jasmine-node --captureExceptions spec/ \
+#  &amp;&amp; cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js
+
+#rm ./target/test.png || true
+phantomjs --version
+#./phantomjs --proxy=127.0.0.1:8090 --debug=true --web-security=false --ignore-ssl-errors=true --cookies-file=./target/cookies.txt rasterize.js http://localhost:$JETTY_PORT/ ./target/test.png || true
+#./phantomjs --debug=true --web-security=false --ignore-ssl-errors=true --cookies-file=./target/cookies.txt netsniff.js http://localhost:$JETTY_PORT/ &gt; ./target/speed.har || true
+
+GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
+#See https://github.com/chewiebug/GCViewer
+#wget http://kgrweb/download/gcviewer/gcviewer-${GCVIEWER_VERSION}.jar
+java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.log export target/gc.png
+</command>
+    </hudson.tasks.Shell>
     <fr.novia.zaproxyplugin.ZAProxyBuilder plugin="zaproxy@1.2.1">
-      <startZAPFirst>true</startZAPFirst>
+      <startZAPFirst>false</startZAPFirst>
       <zaproxy>
         <zapProxyHost>localhost</zapProxyHost>
         <zapProxyPort>8090</zapProxyPort>
@@ -1035,35 +1064,6 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <zapProxyHost>localhost</zapProxyHost>
       <zapProxyPort>8090</zapProxyPort>
     </fr.novia.zaproxyplugin.ZAProxyBuilder>
-    <hudson.tasks.Shell>
-      <command>#node --version
-./node/node --version
-#npm --version
-npm --version
-#./clean.sh
-bower --version
-#./bower list
-nsp --version
-nsp check
-
-#./npm install codecov.io --save
-
-export CODECOV_TOKEN=&quot;23ccf822-ee60-4d0f-8332-9c692389b2e2&quot;
-
-#istanbul cover jasmine-node --captureExceptions spec/ \
-#  &amp;&amp; cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js
-
-#rm ./target/test.png || true
-phantomjs --version
-#./phantomjs --proxy=127.0.0.1:8090 --debug=true --web-security=false --ignore-ssl-errors=true --cookies-file=./target/cookies.txt rasterize.js http://localhost:$JETTY_PORT/ ./target/test.png || true
-#./phantomjs --debug=true --web-security=false --ignore-ssl-errors=true --cookies-file=./target/cookies.txt netsniff.js http://localhost:$JETTY_PORT/ &gt; ./target/speed.har || true
-
-GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
-#See https://github.com/chewiebug/GCViewer
-#wget http://kgrweb/download/gcviewer/gcviewer-${GCVIEWER_VERSION}.jar
-java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.log export target/gc.png
-</command>
-    </hudson.tasks.Shell>
   </postbuilders>
   <runPostStepsIfResult>
     <name>UNSTABLE</name>
