@@ -87,7 +87,7 @@ mvn codenarc:codenarc&#xd;
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.1">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.2">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-servers-bower-sample/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -112,7 +112,7 @@ mvn codenarc:codenarc&#xd;
     </com.sonyericsson.rebuild.RebuildSettings>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.4">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -532,7 +532,7 @@ mvn codenarc:codenarc&#xd;
       <war>target/test.war</war>
       <onFailure>false</onFailure>
     </hudson.plugins.deploy.DeployPublisher>
-    <org.tap4j.plugin.TapPublisher plugin="tap@1.24">
+    <org.tap4j.plugin.TapPublisher plugin="tap@1.25">
       <testResults>target/yslow*.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
       <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
@@ -544,6 +544,7 @@ mvn codenarc:codenarc&#xd;
       <validateNumberOfTests>false</validateNumberOfTests>
       <planRequired>false</planRequired>
       <verbose>true</verbose>
+      <showOnlyFailures>false</showOnlyFailures>
     </org.tap4j.plugin.TapPublisher>
     <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.4.0">
       <healthy></healthy>
@@ -827,6 +828,12 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
@@ -838,12 +845,6 @@ mvn codenarc:codenarc&#xd;
           <color>RED</color>
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
-        <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
       <maxLogFileSize>10000000</maxLogFileSize>
@@ -854,7 +855,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.16-INTEL-1">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.17">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>300</timeoutMinutes>
       </strategy>
@@ -862,7 +863,7 @@ mvn codenarc:codenarc&#xd;
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.3"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.4"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
@@ -989,7 +990,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <zapHome>ZAPROXY_HOME</zapHome>
         <timeoutInSec>360</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
-        <targetURL>http://home.nabla.mobi:8280/</targetURL>
+        <targetURL>http://localhost:8280/</targetURL>
         <excludedUrl></excludedUrl>
         <scanMode>NOT_AUTHENTICATED</scanMode>
         <spiderURL>true</spiderURL>
