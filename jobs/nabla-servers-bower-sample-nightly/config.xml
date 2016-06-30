@@ -1010,7 +1010,7 @@ java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.
 </command>
     </hudson.tasks.Shell>
     <fr.novia.zaproxyplugin.ZAProxyBuilder plugin="zaproxy@1.2.1">
-      <startZAPFirst>false</startZAPFirst>
+      <startZAPFirst>true</startZAPFirst>
       <zaproxy>
         <zapProxyHost>localhost</zapProxyHost>
         <zapProxyPort>8090</zapProxyPort>
