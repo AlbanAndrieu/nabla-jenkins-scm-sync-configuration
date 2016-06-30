@@ -24,13 +24,11 @@
     <permission>hudson.model.Computer.Build:admin</permission>
     <permission>hudson.model.Computer.Build:albandri</permission>
     <permission>hudson.model.Computer.Build:anonymous</permission>
-    <permission>hudson.model.Computer.Configure:admin</permission>
     <permission>hudson.model.Computer.Configure:albandri</permission>
     <permission>hudson.model.Computer.Configure:anonymous</permission>
     <permission>hudson.model.Computer.Connect:admin</permission>
     <permission>hudson.model.Computer.Connect:albandri</permission>
     <permission>hudson.model.Computer.Connect:anonymous</permission>
-    <permission>hudson.model.Computer.Create:admin</permission>
     <permission>hudson.model.Computer.Create:albandri</permission>
     <permission>hudson.model.Computer.Create:anonymous</permission>
     <permission>hudson.model.Computer.Delete:albandri</permission>
@@ -48,7 +46,6 @@
     <permission>hudson.model.Hudson.RunScripts:admin</permission>
     <permission>hudson.model.Hudson.RunScripts:albandri</permission>
     <permission>hudson.model.Hudson.RunScripts:anonymous</permission>
-    <permission>hudson.model.Hudson.UploadPlugins:admin</permission>
     <permission>hudson.model.Hudson.UploadPlugins:albandri</permission>
     <permission>hudson.model.Hudson.UploadPlugins:anonymous</permission>
     <permission>hudson.model.Item.Build:admin</permission>
