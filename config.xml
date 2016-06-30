@@ -10,17 +10,43 @@
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
-    <permission>hudson.model.Hudson.Administer:admin</permission>
-    <permission>hudson.model.Hudson.Administer:albandri</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:admin</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:albandri</permission>
-    <permission>hudson.model.Hudson.Read:admin</permission>
-    <permission>hudson.model.Hudson.Read:albandri</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:anonymous</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:anonymous</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:anonymous</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:anonymous</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:anonymous</permission>
+    <permission>hudson.model.Computer.Build:anonymous</permission>
+    <permission>hudson.model.Computer.Configure:anonymous</permission>
+    <permission>hudson.model.Computer.Connect:anonymous</permission>
+    <permission>hudson.model.Computer.Create:anonymous</permission>
+    <permission>hudson.model.Computer.Delete:anonymous</permission>
+    <permission>hudson.model.Computer.Disconnect:anonymous</permission>
+    <permission>hudson.model.Hudson.Administer:anonymous</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:anonymous</permission>
     <permission>hudson.model.Hudson.Read:anonymous</permission>
-    <permission>hudson.model.Hudson.RunScripts:admin</permission>
-    <permission>hudson.model.Hudson.RunScripts:albandri</permission>
+    <permission>hudson.model.Hudson.RunScripts:anonymous</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:anonymous</permission>
+    <permission>hudson.model.Item.Build:anonymous</permission>
+    <permission>hudson.model.Item.Cancel:anonymous</permission>
+    <permission>hudson.model.Item.Configure:anonymous</permission>
+    <permission>hudson.model.Item.Create:anonymous</permission>
+    <permission>hudson.model.Item.Delete:anonymous</permission>
+    <permission>hudson.model.Item.Discover:anonymous</permission>
+    <permission>hudson.model.Item.Move:anonymous</permission>
+    <permission>hudson.model.Item.Read:anonymous</permission>
+    <permission>hudson.model.Item.Release:anonymous</permission>
+    <permission>hudson.model.Item.ViewStatus:anonymous</permission>
+    <permission>hudson.model.Item.Workspace:anonymous</permission>
+    <permission>hudson.model.Run.Delete:anonymous</permission>
+    <permission>hudson.model.Run.Replay:anonymous</permission>
+    <permission>hudson.model.Run.Update:anonymous</permission>
+    <permission>hudson.model.View.Read:anonymous</permission>
+    <permission>hudson.scm.SCM.Tag:anonymous</permission>
   </authorizationStrategy>
-  <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>false</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
@@ -736,7 +762,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-databases-nightly</firstJob>
-        <firstJobLink></firstJobLink>
+        <firstJobLink>job/nabla-databases-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -756,7 +782,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>andromda-0-maven-config</firstJob>
-        <firstJobLink></firstJobLink>
+        <firstJobLink>job/andromda-0-maven-config/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -777,7 +803,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-servers-nightly</firstJob>
-        <firstJobLink></firstJobLink>
+        <firstJobLink>job/nabla-servers-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -798,7 +824,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-projects-nightly</firstJob>
-        <firstJobLink></firstJobLink>
+        <firstJobLink>job/nabla-projects-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -819,7 +845,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-uml-nightly</firstJob>
-        <firstJobLink></firstJobLink>
+        <firstJobLink>job/nabla-uml-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -840,7 +866,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-andromda-nightly</firstJob>
-        <firstJobLink></firstJobLink>
+        <firstJobLink>job/nabla-andromda-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
