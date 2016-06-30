@@ -990,7 +990,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <zapHome>ZAPROXY_HOME</zapHome>
         <timeoutInSec>360</timeoutInSec>
         <filenameLoadSession></filenameLoadSession>
-        <targetURL>http://localhost:8280/</targetURL>
+        <targetURL>http://home.nabla.mobi:8280/visma/</targetURL>
         <excludedUrl></excludedUrl>
         <scanMode>NOT_AUTHENTICATED</scanMode>
         <spiderURL>true</spiderURL>
