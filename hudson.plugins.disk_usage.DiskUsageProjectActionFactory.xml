@@ -21,23 +21,6 @@
       <default/>
       <int>183</int>
       <hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord>
-        <buildUsage>669934196</buildUsage>
-        <wsUsage>30857838011</wsUsage>
-        <date class="hudson.plugins.disk_usage.DiskUsageOvearallGraphGenerator$DiskUsageRecord$1" serialization="custom">
-          <date>
-            <long>1451193093895</long>
-          </date>
-          <hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord_-1>
-            <default>
-              <outer-class reference="../../../.."/>
-            </default>
-          </hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord_-1>
-        </date>
-        <jobsWithoutBuildsUsage>12057680738</jobsWithoutBuildsUsage>
-        <allSpace>153217175552</allSpace>
-        <diskUsageNonSlaveWorkspaces>21788546020</diskUsageNonSlaveWorkspaces>
-      </hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord>
-      <hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord>
         <buildUsage>874821699</buildUsage>
         <wsUsage>31155614396</wsUsage>
         <date class="hudson.plugins.disk_usage.DiskUsageOvearallGraphGenerator$DiskUsageRecord$1" serialization="custom">
@@ -3130,6 +3113,23 @@
         <jobsWithoutBuildsUsage>7047014092</jobsWithoutBuildsUsage>
         <allSpace>153217175552</allSpace>
         <diskUsageNonSlaveWorkspaces>11063844656</diskUsageNonSlaveWorkspaces>
+      </hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord>
+      <hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord>
+        <buildUsage>2923643977</buildUsage>
+        <wsUsage>25631530339</wsUsage>
+        <date class="hudson.plugins.disk_usage.DiskUsageOvearallGraphGenerator$DiskUsageRecord$1" serialization="custom">
+          <date>
+            <long>1467630730529</long>
+          </date>
+          <hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord_-1>
+            <default>
+              <outer-class reference="../../../.."/>
+            </default>
+          </hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord_-1>
+        </date>
+        <jobsWithoutBuildsUsage>7047014092</jobsWithoutBuildsUsage>
+        <allSpace>153217175552</allSpace>
+        <diskUsageNonSlaveWorkspaces>11063844689</diskUsageNonSlaveWorkspaces>
       </hudson.plugins.disk__usage.DiskUsageOvearallGraphGenerator_-DiskUsageRecord>
     </linked-list>
     <hudson.plugins.disk__usage.DiskUsageProjectActionFactory_-DescriptorImpl_-1>
