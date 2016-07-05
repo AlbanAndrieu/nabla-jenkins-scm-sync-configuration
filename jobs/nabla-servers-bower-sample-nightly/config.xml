@@ -1001,7 +1001,7 @@ npm --version
 bower --version
 #./bower list
 nsp --version
-nsp check
+nsp check || true
 
 #./npm install codecov.io --save
 
