@@ -1025,7 +1025,7 @@ java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.
       <startZAPFirst>true</startZAPFirst>
       <zaproxy>
         <zapProxyHost>localhost</zapProxyHost>
-        <zapProxyPort>8090</zapProxyPort>
+        <zapProxyPort>8094</zapProxyPort>
         <autoInstall>true</autoInstall>
         <toolUsed>ZAPROXY</toolUsed>
         <zapHome>ZAPROXY_HOME</zapHome>
@@ -1074,7 +1074,7 @@ java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.
         <filterIssuesByResourceType>false</filterIssuesByResourceType>
       </zaproxy>
       <zapProxyHost>localhost</zapProxyHost>
-      <zapProxyPort>8090</zapProxyPort>
+      <zapProxyPort>8094</zapProxyPort>
     </fr.novia.zaproxyplugin.ZAProxyBuilder>
   </postbuilders>
   <runPostStepsIfResult>
