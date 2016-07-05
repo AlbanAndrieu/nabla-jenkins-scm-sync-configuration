@@ -872,6 +872,12 @@ mvn codenarc:codenarc&#xd;
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
+      <patterns>
+        <hudson.plugins.ws__cleanup.Pattern>
+          <pattern>build/reports/**</pattern>
+          <type>EXCLUDE</type>
+        </hudson.plugins.ws__cleanup.Pattern>
+      </patterns>
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
       <cleanWhenSuccess>true</cleanWhenSuccess>
