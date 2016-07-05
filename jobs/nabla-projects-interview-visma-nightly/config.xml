@@ -1034,7 +1034,7 @@ java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${
 </command>
     </hudson.tasks.Shell>
     <fr.novia.zaproxyplugin.ZAProxyBuilder plugin="zaproxy@1.2.1">
-      <startZAPFirst>false</startZAPFirst>
+      <startZAPFirst>true</startZAPFirst>
       <zaproxy>
         <zapProxyHost>localhost</zapProxyHost>
         <zapProxyPort>8094</zapProxyPort>
