@@ -276,14 +276,14 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Maven>
-      <targets>-s settings.xml scm:checkin -Dmessage=${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE}</targets>
+      <targets>-s settings.xml scm:checkin -Dmessage=${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE}</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-s settings.xml scm:tag -Dtag=fr-cargo-limits-${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE}</targets>
+      <targets>-s settings.xml scm:tag -Dtag=nabla-${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE}</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -297,7 +297,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-s settings.xml versions:set -DnewVersion=${MVN_NEXT_VERSION} -Dmessage=${MVN_NEXT_VERSION} scm:checkin -Dbasedir=${WORKSPACE}</targets>
+      <targets>-s settings.xml versions:update-parent versions:set -DnewVersion=${MVN_NEXT_VERSION} -Dmessage=${MVN_NEXT_VERSION} scm:checkin -DparentVersion=[${MVN_NEXT_VERSION}] -DallowSnapshots=true -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE}</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
