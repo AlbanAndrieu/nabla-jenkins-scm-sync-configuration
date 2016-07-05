@@ -874,7 +874,11 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
       <patterns>
         <hudson.plugins.ws__cleanup.Pattern>
-          <pattern>build/reports/**</pattern>
+          <pattern>build/**</pattern>
+          <type>EXCLUDE</type>
+        </hudson.plugins.ws__cleanup.Pattern>
+        <hudson.plugins.ws__cleanup.Pattern>
+          <pattern>target/**</pattern>
           <type>EXCLUDE</type>
         </hudson.plugins.ws__cleanup.Pattern>
       </patterns>
