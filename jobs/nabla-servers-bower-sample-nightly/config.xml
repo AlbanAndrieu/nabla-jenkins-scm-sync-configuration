@@ -1034,7 +1034,7 @@ java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.
         <targetURL>http://home.nabla.mobi:8280/docs/</targetURL>
         <excludedUrl></excludedUrl>
         <scanMode>NOT_AUTHENTICATED</scanMode>
-        <spiderURL>true</spiderURL>
+        <spiderURL>false</spiderURL>
         <spiderAsUser>false</spiderAsUser>
         <scanURLAsUser>false</scanURLAsUser>
         <scriptUsername></scriptUsername>
@@ -1050,7 +1050,7 @@ java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.
         <loggedInIndicator></loggedInIndicator>
         <ajaxSpiderURL>false</ajaxSpiderURL>
         <ajaxSpiderURLAsUser>false</ajaxSpiderURLAsUser>
-        <scanURL>true</scanURL>
+        <scanURL>false</scanURL>
         <saveReports>true</saveReports>
         <chosenFormats>
           <string>html</string>
