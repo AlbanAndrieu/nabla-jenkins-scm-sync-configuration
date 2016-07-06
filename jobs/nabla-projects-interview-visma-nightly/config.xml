@@ -1070,7 +1070,7 @@ java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${
         <extraPostData></extraPostData>
         <loginUrl></loginUrl>
         <loggedInIndicator></loggedInIndicator>
-        <ajaxSpiderURL>false</ajaxSpiderURL>
+        <ajaxSpiderURL>true</ajaxSpiderURL>
         <ajaxSpiderURLAsUser>false</ajaxSpiderURLAsUser>
         <scanURL>true</scanURL>
         <saveReports>true</saveReports>
