@@ -682,6 +682,7 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>nabla-jenkins-backup-admin</string>
+        <string>nabla-jobs-duration-charts-admin</string>
         <string>nabla-scm-pooling-kill-admin</string>
         <string>nabla-security-monitor-admin</string>
         <string>nabla-site-monitor-admin</string>
@@ -814,7 +815,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-databases-nightly</firstJob>
-        <firstJobLink>job/nabla-databases-nightly/</firstJobLink>
+        <firstJobLink>view/nabla-admin/job/nabla-databases-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -834,7 +835,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>andromda-0-maven-config</firstJob>
-        <firstJobLink>job/andromda-0-maven-config/</firstJobLink>
+        <firstJobLink>view/nabla-admin/job/andromda-0-maven-config/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -855,7 +856,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-servers-nightly</firstJob>
-        <firstJobLink>job/nabla-servers-nightly/</firstJobLink>
+        <firstJobLink>view/nabla-admin/job/nabla-servers-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -876,7 +877,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-projects-nightly</firstJob>
-        <firstJobLink>job/nabla-projects-nightly/</firstJobLink>
+        <firstJobLink>view/nabla-admin/job/nabla-projects-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -897,7 +898,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-uml-nightly</firstJob>
-        <firstJobLink>job/nabla-uml-nightly/</firstJobLink>
+        <firstJobLink>view/nabla-admin/job/nabla-uml-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -918,7 +919,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-andromda-nightly</firstJob>
-        <firstJobLink>job/nabla-andromda-nightly/</firstJobLink>
+        <firstJobLink>view/nabla-admin/job/nabla-andromda-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
