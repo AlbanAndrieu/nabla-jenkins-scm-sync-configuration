@@ -106,7 +106,7 @@ mvn codenarc:codenarc&#xd;
     </com.sonyericsson.rebuild.RebuildSettings>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.2">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -639,7 +639,7 @@ mvn codenarc:codenarc&#xd;
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
       <isWarningsDeactivated>false</isWarningsDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.13">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.15">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.disk__usage.project.DiskUsagePostBuildCalculation plugin="disk-usage@0.28"/>
@@ -764,7 +764,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.14">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>80</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -774,8 +774,9 @@ mvn codenarc:codenarc&#xd;
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
       <modeRelativeThresholds>false</modeRelativeThresholds>
-      <configType></configType>
+      <configType>ART</configType>
       <modeOfThreshold>false</modeOfThreshold>
+      <failBuildIfNoResultFile>false</failBuildIfNoResultFile>
       <compareBuildPrevious>true</compareBuildPrevious>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
@@ -841,16 +842,22 @@ mvn codenarc:codenarc&#xd;
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
+    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.2">
+      <jobCheckPolicies>global</jobCheckPolicies>
+      <jobApiToken></jobApiToken>
+      <product>27651afa-9e00-4c57-9f0e-7df9358e6750</product>
+      <productVersion></productVersion>
+      <mavenProjectToken></mavenProjectToken>
+      <requesterEmail></requesterEmail>
+      <moduleTokens></moduleTokens>
+      <modulesToInclude></modulesToInclude>
+      <modulesToExclude></modulesToExclude>
+      <ignorePomModules>false</ignorePomModules>
+    </org.whitesource.jenkins.WhiteSourcePublisher>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
       <daysToKeep>365</daysToKeep>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
-        <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
         <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
@@ -861,6 +868,12 @@ mvn codenarc:codenarc&#xd;
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
