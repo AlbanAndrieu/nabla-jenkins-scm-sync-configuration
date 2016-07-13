@@ -97,7 +97,7 @@
       <command>#!/bin/bash
 
 cd ./env/scripts/jenkins/jenkinsJobDurationCharts
-sudo pip install pygal
+sudo pip install pygal cairosvg
 python2.7 jenkinsJobDurationCharts.py</command>
     </hudson.tasks.Shell>
   </builders>
