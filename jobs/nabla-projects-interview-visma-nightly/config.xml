@@ -845,7 +845,7 @@ mvn codenarc:codenarc&#xd;
     <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.2">
       <jobCheckPolicies>global</jobCheckPolicies>
       <jobApiToken></jobApiToken>
-      <product>27651afa-9e00-4c57-9f0e-7df9358e6750</product>
+      <product></product>
       <productVersion></productVersion>
       <mavenProjectToken></mavenProjectToken>
       <requesterEmail></requesterEmail>
