@@ -112,7 +112,7 @@ mvn codenarc:codenarc&#xd;
     </com.sonyericsson.rebuild.RebuildSettings>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.2">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -526,7 +526,7 @@ mvn codenarc:codenarc&#xd;
       <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter">
         <userName>admin</userName>
         <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
-        <url>http://home.nabla.mobi:8280/test</url>
+        <url>http://home.nabla.mobi:8280/</url>
       </adapter>
       <contextPath>test</contextPath>
       <war>target/test.war</war>
@@ -661,7 +661,7 @@ mvn codenarc:codenarc&#xd;
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
       <isWarningsDeactivated>false</isWarningsDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.13">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.15">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <org.jenkinsci.plugins.clamav.ClamAvRecorder plugin="clamav@0.3">
@@ -679,7 +679,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp>.war</regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.14">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>50</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -689,8 +689,9 @@ mvn codenarc:codenarc&#xd;
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
       <modeRelativeThresholds>false</modeRelativeThresholds>
-      <configType></configType>
+      <configType>ART</configType>
       <modeOfThreshold>false</modeOfThreshold>
+      <failBuildIfNoResultFile>false</failBuildIfNoResultFile>
       <compareBuildPrevious>true</compareBuildPrevious>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
@@ -828,15 +829,15 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
