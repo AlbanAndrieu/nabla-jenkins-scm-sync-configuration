@@ -756,7 +756,7 @@ mvn codenarc:codenarc&#xd;
           <reportFiles>index.html.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
-          <allowMissing>false</allowMissing>
+          <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Mobile CSS Report</reportName>
@@ -764,7 +764,7 @@ mvn codenarc:codenarc&#xd;
           <reportFiles>index.html.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
-          <allowMissing>false</allowMissing>
+          <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Protractor coverage Report</reportName>
