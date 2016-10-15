@@ -829,6 +829,12 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
@@ -840,12 +846,6 @@ mvn codenarc:codenarc&#xd;
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
-        <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
       <maxLogFileSize>10000000</maxLogFileSize>
@@ -853,6 +853,21 @@ mvn codenarc:codenarc&#xd;
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+    <hudson.plugins.git.GitPublisher plugin="git@2.5.2">
+      <configVersion>2</configVersion>
+      <pushMerge>false</pushMerge>
+      <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
+      <forcePush>true</forcePush>
+      <tagsToPush>
+        <hudson.plugins.git.GitPublisher_-TagToPush>
+          <targetRepoName>origin</targetRepoName>
+          <tagName>LATEST_SUCCESSFULL-${GIT_BRANCH}</tagName>
+          <tagMessage></tagMessage>
+          <createTag>true</createTag>
+          <updateTag>true</updateTag>
+        </hudson.plugins.git.GitPublisher_-TagToPush>
+      </tagsToPush>
+    </hudson.plugins.git.GitPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
   </publishers>
   <buildWrappers>
@@ -896,6 +911,14 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
+      <info>
+        <scriptContent>cd $WORKSPACE
+echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
+echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
     <org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper plugin="m2release@0.14.0">
       <scmUserEnvVar></scmUserEnvVar>
       <scmPasswordEnvVar></scmPasswordEnvVar>
@@ -911,7 +934,7 @@ mvn codenarc:codenarc&#xd;
       <nodeJSInstallationName>NodeJs</nodeJSInstallationName>
     </jenkins.plugins.nodejs.tools.NpmPackagesBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
-      <template>#${GIT_BRANCH}-${BUILD_NUMBER}</template>
+      <template>#${ENV,var=&quot;git.branch&quot;} (${ENV,var=&quot;git.revision&quot;}, build #${BUILD_NUMBER})</template>
       <runAtStart>true</runAtStart>
       <runAtEnd>true</runAtEnd>
     </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
