@@ -24,25 +24,6 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.model.ParametersDefinitionProperty>
-      <parameterDefinitions>
-        <hudson.model.StringParameterDefinition>
-          <name>TARGET_SERVER</name>
-          <description></description>
-          <defaultValue>nabla.freeboxos.fr</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>TARGET_PORT</name>
-          <description></description>
-          <defaultValue>8280</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>TARGET_URL</name>
-          <description></description>
-          <defaultValue>visma</defaultValue>
-        </hudson.model.StringParameterDefinition>
-      </parameterDefinitions>
-    </hudson.model.ParametersDefinitionProperty>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.0">
@@ -81,14 +62,10 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-./env/scripts/jenkins/nabla-security-monitor-admin.sh</command>
+./env/scripts/jenkins/nabla-security-monitor-lynis-admin.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <org.jenkinsci.plugins.clamav.ClamAvRecorder plugin="clamav@0.3">
-      <includes>**/target/**</includes>
-      <excludes>.git/**/</excludes>
-    </org.jenkinsci.plugins.clamav.ClamAvRecorder>
     <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.0">
       <unstableOnWarning>true</unstableOnWarning>
       <failBuildOnError>true</failBuildOnError>
@@ -96,14 +73,6 @@
       <parsingRulesPath>/workspace/users/albandri10/env/scripts/zfs-log_parsing_rules</parsingRulesPath>
       <useProjectRule>false</useProjectRule>
     </hudson.plugins.logparser.LogParserPublisher>
-    <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
-      <mSites>
-        <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:9000/</mUrl>
-          <successResponseCodes/>
-        </hudson.plugins.sitemonitor.model.Site>
-      </mSites>
-    </hudson.plugins.sitemonitor.SiteMonitorRecorder>
   </publishers>
   <buildWrappers>
     <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
