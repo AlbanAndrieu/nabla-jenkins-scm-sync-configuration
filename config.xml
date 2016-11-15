@@ -687,6 +687,7 @@
         <string>nabla-security-monitor-admin</string>
         <string>nabla-security-monitor-chrootkit-admin</string>
         <string>nabla-security-monitor-lynis-admin</string>
+        <string>nabla-security-monitor-rkhunter-admin</string>
         <string>nabla-site-monitor-admin</string>
         <string>nabla-sonar-backup-admin</string>
         <string>show-zfs-tree-admin</string>
