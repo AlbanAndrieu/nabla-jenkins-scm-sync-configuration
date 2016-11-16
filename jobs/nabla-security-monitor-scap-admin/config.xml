@@ -60,7 +60,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>#!/bin/bash
+      <command>#!/bin/bash -xv
 
 #./env/scripts/jenkins/nabla-security-monitor-scap-admin.sh
 
