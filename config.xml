@@ -686,6 +686,7 @@
         <string>nabla-scm-pooling-kill-admin</string>
         <string>nabla-security-monitor-admin</string>
         <string>nabla-security-monitor-chrootkit-admin</string>
+        <string>nabla-security-monitor-docker-admin</string>
         <string>nabla-security-monitor-lynis-admin</string>
         <string>nabla-security-monitor-rkhunter-admin</string>
         <string>nabla-security-monitor-scap-admin</string>
