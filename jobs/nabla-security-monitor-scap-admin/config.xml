@@ -73,7 +73,8 @@ echo ########### Check ubuntu security #######
 #cd ubuntu-scap || true
 #rm -f ubuntu-xccdf.xml || true
 #wget http://home.nabla.mobi:7072/download/scap/ubuntu-xccdf.xml || true
-./run_tests.sh || true
+./run_tests.sh
+#./run_tests.sh || true
 </command>
     </hudson.tasks.Shell>
   </builders>
