@@ -62,7 +62,7 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-./env/scripts/jenkins/nabla-security-monitor-lynis-admin.sh</command>
+./env/scripts/jenkins/nabla-security-monitor-docker-admin.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
