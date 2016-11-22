@@ -65,15 +65,7 @@
 ./env/scripts/jenkins/nabla-security-monitor-lynis-admin.sh</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.0">
-      <unstableOnWarning>true</unstableOnWarning>
-      <failBuildOnError>true</failBuildOnError>
-      <showGraphs>true</showGraphs>
-      <parsingRulesPath>/workspace/users/albandri10/env/scripts/zfs-log_parsing_rules</parsingRulesPath>
-      <useProjectRule>false</useProjectRule>
-    </hudson.plugins.logparser.LogParserPublisher>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
