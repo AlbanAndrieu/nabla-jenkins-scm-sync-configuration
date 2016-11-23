@@ -143,14 +143,6 @@ mvn codenarc:codenarc&#xd;
         <honorRefspec>false</honorRefspec>
       </hudson.plugins.git.extensions.impl.CloneOption>
       <hudson.plugins.git.extensions.impl.IgnoreNotifyCommit/>
-      <hudson.plugins.git.extensions.impl.PreBuildMerge>
-        <options>
-          <mergeRemote>origin</mergeRemote>
-          <mergeTarget>develop</mergeTarget>
-          <mergeStrategy>default</mergeStrategy>
-          <fastForwardMode>FF</fastForwardMode>
-        </options>
-      </hudson.plugins.git.extensions.impl.PreBuildMerge>
       <hudson.plugins.git.extensions.impl.PerBuildTag/>
     </extensions>
   </scm>
