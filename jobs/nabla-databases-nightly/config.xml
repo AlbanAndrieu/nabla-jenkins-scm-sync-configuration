@@ -100,7 +100,6 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
     </browser>
     <submoduleCfg class="list"/>
     <extensions>
-      <hudson.plugins.git.extensions.impl.PerBuildTag/>
       <hudson.plugins.git.extensions.impl.LocalBranch>
         <localBranch>master</localBranch>
       </hudson.plugins.git.extensions.impl.LocalBranch>
@@ -120,6 +119,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
           <fastForwardMode>FF</fastForwardMode>
         </options>
       </hudson.plugins.git.extensions.impl.PreBuildMerge>
+      <hudson.plugins.git.extensions.impl.PerBuildTag/>
     </extensions>
   </scm>
   <assignedNode>java-medium&amp;&amp;git</assignedNode>
