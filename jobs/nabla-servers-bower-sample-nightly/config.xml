@@ -131,7 +131,6 @@ mvn codenarc:codenarc&#xd;
     </browser>
     <submoduleCfg class="list"/>
     <extensions>
-      <hudson.plugins.git.extensions.impl.PerBuildTag/>
       <hudson.plugins.git.extensions.impl.LocalBranch>
         <localBranch>master</localBranch>
       </hudson.plugins.git.extensions.impl.LocalBranch>
@@ -152,6 +151,7 @@ mvn codenarc:codenarc&#xd;
           <fastForwardMode>FF</fastForwardMode>
         </options>
       </hudson.plugins.git.extensions.impl.PreBuildMerge>
+      <hudson.plugins.git.extensions.impl.PerBuildTag/>
     </extensions>
   </scm>
   <assignedNode>master&amp;&amp;java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
