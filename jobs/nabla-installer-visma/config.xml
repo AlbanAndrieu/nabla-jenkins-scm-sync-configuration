@@ -493,14 +493,22 @@ as soon it does not take too long.</description>
             <label>${MVN_RELEASE_VERSION}</label>
           </condition>
           <publisherList>
-            <hudson.tasks.ArtifactArchiver>
-              <artifacts>**/*.zip</artifacts>
-              <allowEmptyArchive>false</allowEmptyArchive>
-              <onlyIfSuccessful>false</onlyIfSuccessful>
-              <fingerprint>false</fingerprint>
-              <defaultExcludes>true</defaultExcludes>
-              <caseSensitive>true</caseSensitive>
-            </hudson.tasks.ArtifactArchiver>
+            <org.jenkinsci.plugins.artifactdeployer.ArtifactDeployerPublisher plugin="artifactdeployer@0.33">
+              <entries>
+                <org.jenkinsci.plugins.artifactdeployer.ArtifactDeployerEntry>
+                  <includes>**/*.jar, **/*.pak, **/*.txt, **/*.md5</includes>
+                  <basedir></basedir>
+                  <excludes>**/*SNAPSHOT*</excludes>
+                  <remote>/var/www/html/download/izpack/${MVN_RELEASE_VERSION}-jenkins</remote>
+                  <flatten>false</flatten>
+                  <deleteRemote>false</deleteRemote>
+                  <deleteRemoteArtifacts>true</deleteRemoteArtifacts>
+                  <deleteRemoteArtifactsByScript>false</deleteRemoteArtifactsByScript>
+                  <failNoFilesDeploy>false</failNoFilesDeploy>
+                </org.jenkinsci.plugins.artifactdeployer.ArtifactDeployerEntry>
+              </entries>
+              <deployEvenBuildFail>false</deployEvenBuildFail>
+            </org.jenkinsci.plugins.artifactdeployer.ArtifactDeployerPublisher>
           </publisherList>
           <runner class="org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail" plugin="run-condition@1.0"/>
           <executionStrategy class="org.jenkins_ci.plugins.flexible_publish.strategy.FailAtEndExecutionStrategy"/>
