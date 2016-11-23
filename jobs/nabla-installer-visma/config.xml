@@ -497,7 +497,7 @@ as soon it does not take too long.</description>
               <entries>
                 <org.jenkinsci.plugins.artifactdeployer.ArtifactDeployerEntry>
                   <includes>**/*.jar, **/*.pak, **/*.txt, **/*.md5</includes>
-                  <basedir></basedir>
+                  <basedir>installer/visma-installer/target</basedir>
                   <excludes>**/*SNAPSHOT*</excludes>
                   <remote>/var/www/html/download/izpack/${MVN_RELEASE_VERSION}-jenkins</remote>
                   <flatten>false</flatten>
