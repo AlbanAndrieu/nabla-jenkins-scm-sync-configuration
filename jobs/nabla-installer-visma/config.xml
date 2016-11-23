@@ -60,7 +60,7 @@ as soon it does not take too long.</description>
         <hudson.model.StringParameterDefinition>
           <name>MVN_RELEASE_VERSION</name>
           <description></description>
-          <defaultValue></defaultValue>
+          <defaultValue>${BUILD_NUMBER}-SNAPSHOT</defaultValue>
         </hudson.model.StringParameterDefinition>
         <eu.markov.jenkins.plugin.mvnmeta.MavenMetadataParameterDefinition plugin="maven-metadata-plugin@1.5.0">
           <name>target.version</name>
@@ -490,7 +490,7 @@ as soon it does not take too long.</description>
         <org.jenkins__ci.plugins.flexible__publish.ConditionalPublisher>
           <condition class="org.jenkins_ci.plugins.run_condition.core.ExpressionCondition" plugin="run-condition@1.0">
             <expression>.SNAPSHOT</expression>
-            <label>${RELEASE_VERSION}</label>
+            <label>${MVN_RELEASE_VERSION}</label>
           </condition>
           <publisherList>
             <hudson.tasks.ArtifactArchiver>
