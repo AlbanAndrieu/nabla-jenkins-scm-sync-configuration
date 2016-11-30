@@ -247,7 +247,7 @@
           <pullStrategy>PULL_LATEST</pullStrategy>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
-      <serverUrl>tcp://localhost:4243</serverUrl>
+      <serverUrl>unix:///var/run/docker.sock</serverUrl>
       <connectTimeout>5</connectTimeout>
       <readTimeout>15</readTimeout>
       <version></version>
