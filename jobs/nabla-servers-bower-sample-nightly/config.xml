@@ -957,7 +957,9 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Shell>
-      <command>#git clean -fdx
+      <command>#!/bin/bash -xv
+
+#git clean -fdx
 svn --version
 echo USER $USER
 #bower cache clean
@@ -1015,7 +1017,6 @@ fi
 
 #./zap.sh -port $ZAP_PORT -daemon
 
-#!/bin/bash -xv
 #make version file
 FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
 echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_COMMIT:0:6}&quot; &gt; $FILENAME
