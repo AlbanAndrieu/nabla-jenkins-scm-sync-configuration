@@ -137,6 +137,18 @@ mvn codenarc:codenarc&#xd;
         <honorRefspec>false</honorRefspec>
       </hudson.plugins.git.extensions.impl.CloneOption>
       <hudson.plugins.git.extensions.impl.PerBuildTag/>
+      <hudson.plugins.git.extensions.impl.IgnoreNotifyCommit/>
+      <hudson.plugins.git.extensions.impl.MessageExclusion>
+        <excludedMessage>.*\\[maven-release-plugin\\].*</excludedMessage>
+      </hudson.plugins.git.extensions.impl.MessageExclusion>
+      <hudson.plugins.git.extensions.impl.PreBuildMerge>
+        <options>
+          <mergeRemote>origin</mergeRemote>
+          <mergeTarget>master</mergeTarget>
+          <mergeStrategy>default</mergeStrategy>
+          <fastForwardMode>FF</fastForwardMode>
+        </options>
+      </hudson.plugins.git.extensions.impl.PreBuildMerge>
     </extensions>
   </scm>
   <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium</assignedNode>
