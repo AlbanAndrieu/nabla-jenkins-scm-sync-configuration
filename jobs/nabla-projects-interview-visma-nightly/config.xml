@@ -1117,6 +1117,18 @@ GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
 java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.log export target/gc.png || true
 
 
+TAG=LATEST_SUCCESSFULL
+cd $WORKSPACE
+DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
+eval $DOESTAGEXISTCMD
+if [ $? -eq 0 ]; then
+	git tag -d $TAG
+	git push origin :$TAG
+fi
+git tag $TAG
+git push origin $TAG
+
+
 </command>
     </hudson.tasks.Shell>
     <fr.novia.zaproxyplugin.ZAProxyBuilder plugin="zaproxy@1.2.1">
