@@ -142,8 +142,8 @@ mvn codenarc:codenarc&#xd;
         <depth>0</depth>
         <honorRefspec>false</honorRefspec>
       </hudson.plugins.git.extensions.impl.CloneOption>
-      <hudson.plugins.git.extensions.impl.IgnoreNotifyCommit/>
       <hudson.plugins.git.extensions.impl.PerBuildTag/>
+      <hudson.plugins.git.extensions.impl.IgnoreNotifyCommit/>
       <hudson.plugins.git.extensions.impl.MessageExclusion>
         <excludedMessage>.*\\[maven-release-plugin\\].*</excludedMessage>
       </hudson.plugins.git.extensions.impl.MessageExclusion>
