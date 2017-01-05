@@ -147,6 +147,14 @@ mvn codenarc:codenarc&#xd;
       <hudson.plugins.git.extensions.impl.MessageExclusion>
         <excludedMessage>.*\\[maven-release-plugin\\].*</excludedMessage>
       </hudson.plugins.git.extensions.impl.MessageExclusion>
+      <hudson.plugins.git.extensions.impl.PreBuildMerge>
+        <options>
+          <mergeRemote>origin</mergeRemote>
+          <mergeTarget>master</mergeTarget>
+          <mergeStrategy>default</mergeStrategy>
+          <fastForwardMode>FF</fastForwardMode>
+        </options>
+      </hudson.plugins.git.extensions.impl.PreBuildMerge>
     </extensions>
   </scm>
   <assignedNode>master&amp;&amp;java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
