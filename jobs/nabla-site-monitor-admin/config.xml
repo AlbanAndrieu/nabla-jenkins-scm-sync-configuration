@@ -13,7 +13,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
@@ -55,7 +55,7 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:7070</mUrl>
+          <mUrl>http://home.nabla.mobi:80</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
@@ -63,7 +63,7 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7070/phpmyadmin/</mUrl>
+          <mUrl>http://localhost:80/phpmyadmin/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
@@ -75,11 +75,11 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://albandri:7070/</mUrl>
+          <mUrl>http://albandri:80/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7070/cgi-bin/awstats.pl?config=home.nabla.mobi</mUrl>
+          <mUrl>http://localhost:80/cgi-bin/awstats.pl?config=home.nabla.mobi</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
@@ -115,11 +115,11 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://nabla.freeboxos.fr:7070/</mUrl>
+          <mUrl>http://nabla.freeboxos.fr:80/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:7070/CDash/</mUrl>
+          <mUrl>http://home.nabla.mobi:80/CDash/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
