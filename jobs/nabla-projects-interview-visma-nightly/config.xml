@@ -1115,6 +1115,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
 set -xv
 
 #echo &quot;VISMA #$BUILD_NUMBER-sha1:${GIT_COMMIT:0:6}&quot; &gt; VISMA_VERSION.txt
+echo $&apos;\u2192&apos;
 echo &quot;VISMA #$BUILD_NUMBER-sha1:${GIT_COMMIT:0:6}&quot;
 
 GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
