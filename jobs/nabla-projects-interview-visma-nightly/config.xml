@@ -81,7 +81,7 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.23.1">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.25.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-projects-interview-visma/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -161,7 +161,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.triggers.TimerTrigger>
       <spec>H H(0-6) H/7 * 1-5</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.23.1">
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.25.0">
       <spec></spec>
     </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
@@ -202,7 +202,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -231,7 +231,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -263,7 +263,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -292,7 +292,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -323,7 +323,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -559,7 +559,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -582,7 +582,7 @@ mvn codenarc:codenarc&#xd;
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern>gui/target/dependency-check-report.xml</pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.58">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.59">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -592,7 +592,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -626,7 +626,7 @@ mvn codenarc:codenarc&#xd;
         </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
-    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.49">
+    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.50">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -636,7 +636,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.80">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -789,7 +789,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.15">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@2.0">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>80</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -819,7 +819,7 @@ mvn codenarc:codenarc&#xd;
       <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
       <persistConstraintLog>false</persistConstraintLog>
     </hudson.plugins.performance.PerformancePublisher>
-    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.2.0">
+    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.3.0">
       <jsonReportDirectory>gui/target</jsonReportDirectory>
       <fileIncludePattern>cucumber.json</fileIncludePattern>
       <fileExcludePattern> **/classes/**</fileExcludePattern>
@@ -831,7 +831,6 @@ mvn codenarc:codenarc&#xd;
       <failedScenariosNumber>0</failedScenariosNumber>
       <failedFeaturesNumber>0</failedFeaturesNumber>
       <parallelTesting>false</parallelTesting>
-      <jenkinsBasePath></jenkinsBasePath>
     </net.masterthought.jenkins.CucumberReportPublisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.1.0">
       <execPattern>**/**.exec</execPattern>
@@ -873,7 +872,7 @@ mvn codenarc:codenarc&#xd;
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.2">
+    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.4">
       <jobCheckPolicies>global</jobCheckPolicies>
       <jobApiToken></jobApiToken>
       <product></product>
@@ -890,15 +889,15 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
