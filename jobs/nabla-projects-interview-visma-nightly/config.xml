@@ -1006,6 +1006,17 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
         <loadFilesFromMaster>false</loadFilesFromMaster>
       </info>
     </EnvInjectBuildWrapper>
+    <com.cloudbees.jenkins.plugins.customtools.CustomToolInstallWrapper plugin="custom-tools-plugin@0.4.4">
+      <selectedTools>
+        <com.cloudbees.jenkins.plugins.customtools.CustomToolInstallWrapper_-SelectedTool>
+          <name>ZAPROXY</name>
+        </com.cloudbees.jenkins.plugins.customtools.CustomToolInstallWrapper_-SelectedTool>
+      </selectedTools>
+      <multiconfigOptions>
+        <skipMasterInstallation>false</skipMasterInstallation>
+      </multiconfigOptions>
+      <convertHomesToUppercase>false</convertHomesToUppercase>
+    </com.cloudbees.jenkins.plugins.customtools.CustomToolInstallWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
       <template>#${ENV,var=&quot;git.branch&quot;} (${ENV,var=&quot;git.revision&quot;}, build #${BUILD_NUMBER})</template>
       <runAtStart>true</runAtStart>
