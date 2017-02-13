@@ -210,6 +210,12 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <hudson.plugins.warnings.ConsoleParser>
           <parserName>CodeAnalysis</parserName>
         </hudson.plugins.warnings.ConsoleParser>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>CssLint</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>Doxygen</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
     <org.jenkinsci.plugins.clamav.ClamAvRecorder plugin="clamav@0.3">
