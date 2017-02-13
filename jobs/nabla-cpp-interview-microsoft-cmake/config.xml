@@ -91,6 +91,7 @@ cd $PROJECT_SRC/
 ./cpplint.sh || true
 ./cppcheck.sh || true
 ./rats.sh || true
+./flawfinder.sh || true
 
 #./tree.sh
 
