@@ -311,8 +311,8 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>HTML flawfinder Report</reportName>
-          <reportDir>./</reportDir>
-          <reportFiles>flawfinder.html</reportFiles>
+          <reportDir>flawfinder-reports</reportDir>
+          <reportFiles>flawfinder-result-SAMPLE.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
