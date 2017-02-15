@@ -1,13 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.12">
+<maven2-moduleset plugin="maven-plugin@2.14">
   <actions/>
   <description></description>
-  <logRotator class="hudson.tasks.LogRotator">
-    <daysToKeep>365</daysToKeep>
-    <numToKeep>100</numToKeep>
-    <artifactDaysToKeep>7</artifactDaysToKeep>
-    <artifactNumToKeep>10</artifactNumToKeep>
-  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
@@ -18,11 +12,18 @@
       <assignDescription>false</assignDescription>
       <descriptionTemplate></descriptionTemplate>
     </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
-    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7">
-      <googlecodeWebsite>https://code.google.com/p/alban/</googlecodeWebsite>
-    </hudson.plugins.googlecode.GoogleCodeProjectProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.13.3">
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>365</daysToKeep>
+        <numToKeep>100</numToKeep>
+        <artifactDaysToKeep>7</artifactDaysToKeep>
+        <artifactNumToKeep>10</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla/</projectUrl>
+      <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
@@ -31,10 +32,9 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.5">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -59,7 +59,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <jdk>java7</jdk>
+  <jdk>(System)</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>H H(0-6) * * 1-5</spec>
@@ -77,10 +77,10 @@
   <rootPOM>dependencies/pom.xml</rootPOM>
   <goals>-B -U -e -Dsurefire.useFile=false clean install -N</goals>
   <defaultGoals>install</defaultGoals>
-  <mavenName>Maven-3.0.4</mavenName>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
+  <ignoreUnsuccessfulUpstreams>false</ignoreUnsuccessfulUpstreams>
   <archivingDisabled>false</archivingDisabled>
   <siteArchivingDisabled>false</siteArchivingDisabled>
   <fingerprintingDisabled>false</fingerprintingDisabled>
@@ -107,16 +107,16 @@
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
           <color>RED</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
@@ -131,18 +131,192 @@
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.4.7">
+    <org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder plugin="git-changelog@1.41">
+      <config>
+        <configFile>git-changelog-settings.json</configFile>
+        <createFileTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
+
+&lt;p&gt;
+Changelog of Git Changelog.
+&lt;/p&gt;
+
+{{#tags}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+ {{#issues}}
+  {{#hasIssue}}
+   {{#hasLink}}
+&lt;h2&gt; {{name}} &lt;a href=&quot;{{link}}&quot;&gt;{{issue}}&lt;/a&gt; {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+   {{^hasLink}}
+&lt;h2&gt; {{name}} {{issue}} {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+  {{/hasIssue}}
+
+
+   {{#commits}}
+&lt;a href=&quot;https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}&quot;&gt;{{hash}}&lt;/a&gt; {{authorName}} &lt;i&gt;{{commitTime}}&lt;/i&gt;
+&lt;p&gt;
+&lt;h3&gt;{{{messageTitle}}}&lt;/h3&gt;
+
+{{#messageBodyItems}}
+ &lt;li&gt; {{.}}&lt;/li&gt; 
+{{/messageBodyItems}}
+&lt;/p&gt;
+  {{/commits}}
+
+ {{/issues}}
+{{/tags}}
+</createFileTemplateContent>
+        <createFileTemplateFile></createFileTemplateFile>
+        <createFileUseTemplateContent>true</createFileUseTemplateContent>
+        <createFileUseTemplateFile>false</createFileUseTemplateFile>
+        <customIssues>
+          <org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+            <link></link>
+            <name></name>
+            <pattern></pattern>
+            <title></title>
+          </org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+          <org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+            <link></link>
+            <name></name>
+            <pattern></pattern>
+            <title></title>
+          </org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+        </customIssues>
+        <dateFormat>YYYY-MM-dd HH:mm:ss</dateFormat>
+        <file>CHANGELOG.html</file>
+        <fromReference></fromReference>
+        <fromType>firstCommit</fromType>
+        <gitHubApi></gitHubApi>
+        <gitHubIssuePattern>#([0-9]+)</gitHubIssuePattern>
+        <gitHubToken></gitHubToken>
+        <ignoreCommitsIfMessageMatches>^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*</ignoreCommitsIfMessageMatches>
+        <ignoreCommitsWithoutIssue>false</ignoreCommitsWithoutIssue>
+        <ignoreTagsIfNameMatches></ignoreTagsIfNameMatches>
+        <jiraIssuePattern>\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b</jiraIssuePattern>
+        <jiraPassword></jiraPassword>
+        <jiraServer></jiraServer>
+        <jiraUsername></jiraUsername>
+        <mediaWikiPassword></mediaWikiPassword>
+        <mediaWikiTemplateContent>__NOTOC__
+
+= Git Changelog changelog =
+Changelog of Git Changelog.
+
+{{#tags}}
+== {{name}} ==
+ {{#issues}}
+  {{#hasIssue}}
+   {{#hasLink}}
+=== {{name}} [{{link}} {{issue}}] {{title}} ===
+   {{/hasLink}}
+   {{^hasLink}}
+=== {{name}} {{issue}} {{title}} ===
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+=== {{name}} ===
+  {{/hasIssue}}
+
+   {{#commits}}
+[https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}} {{hash}}] {{authorName}} {{commitTime}}
+
+&apos;&apos;&apos;{{{messageTitle}}}&apos;&apos;&apos;
+
+{{#messageBodyItems}}
+ * {{.}} 
+{{/messageBodyItems}}
+
+  {{/commits}}
+
+ {{/issues}}
+{{/tags}}
+</mediaWikiTemplateContent>
+        <mediaWikiTemplateFile></mediaWikiTemplateFile>
+        <mediaWikiTitle></mediaWikiTitle>
+        <mediaWikiUrl></mediaWikiUrl>
+        <mediaWikiUsername></mediaWikiUsername>
+        <mediaWikiUseTemplateContent>false</mediaWikiUseTemplateContent>
+        <mediaWikiUseTemplateFile>false</mediaWikiUseTemplateFile>
+        <noIssueName>No issue</noIssueName>
+        <readableTagName>/([^/]+?)$</readableTagName>
+        <showSummary>true</showSummary>
+        <showSummaryTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
+
+&lt;p&gt;
+Changelog of Git Changelog.
+&lt;/p&gt;
+
+{{#tags}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+ {{#issues}}
+  {{#hasIssue}}
+   {{#hasLink}}
+&lt;h2&gt; {{name}} &lt;a href=&quot;{{link}}&quot;&gt;{{issue}}&lt;/a&gt; {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+   {{^hasLink}}
+&lt;h2&gt; {{name}} {{issue}} {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+  {{/hasIssue}}
+
+
+   {{#commits}}
+&lt;a href=&quot;https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}&quot;&gt;{{hash}}&lt;/a&gt; {{authorName}} &lt;i&gt;{{commitTime}}&lt;/i&gt;
+&lt;p&gt;
+&lt;h3&gt;{{{messageTitle}}}&lt;/h3&gt;
+
+{{#messageBodyItems}}
+ &lt;li&gt; {{.}}&lt;/li&gt; 
+{{/messageBodyItems}}
+&lt;/p&gt;
+
+
+  {{/commits}}
+
+ {{/issues}}
+{{/tags}}
+</showSummaryTemplateContent>
+        <showSummaryTemplateFile></showSummaryTemplateFile>
+        <showSummaryUseTemplateContent>true</showSummaryUseTemplateContent>
+        <showSummaryUseTemplateFile>false</showSummaryUseTemplateFile>
+        <subDirectory></subDirectory>
+        <timeZone>UTC</timeZone>
+        <toReference></toReference>
+        <toType>master</toType>
+        <untaggedName>Unreleased</untaggedName>
+        <useConfigFile>false</useConfigFile>
+        <useFile>true</useFile>
+        <useGitHub>false</useGitHub>
+        <useIgnoreTagsIfNameMatches>false</useIgnoreTagsIfNameMatches>
+        <useJira>false</useJira>
+        <useMediaWiki>false</useMediaWiki>
+        <useReadableTagName>false</useReadableTagName>
+        <useSubDirectory>false</useSubDirectory>
+      </config>
+    </org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder>
+    <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
+      <regexp></regexp>
+    </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
+    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.5.6">
       <configs/>
       <downstreamProjectNames>nabla-main</downstreamProjectNames>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.28">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.15">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>120</timeoutMinutes>
       </strategy>
@@ -150,7 +324,7 @@
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.7.2"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
   </buildWrappers>
   <prebuilders/>
   <postbuilders/>
