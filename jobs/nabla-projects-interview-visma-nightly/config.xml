@@ -81,14 +81,14 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.25.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-projects-interview-visma/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.tikal.hudson.plugins.notification.HudsonNotificationProperty plugin="notification@1.10">
+    <com.tikal.hudson.plugins.notification.HudsonNotificationProperty plugin="notification@1.11">
       <endpoints>
         <com.tikal.hudson.plugins.notification.Endpoint>
           <protocol>HTTP</protocol>
@@ -106,7 +106,7 @@ mvn codenarc:codenarc&#xd;
     </com.sonyericsson.rebuild.RebuildSettings>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.5">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -161,7 +161,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.triggers.TimerTrigger>
       <spec>H H(0-6) H/7 * 1-5</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.25.0">
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.26.0">
       <spec></spec>
     </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
@@ -549,7 +549,7 @@ mvn codenarc:codenarc&#xd;
       <war>gui/target/visma.war</war>
       <onFailure>false</onFailure>
     </hudson.plugins.deploy.DeployPublisher>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.4.4">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.4.5">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -664,7 +664,7 @@ mvn codenarc:codenarc&#xd;
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
       <isWarningsDeactivated>false</isWarningsDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.19">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.20">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.disk__usage.project.DiskUsagePostBuildCalculation plugin="disk-usage@0.28"/>
@@ -673,7 +673,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp>.war</regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
-    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.11">
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.12">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Site Report</reportName>
@@ -819,7 +819,7 @@ mvn codenarc:codenarc&#xd;
       <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
       <persistConstraintLog>false</persistConstraintLog>
     </hudson.plugins.performance.PerformancePublisher>
-    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.3.0">
+    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.5.0">
       <jsonReportDirectory>gui/target</jsonReportDirectory>
       <fileIncludePattern>cucumber.json</fileIncludePattern>
       <fileExcludePattern> **/classes/**</fileExcludePattern>
@@ -831,10 +831,11 @@ mvn codenarc:codenarc&#xd;
       <failedScenariosNumber>0</failedScenariosNumber>
       <failedFeaturesNumber>0</failedFeaturesNumber>
       <parallelTesting>false</parallelTesting>
+      <classifications class="empty-list"/>
     </net.masterthought.jenkins.CucumberReportPublisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.1.0">
       <execPattern>**/**-it.exec</execPattern>
-      <classPattern>**/target/classes</classPattern>
+      <classPattern>**/classes</classPattern>
       <sourcePattern>**/src/main/java</sourcePattern>
       <inclusionPattern></inclusionPattern>
       <exclusionPattern></exclusionPattern>
@@ -866,7 +867,7 @@ mvn codenarc:codenarc&#xd;
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.4">
+    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.5">
       <jobCheckPolicies>global</jobCheckPolicies>
       <jobApiToken></jobApiToken>
       <product></product>
@@ -883,12 +884,6 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
@@ -900,6 +895,12 @@ mvn codenarc:codenarc&#xd;
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
       <maxLogFileSize>10000000</maxLogFileSize>
@@ -907,7 +908,7 @@ mvn codenarc:codenarc&#xd;
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.git.GitPublisher plugin="git@3.0.1">
+    <hudson.plugins.git.GitPublisher plugin="git@3.0.5">
       <configVersion>2</configVersion>
       <pushMerge>false</pushMerge>
       <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
@@ -972,7 +973,7 @@ mvn codenarc:codenarc&#xd;
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.7"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
