@@ -303,7 +303,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
-          <reportName>HTML Report</reportName>
+          <reportName>HTML CPPCheck Report</reportName>
           <reportDir>cppcheck-reports/</reportDir>
           <reportFiles>cppcheck-result-SAMPLE.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
@@ -311,7 +311,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
-          <reportName>HTML flawfinder Report</reportName>
+          <reportName>HTML Flawfinder Report</reportName>
           <reportDir>flawfinder-reports/</reportDir>
           <reportFiles>flawfinder-result-SAMPLE.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
