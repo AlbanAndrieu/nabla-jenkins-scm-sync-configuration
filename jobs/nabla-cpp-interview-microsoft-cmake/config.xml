@@ -20,7 +20,7 @@ examines &lt;b&gt;C/C++ source code&lt;/b&gt; and reports possible &lt;b&gt;secu
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.25.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-cpp/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -33,7 +33,7 @@ examines &lt;b&gt;C/C++ source code&lt;/b&gt; and reports possible &lt;b&gt;secu
     </com.sonyericsson.rebuild.RebuildSettings>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.5">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -118,22 +118,23 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <jdk>(Inherit From Job)</jdk>
       <task></task>
     </hudson.plugins.sonar.SonarRunnerBuilder>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder plugin="dependency-check-jenkins-plugin@1.4.4">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder plugin="dependency-check-jenkins-plugin@1.4.5">
       <skipOnScmChange>true</skipOnScmChange>
       <skipOnUpstreamChange>true</skipOnUpstreamChange>
       <scanpath>sample/microsoft, sample/build-linux</scanpath>
       <outdir></outdir>
       <datadir></datadir>
       <suppressionFile></suppressionFile>
+      <hintsFile></hintsFile>
       <zipExtensions></zipExtensions>
-      <isAutoupdateDisabled>true</isAutoupdateDisabled>
+      <isAutoupdateDisabled>false</isAutoupdateDisabled>
       <isVerboseLoggingEnabled>false</isVerboseLoggingEnabled>
       <includeHtmlReports>false</includeHtmlReports>
       <useMavenArtifactsScanPath>false</useMavenArtifactsScanPath>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckBuilder>
   </builders>
   <publishers>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.4.4">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.4.5">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -283,7 +284,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         </configGraph>
       </cppcheckConfig>
     </org.jenkinsci.plugins.cppcheck.CppcheckPublisher>
-    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.11">
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.12">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>HTML DOC Report</reportName>
@@ -303,7 +304,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>HTML Report</reportName>
-          <reportDir>cppcheck-reports</reportDir>
+          <reportDir>cppcheck-reports/</reportDir>
           <reportFiles>cppcheck-result-SAMPLE.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
@@ -311,7 +312,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>HTML flawfinder Report</reportName>
-          <reportDir>flawfinder-reports</reportDir>
+          <reportDir>flawfinder-reports/</reportDir>
           <reportFiles>flawfinder-result-SAMPLE.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
@@ -353,12 +354,6 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
@@ -369,6 +364,12 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>-1</minLogFileSize>
@@ -392,7 +393,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.7"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.3">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
