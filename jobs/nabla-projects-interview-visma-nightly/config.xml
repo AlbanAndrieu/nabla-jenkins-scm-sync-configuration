@@ -833,8 +833,8 @@ mvn codenarc:codenarc&#xd;
       <parallelTesting>false</parallelTesting>
     </net.masterthought.jenkins.CucumberReportPublisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.1.0">
-      <execPattern>**/**.exec</execPattern>
-      <classPattern>**/classes</classPattern>
+      <execPattern>**/**-it.exec</execPattern>
+      <classPattern>**/target/classes</classPattern>
       <sourcePattern>**/src/main/java</sourcePattern>
       <inclusionPattern></inclusionPattern>
       <exclusionPattern></exclusionPattern>
