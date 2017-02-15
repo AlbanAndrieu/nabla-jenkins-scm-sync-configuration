@@ -670,6 +670,176 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.disk__usage.project.DiskUsagePostBuildCalculation plugin="disk-usage@0.28"/>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.3.2"/>
+    <org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder plugin="git-changelog@1.41">
+      <config>
+        <configFile>git-changelog-settings.json</configFile>
+        <createFileTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
+
+&lt;p&gt;
+Changelog of Git Changelog.
+&lt;/p&gt;
+
+{{#tags}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+ {{#issues}}
+  {{#hasIssue}}
+   {{#hasLink}}
+&lt;h2&gt; {{name}} &lt;a href=&quot;{{link}}&quot;&gt;{{issue}}&lt;/a&gt; {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+   {{^hasLink}}
+&lt;h2&gt; {{name}} {{issue}} {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+  {{/hasIssue}}
+
+
+   {{#commits}}
+&lt;a href=&quot;https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}&quot;&gt;{{hash}}&lt;/a&gt; {{authorName}} &lt;i&gt;{{commitTime}}&lt;/i&gt;
+&lt;p&gt;
+&lt;h3&gt;{{{messageTitle}}}&lt;/h3&gt;
+
+{{#messageBodyItems}}
+ &lt;li&gt; {{.}}&lt;/li&gt; 
+{{/messageBodyItems}}
+&lt;/p&gt;
+  {{/commits}}
+
+ {{/issues}}
+{{/tags}}
+</createFileTemplateContent>
+        <createFileTemplateFile></createFileTemplateFile>
+        <createFileUseTemplateContent>true</createFileUseTemplateContent>
+        <createFileUseTemplateFile>false</createFileUseTemplateFile>
+        <customIssues>
+          <org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+            <link></link>
+            <name></name>
+            <pattern></pattern>
+            <title></title>
+          </org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+          <org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+            <link></link>
+            <name></name>
+            <pattern></pattern>
+            <title></title>
+          </org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
+        </customIssues>
+        <dateFormat>YYYY-MM-dd HH:mm:ss</dateFormat>
+        <file>CHANGELOG.html</file>
+        <fromReference></fromReference>
+        <fromType>firstCommit</fromType>
+        <gitHubApi></gitHubApi>
+        <gitHubIssuePattern>#([0-9]+)</gitHubIssuePattern>
+        <gitHubToken></gitHubToken>
+        <ignoreCommitsIfMessageMatches>^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*</ignoreCommitsIfMessageMatches>
+        <ignoreCommitsWithoutIssue>false</ignoreCommitsWithoutIssue>
+        <ignoreTagsIfNameMatches></ignoreTagsIfNameMatches>
+        <jiraIssuePattern>\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b</jiraIssuePattern>
+        <jiraPassword></jiraPassword>
+        <jiraServer></jiraServer>
+        <jiraUsername></jiraUsername>
+        <mediaWikiPassword></mediaWikiPassword>
+        <mediaWikiTemplateContent>__NOTOC__
+
+= Git Changelog changelog =
+Changelog of Git Changelog.
+
+{{#tags}}
+== {{name}} ==
+ {{#issues}}
+  {{#hasIssue}}
+   {{#hasLink}}
+=== {{name}} [{{link}} {{issue}}] {{title}} ===
+   {{/hasLink}}
+   {{^hasLink}}
+=== {{name}} {{issue}} {{title}} ===
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+=== {{name}} ===
+  {{/hasIssue}}
+
+   {{#commits}}
+[https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}} {{hash}}] {{authorName}} {{commitTime}}
+
+&apos;&apos;&apos;{{{messageTitle}}}&apos;&apos;&apos;
+
+{{#messageBodyItems}}
+ * {{.}} 
+{{/messageBodyItems}}
+
+  {{/commits}}
+
+ {{/issues}}
+{{/tags}}
+</mediaWikiTemplateContent>
+        <mediaWikiTemplateFile></mediaWikiTemplateFile>
+        <mediaWikiTitle></mediaWikiTitle>
+        <mediaWikiUrl></mediaWikiUrl>
+        <mediaWikiUsername></mediaWikiUsername>
+        <mediaWikiUseTemplateContent>false</mediaWikiUseTemplateContent>
+        <mediaWikiUseTemplateFile>false</mediaWikiUseTemplateFile>
+        <noIssueName>No issue</noIssueName>
+        <readableTagName>/([^/]+?)$</readableTagName>
+        <showSummary>true</showSummary>
+        <showSummaryTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
+
+&lt;p&gt;
+Changelog of Git Changelog.
+&lt;/p&gt;
+
+{{#tags}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+ {{#issues}}
+  {{#hasIssue}}
+   {{#hasLink}}
+&lt;h2&gt; {{name}} &lt;a href=&quot;{{link}}&quot;&gt;{{issue}}&lt;/a&gt; {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+   {{^hasLink}}
+&lt;h2&gt; {{name}} {{issue}} {{title}} &lt;/h2&gt;
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+&lt;h2&gt; {{name}} &lt;/h2&gt;
+  {{/hasIssue}}
+
+
+   {{#commits}}
+&lt;a href=&quot;https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}&quot;&gt;{{hash}}&lt;/a&gt; {{authorName}} &lt;i&gt;{{commitTime}}&lt;/i&gt;
+&lt;p&gt;
+&lt;h3&gt;{{{messageTitle}}}&lt;/h3&gt;
+
+{{#messageBodyItems}}
+ &lt;li&gt; {{.}}&lt;/li&gt; 
+{{/messageBodyItems}}
+&lt;/p&gt;
+
+
+  {{/commits}}
+
+ {{/issues}}
+{{/tags}}
+</showSummaryTemplateContent>
+        <showSummaryTemplateFile></showSummaryTemplateFile>
+        <showSummaryUseTemplateContent>true</showSummaryUseTemplateContent>
+        <showSummaryUseTemplateFile>false</showSummaryUseTemplateFile>
+        <subDirectory></subDirectory>
+        <timeZone>UTC</timeZone>
+        <toReference></toReference>
+        <toType>master</toType>
+        <untaggedName>Unreleased</untaggedName>
+        <useConfigFile>false</useConfigFile>
+        <useFile>true</useFile>
+        <useGitHub>false</useGitHub>
+        <useIgnoreTagsIfNameMatches>false</useIgnoreTagsIfNameMatches>
+        <useJira>false</useJira>
+        <useMediaWiki>false</useMediaWiki>
+        <useReadableTagName>false</useReadableTagName>
+        <useSubDirectory>false</useSubDirectory>
+      </config>
+    </org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder>
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp>.war</regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
