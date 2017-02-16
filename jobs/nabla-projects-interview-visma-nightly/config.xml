@@ -1093,6 +1093,11 @@ Changelog of Git Changelog.
         </hudson.plugins.git.GitPublisher_-TagToPush>
       </tagsToPush>
     </hudson.plugins.git.GitPublisher>
+    <de.wellnerbou.jenkins.gitchangelog.publish.GitLogBasicChangelogPostPublisher plugin="git-changelog@1.41">
+      <outputfile></outputfile>
+      <toRev></toRev>
+      <fromRev>master</fromRev>
+    </de.wellnerbou.jenkins.gitchangelog.publish.GitLogBasicChangelogPostPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.32">
       <patterns>
