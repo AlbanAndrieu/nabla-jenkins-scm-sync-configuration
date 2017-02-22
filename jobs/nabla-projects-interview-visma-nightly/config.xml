@@ -728,8 +728,8 @@ Changelog of Git Changelog.
         </customIssues>
         <dateFormat>YYYY-MM-dd HH:mm:ss</dateFormat>
         <file>CHANGELOG.html</file>
-        <fromReference></fromReference>
-        <fromType>firstCommit</fromType>
+        <fromReference>refs/tags/v1.0.0</fromReference>
+        <fromType>commit</fromType>
         <gitHubApi></gitHubApi>
         <gitHubIssuePattern>#([0-9]+)</gitHubIssuePattern>
         <gitHubToken></gitHubToken>
@@ -827,8 +827,8 @@ Changelog of Git Changelog.
         <showSummaryUseTemplateFile>false</showSummaryUseTemplateFile>
         <subDirectory></subDirectory>
         <timeZone>UTC</timeZone>
-        <toReference></toReference>
-        <toType>master</toType>
+        <toReference>refs/tags/LATEST_SUCCESSFULL</toReference>
+        <toType>commit</toType>
         <untaggedName>Unreleased</untaggedName>
         <useConfigFile>false</useConfigFile>
         <useFile>true</useFile>
