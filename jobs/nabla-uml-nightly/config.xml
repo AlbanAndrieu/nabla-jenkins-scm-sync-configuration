@@ -475,7 +475,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <screen>1024x768x24</screen>
       <debug>false</debug>
       <timeout>10</timeout>
-      <displayNameOffset>0</displayNameOffset>
+      <displayNameOffset>22</displayNameOffset>
       <additionalOptions>-extension RANDR -nolisten tcp -extension GLX </additionalOptions>
       <shutdownWithBuild>true</shutdownWithBuild>
       <autoDisplayName>false</autoDisplayName>
