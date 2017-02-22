@@ -1086,7 +1086,7 @@ Changelog of Git Changelog.
       <tagsToPush>
         <hudson.plugins.git.GitPublisher_-TagToPush>
           <targetRepoName>origin</targetRepoName>
-          <tagName>LATEST_SUCCESSFULL-${GIT_BRANCH}</tagName>
+          <tagName>LATEST_SUCCESSFULL</tagName>
           <tagMessage></tagMessage>
           <createTag>true</createTag>
           <updateTag>true</updateTag>
@@ -1298,16 +1298,16 @@ GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
 java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.log export target/gc.png || true
 
 
-TAG=LATEST_SUCCESSFULL
-cd $WORKSPACE
-DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
-eval $DOESTAGEXISTCMD
-if [ $? -eq 0 ]; then
-	git tag -d $TAG
-	git push origin :$TAG
-fi
-git tag $TAG
-git push origin $TAG
+#TAG=LATEST_SUCCESSFULL
+#cd $WORKSPACE
+#DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
+#eval $DOESTAGEXISTCMD
+#if [ $? -eq 0 ]; then
+#	git tag -d $TAG
+#	git push origin :$TAG
+#fi
+#git tag $TAG
+#git push origin $TAG
 
 
 </command>
