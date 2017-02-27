@@ -1291,12 +1291,14 @@ fi
 git tag $TAG
 git push origin $TAG
 
-git.latest.revision=$(git rev-parse --short $TAG)
-echo &quot;git.latest.revision= ${git.latest.revision}&quot;
+git fetch --tags
+
+GIT_LATEST_SUCCESSFUL_COMMIT=$(git rev-parse --short $TAG)
+echo &quot;GIT_LATEST_SUCCESSFUL_COMMIT= ${GIT_LATEST_SUCCESSFUL_COMMIT}&quot;
 
 #make version file
 FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
-echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${git.latest.revision}&quot; &gt; $FILENAME
+echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_LATEST_SUCCESSFUL_COMMIT}&quot; &gt; $FILENAME
 </command>
     </hudson.tasks.Shell>
     <fr.novia.zaproxyplugin.ZAProxyBuilder plugin="zaproxy@1.2.1">
