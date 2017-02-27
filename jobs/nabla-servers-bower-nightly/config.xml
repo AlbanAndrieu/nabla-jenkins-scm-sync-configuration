@@ -701,6 +701,12 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
@@ -711,12 +717,6 @@ mvn codenarc:codenarc&#xd;
           <ordinal>2</ordinal>
           <color>RED</color>
           <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -797,7 +797,7 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
       <selectScmCredentials>false</selectScmCredentials>
       <numberOfReleaseBuildsToKeep>1</numberOfReleaseBuildsToKeep>
     </org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper>
-    <jenkins.plugins.nodejs.NodeJSBuildWrapper plugin="nodejs@1.1.1">
+    <jenkins.plugins.nodejs.NodeJSBuildWrapper plugin="nodejs@1.1.0">
       <nodeJSInstallationName>NodeJs</nodeJSInstallationName>
     </jenkins.plugins.nodejs.NodeJSBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
@@ -849,7 +849,8 @@ fi
 git tag $TAG
 git push origin $TAG
 
-echo &quot;git.latest.revision=$(git rev-parse --short $TAG)&quot;
+git.latest.revision=$(git rev-parse --short $TAG)
+echo &quot;git.latest.revision= ${git.latest.revision}&quot;
 
 #make version file
 FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
