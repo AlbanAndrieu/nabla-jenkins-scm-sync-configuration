@@ -989,7 +989,7 @@ Changelog of Git Changelog.
       <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
       <persistConstraintLog>false</persistConstraintLog>
     </hudson.plugins.performance.PerformancePublisher>
-    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.5.1">
+    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.5.0">
       <jsonReportDirectory>gui/target</jsonReportDirectory>
       <fileIncludePattern>cucumber.json</fileIncludePattern>
       <fileExcludePattern> **/classes/**</fileExcludePattern>
@@ -1054,12 +1054,6 @@ Changelog of Git Changelog.
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
@@ -1069,6 +1063,12 @@ Changelog of Git Changelog.
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -1291,7 +1291,8 @@ fi
 git tag $TAG
 git push origin $TAG
 
-echo &quot;git.latest.revision=$(git rev-parse --short $TAG)&quot;
+git.latest.revision=$(git rev-parse --short $TAG)
+echo &quot;git.latest.revision= ${git.latest.revision}&quot;
 
 #make version file
 FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
