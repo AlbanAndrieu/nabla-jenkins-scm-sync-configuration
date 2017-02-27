@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.14">
+<maven2-moduleset plugin="maven-plugin@2.15.1">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Visma&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -989,7 +989,7 @@ Changelog of Git Changelog.
       <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
       <persistConstraintLog>false</persistConstraintLog>
     </hudson.plugins.performance.PerformancePublisher>
-    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.5.0">
+    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.5.1">
       <jsonReportDirectory>gui/target</jsonReportDirectory>
       <fileIncludePattern>cucumber.json</fileIncludePattern>
       <fileExcludePattern> **/classes/**</fileExcludePattern>
@@ -1078,21 +1078,6 @@ Changelog of Git Changelog.
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.git.GitPublisher plugin="git@3.0.5">
-      <configVersion>2</configVersion>
-      <pushMerge>false</pushMerge>
-      <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
-      <forcePush>true</forcePush>
-      <tagsToPush>
-        <hudson.plugins.git.GitPublisher_-TagToPush>
-          <targetRepoName>origin</targetRepoName>
-          <tagName>LATEST_SUCCESSFULL</tagName>
-          <tagMessage></tagMessage>
-          <createTag>true</createTag>
-          <updateTag>true</updateTag>
-        </hudson.plugins.git.GitPublisher_-TagToPush>
-      </tagsToPush>
-    </hudson.plugins.git.GitPublisher>
     <de.wellnerbou.jenkins.gitchangelog.publish.GitLogBasicChangelogPostPublisher plugin="git-changelog@1.41">
       <outputfile></outputfile>
       <toRev></toRev>
@@ -1284,9 +1269,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <command>#!/bin/bash
 set -xv
 
-#echo &quot;VISMA #$BUILD_NUMBER-sha1:${GIT_COMMIT:0:6}&quot; &gt; VISMA_VERSION.txt
 echo $&apos;\u2192&apos;
-echo &quot;VISMA #$BUILD_NUMBER-sha1:${GIT_COMMIT:0:6}&quot;
 
 GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
 #See https://github.com/chewiebug/GCViewer
@@ -1297,19 +1280,22 @@ GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
 #fi
 java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.log export target/gc.png || true
 
+TAG=LATEST_SUCCESSFULL
+cd $WORKSPACE
+DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
+eval $DOESTAGEXISTCMD
+if [ $? -eq 0 ]; then
+	git tag -d $TAG
+	git push origin :$TAG
+fi
+git tag $TAG
+git push origin $TAG
 
-#TAG=LATEST_SUCCESSFULL
-#cd $WORKSPACE
-#DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
-#eval $DOESTAGEXISTCMD
-#if [ $? -eq 0 ]; then
-#	git tag -d $TAG
-#	git push origin :$TAG
-#fi
-#git tag $TAG
-#git push origin $TAG
+echo &quot;git.latest.revision=$(git rev-parse --short $TAG)&quot;
 
-
+#make version file
+FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
+echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${git.latest.revision}&quot; &gt; $FILENAME
 </command>
     </hudson.tasks.Shell>
     <fr.novia.zaproxyplugin.ZAProxyBuilder plugin="zaproxy@1.2.1">
