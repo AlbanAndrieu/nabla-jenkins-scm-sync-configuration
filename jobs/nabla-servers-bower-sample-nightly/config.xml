@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.14">
+<maven2-moduleset plugin="maven-plugin@2.15.1">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Bower sample&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -856,10 +856,10 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -868,10 +868,10 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -1048,10 +1048,6 @@ fi
 
 #./zap.sh -port $ZAP_PORT -daemon
 
-#make version file
-FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
-echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_COMMIT:0:6}&quot; &gt; $FILENAME
-
 echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch
 </command>
     </hudson.tasks.Shell>
@@ -1108,7 +1104,13 @@ if [ $? -eq 0 ]; then
 fi
 git tag $TAG
 git push origin $TAG
-</command>
+
+git.latest.revision=$(git rev-parse --short $TAG)
+echo &quot;git.latest.revision= ${git.latest.revision}&quot;
+
+#make version file
+FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
+echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${git.latest.revision}&quot; &gt; $FILENAME</command>
     </hudson.tasks.Shell>
     <fr.novia.zaproxyplugin.ZAProxyBuilder plugin="zaproxy@1.2.1">
       <startZAPFirst>true</startZAPFirst>
