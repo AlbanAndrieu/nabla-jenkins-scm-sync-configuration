@@ -839,6 +839,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
   <postbuilders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash -xv
+TAG=LATEST_SUCCESSFULL
 cd $WORKSPACE
 DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
 eval $DOESTAGEXISTCMD
