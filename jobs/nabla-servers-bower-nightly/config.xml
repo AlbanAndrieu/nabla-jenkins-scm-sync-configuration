@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.13">
+<maven2-moduleset plugin="maven-plugin@2.15.1">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Bower&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -81,20 +81,20 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.2">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-servers-bower/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.tikal.hudson.plugins.notification.HudsonNotificationProperty plugin="notification@1.10">
+    <com.tikal.hudson.plugins.notification.HudsonNotificationProperty plugin="notification@1.11">
       <endpoints>
         <com.tikal.hudson.plugins.notification.Endpoint>
           <protocol>HTTP</protocol>
@@ -112,7 +112,7 @@ mvn codenarc:codenarc&#xd;
     </com.sonyericsson.rebuild.RebuildSettings>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.2">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.5">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -179,14 +179,14 @@ mvn codenarc:codenarc&#xd;
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters>
-    <hudson.plugins.checkstyle.CheckStyleReporter plugin="checkstyle@3.46">
+    <hudson.plugins.checkstyle.CheckStyleReporter plugin="checkstyle@3.47">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[CHECKSTYLE] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -208,14 +208,14 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.checkstyle.CheckStyleReporter>
-    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.65">
+    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.69">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[FINDBUGS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -240,14 +240,14 @@ mvn codenarc:codenarc&#xd;
       <excludePattern></excludePattern>
       <includePattern></includePattern>
     </hudson.plugins.findbugs.FindBugsReporter>
-    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.45">
+    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.46">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[PMD] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -269,14 +269,14 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.pmd.PmdReporter>
-    <hudson.plugins.dry.DryReporter plugin="dry@2.45">
+    <hudson.plugins.dry.DryReporter plugin="dry@2.46">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[DRY] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -300,14 +300,14 @@ mvn codenarc:codenarc&#xd;
       <highThreshold>50</highThreshold>
       <normalThreshold>25</normalThreshold>
     </hudson.plugins.dry.DryReporter>
-    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.49">
+    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.50">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[TASKS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -523,7 +523,7 @@ mvn codenarc:codenarc&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.4.0">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@1.4.5">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -533,7 +533,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -556,7 +556,7 @@ mvn codenarc:codenarc&#xd;
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern> **/target/**/dependency-check-report.xml</pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.56">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.59">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -566,7 +566,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -603,7 +603,7 @@ mvn codenarc:codenarc&#xd;
         </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
-    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.48">
+    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.50">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -613,7 +613,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.82">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -649,7 +649,7 @@ mvn codenarc:codenarc&#xd;
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.15">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.20">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
@@ -659,11 +659,11 @@ mvn codenarc:codenarc&#xd;
       <uniqueVersion>true</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
-    <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.1"/>
+    <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.3.2"/>
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp>.war</regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.14">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@2.0">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>50</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -685,6 +685,10 @@ mvn codenarc:codenarc&#xd;
         </hudson.plugins.performance.JUnitParser>
       </parsers>
       <modeThroughput>false</modeThroughput>
+      <modeEvaluation>false</modeEvaluation>
+      <ignoreFailedBuilds>false</ignoreFailedBuilds>
+      <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
+      <persistConstraintLog>false</persistConstraintLog>
     </hudson.plugins.performance.PerformancePublisher>
     <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
       <analyzer>Cobertura</analyzer>
@@ -697,6 +701,12 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
           <color>RED</color>
@@ -708,12 +718,6 @@ mvn codenarc:codenarc&#xd;
           <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
-        <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
       <maxLogFileSize>10000000</maxLogFileSize>
@@ -721,27 +725,13 @@ mvn codenarc:codenarc&#xd;
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.git.GitPublisher plugin="git@2.5.2">
-      <configVersion>2</configVersion>
-      <pushMerge>false</pushMerge>
-      <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
-      <forcePush>true</forcePush>
-      <tagsToPush>
-        <hudson.plugins.git.GitPublisher_-TagToPush>
-          <targetRepoName>origin</targetRepoName>
-          <tagName>LATEST_SUCCESSFULL-${GIT_BRANCH}</tagName>
-          <tagMessage></tagMessage>
-          <createTag>true</createTag>
-          <updateTag>true</updateTag>
-        </hudson.plugins.git.GitPublisher_-TagToPush>
-      </tagsToPush>
-    </hudson.plugins.git.GitPublisher>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.5.3.1">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.5.6">
       <configs/>
       <downstreamProjectNames>nabla-servers-bower-sample-nightly</downstreamProjectNames>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
-    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.8"/>
-    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
+    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.32">
+      <patterns class="empty-list"/>
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
       <cleanWhenSuccess>true</cleanWhenSuccess>
@@ -755,12 +745,12 @@ mvn codenarc:codenarc&#xd;
     </hudson.plugins.ws__cleanup.WsCleanup>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.29">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.17">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>600</timeoutMinutes>
       </strategy>
@@ -768,7 +758,7 @@ mvn codenarc:codenarc&#xd;
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.4"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
@@ -785,10 +775,10 @@ mvn codenarc:codenarc&#xd;
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.3">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
+    <EnvInjectBuildWrapper plugin="envinject@1.93.1">
       <info>
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
@@ -807,9 +797,9 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
       <selectScmCredentials>false</selectScmCredentials>
       <numberOfReleaseBuildsToKeep>1</numberOfReleaseBuildsToKeep>
     </org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper>
-    <jenkins.plugins.nodejs.tools.NpmPackagesBuildWrapper plugin="nodejs@0.2.1">
+    <jenkins.plugins.nodejs.NodeJSBuildWrapper plugin="nodejs@1.1.1">
       <nodeJSInstallationName>NodeJs</nodeJSInstallationName>
-    </jenkins.plugins.nodejs.tools.NpmPackagesBuildWrapper>
+    </jenkins.plugins.nodejs.NodeJSBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
       <template>#${ENV,var=&quot;git.branch&quot;} (${ENV,var=&quot;git.revision&quot;}, build #${BUILD_NUMBER})</template>
       <runAtStart>true</runAtStart>
@@ -832,7 +822,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}
 
 echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@1.92.1">
+    <EnvInjectBuilder plugin="envinject@1.93.1">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
@@ -843,13 +833,12 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash -xv
-#TAG=${project.artifactId}-${project.version}1.5.2.0_${cut_number}
-TAG=LATEST_SUCCESSFULL
 cd $WORKSPACE
 DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
 eval $DOESTAGEXISTCMD
@@ -859,6 +848,12 @@ if [ $? -eq 0 ]; then
 fi
 git tag $TAG
 git push origin $TAG
+
+echo &quot;git.latest.revision=$(git rev-parse --short $TAG)&quot;
+
+#make version file
+FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
+echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${git.latest.revision}&quot; &gt; $FILENAME
 
 #node --version
 ./node/node --version
