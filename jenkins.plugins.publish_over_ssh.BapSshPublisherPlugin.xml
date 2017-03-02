@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin_-Descriptor plugin="publish-over-ssh@1.11">
+<jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin_-Descriptor plugin="publish-over-ssh@1.17">
   <hostConfigurations/>
   <commonConfig>
     <secretPassphrase>/B+DhAIyOB5aAKY0KezMAQ==</secretPassphrase>
