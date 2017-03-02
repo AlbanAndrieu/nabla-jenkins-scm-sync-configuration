@@ -65,7 +65,7 @@
 #./env/scripts/jenkins/nabla-security-monitor-docker-admin.sh</command>
     </hudson.tasks.Shell>
     <org.jvnet.hudson.plugins.SSHBuilder plugin="ssh@2.4">
-      <siteName></siteName>
+      <siteName>albandri@albandri:22</siteName>
       <command>#!/bin/bash
 
 echo ########### Check Docker images tree #######
