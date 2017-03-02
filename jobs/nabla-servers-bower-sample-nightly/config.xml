@@ -844,7 +844,7 @@ mvn codenarc:codenarc&#xd;
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
+      <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar, *_VERSION.TXT</artifacts>
       <allowEmptyArchive>true</allowEmptyArchive>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
