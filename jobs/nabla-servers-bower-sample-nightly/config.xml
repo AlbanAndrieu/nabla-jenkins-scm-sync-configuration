@@ -740,7 +740,7 @@ mvn codenarc:codenarc&#xd;
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>ZaProxy Report</reportName>
           <reportDir>build/reports/zaproxy/</reportDir>
-          <reportFiles>report.html</reportFiles>
+          <reportFiles>JENKINS_ZAP_VULNERABILITY_REPORT-${BUILD_ID}.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
@@ -1152,7 +1152,7 @@ echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_LATEST_SUCCESSFUL_COMMIT}&
         <chosenFormats>
           <string>html</string>
         </chosenFormats>
-        <filenameReports>build/reports/zaproxy/report</filenameReports>
+        <filenameReports>build/reports/zaproxy/JENKINS_ZAP_VULNERABILITY_REPORT-${BUILD_ID}</filenameReports>
         <saveSession>false</saveSession>
         <filenameSaveSession></filenameSaveSession>
         <zapDefaultDir></zapDefaultDir>
