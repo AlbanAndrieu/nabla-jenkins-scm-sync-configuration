@@ -992,7 +992,7 @@ Changelog of Git Changelog.
     <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.5.0">
       <jsonReportDirectory>gui/target</jsonReportDirectory>
       <fileIncludePattern>cucumber.json</fileIncludePattern>
-      <fileExcludePattern> **/classes/**</fileExcludePattern>
+      <fileExcludePattern>**/classes/**</fileExcludePattern>
       <trendsLimit>0</trendsLimit>
       <failedStepsNumber>0</failedStepsNumber>
       <skippedStepsNumber>0</skippedStepsNumber>
