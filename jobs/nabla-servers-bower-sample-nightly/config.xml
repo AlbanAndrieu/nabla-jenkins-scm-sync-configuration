@@ -1095,7 +1095,7 @@ GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
 java -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.log export target/gc.png
 
 TAG=LATEST_SUCCESSFULL
-cd $WORKSPACE/cmr/
+cd $WORKSPACE/
 DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
 eval $DOESTAGEXISTCMD
 if [ $? -eq 0 ]; then
