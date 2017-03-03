@@ -838,7 +838,8 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Shell>
-      <command>#!/bin/bash -xv
+      <command>#!/bin/bash
+#set -xv
 TAG=LATEST_SUCCESSFULL
 cd $WORKSPACE/
 DOESTAGEXISTCMD=&quot;git tag -l | grep $TAG&quot;
@@ -853,7 +854,7 @@ git push origin $TAG --force
 #git fetch --prune origin +refs/tags/*:refs/tags/
 git fetch --tags
 
-git show $TAG
+#git show $TAG
 
 GIT_LATEST_SUCCESSFUL_COMMIT=$(git rev-parse --short $TAG)
 echo &quot;GIT_LATEST_SUCCESSFUL_COMMIT= ${GIT_LATEST_SUCCESSFUL_COMMIT}&quot;
