@@ -81,7 +81,7 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-projects-interview-visma/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -161,7 +161,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.triggers.TimerTrigger>
       <spec>H H(0-6) H/7 * 1-5</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.26.0">
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.26.1">
       <spec></spec>
     </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
@@ -582,7 +582,7 @@ mvn codenarc:codenarc&#xd;
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern>gui/target/dependency-check-report.xml</pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.59">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.60">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -828,7 +828,7 @@ Changelog of Git Changelog.
         <subDirectory></subDirectory>
         <timeZone>UTC</timeZone>
         <toReference>refs/tags/LATEST_SUCCESSFULL</toReference>
-        <toType>commit</toType>
+        <toType>master</toType>
         <untaggedName>Unreleased</untaggedName>
         <useConfigFile>false</useConfigFile>
         <useFile>true</useFile>
@@ -1037,8 +1037,9 @@ Changelog of Git Changelog.
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.5">
+    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@1.7.7">
       <jobCheckPolicies>global</jobCheckPolicies>
+      <jobForceUpdate>global</jobForceUpdate>
       <jobApiToken></jobApiToken>
       <product></product>
       <productVersion></productVersion>
@@ -1338,7 +1339,7 @@ echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_LATEST_SUCCESSFUL_COMMIT}&
         <scanURL>true</scanURL>
         <saveReports>true</saveReports>
         <chosenFormats>
-          <string>html</string>
+          <string>xml</string>
         </chosenFormats>
         <filenameReports>build/reports/zaproxy/report</filenameReports>
         <saveSession>false</saveSession>
