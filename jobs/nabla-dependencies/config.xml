@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.14">
+<maven2-moduleset plugin="maven-plugin@2.15.1">
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
@@ -21,7 +21,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -107,6 +107,12 @@
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
           <color>RED</color>
@@ -116,12 +122,6 @@
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -189,8 +189,8 @@ Changelog of Git Changelog.
         </customIssues>
         <dateFormat>YYYY-MM-dd HH:mm:ss</dateFormat>
         <file>CHANGELOG.html</file>
-        <fromReference></fromReference>
-        <fromType>firstCommit</fromType>
+        <fromReference>refs/tags/v1.0.0</fromReference>
+        <fromType>commit</fromType>
         <gitHubApi></gitHubApi>
         <gitHubIssuePattern>#([0-9]+)</gitHubIssuePattern>
         <gitHubToken></gitHubToken>
