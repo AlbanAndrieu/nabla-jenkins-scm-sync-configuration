@@ -87,7 +87,7 @@ mvn codenarc:codenarc&#xd;
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-servers-bower-sample/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -552,7 +552,7 @@ mvn codenarc:codenarc&#xd;
       <war>target/test.war</war>
       <onFailure>false</onFailure>
     </hudson.plugins.deploy.DeployPublisher>
-    <org.tap4j.plugin.TapPublisher plugin="tap@2.0.1">
+    <org.tap4j.plugin.TapPublisher plugin="tap@2.1">
       <testResults>target/yslow*.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
       <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
@@ -602,7 +602,7 @@ mvn codenarc:codenarc&#xd;
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern> **/target/**/dependency-check-report.xml</pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.59">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.60">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -862,16 +862,16 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
           <color>RED</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -977,9 +977,6 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
       <selectScmCredentials>false</selectScmCredentials>
       <numberOfReleaseBuildsToKeep>1</numberOfReleaseBuildsToKeep>
     </org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper>
-    <jenkins.plugins.nodejs.NodeJSBuildWrapper plugin="nodejs@1.1.0">
-      <nodeJSInstallationName>NodeJs</nodeJSInstallationName>
-    </jenkins.plugins.nodejs.NodeJSBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
       <template>#${ENV,var=&quot;git.branch&quot;} (${ENV,var=&quot;git.revision&quot;}, build #${BUILD_NUMBER})</template>
       <runAtStart>true</runAtStart>
@@ -1152,6 +1149,7 @@ echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_LATEST_SUCCESSFUL_COMMIT}&
         <scanURL>false</scanURL>
         <saveReports>true</saveReports>
         <chosenFormats>
+          <string>xml</string>
           <string>html</string>
         </chosenFormats>
         <filenameReports>build/reports/zaproxy/JENKINS_ZAP_VULNERABILITY_REPORT-${BUILD_ID}</filenameReports>
