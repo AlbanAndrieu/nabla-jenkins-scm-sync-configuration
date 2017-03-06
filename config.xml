@@ -175,7 +175,7 @@
           <instanceCap>1</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>10</idleMinutes>
+            <idleMinutes>0</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -220,7 +220,7 @@
           <instanceCap>2</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>10</idleMinutes>
+            <idleMinutes>0</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -574,7 +574,7 @@
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.59">
+        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.60">
           <id>dashboard_portlet_27756</id>
           <name>Compiler warnings trend graph (totals)</name>
           <width>500</width>
