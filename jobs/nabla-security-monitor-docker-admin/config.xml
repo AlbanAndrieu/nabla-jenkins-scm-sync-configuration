@@ -13,7 +13,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -72,13 +72,13 @@ echo ########### Check Docker images tree #######
 
 #See https://github.com/justone/dockviz
 alias dockviz=&quot;sudo docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz&quot;
-sudo docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t
-sudo docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz containers -d | dot -Tpng -o containers.png
-sudo docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images --dot --only-labelled | dot -Tpng -o images.png
+sudo -t docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t
+sudo -t docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz containers -d | dot -Tpng -o containers.png
+sudo -t docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images --dot --only-labelled | dot -Tpng -o images.png
 
 echo ########### Check Docker security #######
 
-sudo docker run -it --net host --pid host --cap-add audit_control \
+sudo -t docker run -it --net host --pid host --cap-add audit_control \
     -v /var/lib:/var/lib \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /usr/lib/systemd:/usr/lib/systemd \
