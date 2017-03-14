@@ -67,6 +67,7 @@
     <org.jvnet.hudson.plugins.SSHBuilder plugin="ssh@2.4">
       <siteName>albandri@albandri:22</siteName>
       <command>#!/bin/bash
+set -xv
 
 echo ########### Check Docker images tree #######
 
