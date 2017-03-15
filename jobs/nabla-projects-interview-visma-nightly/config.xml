@@ -729,7 +729,7 @@ Changelog of Git Changelog.
         <dateFormat>YYYY-MM-dd HH:mm:ss</dateFormat>
         <file>CHANGELOG.html</file>
         <fromReference>refs/tags/v1.0.0</fromReference>
-        <fromType>ref</fromType>
+        <fromType>commit</fromType>
         <gitHubApi></gitHubApi>
         <gitHubIssuePattern>#([0-9]+)</gitHubIssuePattern>
         <gitHubToken></gitHubToken>
