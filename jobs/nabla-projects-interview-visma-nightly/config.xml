@@ -1295,7 +1295,7 @@ git push origin $TAG --force
 #git fetch --prune origin +refs/tags/*:refs/tags/
 git fetch --tags
 
-git show $TAG
+#git show $TAG
 
 GIT_LATEST_SUCCESSFUL_COMMIT=$(git rev-parse --short $TAG)
 echo &quot;GIT_LATEST_SUCCESSFUL_COMMIT= ${GIT_LATEST_SUCCESSFUL_COMMIT}&quot;
