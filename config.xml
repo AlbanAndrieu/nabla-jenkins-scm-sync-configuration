@@ -160,7 +160,7 @@
           <configVersion>2</configVersion>
           <labelString>jenkins-test</labelString>
           <launcher class="com.nirima.jenkins.plugins.docker.launcher.DockerComputerSSHLauncher">
-            <sshConnector plugin="ssh-slaves@1.13">
+            <sshConnector plugin="ssh-slaves@1.16">
               <port>22</port>
               <credentialsId>f6696ac6-b493-4fe8-a268-b2e56f0c1b5b</credentialsId>
               <jvmOptions></jvmOptions>
@@ -205,7 +205,7 @@
           <configVersion>2</configVersion>
           <labelString>jenkins</labelString>
           <launcher class="com.nirima.jenkins.plugins.docker.launcher.DockerComputerSSHLauncher">
-            <sshConnector plugin="ssh-slaves@1.13">
+            <sshConnector plugin="ssh-slaves@1.16">
               <port>22</port>
               <credentialsId>f6696ac6-b493-4fe8-a268-b2e56f0c1b5b</credentialsId>
               <jvmOptions></jvmOptions>
