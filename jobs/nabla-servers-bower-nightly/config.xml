@@ -807,6 +807,7 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
     <hudson.tasks.Shell>
       <command>git clean -fdx
 git --version
+svn --version
 echo NODE_PATH: ${NODE_PATH}
 echo PATH: ${PATH}
 node --version
