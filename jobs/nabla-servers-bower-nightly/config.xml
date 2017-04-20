@@ -809,8 +809,7 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
 git --version
 echo NODE_PATH: ${NODE_PATH}
 echo PATH: ${PATH}
-#node --version
-node -v
+node --version
 npm --version
 echo BUILD_NUMBER: ${BUILD_NUMBER}
 #export BUILD_NUMBER=185
