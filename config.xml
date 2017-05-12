@@ -160,7 +160,7 @@
           <configVersion>2</configVersion>
           <labelString>jenkins-test</labelString>
           <launcher class="com.nirima.jenkins.plugins.docker.launcher.DockerComputerSSHLauncher">
-            <sshConnector plugin="ssh-slaves@1.16">
+            <sshConnector plugin="ssh-slaves@1.17">
               <port>22</port>
               <credentialsId>f6696ac6-b493-4fe8-a268-b2e56f0c1b5b</credentialsId>
               <jvmOptions></jvmOptions>
@@ -205,7 +205,7 @@
           <configVersion>2</configVersion>
           <labelString>jenkins</labelString>
           <launcher class="com.nirima.jenkins.plugins.docker.launcher.DockerComputerSSHLauncher">
-            <sshConnector plugin="ssh-slaves@1.16">
+            <sshConnector plugin="ssh-slaves@1.17">
               <port>22</port>
               <credentialsId>f6696ac6-b493-4fe8-a268-b2e56f0c1b5b</credentialsId>
               <jvmOptions></jvmOptions>
@@ -567,14 +567,14 @@
         </hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet>
       </leftPortlets>
       <rightPortlets>
-        <hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet plugin="checkstyle@3.47">
+        <hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet plugin="checkstyle@3.48">
           <id>dashboard_portlet_1233</id>
           <name>Checkstyle warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.60">
+        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.62">
           <id>dashboard_portlet_27756</id>
           <name>Compiler warnings trend graph (totals)</name>
           <width>500</width>
@@ -584,28 +584,28 @@
             <parserName>AcuCobol Compiler</parserName>
           </actionSelector>
         </hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@2.46">
+        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@2.47">
           <id>dashboard_portlet_19073</id>
           <name>Duplicate code trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet plugin="findbugs@4.69">
+        <hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet plugin="findbugs@4.70">
           <id>dashboard_portlet_4305</id>
           <name>FindBugs warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet plugin="tasks@4.50">
+        <hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet plugin="tasks@4.51">
           <id>dashboard_portlet_8924</id>
           <name>Open tasks trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet plugin="pmd@3.46">
+        <hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet plugin="pmd@3.47">
           <id>dashboard_portlet_6428</id>
           <name>PMD warnings trend graph (totals)</name>
           <width>500</width>
