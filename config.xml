@@ -10,82 +10,81 @@
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:admin</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:anonymous</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:admin</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:anonymous</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:admin</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:anonymous</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:anonymous</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:admin</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:anonymous</permission>
     <permission>hudson.model.Computer.Build:admin</permission>
     <permission>hudson.model.Computer.Build:albandri</permission>
     <permission>hudson.model.Computer.Build:anonymous</permission>
     <permission>hudson.model.Computer.Configure:albandri</permission>
-    <permission>hudson.model.Computer.Configure:anonymous</permission>
     <permission>hudson.model.Computer.Connect:admin</permission>
     <permission>hudson.model.Computer.Connect:albandri</permission>
     <permission>hudson.model.Computer.Connect:anonymous</permission>
     <permission>hudson.model.Computer.Create:albandri</permission>
-    <permission>hudson.model.Computer.Create:anonymous</permission>
     <permission>hudson.model.Computer.Delete:albandri</permission>
-    <permission>hudson.model.Computer.Delete:anonymous</permission>
     <permission>hudson.model.Computer.Disconnect:admin</permission>
     <permission>hudson.model.Computer.Disconnect:albandri</permission>
     <permission>hudson.model.Computer.Disconnect:anonymous</permission>
+    <permission>hudson.model.Computer.Provision:admin</permission>
+    <permission>hudson.model.Computer.Provision:albandri</permission>
+    <permission>hudson.model.Hudson.Administer:admin</permission>
     <permission>hudson.model.Hudson.Administer:albandri</permission>
-    <permission>hudson.model.Hudson.Administer:anonymous</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:admin</permission>
     <permission>hudson.model.Hudson.ConfigureUpdateCenter:albandri</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:anonymous</permission>
     <permission>hudson.model.Hudson.Read:admin</permission>
     <permission>hudson.model.Hudson.Read:albandri</permission>
     <permission>hudson.model.Hudson.Read:anonymous</permission>
     <permission>hudson.model.Hudson.RunScripts:admin</permission>
     <permission>hudson.model.Hudson.RunScripts:albandri</permission>
-    <permission>hudson.model.Hudson.RunScripts:anonymous</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:admin</permission>
     <permission>hudson.model.Hudson.UploadPlugins:albandri</permission>
-    <permission>hudson.model.Hudson.UploadPlugins:anonymous</permission>
     <permission>hudson.model.Item.Build:admin</permission>
     <permission>hudson.model.Item.Build:albandri</permission>
     <permission>hudson.model.Item.Build:anonymous</permission>
     <permission>hudson.model.Item.Cancel:admin</permission>
     <permission>hudson.model.Item.Cancel:albandri</permission>
     <permission>hudson.model.Item.Cancel:anonymous</permission>
+    <permission>hudson.model.Item.Configure:admin</permission>
     <permission>hudson.model.Item.Configure:albandri</permission>
-    <permission>hudson.model.Item.Configure:anonymous</permission>
+    <permission>hudson.model.Item.Create:admin</permission>
     <permission>hudson.model.Item.Create:albandri</permission>
-    <permission>hudson.model.Item.Create:anonymous</permission>
+    <permission>hudson.model.Item.Delete:admin</permission>
     <permission>hudson.model.Item.Delete:albandri</permission>
-    <permission>hudson.model.Item.Delete:anonymous</permission>
     <permission>hudson.model.Item.Discover:admin</permission>
     <permission>hudson.model.Item.Discover:albandri</permission>
     <permission>hudson.model.Item.Discover:anonymous</permission>
+    <permission>hudson.model.Item.Move:admin</permission>
     <permission>hudson.model.Item.Move:albandri</permission>
-    <permission>hudson.model.Item.Move:anonymous</permission>
     <permission>hudson.model.Item.Read:admin</permission>
     <permission>hudson.model.Item.Read:albandri</permission>
     <permission>hudson.model.Item.Read:anonymous</permission>
     <permission>hudson.model.Item.Release:admin</permission>
     <permission>hudson.model.Item.Release:albandri</permission>
-    <permission>hudson.model.Item.Release:anonymous</permission>
     <permission>hudson.model.Item.ViewStatus:admin</permission>
     <permission>hudson.model.Item.ViewStatus:albandri</permission>
     <permission>hudson.model.Item.ViewStatus:anonymous</permission>
     <permission>hudson.model.Item.Workspace:admin</permission>
     <permission>hudson.model.Item.Workspace:albandri</permission>
     <permission>hudson.model.Item.Workspace:anonymous</permission>
+    <permission>hudson.model.Run.Delete:admin</permission>
     <permission>hudson.model.Run.Delete:albandri</permission>
-    <permission>hudson.model.Run.Delete:anonymous</permission>
+    <permission>hudson.model.Run.Replay:admin</permission>
     <permission>hudson.model.Run.Replay:albandri</permission>
     <permission>hudson.model.Run.Replay:anonymous</permission>
     <permission>hudson.model.Run.Update:admin</permission>
     <permission>hudson.model.Run.Update:albandri</permission>
     <permission>hudson.model.Run.Update:anonymous</permission>
+    <permission>hudson.model.View.Configure:admin</permission>
     <permission>hudson.model.View.Configure:albandri</permission>
+    <permission>hudson.model.View.Create:admin</permission>
     <permission>hudson.model.View.Create:albandri</permission>
+    <permission>hudson.model.View.Delete:admin</permission>
     <permission>hudson.model.View.Delete:albandri</permission>
     <permission>hudson.model.View.Read:admin</permission>
     <permission>hudson.model.View.Read:albandri</permission>
@@ -94,6 +93,16 @@
     <permission>hudson.plugins.promoted_builds.Promotion.Promote:albandri</permission>
     <permission>hudson.scm.SCM.Tag:admin</permission>
     <permission>hudson.scm.SCM.Tag:albandri</permission>
+    <permission>hudson.scm.SCM.Tag:anonymous</permission>
+    <permission>jenkins.metrics.api.Metrics.HealthCheck:admin</permission>
+    <permission>jenkins.metrics.api.Metrics.HealthCheck:albandri</permission>
+    <permission>jenkins.metrics.api.Metrics.HealthCheck:anonymous</permission>
+    <permission>jenkins.metrics.api.Metrics.ThreadDump:admin</permission>
+    <permission>jenkins.metrics.api.Metrics.ThreadDump:albandri</permission>
+    <permission>jenkins.metrics.api.Metrics.ThreadDump:anonymous</permission>
+    <permission>jenkins.metrics.api.Metrics.View:admin</permission>
+    <permission>jenkins.metrics.api.Metrics.View:albandri</permission>
+    <permission>jenkins.metrics.api.Metrics.View:anonymous</permission>
   </authorizationStrategy>
   <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
     <disableSignup>false</disableSignup>
@@ -513,7 +522,7 @@
       <leftPortletWidth>50%</leftPortletWidth>
       <rightPortletWidth>50%</rightPortletWidth>
       <leftPortlets>
-        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.9.8">
+        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.10">
           <id>dashboard_portlet_6769</id>
           <name>Code Coverages(Cobertura)</name>
         </hudson.plugins.cobertura.dashboard.CoverageTablePortlet>
