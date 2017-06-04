@@ -87,7 +87,7 @@ mvn codenarc:codenarc&#xd;
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.2">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-servers-bower-sample/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -112,7 +112,7 @@ mvn codenarc:codenarc&#xd;
     </com.sonyericsson.rebuild.RebuildSettings>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.2.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -198,14 +198,14 @@ mvn codenarc:codenarc&#xd;
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters>
-    <hudson.plugins.checkstyle.CheckStyleReporter plugin="checkstyle@3.47">
+    <hudson.plugins.checkstyle.CheckStyleReporter plugin="checkstyle@3.48">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[CHECKSTYLE] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -227,14 +227,14 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.checkstyle.CheckStyleReporter>
-    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.69">
+    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.70">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[FINDBUGS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -259,14 +259,14 @@ mvn codenarc:codenarc&#xd;
       <excludePattern></excludePattern>
       <includePattern></includePattern>
     </hudson.plugins.findbugs.FindBugsReporter>
-    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.46">
+    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.48">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[PMD] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -288,14 +288,14 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.pmd.PmdReporter>
-    <hudson.plugins.dry.DryReporter plugin="dry@2.46">
+    <hudson.plugins.dry.DryReporter plugin="dry@2.47">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[DRY] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -319,14 +319,14 @@ mvn codenarc:codenarc&#xd;
       <highThreshold>50</highThreshold>
       <normalThreshold>25</normalThreshold>
     </hudson.plugins.dry.DryReporter>
-    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.50">
+    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.51">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[TASKS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -579,7 +579,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -602,7 +602,7 @@ mvn codenarc:codenarc&#xd;
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern> **/target/**/dependency-check-report.xml</pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.60">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.62">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -612,7 +612,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -646,7 +646,7 @@ mvn codenarc:codenarc&#xd;
         </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
-    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.50">
+    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.51">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -656,7 +656,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.84">
+      <thresholds plugin="analysis-core@1.87">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -683,6 +683,7 @@ mvn codenarc:codenarc&#xd;
       <isPmdDeactivated>false</isPmdDeactivated>
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
       <isWarningsDeactivated>false</isWarningsDeactivated>
+      <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
     <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.20">
       <includeFailedBuilds>false</includeFailedBuilds>
@@ -702,7 +703,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp>.war</regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@2.1">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.0">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>50</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -718,16 +719,12 @@ mvn codenarc:codenarc&#xd;
       <compareBuildPrevious>true</compareBuildPrevious>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
-      <parsers>
-        <hudson.plugins.performance.JUnitParser>
-          <glob>**/target/**/TEST-com.test.project*.xml</glob>
-        </hudson.plugins.performance.JUnitParser>
-      </parsers>
       <modeThroughput>true</modeThroughput>
       <modeEvaluation>false</modeEvaluation>
       <ignoreFailedBuilds>false</ignoreFailedBuilds>
       <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
       <persistConstraintLog>false</persistConstraintLog>
+      <sourceDataFiles>**/target/**/TEST-com.test.project*.xml</sourceDataFiles>
     </hudson.plugins.performance.PerformancePublisher>
     <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
       <analyzer>Cobertura</analyzer>
@@ -735,13 +732,14 @@ mvn codenarc:codenarc&#xd;
       <excludeGetterSetter>false</excludeGetterSetter>
       <locateTopMost>true</locateTopMost>
     </hudson.plugins.covcomplplot.CovComplPlotPublisher>
-    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.12">
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.13">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>ZaProxy Report</reportName>
           <reportDir>build/reports/zaproxy/</reportDir>
           <reportFiles>JENKINS_ZAP_VULNERABILITY_REPORT-${BUILD_ID}.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -750,6 +748,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>build/phantomas/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -758,6 +757,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>build/sitespeedio/home.nabla.mobi/2016-06-04-09-49-35/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -766,6 +766,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>build/sideroad/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -774,6 +775,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>.grunt/grunt-gh-pages/gh-pages/src/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -782,6 +784,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>screenshots/desktop/</reportDir>
           <reportFiles>index.html.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -790,6 +793,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>screenshots/mobile/</reportDir>
           <reportFiles>index.html.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -798,6 +802,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>target/lcov-report/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -806,6 +811,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>target/karma-coverage/report-html/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -814,6 +820,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>docs/groovydocs/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>false</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -822,6 +829,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>docs/</reportDir>
           <reportFiles>index.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>false</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -830,6 +838,7 @@ mvn codenarc:codenarc&#xd;
           <reportDir>target/</reportDir>
           <reportFiles>gc.png</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>true</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
@@ -838,13 +847,14 @@ mvn codenarc:codenarc&#xd;
           <reportDir>target/</reportDir>
           <reportFiles>speed.har</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
           <keepAll>false</keepAll>
           <allowMissing>false</allowMissing>
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar, *_VERSION.TXT</artifacts>
+      <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar, *_VERSION.TXT, **/*.log</artifacts>
       <allowEmptyArchive>true</allowEmptyArchive>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
@@ -856,9 +866,9 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
@@ -868,9 +878,9 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -900,7 +910,7 @@ mvn codenarc:codenarc&#xd;
       <maximumClassCoverage>0</maximumClassCoverage>
       <changeBuildStatus>false</changeBuildStatus>
     </hudson.plugins.jacoco.JacocoPublisher>
-    <hudson.plugins.git.GitPublisher plugin="git@3.2.0">
+    <hudson.plugins.git.GitPublisher plugin="git@3.3.0">
       <configVersion>2</configVersion>
       <pushMerge>false</pushMerge>
       <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
@@ -958,11 +968,15 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.0">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <EnvInjectBuildWrapper plugin="envinject@1.93.1">
+    <EnvInjectBuildWrapper plugin="envinject@2.1">
       <info>
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
+        <secureGroovyScript plugin="script-security@1.27">
+          <script></script>
+          <sandbox>false</sandbox>
+        </secureGroovyScript>
         <loadFilesFromMaster>false</loadFilesFromMaster>
       </info>
     </EnvInjectBuildWrapper>
@@ -1052,7 +1066,7 @@ fi
 echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch
 </command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@1.93.1">
+    <EnvInjectBuilder plugin="envinject@2.1">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
