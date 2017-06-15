@@ -1,4 +1,2 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.clover.CloverBuildWrapper_-DescriptorImpl plugin="clover@4.7.1">
-  <licenseCert>OpNRrvIENQaoGGXxaiQqOwJXqooaKPgIvnlGoqvBoGKwQGEmj2KOqFZX5pLPXFmOTbTtX2x2L0CAXjQk1mCknTZnGfv8tfROrMvwqmrmoQOPqPMQQWxmnoormMRoPQRMXtTsxWwUUNnqqOnmqmUUnpsortqummmmmUUnpsortqummmmmUUEXYiXUUnmmmm</licenseCert>
-</hudson.plugins.clover.CloverBuildWrapper_-DescriptorImpl>
+<hudson.plugins.clover.CloverBuildWrapper_-DescriptorImpl plugin="clover@4.8.0"/>

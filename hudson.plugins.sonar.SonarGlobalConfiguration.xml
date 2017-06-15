@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.sonar.SonarGlobalConfiguration plugin="sonar@2.5">
+<hudson.plugins.sonar.SonarGlobalConfiguration plugin="sonar@2.6.1">
   <installations>
     <hudson.plugins.sonar.SonarInstallation>
       <name>Default</name>
@@ -17,8 +17,8 @@
         <envVar></envVar>
       </triggers>
       <sonarLogin></sonarLogin>
-      <databaseSecret>/B+DhAIyOB5aAKY0KezMAQ==</databaseSecret>
-      <sonarSecret>/B+DhAIyOB5aAKY0KezMAQ==</sonarSecret>
+      <databaseSecret>{AQAAABAAAAAQMuecNVTr9PAXqT+CSGTYSsDn5L0LNS1+ox1Ql6RQpP0=}</databaseSecret>
+      <sonarSecret>{AQAAABAAAAAQ/lHoAyIhOwCLGY77bsBV32VJGXC77hBZ90gZ6XJ8Ojk=}</sonarSecret>
     </hudson.plugins.sonar.SonarInstallation>
   </installations>
   <buildWrapperEnabled>false</buildWrapperEnabled>

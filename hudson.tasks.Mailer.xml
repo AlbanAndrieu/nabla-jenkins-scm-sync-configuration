@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.19">
+<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.20">
   <defaultSuffix>@nabla.mobi</defaultSuffix>
   <hudsonUrl>http://nabla.mobi:8280/jenkins/</hudsonUrl>
   <smtpAuthUsername>alban.andrieu@nabla.mobi</smtpAuthUsername>
-  <smtpAuthPassword>26Ha8dMEfu4mmiTiQs+eygRiO94zasu/Ggqda5V9afc=</smtpAuthPassword>
+  <smtpAuthPassword>{AQAAABAAAAAQez57y1bNoEW4Y2059VJlT0lLv3AQP8fAyyo9iJaLEfU=}</smtpAuthPassword>
   <adminAddress>alban.andrieu@nabla.mobi</adminAddress>
   <smtpHost>smtp.gmail.com</smtpHost>
   <useSsl>true</useSsl>

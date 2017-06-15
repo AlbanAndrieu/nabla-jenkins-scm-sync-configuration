@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.emailext.ExtendedEmailPublisherDescriptor plugin="email-ext@2.57">
+<hudson.plugins.emailext.ExtendedEmailPublisherDescriptor plugin="email-ext@2.57.2">
   <defaultSuffix>@nabla.mobi</defaultSuffix>
   <smtpAuthUsername>alban.andrieu@nabla.mobi</smtpAuthUsername>
-  <smtpAuthPassword>26Ha8dMEfu4mmiTiQs+eygRiO94zasu/Ggqda5V9afc=</smtpAuthPassword>
+  <smtpAuthPassword>{AQAAABAAAAAQxzF8zIotUVspsKaGDHJ2tsl34Jb/lfRYxz/dRr/IlyE=}</smtpAuthPassword>
   <smtpHost>smtp.gmail.com</smtpHost>
   <useSsl>true</useSsl>
   <charset>UTF-8</charset>

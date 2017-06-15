@@ -3,7 +3,7 @@
   <generation>1</generation>
   <compressionLevel>3</compressionLevel>
   <privateKeyLocation>/usr/share/tomcat6/.ssh/id_rsa</privateKeyLocation>
-  <privateKeyPassword>/B+DhAIyOB5aAKY0KezMAQ==</privateKeyPassword>
+  <privateKeyPassword>{AQAAABAAAAAQnuzfKMHYtBrDIFCSGQtwdbOeAbzOP00PyvJ70RNQW/g=}</privateKeyPassword>
   <knownHostsLocation>/usr/share/tomcat6/.ssh/known_hosts</knownHostsLocation>
   <authTokens/>
   <changelogEncoding>UTF-8</changelogEncoding>

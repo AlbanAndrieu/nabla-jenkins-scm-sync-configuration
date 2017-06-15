@@ -5,7 +5,7 @@
     <string>OldData</string>
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>2.34</version>
+  <version>2.46.2</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -31,8 +31,6 @@
     <permission>hudson.model.Computer.Disconnect:admin</permission>
     <permission>hudson.model.Computer.Disconnect:albandri</permission>
     <permission>hudson.model.Computer.Disconnect:anonymous</permission>
-    <permission>hudson.model.Computer.Provision:admin</permission>
-    <permission>hudson.model.Computer.Provision:albandri</permission>
     <permission>hudson.model.Hudson.Administer:admin</permission>
     <permission>hudson.model.Hudson.Administer:albandri</permission>
     <permission>hudson.model.Hudson.ConfigureUpdateCenter:admin</permission>
@@ -122,7 +120,7 @@
       or e-mail us: &lt;a href=&quot;mailto:alban.andrieu@free.fr&quot; target=&quot;_top&quot;&gt;Nabla Build Masters mailbox&lt;/a&gt;&#xd;
     &lt;/td&gt;&#xd;
     &lt;td style=&quot;width:50%;text-align:center;&quot;&gt;&#xd;
-      &lt;img width=&quot;243px&quot; height=&quot;100px&quot; src=&quot;http://home.nabla.mobi:8380/jenkins/userContent/pinguin-icon.jpg&quot; /&gt;&#xd;
+      &lt;img width=&quot;100px&quot; height=&quot;100px&quot; src=&quot;http://home.nabla.mobi:8380/jenkins/userContent/pinguin-icon.jpg&quot; /&gt;&#xd;
     &lt;/td&gt;&#xd;
   &lt;/tr&gt;&#xd;
 &lt;/table&gt;</systemMessage>
@@ -177,6 +175,7 @@
               <launchTimeoutSeconds>60</launchTimeoutSeconds>
               <maxNumRetries>0</maxNumRetries>
               <retryWaitTime>0</retryWaitTime>
+              <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy"/>
             </sshConnector>
           </launcher>
           <remoteFsMapping></remoteFsMapping>
@@ -184,7 +183,7 @@
           <instanceCap>1</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>0</idleMinutes>
+            <idleMinutes>10</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -222,6 +221,7 @@
               <launchTimeoutSeconds>60</launchTimeoutSeconds>
               <maxNumRetries>0</maxNumRetries>
               <retryWaitTime>0</retryWaitTime>
+              <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy"/>
             </sshConnector>
           </launcher>
           <remoteFsMapping></remoteFsMapping>
@@ -229,7 +229,7 @@
           <instanceCap>2</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>0</idleMinutes>
+            <idleMinutes>10</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -443,7 +443,7 @@
       <includeRegex>nabla.*integration</includeRegex>
       <recurse>false</recurse>
     </listView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.10">
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.11">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-dashboard</name>
       <filterExecutors>false</filterExecutors>
@@ -495,7 +495,7 @@
         <hudson.views.BuildButtonColumn/>
         <org.jenkins.ci.plugins.progress__bar.ProgressBarColumn plugin="progress-bar-column-plugin@1.0"/>
         <org.jenkinsci.plugins.violationcolumns.FailedTestsColumn plugin="violation-columns@1.6"/>
-        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@1.50">
+        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@1.51">
           <warningsAggregator>
             <isCheckStyleActivated>true</isCheckStyleActivated>
             <isDryActivated>true</isDryActivated>
@@ -503,6 +503,7 @@
             <isPmdActivated>true</isPmdActivated>
             <isOpenTasksActivated>true</isOpenTasksActivated>
             <isWarningsActivated>true</isWarningsActivated>
+            <isAndroidLintActivated>false</isAndroidLintActivated>
             <hideJobPrefix>false</hideJobPrefix>
           </warningsAggregator>
         </hudson.plugins.analysis.collector.WarningsCountColumn>
@@ -512,7 +513,7 @@
         <hudson.plugins.projectstats.column.NumBuildsColumn plugin="project-stats-plugin@0.4"/>
         <hudson.plugins.nodenamecolumn.NodeNameColumn plugin="nodenamecolumn@1.2"/>
         <hudson.plugins.jobtype__column.JobTypeColumn plugin="jobtype-column@1.3"/>
-        <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.0.4"/>
+        <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.0"/>
       </columns>
       <includeRegex>nabla.*</includeRegex>
       <recurse>false</recurse>
@@ -559,7 +560,7 @@
           <dateShift>0</dateShift>
           <displayStatus>ALL</displayStatus>
         </hudson.plugins.view.dashboard.test.TestTrendChart>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet plugin="analysis-collector@1.50">
+        <hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet plugin="analysis-collector@1.51">
           <id>dashboard_portlet_24505</id>
           <name>Warnings per project</name>
           <canHideZeroWarningsProjects>false</canHideZeroWarningsProjects>
@@ -571,6 +572,7 @@
             <isPmdActivated>true</isPmdActivated>
             <isOpenTasksActivated>true</isOpenTasksActivated>
             <isWarningsActivated>true</isWarningsActivated>
+            <isAndroidLintActivated>false</isAndroidLintActivated>
             <hideJobPrefix>false</hideJobPrefix>
           </warningsAggregator>
         </hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet>
@@ -614,14 +616,14 @@
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet plugin="pmd@3.47">
+        <hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet plugin="pmd@3.48">
           <id>dashboard_portlet_6428</id>
           <name>PMD warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet plugin="analysis-collector@1.50">
+        <hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet plugin="analysis-collector@1.51">
           <id>dashboard_portlet_4342</id>
           <name>Warnings trend graph (totals)</name>
           <width>500</width>
@@ -989,7 +991,7 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
         <de.fspengler.hudson.pview.ConsoleViewColumn plugin="hudson-pview-plugin@1.8"/>
-        <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.0.4"/>
+        <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.0"/>
         <hudson.plugins.jobtype__column.JobTypeColumn plugin="jobtype-column@1.3"/>
         <hudson.plugins.lastfailureversioncolumn.LastFailureVersionColumn plugin="lastfailureversioncolumn@1.1"/>
         <hudson.plugins.lastsuccessversioncolumn.LastSuccessVersionColumn plugin="lastsuccessversioncolumn@1.1"/>
