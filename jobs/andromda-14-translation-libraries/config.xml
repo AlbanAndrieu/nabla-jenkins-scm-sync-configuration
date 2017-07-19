@@ -1,13 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.8">
+<maven2-moduleset plugin="maven-plugin@2.17">
   <actions/>
   <description>Build andromda 3.5</description>
-  <logRotator class="hudson.tasks.LogRotator">
-    <daysToKeep>365</daysToKeep>
-    <numToKeep>100</numToKeep>
-    <artifactDaysToKeep>365</artifactDaysToKeep>
-    <artifactNumToKeep>100</artifactNumToKeep>
-  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
@@ -18,23 +12,28 @@
       <assignDescription>false</assignDescription>
       <descriptionTemplate></descriptionTemplate>
     </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
-    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7">
-      <googlecodeWebsite>https://code.google.com/p/alban/</googlecodeWebsite>
-    </hudson.plugins.googlecode.GoogleCodeProjectProperty>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.8">
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>365</daysToKeep>
+        <numToKeep>100</numToKeep>
+        <artifactDaysToKeep>365</artifactDaysToKeep>
+        <artifactNumToKeep>100</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.3">
+    <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.22">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
       <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <assignedNode>master</assignedNode>
@@ -42,7 +41,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>true</blockBuildWhenUpstreamBuilding>
-  <jdk>java7</jdk>
+  <jdk>(System)</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
@@ -60,11 +59,11 @@
   </rootModule>
   <goals>-U -Dsurefire.useFile=false clean install -Pandromda-lite</goals>
   <defaultGoals>install</defaultGoals>
-  <mavenName>Maven-3.0.4</mavenName>
   <mavenOpts>-Xms256m -Xmx1024m -XX:PermSize=80M -XX:MaxPermSize=256M</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
+  <ignoreUnsuccessfulUpstreams>false</ignoreUnsuccessfulUpstreams>
   <archivingDisabled>false</archivingDisabled>
   <siteArchivingDisabled>false</siteArchivingDisabled>
   <fingerprintingDisabled>false</fingerprintingDisabled>
@@ -81,8 +80,8 @@
   <reporters/>
   <publishers>
     <hudson.maven.RedeployPublisher>
-      <id>nexus-snapshots</id>
-      <url>http://home.nabla.mobi:8081/nexus/content/repositories/snapshots</url>
+      <id>nexus-releases</id>
+      <url>http://home.nabla.mobi:8085/nexus/content/repositories/releases</url>
       <uniqueVersion>false</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
@@ -126,7 +125,7 @@
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.14.1">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>100</timeoutMinutes>
       </strategy>
@@ -134,7 +133,7 @@
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.5.16"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
   </buildWrappers>
   <prebuilders/>
   <postbuilders/>
