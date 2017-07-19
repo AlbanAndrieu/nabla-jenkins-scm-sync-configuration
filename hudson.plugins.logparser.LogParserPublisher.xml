@@ -3,7 +3,7 @@
   <parsingRulesGlobal>
     <hudson.plugins.logparser.ParserRuleFile>
       <name>zfs log parsing</name>
-      <path>/workspace/users/albandri10/env/scripts/zfs-log_parsing_rules</path>
+      <path>/workspace/zfs-log_parsing_rules</path>
     </hudson.plugins.logparser.ParserRuleFile>
   </parsingRulesGlobal>
   <useLegacyFormatting>false</useLegacyFormatting>
