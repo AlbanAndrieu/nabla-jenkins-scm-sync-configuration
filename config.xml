@@ -1023,11 +1023,9 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>2</int>
+          <int>1</int>
           <string>JAVA_HOME</string>
-          <string>/usr/lib/jvm/java-8-oracle/</string>
-          <string>PATH</string>
-          <string>$PATH:$ZAPROXY_HOME</string>
+          <string>/usr/local/openjdk8</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>
