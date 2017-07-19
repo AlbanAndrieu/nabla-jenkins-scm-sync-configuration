@@ -1034,7 +1034,7 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>11</int>
+          <int>10</int>
           <string>DISPLAY</string>
           <string>:99</string>
           <string>JAVA_HOME</string>
@@ -1055,8 +1055,6 @@
           <string>/thirdparty</string>
           <string>WPT_API_KEY</string>
           <string>A.01ea5a02081b6d10415d7b0e7c844e73</string>
-          <string>ZAPROXY_HOME</string>
-          <string>/zapSource/build/zap</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>
