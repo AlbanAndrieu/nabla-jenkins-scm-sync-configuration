@@ -78,7 +78,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <jdk>(Default)</jdk>
+  <jdk>(System)</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
@@ -112,7 +112,7 @@
   <disableTriggerDownstreamProjects>false</disableTriggerDownstreamProjects>
   <blockTriggerWhenBuilding>true</blockTriggerWhenBuilding>
   <settings class="jenkins.mvn.FilePathSettingsProvider">
-    <path>~/.m2/settings.xml</path>
+    <path>/usr/local/jenkins/.m2/settings.xml</path>
   </settings>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters>
