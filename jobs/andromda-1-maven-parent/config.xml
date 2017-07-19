@@ -116,9 +116,9 @@
   </reporters>
   <publishers>
     <hudson.maven.RedeployPublisher>
-      <id>nexus-snapshots</id>
-      <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
-      <uniqueVersion>true</uniqueVersion>
+      <id>nexus-releases</id>
+      <url>http://home.nabla.mobi:8085/nexus/content/repositories/releases</url>
+      <uniqueVersion>false</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <hudson.tasks.BuildTrigger>
