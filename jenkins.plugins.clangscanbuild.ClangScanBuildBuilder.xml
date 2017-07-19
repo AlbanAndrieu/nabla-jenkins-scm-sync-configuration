@@ -1,4 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jenkins.plugins.clangscanbuild.ClangScanBuildDescriptor plugin="clang-scanbuild-plugin@1.7">
-  <installations/>
+  <installations>
+    <jenkins.plugins.clangscanbuild.ClangScanBuildToolInstallation>
+      <name>InSearchPath</name>
+      <home>/usr/local/bin/clang</home>
+      <properties/>
+    </jenkins.plugins.clangscanbuild.ClangScanBuildToolInstallation>
+  </installations>
 </jenkins.plugins.clangscanbuild.ClangScanBuildDescriptor>
