@@ -3,7 +3,7 @@
   <installations>
     <hudson.plugins.doxygen.DoxygenInstallation>
       <name>InSearchPath</name>
-      <home>/usr/local/bin/doxygen</home>
+      <home>/usr/local/bin/</home>
       <properties/>
     </hudson.plugins.doxygen.DoxygenInstallation>
   </installations>

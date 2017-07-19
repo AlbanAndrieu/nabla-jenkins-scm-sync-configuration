@@ -3,7 +3,7 @@
   <installations>
     <jenkins.plugins.clangscanbuild.ClangScanBuildToolInstallation>
       <name>InSearchPath</name>
-      <home>/usr/bin/clang</home>
+      <home>/usr/bin</home>
       <properties/>
     </jenkins.plugins.clangscanbuild.ClangScanBuildToolInstallation>
   </installations>
