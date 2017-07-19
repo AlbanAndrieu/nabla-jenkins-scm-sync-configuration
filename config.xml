@@ -5,7 +5,7 @@
     <string>OldData</string>
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>2.46.2</version>
+  <version>2.60.1</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -116,11 +116,11 @@
   &lt;tr&gt;&#xd;
     &lt;td style=&quot;width:50%;text-align:left;padding-left:200px&quot;&gt;&#xd;
       &lt;br/&gt;&lt;b&gt;Nabla Build Manager&lt;/b&gt;&lt;br /&gt;&#xd;
-      Please visit our site &lt;a href=&quot;http://home.nabla.mobi:7070&quot;&gt;Nabla Build Masters&lt;/a&gt;&lt;br /&gt;&#xd;
+      Please visit our site &lt;a href=&quot;https://nabla.freeboxos.fr/sample/&quot;&gt;Nabla Build Masters&lt;/a&gt;&lt;br /&gt;&#xd;
       or e-mail us: &lt;a href=&quot;mailto:alban.andrieu@free.fr&quot; target=&quot;_top&quot;&gt;Nabla Build Masters mailbox&lt;/a&gt;&#xd;
     &lt;/td&gt;&#xd;
     &lt;td style=&quot;width:50%;text-align:center;&quot;&gt;&#xd;
-      &lt;img width=&quot;100px&quot; height=&quot;100px&quot; src=&quot;http://home.nabla.mobi:8380/jenkins/userContent/pinguin-icon.jpg&quot; /&gt;&#xd;
+      &lt;img width=&quot;100px&quot; height=&quot;100px&quot; src=&quot;http://home.nabla.mobi:8381/userContent/pinguin-icon.jpg&quot; /&gt;&#xd;
     &lt;/td&gt;&#xd;
   &lt;/tr&gt;&#xd;
 &lt;/table&gt;</systemMessage>
@@ -183,7 +183,7 @@
           <instanceCap>1</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>0</idleMinutes>
+            <idleMinutes>10</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -229,7 +229,7 @@
           <instanceCap>2</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>0</idleMinutes>
+            <idleMinutes>10</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
