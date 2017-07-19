@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.15.1">
+<maven2-moduleset plugin="maven-plugin@2.17">
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
@@ -21,7 +21,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.1">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -32,9 +32,8 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.5">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.4.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -284,7 +283,7 @@
   <publishers>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
-      <url>http://home.nabla.mobi:8081/nexus/content/repositories/snapshots</url>
+      <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
       <uniqueVersion>true</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
@@ -299,16 +298,16 @@
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -317,7 +316,7 @@
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder plugin="git-changelog@1.41">
+    <org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder plugin="git-changelog@1.49">
       <config>
         <configFile>git-changelog-settings.json</configFile>
         <createFileTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
@@ -380,6 +379,10 @@ Changelog of Git Changelog.
         <gitHubApi></gitHubApi>
         <gitHubIssuePattern>#([0-9]+)</gitHubIssuePattern>
         <gitHubToken></gitHubToken>
+        <gitLabServer></gitLabServer>
+        <gitLabProjectName></gitLabProjectName>
+        <gitLabToken></gitLabToken>
+        <useGitLab>false</useGitLab>
         <ignoreCommitsIfMessageMatches>^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*</ignoreCommitsIfMessageMatches>
         <ignoreCommitsWithoutIssue>false</ignoreCommitsWithoutIssue>
         <ignoreTagsIfNameMatches></ignoreTagsIfNameMatches>
@@ -387,6 +390,8 @@ Changelog of Git Changelog.
         <jiraPassword></jiraPassword>
         <jiraServer></jiraServer>
         <jiraUsername></jiraUsername>
+        <jiraUsernamePasswordCredentialsId></jiraUsernamePasswordCredentialsId>
+        <useJiraUsernamePasswordCredentialsId>false</useJiraUsernamePasswordCredentialsId>
         <mediaWikiPassword></mediaWikiPassword>
         <mediaWikiTemplateContent>__NOTOC__
 
@@ -485,19 +490,23 @@ Changelog of Git Changelog.
         <useMediaWiki>false</useMediaWiki>
         <useReadableTagName>false</useReadableTagName>
         <useSubDirectory>false</useSubDirectory>
+        <gitHubApiTokenCredentialsId></gitHubApiTokenCredentialsId>
+        <useGitHubApiTokenCredentials>false</useGitHubApiTokenCredentials>
+        <useGitLabApiTokenCredentials>false</useGitLabApiTokenCredentials>
+        <gitLabApiTokenCredentialsId></gitLabApiTokenCredentialsId>
       </config>
     </org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder>
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp></regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.5.6">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.5.7.1">
       <configs/>
       <downstreamProjectNames>nabla-main</downstreamProjectNames>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
