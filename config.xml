@@ -1042,7 +1042,7 @@
           <string>DISPLAY</string>
           <string>:99</string>
           <string>JAVA_HOME</string>
-          <string>/usr/local/openjdk8/</string>
+          <string>/usr/local/openjdk8</string>
           <string>JAVA_OPTS</string>
           <string>-Xms128m -Xmx1024m</string>
           <string>JBOSS_HOME</string>
