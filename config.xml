@@ -473,6 +473,7 @@
         <string>nabla-servers-richfaces-webapp-nightly</string>
         <string>nabla-trunk-all-release</string>
         <string>nabla-trunk-branch</string>
+        <string>nabla-uml-continuous</string>
         <string>nabla-uml-nightly</string>
         <string>nabla-vagrant-ansible-admin</string>
       </jobNames>
