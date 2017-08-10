@@ -95,7 +95,7 @@ as soon it does not take too long.</description>
     <groupId>com.nabla.project</groupId>
     <artifactId>project</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
@@ -735,7 +735,7 @@ as soon it does not take too long.</description>
     <hudson.tasks.Maven>
       <targets>javadoc:aggregate -Psample</targets>
       <mavenName>(Default)</mavenName>
-      <jvmOptions>-Xms256m -Xmx512m -XX:PermSize=80M -XX:MaxPermSize=256M</jvmOptions>
+      <jvmOptions>-Xms256m -Xmx512m</jvmOptions>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
