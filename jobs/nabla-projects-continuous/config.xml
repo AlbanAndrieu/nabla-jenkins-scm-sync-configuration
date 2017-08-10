@@ -95,7 +95,7 @@ as soon it does not take too long.</description>
     <groupId>com.nabla.project</groupId>
     <artifactId>project</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install deploy pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
