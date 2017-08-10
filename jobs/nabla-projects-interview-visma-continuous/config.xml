@@ -804,6 +804,12 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
@@ -814,12 +820,6 @@ mvn codenarc:codenarc&#xd;
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -998,7 +998,7 @@ GCVIEWER_VERSION=&quot;1.35-SNAPSHOT&quot;
 #if [ -f gcviewer-${GCVIEWER_VERSION}.jar ]; then
 #  echo &quot;gcviewer file found&quot;
 #else
-#  wget http://nabla.freeboxos.fr:7072/download/gcviewer/gcviewer-${GCVIEWER_VERSION}.jar
+#  wget http://home.nabla.mobi:7072/download/gcviewer/gcviewer-${GCVIEWER_VERSION}.jar
 #fi
 java -Djava.awt.headless=true -jar /workspace/divers/GCViewer/target/gcviewer-${GCVIEWER_VERSION}.jar gc.log export target/gc.png || true
 
