@@ -26,10 +26,9 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
-  <assignedNode>master</assignedNode>
+  <assignedNode>ubuntu&amp;&amp;security</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -51,7 +50,7 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
     <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
       <mSites>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:8081/nexus/</mUrl>
+          <mUrl>http://home.nabla.mobi:8085/nexus/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
@@ -75,35 +74,35 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://albandri:80/</mUrl>
+          <mUrl>http://192.168.0.29:80/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:80/cgi-bin/awstats.pl?config=home.nabla.mobi</mUrl>
+          <mUrl>http://192.168.0.29:80/cgi-bin/awstats.pl?config=home.nabla.mobi</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7071/</mUrl>
+          <mUrl>http://192.168.0.29:7071/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7072/</mUrl>
+          <mUrl>http://192.168.0.29:7072/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7073/</mUrl>
+          <mUrl>http://192.168.0.29:7073/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7074/</mUrl>
+          <mUrl>http://192.168.0.29:7074/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7075/</mUrl>
+          <mUrl>http://192.168.0.29:7075/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://localhost:7076/</mUrl>
+          <mUrl>http://192.168.0.29:7076/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
