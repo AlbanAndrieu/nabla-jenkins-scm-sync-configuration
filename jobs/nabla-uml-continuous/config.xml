@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <maven2-moduleset plugin="maven-plugin@2.17">
   <actions/>
-  <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Databases&lt;/i&gt; continuously during working days.&lt;br&gt;&#xd;
+  <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;UML&lt;/i&gt; continuously during working days.&lt;br&gt;&#xd;
 The main goals of this job is to build fast, often and provide quick feedback to developer.&lt;br&gt;&#xd;
 It does not keep build history.&lt;br&gt;&#xd;
 &lt;br&gt;&#xd;
@@ -44,7 +44,7 @@ as soon it does not take too long.</description>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
-      <projectUrl>https://github.com/AlbanAndrieu/nabla-databases/</projectUrl>
+      <projectUrl>https://github.com/AlbanAndrieu/nabla-uml/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
@@ -59,7 +59,7 @@ as soon it does not take too long.</description>
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/AlbanAndrieu/nabla-databases.git</url>
+        <url>https://github.com/AlbanAndrieu/nabla-uml.git</url>
         <credentialsId>f364db9f-b4fe-44fc-b02c-87dd3d0b5204</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
@@ -70,7 +70,7 @@ as soon it does not take too long.</description>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <browser class="hudson.plugins.git.browser.GithubWeb">
-      <url>https://github.com/AlbanAndrieu/nabla-databases/</url>
+      <url>https://github.com/AlbanAndrieu/nabla-uml/</url>
     </browser>
     <submoduleCfg class="list"/>
     <extensions/>
@@ -683,7 +683,7 @@ as soon it does not take too long.</description>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
     <hudson.tasks.BuildTrigger>
-      <childProjects>nabla-servers-continuous</childProjects>
+      <childProjects>nabla-andromda-continuous</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
