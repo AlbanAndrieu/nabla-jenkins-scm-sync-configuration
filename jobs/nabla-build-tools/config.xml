@@ -78,7 +78,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <jdk>(Default)</jdk>
+  <jdk>java-8</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
@@ -165,15 +165,15 @@
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
