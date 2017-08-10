@@ -97,7 +97,6 @@ as soon it does not take too long.</description>
   </rootModule>
   <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample</goals>
   <defaultGoals>install</defaultGoals>
-  <mavenOpts>-Xms256m -Xmx512m -XX:PermSize=80M</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
@@ -646,6 +645,12 @@ as soon it does not take too long.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
@@ -656,12 +661,6 @@ as soon it does not take too long.</description>
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
