@@ -114,7 +114,7 @@ def pa = new ParametersAction([
 
 // add variable to current job
 Thread.currentThread().executable.addAction(pa)</script>
-          <sandbox>true</sandbox>
+          <sandbox>false</sandbox>
         </script>
       </source>
     </hudson.plugins.groovy.SystemGroovy>
