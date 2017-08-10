@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.14">
+<maven2-moduleset plugin="maven-plugin@2.17">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Databases&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -68,7 +68,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.22.4">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-databases/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -79,9 +79,8 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.4.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -134,7 +133,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
     <groupId>com.nabla.project</groupId>
     <artifactId>databases</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs sonar:sonar -Psample,run-its,jacoco,coverage -Ddatabase=derby -Djacoco.outputDir=${WORKSPACE}/target -Dsonargraph.activationCode=2356-F3B2-E2C6-CC70</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs sonar:sonar -Psample,run-its,jacoco -Ddatabase=derby -Djacoco.outputDir=${WORKSPACE}/target -Dsonargraph.activationCode=2356-F3B2-E2C6-CC70</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
@@ -154,14 +153,14 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters>
-    <hudson.plugins.checkstyle.CheckStyleReporter plugin="checkstyle@3.46">
+    <hudson.plugins.checkstyle.CheckStyleReporter plugin="checkstyle@3.49">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[CHECKSTYLE] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.79">
+      <thresholds plugin="analysis-core@1.90">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -183,14 +182,14 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.checkstyle.CheckStyleReporter>
-    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.65">
+    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.71">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[FINDBUGS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.79">
+      <thresholds plugin="analysis-core@1.90">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -215,14 +214,14 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <excludePattern></excludePattern>
       <includePattern></includePattern>
     </hudson.plugins.findbugs.FindBugsReporter>
-    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.45">
+    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.49">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[PMD] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.79">
+      <thresholds plugin="analysis-core@1.90">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -244,14 +243,14 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.pmd.PmdReporter>
-    <hudson.plugins.dry.DryReporter plugin="dry@2.45">
+    <hudson.plugins.dry.DryReporter plugin="dry@2.48">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[DRY] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.79">
+      <thresholds plugin="analysis-core@1.90">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -275,14 +274,14 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <highThreshold>50</highThreshold>
       <normalThreshold>25</normalThreshold>
     </hudson.plugins.dry.DryReporter>
-    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.49">
+    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.52">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[TASKS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.79">
+      <thresholds plugin="analysis-core@1.90">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -498,7 +497,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.57">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.63">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -508,7 +507,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.79">
+      <thresholds plugin="analysis-core@1.90">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -532,6 +531,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <includePattern></includePattern>
       <excludePattern></excludePattern>
       <messagesPattern></messagesPattern>
+      <categoriesPattern></categoriesPattern>
       <parserConfigurations/>
       <consoleParsers>
         <hudson.plugins.warnings.ConsoleParser>
@@ -542,7 +542,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
         </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
-    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.48">
+    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.52">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -552,7 +552,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.79">
+      <thresholds plugin="analysis-core@1.90">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -579,8 +579,9 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <isPmdDeactivated>false</isPmdDeactivated>
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
       <isWarningsDeactivated>false</isWarningsDeactivated>
+      <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.19">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.20">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -592,12 +593,13 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
-    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.1.0">
+    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
       <execPattern>**/**.exec</execPattern>
       <classPattern>**/classes</classPattern>
       <sourcePattern>**/src/main/java</sourcePattern>
       <inclusionPattern></inclusionPattern>
       <exclusionPattern></exclusionPattern>
+      <skipCopyOfSrcFiles>false</skipCopyOfSrcFiles>
       <minimumInstructionCoverage>0</minimumInstructionCoverage>
       <minimumBranchCoverage>0</minimumBranchCoverage>
       <minimumComplexityCoverage>0</minimumComplexityCoverage>
@@ -611,6 +613,13 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <maximumMethodCoverage>0</maximumMethodCoverage>
       <maximumClassCoverage>0</maximumClassCoverage>
       <changeBuildStatus>false</changeBuildStatus>
+      <deltaInstructionCoverage>0</deltaInstructionCoverage>
+      <deltaBranchCoverage>0</deltaBranchCoverage>
+      <deltaComplexityCoverage>0</deltaComplexityCoverage>
+      <deltaLineCoverage>0</deltaLineCoverage>
+      <deltaMethodCoverage>0</deltaMethodCoverage>
+      <deltaClassCoverage>0</deltaClassCoverage>
+      <buildOverBuild>false</buildOverBuild>
     </hudson.plugins.jacoco.JacocoPublisher>
     <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
       <analyzer>Cobertura</analyzer>
@@ -656,13 +665,13 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
         <completeBuild>true</completeBuild>
       </threshold>
     </hudson.tasks.BuildTrigger>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.5.4">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.5.7.1">
       <configs/>
       <downstreamProjectNames>nabla-databases-matrix</downstreamProjectNames>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
@@ -675,11 +684,11 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.7"/>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.0">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
       <template>#${GIT_BRANCH}-${BUILD_NUMBER}</template>
       <runAtStart>true</runAtStart>
       <runAtEnd>true</runAtEnd>
@@ -689,7 +698,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
     <hudson.tasks.Shell>
       <command>echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@1.93.1">
+    <EnvInjectBuilder plugin="envinject@2.1.3">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
