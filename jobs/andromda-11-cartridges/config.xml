@@ -57,7 +57,7 @@
     <groupId>org.andromda.cartridges</groupId>
     <artifactId>andromda-cartridges</artifactId>
   </rootModule>
-  <goals>-U -Dsurefire.useFile=false clean install -Pandromda-lite</goals>
+  <goals>-U -Dsurefire.useFile=false clean install -Pandromda-lite -N</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx1024m -XX:PermSize=80M</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
