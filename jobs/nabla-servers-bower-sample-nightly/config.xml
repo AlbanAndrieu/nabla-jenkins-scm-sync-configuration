@@ -1059,10 +1059,12 @@ rm ./zap.sh || true
 ln -s ${ZAPROXY_HOME}/zap.sh zap.sh
 
 #browser version
-/usr/bin/firefox  -V
-/usr/lib/firefox/firefox -V
-/usr/bin/chromium-browser --version
-/opt/google/chrome/chrome --version
+#/usr/bin/firefox  -V
+#/usr/lib/firefox/firefox -V
+firefox -V
+#/usr/bin/chromium-browser --version
+#/opt/google/chrome/chrome --version
+chrome --version
 
 export PHANTOMJS_BIN=`which phantomjs`
 
