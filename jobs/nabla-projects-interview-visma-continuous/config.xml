@@ -81,7 +81,7 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-projects-interview-visma/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -109,7 +109,7 @@ mvn codenarc:codenarc&#xd;
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.4.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -145,7 +145,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.27.0">
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.28.0">
       <spec></spec>
     </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
@@ -158,7 +158,7 @@ mvn codenarc:codenarc&#xd;
     <groupId>com.nabla.project.sample.interview.visma</groupId>
     <artifactId>visma</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install -Psample,jacoco,integration,jmeter,run-its,arq-weld-ee-embedded,!arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=tomcat8x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$TOMCAT_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install -Psample,jacoco,integration,jmeter,run-its,arq-weld-ee-embedded,!arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=tomcat8x -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:$TOMCAT_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx512m -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc.log -XX:+HeapDumpOnOutOfMemoryError</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -186,7 +186,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -215,7 +215,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -247,7 +247,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -269,14 +269,14 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.pmd.PmdReporter>
-    <hudson.plugins.dry.DryReporter plugin="dry@2.48">
+    <hudson.plugins.dry.DryReporter plugin="dry@2.49">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[DRY] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -307,7 +307,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -523,7 +523,7 @@ mvn codenarc:codenarc&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@2.0.1.1">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@2.1.0">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -533,7 +533,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -566,7 +566,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -611,7 +611,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -640,7 +640,7 @@ mvn codenarc:codenarc&#xd;
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.20">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
@@ -804,10 +804,10 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
@@ -816,10 +816,10 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>SUCCESS</name>
-          <ordinal>0</ordinal>
-          <color>BLUE</color>
-          <completeBuild>true</completeBuild>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -894,7 +894,7 @@ mvn codenarc:codenarc&#xd;
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.29.1">
+        <secureGroovyScript plugin="script-security@1.31">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
