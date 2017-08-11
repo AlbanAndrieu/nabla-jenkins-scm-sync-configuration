@@ -524,7 +524,7 @@
       <leftPortletWidth>50%</leftPortletWidth>
       <rightPortletWidth>50%</rightPortletWidth>
       <leftPortlets>
-        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.10">
+        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.11">
           <id>dashboard_portlet_6769</id>
           <name>Code Coverages(Cobertura)</name>
         </hudson.plugins.cobertura.dashboard.CoverageTablePortlet>
@@ -596,7 +596,7 @@
             <parserName>AcuCobol Compiler</parserName>
           </actionSelector>
         </hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@2.48">
+        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@2.49">
           <id>dashboard_portlet_19073</id>
           <name>Duplicate code trend graph (totals)</name>
           <width>500</width>
