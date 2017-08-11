@@ -160,7 +160,7 @@ mvn codenarc:codenarc&#xd;
       </hudson.plugins.git.extensions.impl.PreBuildMerge>
     </extensions>
   </scm>
-  <assignedNode>master&amp;&amp;java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -555,7 +555,6 @@ mvn codenarc:codenarc&#xd;
       <contextPath>test</contextPath>
       <war>target/test.war</war>
       <onFailure>false</onFailure>
-      <adapter class="hudson.plugins.deploy.tomcat.Tomcat7xAdapter" reference="../adapters/hudson.plugins.deploy.tomcat.Tomcat7xAdapter"/>
     </hudson.plugins.deploy.DeployPublisher>
     <org.tap4j.plugin.TapPublisher plugin="tap@2.1">
       <testResults>target/yslow*.tap</testResults>
