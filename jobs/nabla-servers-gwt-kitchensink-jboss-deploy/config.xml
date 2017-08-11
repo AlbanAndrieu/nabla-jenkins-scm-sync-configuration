@@ -10,8 +10,7 @@
   </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.8">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
@@ -22,7 +21,7 @@
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
-        <eu.markov.jenkins.plugin.mvnmeta.MavenMetadataParameterDefinition plugin="maven-metadata-plugin@1.2.0">
+        <eu.markov.jenkins.plugin.mvnmeta.MavenMetadataParameterDefinition plugin="maven-metadata-plugin@1.5.0">
           <name>target.version</name>
           <description>Version to package</description>
           <repoBaseUrl>http://home.nabla.mobi:8081/nexus/content/repositories/snapshots</repoBaseUrl>
@@ -33,16 +32,15 @@
           <versionFilter></versionFilter>
           <sortOrder>DESC</sortOrder>
           <maxVersions></maxVersions>
-          <username>admin</username>
-          <password>admin123</password>
+          <credentialsId>http://admin@home.nabla.mobi:8081/nexus/content/repositories/snapshots</credentialsId>
         </eu.markov.jenkins.plugin.mvnmeta.MavenMetadataParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.22">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
       <autoRebuild>true</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
@@ -53,7 +51,7 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.35">
+    <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.38.1">
       <project>nabla-servers-nightly</project>
       <filter>**/gwt-kitchensink.war</filter>
       <target></target>
@@ -68,15 +66,15 @@
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
@@ -92,17 +90,19 @@
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.11-SNAPSHOT">
-      <adapter class="hudson.plugins.deploy.jboss.JBoss7xAdapter">
-        <userName>admin</userName>
-        <passwordScrambled>bWljcm9zb2Z0</passwordScrambled>
-        <url>http://localhost:8180/</url>
-      </adapter>
+    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.13">
+      <adapters>
+        <hudson.plugins.deploy.jboss.JBoss7xAdapter>
+          <credentialsId>c877c63a-715f-4d12-aa8e-61d481706ab0</credentialsId>
+          <url>http://localhost:8180/</url>
+        </hudson.plugins.deploy.jboss.JBoss7xAdapter>
+      </adapters>
       <contextPath>nabla</contextPath>
       <war>sample/gwt-kitchensink/target/gwt-kitchensink.war	</war>
       <onFailure>false</onFailure>
+      <adapter class="hudson.plugins.deploy.jboss.JBoss7xAdapter" reference="../adapters/hudson.plugins.deploy.jboss.JBoss7xAdapter"/>
     </hudson.plugins.deploy.DeployPublisher>
-    <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.4">
+    <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
       <mSites>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>http://localhost:8180/nabla</mUrl>
@@ -111,12 +111,12 @@
     </hudson.plugins.sitemonitor.SiteMonitorRecorder>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.25">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.14.1">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>100</timeoutMinutes>
       </strategy>
@@ -124,6 +124,6 @@
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.5.16"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
   </buildWrappers>
 </project>
