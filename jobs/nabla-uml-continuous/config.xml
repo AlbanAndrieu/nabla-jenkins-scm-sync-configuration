@@ -93,7 +93,7 @@ as soon it does not take too long.</description>
   <concurrentBuild>false</concurrentBuild>
   <rootModule>
     <groupId>com.nabla.project</groupId>
-    <artifactId>databases</artifactId>
+    <artifactId>uml</artifactId>
   </rootModule>
   <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample -Ddatabase=derby</goals>
   <defaultGoals>install</defaultGoals>
