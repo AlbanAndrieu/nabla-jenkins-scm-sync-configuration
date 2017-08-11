@@ -762,7 +762,7 @@ mvn codenarc:codenarc&#xd;
       <screen>1024x768x24</screen>
       <debug>false</debug>
       <timeout>10</timeout>
-      <displayNameOffset>0</displayNameOffset>
+      <displayNameOffset>2</displayNameOffset>
       <additionalOptions>-extension RANDR -nolisten tcp -extension GLX </additionalOptions>
       <shutdownWithBuild>true</shutdownWithBuild>
       <autoDisplayName>false</autoDisplayName>
