@@ -97,7 +97,7 @@ as soon it does not take too long.&#xd;
     <groupId>com.nabla.project</groupId>
     <artifactId>servers</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai -N</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
@@ -736,7 +736,7 @@ as soon it does not take too long.&#xd;
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Maven>
-      <targets>javadoc:javadoc -Psample -Dserver=jetty9x -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -N</targets>
+      <targets>javadoc:javadoc -Psample -Dserver=jetty9x -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; </targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -744,7 +744,7 @@ as soon it does not take too long.&#xd;
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>javadoc:aggregate -Psample -Dserver=jetty9x -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -N</targets>
+      <targets>javadoc:aggregate -Psample -Dserver=jetty9x -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot;</targets>
       <mavenName>(Default)</mavenName>
       <jvmOptions>-Xms256m -Xmx512m</jvmOptions>
       <usePrivateRepository>true</usePrivateRepository>
