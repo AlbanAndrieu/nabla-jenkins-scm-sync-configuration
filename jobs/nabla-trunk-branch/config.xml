@@ -162,7 +162,7 @@ It should be as quick as possible whith no reports.</description>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
-      <url>http://home.nabla.mobi:8081/nexus/content/repositories/snapshots</url>
+      <url>http://home.nabla.mobi:8088/nexus/content/repositories/snapshots</url>
       <uniqueVersion>true</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
