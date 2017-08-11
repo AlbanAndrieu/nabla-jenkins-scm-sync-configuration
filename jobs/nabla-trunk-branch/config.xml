@@ -1,17 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.9">
+<maven2-moduleset plugin="maven-plugin@2.17">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Trunk Branch&lt;/i&gt; the whole project at the same time.&lt;br&gt;&#xd;
 The main goals of this job is to perform operations like branch, it is intended to build master.&lt;br&gt;&#xd;
 It will keep build history and artifacts.&lt;br&gt;&#xd;
 &lt;br&gt;&#xd;
 It should be as quick as possible whith no reports.</description>
-  <logRotator class="hudson.tasks.LogRotator">
-    <daysToKeep>365</daysToKeep>
-    <numToKeep>1</numToKeep>
-    <artifactDaysToKeep>3</artifactDaysToKeep>
-    <artifactNumToKeep>1</artifactNumToKeep>
-  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
@@ -22,10 +16,16 @@ It should be as quick as possible whith no reports.</description>
       <assignDescription>false</assignDescription>
       <descriptionTemplate></descriptionTemplate>
     </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
-    <hudson.plugins.googlecode.GoogleCodeProjectProperty plugin="googlecode@1.7">
-      <googlecodeWebsite>https://code.google.com/p/alban/</googlecodeWebsite>
-    </hudson.plugins.googlecode.GoogleCodeProjectProperty>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.9.0-rc1">
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>365</daysToKeep>
+        <numToKeep>1</numToKeep>
+        <artifactDaysToKeep>3</artifactDaysToKeep>
+        <artifactNumToKeep>1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
@@ -34,7 +34,10 @@ It should be as quick as possible whith no reports.</description>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <jenkins.plugins.svnmerge.IntegratableProject plugin="svnmerge@2.5"/>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>true</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
@@ -64,47 +67,27 @@ It should be as quick as possible whith no reports.</description>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.22">
-      <autoRebuild>true</autoRebuild>
-    </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.googlecode.scm.GoogleCodeSCMEx" plugin="googlecode@1.7">
-    <locations>
-      <hudson.scm.SubversionSCM_-ModuleLocation plugin="subversion@2.5">
-        <remote>https://alban.googlecode.com/svn/trunk</remote>
-        <local>.</local>
-        <depthOption>infinity</depthOption>
-        <ignoreExternalsOption>false</ignoreExternalsOption>
-      </hudson.scm.SubversionSCM_-ModuleLocation>
-    </locations>
-    <browser class="hudson.plugins.googlecode.GoogleCodeRepositoryBrowser"/>
-    <excludedRegions></excludedRegions>
-    <workspaceUpdater class="hudson.scm.subversion.UpdateUpdater" plugin="subversion@2.5"/>
-    <ignoreDirPropChanges>false</ignoreDirPropChanges>
-    <filterChangelog>false</filterChangelog>
-    <directory>trunk</directory>
-  </scm>
+  <scm class="hudson.scm.NullSCM"/>
   <assignedNode>java-large</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <jdk>java7</jdk>
+  <jdk>(System)</jdk>
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <rootModule>
     <groupId>com.nabla</groupId>
     <artifactId>users</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false -s $WORKSPACE/.m2/settings.xml  release:branch -DbranchName=${SCM_BRANCH_NAME} -DdevelopmentVersion=${NEXT_NABLA_SCM_VERSION} -DreleaseVersion=${NABLA_SCM_VERSION} -DupdateBranchVersions=true -DdryRun=${DRYRUN} -Pcoverage,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false release:branch -DbranchName=${SCM_BRANCH_NAME} -DdevelopmentVersion=${NEXT_NABLA_SCM_VERSION} -DreleaseVersion=${NABLA_SCM_VERSION} -DupdateBranchVersions=true -DdryRun=${DRYRUN} -Pcoverage,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
   <defaultGoals>install</defaultGoals>
-  <mavenName>Maven-3.2.1</mavenName>
-  <mavenOpts>-Xms256m -Xmx1280m -XX:PermSize=80M -XX:MaxPermSize=512M</mavenOpts>
+  <mavenOpts>-Xms256m -Xmx1280m</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>true</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
+  <ignoreUnsuccessfulUpstreams>false</ignoreUnsuccessfulUpstreams>
   <archivingDisabled>false</archivingDisabled>
   <siteArchivingDisabled>false</siteArchivingDisabled>
   <fingerprintingDisabled>false</fingerprintingDisabled>
@@ -120,7 +103,7 @@ It should be as quick as possible whith no reports.</description>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters/>
   <publishers>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.47">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.63">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -130,19 +113,31 @@ It should be as quick as possible whith no reports.</description>
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.71">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
         <unstableTotalLow></unstableTotalLow>
+        <unstableNewAll></unstableNewAll>
+        <unstableNewHigh></unstableNewHigh>
+        <unstableNewNormal></unstableNewNormal>
+        <unstableNewLow></unstableNewLow>
         <failedTotalAll></failedTotalAll>
         <failedTotalHigh></failedTotalHigh>
         <failedTotalNormal></failedTotalNormal>
         <failedTotalLow></failedTotalLow>
+        <failedNewAll></failedNewAll>
+        <failedNewHigh></failedNewHigh>
+        <failedNewNormal></failedNewNormal>
+        <failedNewLow></failedNewLow>
       </thresholds>
       <shouldDetectModules>false</shouldDetectModules>
       <dontComputeNew>true</dontComputeNew>
       <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+      <includePattern></includePattern>
+      <excludePattern></excludePattern>
+      <messagesPattern></messagesPattern>
+      <categoriesPattern></categoriesPattern>
       <parserConfigurations/>
       <consoleParsers>
         <hudson.plugins.warnings.ConsoleParser>
@@ -153,7 +148,7 @@ It should be as quick as possible whith no reports.</description>
         </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.5">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -162,6 +157,7 @@ It should be as quick as possible whith no reports.</description>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
       <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <hudson.maven.RedeployPublisher>
@@ -181,16 +177,16 @@ It should be as quick as possible whith no reports.</description>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>-1</minLogFileSize>
@@ -199,7 +195,8 @@ It should be as quick as possible whith no reports.</description>
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.25">
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
+      <patterns class="empty-list"/>
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
       <cleanWhenSuccess>true</cleanWhenSuccess>
@@ -213,12 +210,12 @@ It should be as quick as possible whith no reports.</description>
     </hudson.plugins.ws__cleanup.WsCleanup>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.25">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.14.1">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>1440</timeoutMinutes>
       </strategy>
@@ -226,13 +223,13 @@ It should be as quick as possible whith no reports.</description>
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.6"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper plugin="m2release@0.14.0">
       <scmUserEnvVar></scmUserEnvVar>
       <scmPasswordEnvVar></scmPasswordEnvVar>
       <releaseEnvVar>IS_M2RELEASEBUILD</releaseEnvVar>
-      <releaseGoals>-Dresume=false -s $WORKSPACE/.m2/settings.xml release:branch -DbranchName=${SCM_BRANCH_NAME}  -DupdateBranchVersions=true</releaseGoals>
-      <dryRunGoals>-Dresume=false -s $WORKSPACE/.m2/settings.xml -DdryRun=true release:branch -DbranchName=${SCM_BRANCH_NAME} -DupdateBranchVersions=true</dryRunGoals>
+      <releaseGoals>-Dresume=false release:branch -DbranchName=${SCM_BRANCH_NAME}  -DupdateBranchVersions=true</releaseGoals>
+      <dryRunGoals>-Dresume=false -DdryRun=true release:branch -DbranchName=${SCM_BRANCH_NAME} -DupdateBranchVersions=true</dryRunGoals>
       <selectCustomScmCommentPrefix>false</selectCustomScmCommentPrefix>
       <selectAppendHudsonUsername>false</selectAppendHudsonUsername>
       <selectScmCredentials>false</selectScmCredentials>
@@ -241,11 +238,12 @@ It should be as quick as possible whith no reports.</description>
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false -s $WORKSPACE/.m2/settings.xml clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x</targets>
-      <mavenName>Maven-3.2.1</mavenName>
+      <targets>-B -U -e -Dsurefire.useFile=false -s clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x</targets>
+      <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
   </prebuilders>
   <postbuilders/>
