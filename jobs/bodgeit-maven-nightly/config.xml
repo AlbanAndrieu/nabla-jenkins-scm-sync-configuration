@@ -135,7 +135,7 @@ mvn codenarc:codenarc&#xd;
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>java-medium&amp;&amp;zaproxy&amp;&amp;git</assignedNode>
+  <assignedNode>ubuntu-legacy&amp;&amp;java-medium&amp;&amp;zaproxy&amp;&amp;git</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
