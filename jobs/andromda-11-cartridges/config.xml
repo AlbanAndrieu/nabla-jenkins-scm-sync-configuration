@@ -59,7 +59,7 @@
   </rootModule>
   <goals>-U -Dsurefire.useFile=false clean install -Pandromda-lite</goals>
   <defaultGoals>install</defaultGoals>
-  <mavenOpts>-Xms256m -Xmx1024m -XX:PermSize=80M -XX:MaxPermSize=256M</mavenOpts>
+  <mavenOpts>-Xms256m -Xmx1024m -XX:PermSize=80M</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
