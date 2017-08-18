@@ -736,15 +736,15 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -799,7 +799,7 @@ mvn codenarc:codenarc&#xd;
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.0">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
@@ -810,7 +810,10 @@ mvn codenarc:codenarc&#xd;
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Shell>
-      <command>echo USER $USER
+      <command>#!/bin/bash
+set -xv
+
+echo USER $USER
 #bower cache clean
 #npm cache clean
 echo PATH $PATH
@@ -819,10 +822,10 @@ echo PATH $PATH
 
 #/usr/bin/firefox  -V
 #/usr/lib/firefox/firefox -V
-firefox -V
+firefox -V || true
 #/usr/bin/chromium-browser --version
 #/opt/google/chrome/chrome --version
-chrome --version</command>
+chrome --version || true</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dsurefire.useFile=false clean -Psample </targets>
