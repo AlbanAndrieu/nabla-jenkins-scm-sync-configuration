@@ -886,10 +886,10 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -898,10 +898,10 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -961,7 +961,7 @@ mvn codenarc:codenarc&#xd;
       <screen></screen>
       <debug>false</debug>
       <timeout>0</timeout>
-      <displayNameOffset>0</displayNameOffset>
+      <displayNameOffset>18</displayNameOffset>
       <additionalOptions></additionalOptions>
       <shutdownWithBuild>false</shutdownWithBuild>
       <autoDisplayName>false</autoDisplayName>
@@ -993,7 +993,7 @@ mvn codenarc:codenarc&#xd;
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.0">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@2.1.3">
