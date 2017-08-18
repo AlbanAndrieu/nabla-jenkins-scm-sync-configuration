@@ -62,7 +62,7 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://192.168.0.29:80/phpmyadmin/</mUrl>
+          <mUrl>http://192.168.0.29:7072/phpmyadmin/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
