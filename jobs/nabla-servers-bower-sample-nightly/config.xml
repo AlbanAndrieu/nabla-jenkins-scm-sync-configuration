@@ -1027,7 +1027,8 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Shell>
-      <command>#!/bin/bash -xv
+      <command>#!/bin/bash
+#set -xv
 
 git clean -fdx
 git --version
@@ -1054,9 +1055,8 @@ echo &quot;JETTY_PORT : $JETTY_PORT&quot;
 echo &quot;SERVER_HOST : $SERVER_HOST&quot;
 echo &quot;ZAPROXY_HOME : $ZAPROXY_HOME&quot;
 
-rm ./zap.sh || true
-#ln -s ${ZAPROXY_HOME}/zap.sh zap.sh &gt;/dev/null 2&gt;&amp;1 || true
-ln -s ${ZAPROXY_HOME}/zap.sh zap.sh
+#rm ./zap.sh || true
+#ln -s ${ZAPROXY_HOME}/zap.sh zap.sh
 
 #browser version
 #/usr/bin/firefox  -V
