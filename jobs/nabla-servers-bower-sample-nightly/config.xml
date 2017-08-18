@@ -1031,8 +1031,9 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
 #set -xv
 
 git clean -fdx
-git --version
-svn --version
+
+git --version || true
+svn --version || true
 echo USER $USER
 #bower cache clean
 #npm cache clean
@@ -1040,8 +1041,8 @@ echo USER $USER
 #export NODE_PATH=$NODE_PATH:$WORKSPACE/lib/node_modules
 echo NODE_PATH: ${NODE_PATH}
 echo PATH: ${PATH}
-node --version
-npm --version
+node --version || true
+npm --version || true
 
 echo DISPLAY $DISPLAY
 
@@ -1061,15 +1062,15 @@ echo &quot;ZAPROXY_HOME : $ZAPROXY_HOME&quot;
 #browser version
 #/usr/bin/firefox  -V
 #/usr/lib/firefox/firefox -V
-firefox -V
+firefox -V || true
 #/usr/bin/chromium-browser --version
 #/opt/google/chrome/chrome --version
-chrome --version
+chrome --version || true
 
 export PHANTOMJS_BIN=`which phantomjs`
 
 #npm install --global phantomjs
-phantomjs --version
+phantomjs --version || true
 
 lsof -i :$CARGO_RMI_PORT || true
 
@@ -1114,14 +1115,14 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 #set -xv
-node --version
+node --version || true
 #./node/node --version
 #npm --version
-npm --version
+npm --version || true
 #./clean.sh
-bower --version
+bower --version || true
 #./bower list
-nsp --version
+nsp --version || true
 nsp check || true
 
 #./npm install codecov.io --save
@@ -1132,7 +1133,7 @@ export CODECOV_TOKEN=&quot;23ccf822-ee60-4d0f-8332-9c692389b2e2&quot;
 #  &amp;&amp; cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js
 
 #rm ./target/test.png || true
-phantomjs --version
+phantomjs --version || true
 #./phantomjs --proxy=127.0.0.1:8090 --debug=true --web-security=false --ignore-ssl-errors=true --cookies-file=./target/cookies.txt rasterize.js http://localhost:$JETTY_PORT/ ./target/test.png || true
 #./phantomjs --debug=true --web-security=false --ignore-ssl-errors=true --cookies-file=./target/cookies.txt netsniff.js http://localhost:$JETTY_PORT/ &gt; ./target/speed.har || true
 
