@@ -115,8 +115,8 @@
   </reporters>
   <publishers>
     <hudson.maven.RedeployPublisher>
-      <id>nexus-releases</id>
-      <url>http://home.nabla.mobi:8085/nexus/content/repositories/releases</url>
+      <id>nexus-snapshots</id>
+      <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
       <uniqueVersion>false</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
@@ -180,7 +180,7 @@
 
 #git clean -fdx
 
-whoami
+#whoami
 
 </command>
     </hudson.tasks.Shell>
