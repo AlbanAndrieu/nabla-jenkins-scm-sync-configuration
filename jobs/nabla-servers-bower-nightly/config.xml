@@ -820,12 +820,12 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
 
 git clean -fdx
 
-git --version
-svn --version
+git --version || true
+svn --version || true
 echo NODE_PATH: ${NODE_PATH}
 echo PATH: ${PATH}
-node --version
-npm --version
+node --version || true
+npm --version || true
 echo BUILD_NUMBER: ${BUILD_NUMBER}
 #export BUILD_NUMBER=185
 #echo BUILD_NUMBER: ${BUILD_NUMBER}
@@ -834,10 +834,10 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}
 
 #/usr/bin/firefox  -V
 #/usr/lib/firefox/firefox -V
-firefox -V
+firefox -V || true
 #/usr/bin/chromium-browser --version
 #/opt/google/chrome/chrome --version
-chrome --version
+chrome --version || true
 
 echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
     </hudson.tasks.Shell>
@@ -884,11 +884,11 @@ FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
 echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_LATEST_SUCCESSFUL_COMMIT}&quot; &gt; ${WORKSPACE}/$FILENAME
 
 #node --version
-./node/node --version
+./node/node --version || true
 #npm --version
-npm --version
+npm --version || true
 ./clean.sh
-bower --version
+bower --version || true
 #./bower list
 </command>
     </hudson.tasks.Shell>
