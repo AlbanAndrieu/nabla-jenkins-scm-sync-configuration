@@ -157,7 +157,7 @@ mvn codenarc:codenarc&#xd;
   </scm>
   <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
