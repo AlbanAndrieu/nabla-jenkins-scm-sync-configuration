@@ -173,7 +173,18 @@
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>
-  <prebuilders/>
+  <prebuilders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash 
+#set -xv
+
+#git clean -fdx
+
+whoami
+
+</command>
+    </hudson.tasks.Shell>
+  </prebuilders>
   <postbuilders/>
   <runPostStepsIfResult>
     <name>FAILURE</name>
