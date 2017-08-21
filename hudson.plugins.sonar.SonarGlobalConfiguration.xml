@@ -9,7 +9,7 @@
       <mojoVersion></mojoVersion>
       <databaseUrl></databaseUrl>
       <databaseLogin></databaseLogin>
-      <additionalProperties>-Dsonar.forceAnalysis=true -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.branch=${SONAR_BRANCH} -Dreport.type=executive -Dsonar.pdf.username=admin -Dsonar.pdf.password=microsoft</additionalProperties>
+      <additionalProperties>-Dsonar.forceAnalysis=true -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.branch=${SONAR_BRANCH} -Dreport.type=executive -Dsonar.pdf.username=admin -Dsonar.pdf.password=microsoft -Dsonar.scm.disabled=true</additionalProperties>
       <additionalAnalysisProperties></additionalAnalysisProperties>
       <triggers>
         <skipScmCause>false</skipScmCause>
@@ -17,8 +17,8 @@
         <envVar></envVar>
       </triggers>
       <sonarLogin></sonarLogin>
-      <databaseSecret>{AQAAABAAAAAQg4asgTapRcb4gOZ+des6wyAdpNC39lZ9b8NrPC6OFAo=}</databaseSecret>
-      <sonarSecret>{AQAAABAAAAAQRUgnKmVji3lnrZUcqBThN0uSoewknf3FqoK5rz7Vn7s=}</sonarSecret>
+      <databaseSecret>{AQAAABAAAAAQkwO4sIvcELvx+Gd0o04ZcLO9f6MemYNOyIhenKCpeOM=}</databaseSecret>
+      <sonarSecret>{AQAAABAAAAAQHPgTEvHJSbzK0lu/9SOsvOQHmb42FHc/TUfqS1XG9YQ=}</sonarSecret>
     </hudson.plugins.sonar.SonarInstallation>
   </installations>
   <buildWrapperEnabled>false</buildWrapperEnabled>
