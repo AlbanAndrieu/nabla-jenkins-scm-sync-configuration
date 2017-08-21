@@ -43,7 +43,7 @@ as soon it does not take too long.</description>
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-databases/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -55,7 +55,7 @@ as soon it does not take too long.</description>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.4.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -123,7 +123,7 @@ as soon it does not take too long.</description>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -152,7 +152,7 @@ as soon it does not take too long.</description>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -184,7 +184,7 @@ as soon it does not take too long.</description>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -206,14 +206,14 @@ as soon it does not take too long.</description>
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.pmd.PmdReporter>
-    <hudson.plugins.dry.DryReporter plugin="dry@2.48">
+    <hudson.plugins.dry.DryReporter plugin="dry@2.49">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[DRY] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -244,7 +244,7 @@ as soon it does not take too long.</description>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -470,7 +470,7 @@ as soon it does not take too long.</description>
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -515,7 +515,7 @@ as soon it does not take too long.</description>
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.90">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -544,7 +544,7 @@ as soon it does not take too long.</description>
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.20">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
@@ -579,7 +579,7 @@ as soon it does not take too long.</description>
       <excludeGetterSetter>false</excludeGetterSetter>
       <locateTopMost>true</locateTopMost>
     </hudson.plugins.covcomplplot.CovComplPlotPublisher>
-    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.10">
+    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.11">
       <coberturaReportFile>**/target/site/cobertura/coverage.xml</coberturaReportFile>
       <onlyStable>false</onlyStable>
       <failUnhealthy>false</failUnhealthy>
@@ -642,7 +642,7 @@ as soon it does not take too long.</description>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
       <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
-      <uniqueVersion>true</uniqueVersion>
+      <uniqueVersion>false</uniqueVersion>
       <evenIfUnstable>false</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -658,6 +658,12 @@ as soon it does not take too long.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
@@ -668,12 +674,6 @@ as soon it does not take too long.</description>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>SUCCESS</name>
-          <ordinal>0</ordinal>
-          <color>BLUE</color>
-          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -721,7 +721,7 @@ as soon it does not take too long.</description>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.0">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
