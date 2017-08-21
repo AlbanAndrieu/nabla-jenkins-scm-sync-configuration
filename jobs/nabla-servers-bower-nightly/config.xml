@@ -786,7 +786,7 @@ mvn codenarc:codenarc&#xd;
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.31">
+        <secureGroovyScript plugin="script-security@1.33">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
@@ -804,9 +804,6 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
       <selectScmCredentials>false</selectScmCredentials>
       <numberOfReleaseBuildsToKeep>1</numberOfReleaseBuildsToKeep>
     </org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper>
-    <jenkins.plugins.nodejs.NodeJSBuildWrapper plugin="nodejs@1.2.3">
-      <nodeJSInstallationName>NodeJs</nodeJSInstallationName>
-    </jenkins.plugins.nodejs.NodeJSBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
       <template>#${ENV,var=&quot;git.branch&quot;} (${ENV,var=&quot;git.revision&quot;}, build #${BUILD_NUMBER})</template>
       <runAtStart>true</runAtStart>
@@ -884,7 +881,7 @@ FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
 echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_LATEST_SUCCESSFUL_COMMIT}&quot; &gt; ${WORKSPACE}/$FILENAME
 
 #node --version
-./node/node --version || true
+node --version || true
 #npm --version
 npm --version || true
 ./clean.sh
