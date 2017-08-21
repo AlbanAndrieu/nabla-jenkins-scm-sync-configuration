@@ -21,7 +21,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -33,7 +33,7 @@
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.4.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -284,7 +284,7 @@
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
       <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
-      <uniqueVersion>true</uniqueVersion>
+      <uniqueVersion>false</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
@@ -292,10 +292,10 @@
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -304,10 +304,10 @@
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -316,7 +316,7 @@
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder plugin="git-changelog@1.49">
+    <org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder plugin="git-changelog@1.51">
       <config>
         <configFile>git-changelog-settings.json</configFile>
         <createFileTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
