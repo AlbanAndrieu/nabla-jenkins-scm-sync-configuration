@@ -823,7 +823,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-databases-nightly</firstJob>
-        <firstJobLink>view/nabla/job/nabla-databases-nightly/</firstJobLink>
+        <firstJobLink>job/nabla-databases-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -846,7 +846,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>andromda-0-maven-config</firstJob>
-        <firstJobLink>view/nabla/job/andromda-0-maven-config/</firstJobLink>
+        <firstJobLink>job/andromda-0-maven-config/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -870,7 +870,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-servers-nightly</firstJob>
-        <firstJobLink>view/nabla/job/nabla-servers-nightly/</firstJobLink>
+        <firstJobLink>job/nabla-servers-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -894,7 +894,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-projects-nightly</firstJob>
-        <firstJobLink>view/nabla/job/nabla-projects-nightly/</firstJobLink>
+        <firstJobLink>job/nabla-projects-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -918,7 +918,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-uml-nightly</firstJob>
-        <firstJobLink>view/nabla/job/nabla-uml-nightly/</firstJobLink>
+        <firstJobLink>job/nabla-uml-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -942,7 +942,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
         <firstJob>nabla-andromda-nightly</firstJob>
-        <firstJobLink>view/nabla/job/nabla-andromda-nightly/</firstJobLink>
+        <firstJobLink>job/nabla-andromda-nightly/</firstJobLink>
       </gridBuilder>
       <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
@@ -1000,7 +1000,7 @@
   </views>
   <primaryView>nabla-dashboard</primaryView>
   <slaveAgentPort>33224</slaveAgentPort>
-  <label>ubuntu java java-small java-medium groovy jboss7x jboss5x subversion git selenium zaproxy nodejs</label>
+  <label>ubuntu java java-small java-medium groovy jboss7x jboss5x subversion git selenium zaproxy </label>
   <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
     <excludeClientIPFromCrumb>true</excludeClientIPFromCrumb>
   </crumbIssuer>
