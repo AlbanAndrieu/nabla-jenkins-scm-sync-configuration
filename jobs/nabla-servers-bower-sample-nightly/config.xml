@@ -708,7 +708,7 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
       <regexp>.war</regexp>
     </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.2">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.3">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>50</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -717,7 +717,6 @@ mvn codenarc:codenarc&#xd;
       <relativeUnstableThresholdPositive>25.0</relativeUnstableThresholdPositive>
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
-      <modeRelativeThresholds>false</modeRelativeThresholds>
       <configType>ART</configType>
       <graphType>ART</graphType>
       <modeOfThreshold>false</modeOfThreshold>
@@ -726,6 +725,7 @@ mvn codenarc:codenarc&#xd;
       <optionType>ART</optionType>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
+      <excludeResponseTime>false</excludeResponseTime>
       <modeThroughput>true</modeThroughput>
       <modeEvaluation>false</modeEvaluation>
       <ignoreFailedBuilds>false</ignoreFailedBuilds>
@@ -886,10 +886,10 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -898,10 +898,10 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -993,7 +993,7 @@ mvn codenarc:codenarc&#xd;
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.1">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@2.1.3">
@@ -1001,7 +1001,7 @@ mvn codenarc:codenarc&#xd;
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.31">
+        <secureGroovyScript plugin="script-security@1.33">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
@@ -1031,10 +1031,13 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
 #set -xv
 
 git clean -fdx
+git --no-pager log --max-count=10 --graph --abbrev-commit
+
+echo $&apos;\u2192&apos;
 
 git --version || true
 svn --version || true
-echo USER $USER
+echo USER: ${USER}
 #bower cache clean
 #npm cache clean
 #export PATH=$PATH:$ZAPROXY_HOME
