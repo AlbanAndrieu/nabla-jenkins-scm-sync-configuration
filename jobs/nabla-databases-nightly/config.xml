@@ -103,7 +103,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
         <localBranch>master</localBranch>
       </hudson.plugins.git.extensions.impl.LocalBranch>
       <hudson.plugins.git.extensions.impl.CloneOption>
-        <shallow>true</shallow>
+        <shallow>false</shallow>
         <noTags>false</noTags>
         <reference></reference>
         <timeout>10</timeout>
