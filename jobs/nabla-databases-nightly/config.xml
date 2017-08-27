@@ -111,6 +111,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
         <honorRefspec>false</honorRefspec>
       </hudson.plugins.git.extensions.impl.CloneOption>
       <hudson.plugins.git.extensions.impl.PerBuildTag/>
+      <hudson.plugins.git.extensions.impl.CleanCheckout/>
     </extensions>
   </scm>
   <assignedNode>java-medium&amp;&amp;git</assignedNode>
