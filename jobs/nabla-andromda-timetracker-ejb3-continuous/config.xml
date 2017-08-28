@@ -73,7 +73,16 @@ as soon it does not take too long.</description>
       <url>https://github.com/AlbanAndrieu/nabla-andromda/</url>
     </browser>
     <submoduleCfg class="list"/>
-    <extensions/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.CloneOption>
+        <shallow>false</shallow>
+        <noTags>false</noTags>
+        <reference></reference>
+        <depth>0</depth>
+        <honorRefspec>false</honorRefspec>
+      </hudson.plugins.git.extensions.impl.CloneOption>
+      <hudson.plugins.git.extensions.impl.CleanCheckout/>
+    </extensions>
   </scm>
   <assignedNode>java-medium&amp;&amp;jboss5x&amp;&amp;git</assignedNode>
   <canRoam>false</canRoam>
