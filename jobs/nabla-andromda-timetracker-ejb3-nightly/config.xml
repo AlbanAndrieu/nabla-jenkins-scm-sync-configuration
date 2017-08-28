@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.12.1">
+<maven2-moduleset plugin="maven-plugin@2.17">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Andromda Timetracker EJB3&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -45,13 +45,13 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.1">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-andromda/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -62,9 +62,24 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.scm.NullSCM"/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/AlbanAndrieu/nabla-andromda.git</url>
+        <credentialsId>f364db9f-b4fe-44fc-b02c-87dd3d0b5204</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
   <assignedNode>java-medium&amp;&amp;jboss5x&amp;&amp;git</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
@@ -91,6 +106,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
+  <ignoreUnsuccessfulUpstreams>false</ignoreUnsuccessfulUpstreams>
   <archivingDisabled>true</archivingDisabled>
   <siteArchivingDisabled>false</siteArchivingDisabled>
   <fingerprintingDisabled>false</fingerprintingDisabled>
@@ -105,14 +121,14 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters>
-    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.64">
+    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.71">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[FINDBUGS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.76">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -137,14 +153,14 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <excludePattern></excludePattern>
       <includePattern></includePattern>
     </hudson.plugins.findbugs.FindBugsReporter>
-    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.44">
+    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.49">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[PMD] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.76">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -166,14 +182,14 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.pmd.PmdReporter>
-    <hudson.plugins.dry.DryReporter plugin="dry@2.44">
+    <hudson.plugins.dry.DryReporter plugin="dry@2.49">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[DRY] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.76">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -197,14 +213,14 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <highThreshold>50</highThreshold>
       <normalThreshold>25</normalThreshold>
     </hudson.plugins.dry.DryReporter>
-    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.48">
+    <hudson.plugins.tasks.TasksReporter plugin="tasks@4.52">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[TASKS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.76">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -420,7 +436,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.53">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.63">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -430,7 +446,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.76">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -454,6 +470,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <includePattern></includePattern>
       <excludePattern></excludePattern>
       <messagesPattern></messagesPattern>
+      <categoriesPattern></categoriesPattern>
       <parserConfigurations/>
       <consoleParsers>
         <hudson.plugins.warnings.ConsoleParser>
@@ -464,7 +481,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
         </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
-    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.47">
+    <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.52">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -474,7 +491,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.76">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -501,8 +518,9 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <isPmdDeactivated>false</isPmdDeactivated>
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
       <isWarningsDeactivated>false</isWarningsDeactivated>
+      <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.13">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -525,16 +543,16 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -543,7 +561,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.3">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>0</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -552,20 +570,23 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <relativeUnstableThresholdPositive>25.0</relativeUnstableThresholdPositive>
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
-      <modeRelativeThresholds>false</modeRelativeThresholds>
       <configType>ART</configType>
+      <graphType>ART</graphType>
       <modeOfThreshold>false</modeOfThreshold>
+      <failBuildIfNoResultFile>false</failBuildIfNoResultFile>
       <compareBuildPrevious>false</compareBuildPrevious>
+      <optionType>ART</optionType>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
-      <parsers>
-        <hudson.plugins.performance.JUnitParser>
-          <glob>**/TEST-*.xml</glob>
-        </hudson.plugins.performance.JUnitParser>
-      </parsers>
+      <excludeResponseTime>false</excludeResponseTime>
       <modeThroughput>false</modeThroughput>
+      <modeEvaluation>false</modeEvaluation>
+      <ignoreFailedBuilds>false</ignoreFailedBuilds>
+      <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
+      <persistConstraintLog>false</persistConstraintLog>
+      <sourceDataFiles>**/TEST-*.xml</sourceDataFiles>
     </hudson.plugins.performance.PerformancePublisher>
-    <hudson.plugins.testng.Publisher plugin="testng-plugin@1.12">
+    <hudson.plugins.testng.Publisher plugin="testng-plugin@1.14">
       <reportFilenamePattern>**/testng-result.xml</reportFilenamePattern>
       <escapeTestDescp>true</escapeTestDescp>
       <escapeExceptionMsg>true</escapeExceptionMsg>
@@ -577,12 +598,13 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <failedFails>100</failedFails>
       <thresholdMode>2</thresholdMode>
     </hudson.plugins.testng.Publisher>
-    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.0.1">
+    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
       <execPattern>**/**.exec</execPattern>
       <classPattern>**/classes</classPattern>
       <sourcePattern>**/src/main/java</sourcePattern>
       <inclusionPattern></inclusionPattern>
       <exclusionPattern></exclusionPattern>
+      <skipCopyOfSrcFiles>false</skipCopyOfSrcFiles>
       <minimumInstructionCoverage>0</minimumInstructionCoverage>
       <minimumBranchCoverage>0</minimumBranchCoverage>
       <minimumComplexityCoverage>0</minimumComplexityCoverage>
@@ -596,8 +618,15 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <maximumMethodCoverage>0</maximumMethodCoverage>
       <maximumClassCoverage>0</maximumClassCoverage>
       <changeBuildStatus>false</changeBuildStatus>
+      <deltaInstructionCoverage>0</deltaInstructionCoverage>
+      <deltaBranchCoverage>0</deltaBranchCoverage>
+      <deltaComplexityCoverage>0</deltaComplexityCoverage>
+      <deltaLineCoverage>0</deltaLineCoverage>
+      <deltaMethodCoverage>0</deltaMethodCoverage>
+      <deltaClassCoverage>0</deltaClassCoverage>
+      <buildOverBuild>false</buildOverBuild>
     </hudson.plugins.jacoco.JacocoPublisher>
-    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.4">
+    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.6.1">
       <branch></branch>
       <mavenOpts></mavenOpts>
       <jobAdditionalProperties>-Psample,arq-jbossas-managed,run-its,coverage -Dserver=jboss7x -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.skippedModules=web</jobAdditionalProperties>
@@ -613,12 +642,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
     </hudson.plugins.covcomplplot.CovComplPlotPublisher>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.29">
-      <deleteDirs>false</deleteDirs>
-      <cleanupParameter></cleanupParameter>
-      <externalDelete></externalDelete>
-    </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.16">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>300</timeoutMinutes>
       </strategy>
@@ -626,7 +650,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.7.4"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
@@ -643,10 +667,10 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
       <template>#${GIT_BRANCH}-${BUILD_NUMBER}</template>
       <runAtStart>true</runAtStart>
       <runAtEnd>true</runAtEnd>
@@ -663,8 +687,9 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
-    <EnvInjectBuilder plugin="envinject@1.92.1">
+    <EnvInjectBuilder plugin="envinject@2.1.3">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
@@ -678,6 +703,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
       <targets>source:jar source:test-jar -Psample,!mda,arq-jbossas-managed -Dno-cartridges= -Dserver=jboss7x</targets>
@@ -687,6 +713,7 @@ clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
   </postbuilders>
   <runPostStepsIfResult>
