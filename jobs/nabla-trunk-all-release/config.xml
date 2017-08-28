@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.13">
+<maven2-moduleset plugin="maven-plugin@2.17">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Trunk All&lt;/i&gt; the whole project at the same time.&lt;br&gt;&#xd;
 The main goals of this job is to perform operations like release, it is intended to build master.&lt;br&gt;&#xd;
@@ -25,13 +25,7 @@ It should be as quick as possible whith no reports.</description>
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.0">
-      <tagOnCompletion>false</tagOnCompletion>
-      <additionalTag></additionalTag>
-      <pushOnSuccess>false</pushOnSuccess>
-      <cleanImages>true</cleanImages>
-    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.2">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -56,9 +50,8 @@ It should be as quick as possible whith no reports.</description>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -68,7 +61,7 @@ It should be as quick as possible whith no reports.</description>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>*/develop</name>
+        <name>*/master</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -82,12 +75,9 @@ It should be as quick as possible whith no reports.</description>
         <recursiveSubmodules>true</recursiveSubmodules>
         <trackingSubmodules>false</trackingSubmodules>
         <reference></reference>
+        <parentCredentials>false</parentCredentials>
       </hudson.plugins.git.extensions.impl.SubmoduleOption>
       <hudson.plugins.git.extensions.impl.IgnoreNotifyCommit/>
-      <hudson.plugins.git.extensions.impl.PerBuildTag/>
-      <hudson.plugins.git.extensions.impl.LocalBranch>
-        <localBranch>develop</localBranch>
-      </hudson.plugins.git.extensions.impl.LocalBranch>
     </extensions>
   </scm>
   <assignedNode>java-large</assignedNode>
@@ -124,7 +114,7 @@ It should be as quick as possible whith no reports.</description>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters/>
   <publishers>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.56">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.63">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -134,7 +124,7 @@ It should be as quick as possible whith no reports.</description>
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.78">
+      <thresholds plugin="analysis-core@1.92">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -158,6 +148,7 @@ It should be as quick as possible whith no reports.</description>
       <includePattern></includePattern>
       <excludePattern></excludePattern>
       <messagesPattern></messagesPattern>
+      <categoriesPattern></categoriesPattern>
       <parserConfigurations/>
       <consoleParsers>
         <hudson.plugins.warnings.ConsoleParser>
@@ -168,7 +159,7 @@ It should be as quick as possible whith no reports.</description>
         </hudson.plugins.warnings.ConsoleParser>
       </consoleParsers>
     </hudson.plugins.warnings.WarningsPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.13">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -185,15 +176,15 @@ It should be as quick as possible whith no reports.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
@@ -209,7 +200,8 @@ It should be as quick as possible whith no reports.</description>
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.29">
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
+      <patterns class="empty-list"/>
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
       <cleanWhenSuccess>true</cleanWhenSuccess>
@@ -223,12 +215,12 @@ It should be as quick as possible whith no reports.</description>
     </hudson.plugins.ws__cleanup.WsCleanup>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.29">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.17">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>1440</timeoutMinutes>
       </strategy>
@@ -236,8 +228,11 @@ It should be as quick as possible whith no reports.</description>
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.4"/>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
       <template>#${GIT_BRANCH}-${BUILD_NUMBER}</template>
       <runAtStart>true</runAtStart>
       <runAtEnd>true</runAtEnd>
@@ -245,8 +240,10 @@ It should be as quick as possible whith no reports.</description>
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Shell>
-      <command>git checkout master
-git merge --no-ff origin/develop</command>
+      <command>#git checkout master
+#git merge --no-ff origin/develop
+
+#git pull &amp;&amp; git submodule init &amp;&amp; git submodule update &amp;&amp; git submodule status</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>echo NODE_PATH: ${NODE_PATH}
@@ -265,6 +262,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false -s $WORKSPACE/.m2/settings.xml clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x -Dbuild.number=${BUILD_NUMBER}</targets>
@@ -272,6 +270,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
   </prebuilders>
   <postbuilders>
@@ -281,6 +280,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
       <targets>-s settings.xml scm:tag -Dtag=nabla-${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
@@ -288,6 +288,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
       <targets>-s settings.xml deploy -Psample</targets>
@@ -295,6 +296,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
       <targets>-s settings.xml versions:update-parent versions:set -DnewVersion=${MVN_NEXT_VERSION} -Dmessage=${MVN_NEXT_VERSION} scm:checkin -DparentVersion=[${MVN_NEXT_VERSION}] -DallowSnapshots=true -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
@@ -302,6 +304,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Shell>
       <command>#node --version
