@@ -262,7 +262,11 @@ It should be as quick as possible whith no reports.</description>
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Shell>
-      <command>
+      <command>#!/bin/bash
+#set -xv
+
+git clean -fdx
+
 #git pull &amp;&amp; git submodule init &amp;&amp; git submodule update &amp;&amp; git submodule status</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
