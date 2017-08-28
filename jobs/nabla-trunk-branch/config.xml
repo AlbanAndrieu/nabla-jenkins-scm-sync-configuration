@@ -261,6 +261,10 @@ It should be as quick as possible whith no reports.</description>
     </org.jvnet.hudson.plugins.m2release.M2ReleaseBuildWrapper>
   </buildWrappers>
   <prebuilders>
+    <hudson.tasks.Shell>
+      <command>
+#git pull &amp;&amp; git submodule init &amp;&amp; git submodule update &amp;&amp; git submodule status</command>
+    </hudson.tasks.Shell>
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dsurefire.useFile=false -s clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x</targets>
       <mavenName>(Default)</mavenName>
