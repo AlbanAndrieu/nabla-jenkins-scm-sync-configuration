@@ -523,7 +523,7 @@ mvn codenarc:codenarc&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@2.1.0">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@2.1.1">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -712,7 +712,7 @@ mvn codenarc:codenarc&#xd;
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.2">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.3">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>80</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -721,7 +721,6 @@ mvn codenarc:codenarc&#xd;
       <relativeUnstableThresholdPositive>25.0</relativeUnstableThresholdPositive>
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
-      <modeRelativeThresholds>false</modeRelativeThresholds>
       <configType>ART</configType>
       <graphType>ART</graphType>
       <modeOfThreshold>false</modeOfThreshold>
@@ -730,6 +729,7 @@ mvn codenarc:codenarc&#xd;
       <optionType>ART</optionType>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
+      <excludeResponseTime>false</excludeResponseTime>
       <modeThroughput>false</modeThroughput>
       <modeEvaluation>false</modeEvaluation>
       <ignoreFailedBuilds>false</ignoreFailedBuilds>
@@ -737,7 +737,7 @@ mvn codenarc:codenarc&#xd;
       <persistConstraintLog>false</persistConstraintLog>
       <sourceDataFiles>**/TEST-*.xml;**/target/jmeter/results/*.jtl</sourceDataFiles>
     </hudson.plugins.performance.PerformancePublisher>
-    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.9.0">
+    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.10.0">
       <fileIncludePattern>cucumber.json</fileIncludePattern>
       <fileExcludePattern>**/classes/**</fileExcludePattern>
       <jsonReportDirectory>gui/target</jsonReportDirectory>
@@ -747,8 +747,9 @@ mvn codenarc:codenarc&#xd;
       <undefinedStepsNumber>0</undefinedStepsNumber>
       <failedScenariosNumber>0</failedScenariosNumber>
       <failedFeaturesNumber>0</failedFeaturesNumber>
-      <trendsLimit>0</trendsLimit>
+      <trendsLimit>3</trendsLimit>
       <parallelTesting>false</parallelTesting>
+      <sortingMethod>ALPHABETICAL</sortingMethod>
       <classifications class="empty-list"/>
     </net.masterthought.jenkins.CucumberReportPublisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
@@ -804,10 +805,10 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>SUCCESS</name>
-          <ordinal>0</ordinal>
-          <color>BLUE</color>
-          <completeBuild>true</completeBuild>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -816,10 +817,10 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -886,7 +887,7 @@ mvn codenarc:codenarc&#xd;
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.1">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@2.1.3">
