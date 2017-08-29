@@ -40,7 +40,7 @@ It should be as quick as possible whith no reports.</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>SCN_BRANCH_NAME</name>
+          <name>SCM_BRANCH_NAME</name>
           <description>Name of branch used for branching</description>
           <defaultValue>release/1.1</defaultValue>
         </hudson.model.StringParameterDefinition>
