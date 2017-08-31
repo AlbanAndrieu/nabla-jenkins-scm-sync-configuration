@@ -3,13 +3,13 @@
   <installations>
     <hudson.plugins.sonar.SonarInstallation>
       <name>Default</name>
-      <serverUrl>http://home.nabla.mobi:9000</serverUrl>
-      <serverVersion>5.1</serverVersion>
-      <serverAuthenticationToken></serverAuthenticationToken>
+      <serverUrl>https://sonarcloud.io/</serverUrl>
+      <serverVersion>5.3</serverVersion>
+      <serverAuthenticationToken>50cb615252d00e68f3678b321335a8d1f13a9145</serverAuthenticationToken>
       <mojoVersion></mojoVersion>
       <databaseUrl></databaseUrl>
       <databaseLogin></databaseLogin>
-      <additionalProperties>-Dsonar.forceAnalysis=true -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.branch=${SONAR_BRANCH} -Dreport.type=executive -Dsonar.pdf.username=admin -Dsonar.pdf.password=microsoft -Dsonar.scm.disabled=true</additionalProperties>
+      <additionalProperties>-Dsonar.forceAnalysis=true -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.branch=${SONAR_BRANCH} -Dsonar.scm.disabled=true -Dsonar.organization=albanandrieu-github</additionalProperties>
       <additionalAnalysisProperties></additionalAnalysisProperties>
       <triggers>
         <skipScmCause>false</skipScmCause>
@@ -17,8 +17,8 @@
         <envVar></envVar>
       </triggers>
       <sonarLogin></sonarLogin>
-      <databaseSecret>{AQAAABAAAAAQkwO4sIvcELvx+Gd0o04ZcLO9f6MemYNOyIhenKCpeOM=}</databaseSecret>
-      <sonarSecret>{AQAAABAAAAAQHPgTEvHJSbzK0lu/9SOsvOQHmb42FHc/TUfqS1XG9YQ=}</sonarSecret>
+      <databaseSecret>{AQAAABAAAAAQSsN5G244exhSLEGLwH/sMVXz1071Z3VZnI8GuKMzW0M=}</databaseSecret>
+      <sonarSecret>{AQAAABAAAAAQ2YJtiL1cwOzQsyGdTb5yZe5Z9OYMNNZsu4qsTVnr8ng=}</sonarSecret>
     </hudson.plugins.sonar.SonarInstallation>
   </installations>
   <buildWrapperEnabled>false</buildWrapperEnabled>
