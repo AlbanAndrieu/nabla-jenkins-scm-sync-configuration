@@ -1,35 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/bodgeit-maven-nightly.png&quot; /&gt;&#xd;
+  <description>&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/bodgeit-maven-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-timetracker-ejb3-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-timetracker-ejb3-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-timetracker-gui-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-timetracker-gui-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-timetracker-hibernate-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-andromda-timetracker-hibernate-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-jhipster-sample-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-jhipster-sample-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-projects-interview-visma-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-projects-interview-visma-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-projects-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-projects-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-angular-phonecat-nodejs-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-angular-phonecat-nodejs-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-bower-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-bower-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-bower-sample-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-bower-sample-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-gwt-kitchensink-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-gwt-kitchensink-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-jsf-simple-selenium-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-jsf-simple-selenium-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-jsf-simple-seleniumhq-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-jsf-simple-seleniumhq-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
-&lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-nightly.png&quot; /&gt;&#xd;
+&lt;img src=&quot;http://home.nabla.mobi:8381/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
 &lt;img src=&quot;http://home.nabla.mobi:7072/jenkins/view/nabla-admin/job/nabla-jobs-duration-charts-admin/lastSuccessfulBuild/artifact/env/scripts/jenkins/jenkinsJobDurationCharts/nabla-servers-richfaces-webapp-nightly.png&quot; /&gt;&#xd;
 &lt;br /&gt;&#xd;
@@ -47,7 +47,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.19.2">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -58,9 +58,8 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.2">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -88,7 +87,7 @@
   <jdk>(System)</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
-      <spec>H H(5-10) * * 1-5</spec>
+      <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
@@ -103,7 +102,7 @@ python2.7 jenkinsJobDurationCharts.py</command>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>env/scripts/jenkins//jenkinsJobDurationCharts/*.png, env/scripts/jenkins/jenkinsJobDurationCharts/*.csv</artifacts>
+      <artifacts>env/scripts/jenkins/jenkinsJobDurationCharts/*.png, env/scripts/jenkins/jenkinsJobDurationCharts/*.csv</artifacts>
       <allowEmptyArchive>false</allowEmptyArchive>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
@@ -112,14 +111,14 @@ python2.7 jenkinsJobDurationCharts.py</command>
     </hudson.tasks.ArtifactArchiver>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.17">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>600</timeoutMinutes>
       </strategy>
       <operationList/>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.4"/>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.2">
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <org.jenkins__ci.plugins.build__keeper.BuildKeeper plugin="build-keeper-plugin@1.3">
