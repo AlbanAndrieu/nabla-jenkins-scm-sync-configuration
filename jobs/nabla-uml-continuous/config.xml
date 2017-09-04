@@ -272,191 +272,6 @@ as soon it does not take too long.</description>
       <ignoreCase>false</ignoreCase>
       <asRegexp>false</asRegexp>
     </hudson.plugins.tasks.TasksReporter>
-    <hudson.plugins.violations.hudson.maven.ViolationsMavenReporter plugin="violations@0.7.11">
-      <config>
-        <suppressions class="sorted-set"/>
-        <typeConfigs>
-          <entry>
-            <string>checkstyle</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>checkstyle</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>codenarc</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>codenarc</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>cpd</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>cpd</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>cpplint</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>cpplint</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>csslint</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>csslint</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>findbugs</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>findbugs</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>fxcop</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>fxcop</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>gendarme</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>gendarme</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>jcreport</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>jcreport</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>jslint</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>jslint</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>pep8</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>pep8</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>perlcritic</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>perlcritic</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>pmd</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>pmd</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>pylint</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>pylint</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>simian</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>simian</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-          <entry>
-            <string>stylecop</string>
-            <hudson.plugins.violations.TypeConfig>
-              <type>stylecop</type>
-              <min>10</min>
-              <max>999</max>
-              <unstable>999</unstable>
-              <usePattern>false</usePattern>
-              <pattern></pattern>
-            </hudson.plugins.violations.TypeConfig>
-          </entry>
-        </typeConfigs>
-        <limit>100</limit>
-        <encoding>default</encoding>
-      </config>
-    </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
     <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.63">
@@ -547,7 +362,7 @@ as soon it does not take too long.</description>
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.2">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.3">
       <errorFailedThreshold>0</errorFailedThreshold>
       <errorUnstableThreshold>0</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -556,7 +371,6 @@ as soon it does not take too long.</description>
       <relativeUnstableThresholdPositive>0.0</relativeUnstableThresholdPositive>
       <relativeUnstableThresholdNegative>0.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
-      <modeRelativeThresholds>false</modeRelativeThresholds>
       <configType>ART</configType>
       <graphType>ART</graphType>
       <modeOfThreshold>false</modeOfThreshold>
@@ -565,6 +379,7 @@ as soon it does not take too long.</description>
       <optionType>ART</optionType>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
+      <excludeResponseTime>false</excludeResponseTime>
       <modeThroughput>false</modeThroughput>
       <modeEvaluation>false</modeEvaluation>
       <ignoreFailedBuilds>false</ignoreFailedBuilds>
@@ -657,16 +472,16 @@ as soon it does not take too long.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>SUCCESS</name>
-          <ordinal>0</ordinal>
-          <color>BLUE</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -720,7 +535,7 @@ as soon it does not take too long.</description>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.0">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
