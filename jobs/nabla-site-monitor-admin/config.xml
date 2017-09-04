@@ -59,7 +59,9 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>http://home.nabla.mobi:9000/</mUrl>
-          <successResponseCodes/>
+          <successResponseCodes>
+            <int>102</int>
+          </successResponseCodes>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>http://192.168.0.29:7072/phpmyadmin/</mUrl>
@@ -132,7 +134,7 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
       <operationList/>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.1">
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>
