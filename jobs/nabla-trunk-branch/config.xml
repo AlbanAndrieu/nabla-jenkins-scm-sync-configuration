@@ -107,7 +107,7 @@ It should be as quick as possible whith no reports.</description>
     <groupId>com.nabla</groupId>
     <artifactId>users</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false release:branch -DbranchName=${SCM_BRANCH_NAME} -DdevelopmentVersion=${NEXT_NABLA_SCM_VERSION} -DreleaseVersion=${NABLA_SCM_VERSION} -DupdateBranchVersions=true -DdryRun=${DRYRUN} -Pcoverage,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false release:branch -DbranchName=${SCM_BRANCH_NAME} -DdevelopmentVersion=${NEXT_NABLA_SCM_VERSION} -DreleaseVersion=${NABLA_SCM_VERSION} -DupdateBranchVersions=true -DdryRun=${DRYRUN} -Pintegration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx1280m</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -179,8 +179,8 @@ It should be as quick as possible whith no reports.</description>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>**/target/*.war, **/target/*.jar, **/*-sources.jar</artifacts>
-      <allowEmptyArchive>false</allowEmptyArchive>
-      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <allowEmptyArchive>true</allowEmptyArchive>
+      <onlyIfSuccessful>true</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
@@ -197,16 +197,16 @@ It should be as quick as possible whith no reports.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
