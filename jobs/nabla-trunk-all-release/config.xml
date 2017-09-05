@@ -70,6 +70,7 @@ It should be as quick as possible whith no reports.</description>
     </browser>
     <submoduleCfg class="list"/>
     <extensions>
+      <hudson.plugins.git.extensions.impl.IgnoreNotifyCommit/>
       <hudson.plugins.git.extensions.impl.SubmoduleOption>
         <disableSubmodules>false</disableSubmodules>
         <recursiveSubmodules>true</recursiveSubmodules>
@@ -77,7 +78,7 @@ It should be as quick as possible whith no reports.</description>
         <reference></reference>
         <parentCredentials>false</parentCredentials>
       </hudson.plugins.git.extensions.impl.SubmoduleOption>
-      <hudson.plugins.git.extensions.impl.IgnoreNotifyCommit/>
+      <hudson.plugins.git.extensions.impl.CleanCheckout/>
     </extensions>
   </scm>
   <assignedNode>java-large</assignedNode>
@@ -92,7 +93,7 @@ It should be as quick as possible whith no reports.</description>
     <groupId>com.nabla</groupId>
     <artifactId>users</artifactId>
   </rootModule>
-  <goals>-B -U -e  -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false -s $WORKSPACE/.m2/settings.xml install -Psample,coverage,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
+  <goals>-B -U -e  -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false -s $WORKSPACE/.m2/settings.xml install -Psample,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx1280m -XX:PermSize=80M -XX:MaxPermSize=512M</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -176,12 +177,6 @@ It should be as quick as possible whith no reports.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
@@ -192,6 +187,12 @@ It should be as quick as possible whith no reports.</description>
           <ordinal>2</ordinal>
           <color>RED</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>-1</minLogFileSize>
@@ -312,9 +313,9 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
     </hudson.tasks.Maven>
     <hudson.tasks.Shell>
       <command>#node --version
-./node/node --version
+#./node/node --version
 #npm --version
-./npm --version
+#./npm --version
 #./clean.sh
 #./bower --version
 #./bower list</command>
