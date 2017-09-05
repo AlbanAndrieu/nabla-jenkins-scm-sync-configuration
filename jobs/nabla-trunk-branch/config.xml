@@ -114,7 +114,7 @@ It should be as quick as possible whith no reports.</description>
   <incrementalBuild>true</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
   <ignoreUnsuccessfulUpstreams>false</ignoreUnsuccessfulUpstreams>
-  <archivingDisabled>true</archivingDisabled>
+  <archivingDisabled>false</archivingDisabled>
   <siteArchivingDisabled>true</siteArchivingDisabled>
   <fingerprintingDisabled>true</fingerprintingDisabled>
   <resolveDependencies>true</resolveDependencies>
@@ -189,7 +189,7 @@ It should be as quick as possible whith no reports.</description>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
       <url>http://home.nabla.mobi:8088/nexus/content/repositories/snapshots</url>
-      <uniqueVersion>true</uniqueVersion>
+      <uniqueVersion>false</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
