@@ -17,8 +17,8 @@
         <envVar></envVar>
       </triggers>
       <sonarLogin></sonarLogin>
-      <databaseSecret>{AQAAABAAAAAQSsN5G244exhSLEGLwH/sMVXz1071Z3VZnI8GuKMzW0M=}</databaseSecret>
-      <sonarSecret>{AQAAABAAAAAQ2YJtiL1cwOzQsyGdTb5yZe5Z9OYMNNZsu4qsTVnr8ng=}</sonarSecret>
+      <databaseSecret>{AQAAABAAAAAQzXg7KpxteFwRy4+N3Mw1tEivgVIsvEegZxfrh5Xlbwk=}</databaseSecret>
+      <sonarSecret>{AQAAABAAAAAQtUkhkrikK9szzBhzqYUMSsJzQs9fsko04zB0kzICXBM=}</sonarSecret>
     </hudson.plugins.sonar.SonarInstallation>
   </installations>
   <buildWrapperEnabled>false</buildWrapperEnabled>
