@@ -635,16 +635,16 @@ as soon it does not take too long.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
