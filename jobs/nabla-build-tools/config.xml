@@ -80,7 +80,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <jdk>(Default)</jdk>
+  <jdk>(System)</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
@@ -95,7 +95,7 @@
     <groupId>com.nabla.project</groupId>
     <artifactId>build-tools</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false clean install site -Djava.runtime.version=1.6 -Djava.source.version=1.6</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false clean install site deploy -Djava.runtime.version=1.6 -Djava.source.version=1.6</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
