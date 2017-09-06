@@ -105,7 +105,7 @@ It should be as quick as possible whith no reports.</description>
     <groupId>com.nabla</groupId>
     <artifactId>users</artifactId>
   </rootModule>
-  <goals>-B -U -e  -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false -s $WORKSPACE/.m2/settings.xml install -Psample,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
+  <goals>-B -U -e  -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false install -Psample,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx1280m -XX:PermSize=80M -XX:MaxPermSize=512M</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -274,7 +274,7 @@ echo BUILD_ID: ${BUILD_ID}
 echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets> -s settings.xml versions:update-parent versions:set  -Dmaven.test.skip=true -DnewVersion=${MVN_RELEASE_VERSION} -DparentVersion=[${MVN_RELEASE_VERSION}] -Psample</targets>
+      <targets>versions:update-parent versions:set  -Dmaven.test.skip=true -DnewVersion=${MVN_RELEASE_VERSION} -DparentVersion=[${MVN_RELEASE_VERSION}] -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -282,7 +282,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false -s $WORKSPACE/.m2/settings.xml clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x -Dbuild.number=${BUILD_NUMBER}</targets>
+      <targets>-B -U -e -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x -Dbuild.number=${BUILD_NUMBER}</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -292,7 +292,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Maven>
-      <targets>-s settings.xml scm:checkin -Dmessage=${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
+      <targets>scm:checkin -Dmessage=${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -300,7 +300,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-s settings.xml scm:tag -Dtag=nabla-${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
+      <targets>scm:tag -Dtag=nabla-${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -308,7 +308,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-s settings.xml deploy -Psample</targets>
+      <targets>deploy -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -316,7 +316,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-s settings.xml versions:update-parent versions:set -DnewVersion=${MVN_NEXT_VERSION} -Dmessage=${MVN_NEXT_VERSION} scm:checkin -DparentVersion=[${MVN_NEXT_VERSION}] -DallowSnapshots=true -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
+      <targets>versions:update-parent versions:set -DnewVersion=${MVN_NEXT_VERSION} -Dmessage=${MVN_NEXT_VERSION} scm:checkin -DparentVersion=[${MVN_NEXT_VERSION}] -DallowSnapshots=true -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
