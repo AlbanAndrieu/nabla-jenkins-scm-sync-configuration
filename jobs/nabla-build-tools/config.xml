@@ -83,7 +83,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <jdk>(System)</jdk>
+  <jdk>java-8</jdk>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
