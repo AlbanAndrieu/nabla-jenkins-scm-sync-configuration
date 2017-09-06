@@ -107,7 +107,7 @@ It should be as quick as possible whith no reports.</description>
   </rootModule>
   <goals>-B -U -e  -Dbuild.number=${BUILD_NUMBER} -Dsurefire.useFile=false install -Psample,integration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
   <defaultGoals>install</defaultGoals>
-  <mavenOpts>-Xms256m -Xmx1280m -XX:PermSize=80M -XX:MaxPermSize=512M</mavenOpts>
+  <mavenOpts>-Xms256m -Xmx1280m</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>true</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
