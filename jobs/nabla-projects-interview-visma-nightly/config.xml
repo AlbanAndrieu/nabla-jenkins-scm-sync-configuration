@@ -1017,7 +1017,7 @@ Changelog of Git Changelog.
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
       <configType>ART</configType>
-      <graphType></graphType>
+      <graphType>ART</graphType>
       <modeOfThreshold>false</modeOfThreshold>
       <failBuildIfNoResultFile>false</failBuildIfNoResultFile>
       <compareBuildPrevious>true</compareBuildPrevious>
@@ -1042,10 +1042,9 @@ Changelog of Git Changelog.
       <undefinedStepsNumber>0</undefinedStepsNumber>
       <failedScenariosNumber>0</failedScenariosNumber>
       <failedFeaturesNumber>0</failedFeaturesNumber>
-      <buildStatus></buildStatus>
       <trendsLimit>0</trendsLimit>
       <parallelTesting>false</parallelTesting>
-      <sortingMethod></sortingMethod>
+      <sortingMethod>ALPHABETICAL</sortingMethod>
       <classifications class="empty-list"/>
     </net.masterthought.jenkins.CucumberReportPublisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
@@ -1201,6 +1200,9 @@ Changelog of Git Changelog.
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
           <name>JBOSS_PORT</name>
+        </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+        <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
+          <name>CARGO_AJP_PORT</name>
         </org.jvnet.hudson.plugins.port__allocator.PooledPortType>
       </ports>
     </org.jvnet.hudson.plugins.port__allocator.PortAllocator>
