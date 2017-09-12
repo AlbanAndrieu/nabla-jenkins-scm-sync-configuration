@@ -197,16 +197,16 @@ It should be as quick as possible whith no reports.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
           <color>RED</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
@@ -270,7 +270,7 @@ git clean -fdx
 #git pull &amp;&amp; git submodule init &amp;&amp; git submodule update &amp;&amp; git submodule status</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean release:clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
