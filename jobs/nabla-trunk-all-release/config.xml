@@ -305,7 +305,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>scm:tag -Dtag=nabla-${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
+      <targets>scm:tag -Dtag=v${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
