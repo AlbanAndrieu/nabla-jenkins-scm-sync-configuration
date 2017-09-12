@@ -259,7 +259,9 @@ It should be as quick as possible whith no reports.</description>
       <command>#!/bin/bash
 #set -xv
 
-git clean -fdx
+#git clean -fdx
+#mvn release:clean
+
 #git checkout master
 #git merge --no-ff origin/develop
 
