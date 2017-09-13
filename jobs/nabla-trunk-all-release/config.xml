@@ -78,7 +78,7 @@ It should be as quick as possible whith no reports.</description>
         <shallow>false</shallow>
         <noTags>false</noTags>
         <reference></reference>
-        <timeout>20</timeout>
+        <timeout>30</timeout>
         <depth>0</depth>
         <honorRefspec>false</honorRefspec>
       </hudson.plugins.git.extensions.impl.CloneOption>
