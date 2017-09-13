@@ -84,7 +84,7 @@
     <groupId>com.nabla.project</groupId>
     <artifactId>maven</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false clean install site -PTODOrun-its</goals>
+  <goals>-B -e -Dsurefire.useFile=false clean install site -Prun-its</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>true</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
