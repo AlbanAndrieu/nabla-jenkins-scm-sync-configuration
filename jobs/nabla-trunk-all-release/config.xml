@@ -268,7 +268,10 @@ It should be as quick as possible whith no reports.</description>
 #git pull &amp;&amp; git submodule init &amp;&amp; git submodule update &amp;&amp; git submodule status</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>echo NODE_PATH: ${NODE_PATH}
+      <command>#!/bin/bash
+#set -xv
+
+echo NODE_PATH: ${NODE_PATH}
 echo PATH: ${PATH}
 #node --version
 #npm --version
@@ -329,19 +332,13 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Shell>
-      <command>#node --version
-#./node/node --version
-#npm --version
-#./npm --version
-#./clean.sh
-#./bower --version
-#./bower list</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>git checkout develop
-git pull origin develop
-git merge --no-ff master
-git push</command>
+      <command>#!/bin/bash
+#set -xv
+
+#git checkout develop
+#git pull origin develop
+#git merge --no-ff master
+#git push</command>
     </hudson.tasks.Shell>
   </postbuilders>
   <runPostStepsIfResult>
