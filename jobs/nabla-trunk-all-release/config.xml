@@ -313,7 +313,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>deploy -DstagingRepositoryId=nexus-releases -Psample</targets>
+      <targets>deploy -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
