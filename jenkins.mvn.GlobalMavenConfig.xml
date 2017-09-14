@@ -2,6 +2,6 @@
 <jenkins.mvn.GlobalMavenConfig>
   <settingsProvider class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettingsProvider class="org.jenkinsci.plugins.configfiles.maven.job.MvnGlobalSettingsProvider" plugin="config-file-provider@2.16.3">
-    <settingsConfigId>96e3ac65-5c98-408a-ac7c-1d0cfb8afd29</settingsConfigId>
+    <settingsConfigId>nabla-default</settingsConfigId>
   </globalSettingsProvider>
 </jenkins.mvn.GlobalMavenConfig>
