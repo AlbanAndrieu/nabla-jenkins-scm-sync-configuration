@@ -192,10 +192,10 @@ It should be as quick as possible whith no reports.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -204,10 +204,10 @@ It should be as quick as possible whith no reports.</description>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>-1</minLogFileSize>
@@ -313,7 +313,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>deploy -Psample</targets>
+      <targets>deploy -DstagingRepositoryId=nexus-releases -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
