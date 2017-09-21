@@ -326,7 +326,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
     <xunit plugin="xunit@1.102">
       <types>
         <CTestType>
-          <pattern>sample/build-linux/Testing/**/Test.xml</pattern>
+          <pattern>sample/build-linux/Testing/**/*.xml</pattern>
           <skipNoTestFiles>true</skipNoTestFiles>
           <failIfNotNew>true</failIfNotNew>
           <deleteOutputFiles>true</deleteOutputFiles>
