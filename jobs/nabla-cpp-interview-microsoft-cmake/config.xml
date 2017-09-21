@@ -334,11 +334,18 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         </CTestType>
         <JUnitType>
           <pattern>sample/build-linux/Testing/**/JUnitTestResults.xml</pattern>
-          <skipNoTestFiles>false</skipNoTestFiles>
+          <skipNoTestFiles>true</skipNoTestFiles>
           <failIfNotNew>true</failIfNotNew>
           <deleteOutputFiles>true</deleteOutputFiles>
           <stopProcessingIfError>true</stopProcessingIfError>
         </JUnitType>
+        <ValgrindJunitHudsonTestType>
+          <pattern>sample/build-linux/Testing/**/Valgrind.xml</pattern>
+          <skipNoTestFiles>true</skipNoTestFiles>
+          <failIfNotNew>true</failIfNotNew>
+          <deleteOutputFiles>true</deleteOutputFiles>
+          <stopProcessingIfError>true</stopProcessingIfError>
+        </ValgrindJunitHudsonTestType>
       </types>
       <thresholds>
         <org.jenkinsci.plugins.xunit.threshold.FailedThreshold>
