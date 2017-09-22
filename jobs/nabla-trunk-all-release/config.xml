@@ -78,7 +78,7 @@ It should be as quick as possible whith no reports.</description>
         <shallow>false</shallow>
         <noTags>false</noTags>
         <reference></reference>
-        <timeout>20</timeout>
+        <timeout>30</timeout>
         <depth>0</depth>
         <honorRefspec>false</honorRefspec>
       </hudson.plugins.git.extensions.impl.CloneOption>
@@ -192,10 +192,10 @@ It should be as quick as possible whith no reports.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -204,10 +204,10 @@ It should be as quick as possible whith no reports.</description>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>-1</minLogFileSize>
@@ -259,14 +259,19 @@ It should be as quick as possible whith no reports.</description>
       <command>#!/bin/bash
 #set -xv
 
-git clean -fdx
+#git clean -fdx
+#mvn release:clean
+
 #git checkout master
 #git merge --no-ff origin/develop
 
 #git pull &amp;&amp; git submodule init &amp;&amp; git submodule update &amp;&amp; git submodule status</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>echo NODE_PATH: ${NODE_PATH}
+      <command>#!/bin/bash
+#set -xv
+
+echo NODE_PATH: ${NODE_PATH}
 echo PATH: ${PATH}
 #node --version
 #npm --version
@@ -303,7 +308,7 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>scm:tag -Dtag=nabla-${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
+      <targets>scm:tag -Dtag=v${MVN_RELEASE_VERSION} -Dbasedir=${WORKSPACE} -DworkingDirectory=${WORKSPACE} -Psample</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -327,19 +332,13 @@ echo IS_M2RELEASEBUILD: ${IS_M2RELEASEBUILD}</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Shell>
-      <command>#node --version
-#./node/node --version
-#npm --version
-#./npm --version
-#./clean.sh
-#./bower --version
-#./bower list</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>git checkout develop
-git pull origin develop
-git merge --no-ff master
-git push</command>
+      <command>#!/bin/bash
+#set -xv
+
+#git checkout develop
+#git pull origin develop
+#git merge --no-ff master
+#git push</command>
     </hudson.tasks.Shell>
   </postbuilders>
   <runPostStepsIfResult>

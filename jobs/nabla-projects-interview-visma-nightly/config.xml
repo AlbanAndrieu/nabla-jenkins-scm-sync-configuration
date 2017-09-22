@@ -1113,15 +1113,15 @@ Changelog of Git Changelog.
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -1214,7 +1214,7 @@ Changelog of Git Changelog.
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.33">
+        <secureGroovyScript plugin="script-security@1.34">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
@@ -1243,6 +1243,8 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
       <command>#!/bin/bash -xv
 
 #rm -Rf /tmp/cargo
+
+sudo rm -Rf /tmp/.X11-lock || true
 
 echo &quot;SHUTDOWN_PORT : $SHUTDOWN_PORT&quot;
 echo &quot;CARGO_RMI_PORT : $CARGO_RMI_PORT&quot;

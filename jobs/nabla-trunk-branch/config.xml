@@ -35,22 +35,17 @@ It should be as quick as possible whith no reports.</description>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>MVN_RELEASE_VERSION</name>
-          <description>Ignore this parameter if &quot;Perform Maven Release&quot;</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
           <name>SCM_BRANCH_NAME</name>
           <description>Name of branch used for branching</description>
-          <defaultValue>release/1.1</defaultValue>
+          <defaultValue>release/1.0.1</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>NABLA_SCM_VERSION</name>
+          <name>MVN_RELEASE_VERSION</name>
           <description></description>
           <defaultValue>1.0.1-SNAPSHOT</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>NEXT_NABLA_SCM_VERSION</name>
+          <name>MVN_NEXT_VERSION</name>
           <description></description>
           <defaultValue>1.0.2-SNAPSHOT</defaultValue>
         </hudson.model.StringParameterDefinition>
@@ -107,7 +102,7 @@ It should be as quick as possible whith no reports.</description>
     <groupId>com.nabla</groupId>
     <artifactId>users</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false release:branch -DbranchName=${SCM_BRANCH_NAME} -DdevelopmentVersion=${NEXT_NABLA_SCM_VERSION} -DreleaseVersion=${NABLA_SCM_VERSION} -DupdateBranchVersions=true -DdryRun=${DRYRUN} -Pintegration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false release:branch -DbranchName=${SCM_BRANCH_NAME} -DdevelopmentVersion=${MVN_NEXT_VERSION} -DreleaseVersion=${MVN_RELEASE_VERSION} -DupdateBranchVersions=true -DupdateBranchVersions=true -DupdateWorkingCopyVersions=false -DdryRun=${DRYRUN} -Pintegration,arq-jbossas-managed -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:9090</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx1280m</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -197,16 +192,16 @@ It should be as quick as possible whith no reports.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
           <color>RED</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
@@ -270,7 +265,7 @@ git clean -fdx
 #git pull &amp;&amp; git submodule init &amp;&amp; git submodule update &amp;&amp; git submodule status</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean release:clean validate -Psample,arq-jbossas-managed -Dserver=jetty9x</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
