@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Run &lt;a href=&quot;http://www.dwheeler.com/flawfinder/&quot;&gt;&lt;b&gt;flawfinder&lt;/b&gt;&lt;/a&gt; on Nabla C++: &lt;br&gt;&#xd;
-examines &lt;b&gt;C/C++ source code&lt;/b&gt; and reports possible &lt;b&gt;security weaknesses&lt;/b&gt; (&quot;flaws&quot;) sorted by risk level.</description>
+  <description>Run &lt;a href=&quot;http://www.dwheeler.com/flawfinder/&quot;&gt;&lt;b&gt;flawfinder&lt;/b&gt;&lt;/a&gt; on Nabla C++: &lt;br/&gt;&#xd;
+examines &lt;b&gt;C/C++ source code&lt;/b&gt; and reports possible &lt;b&gt;security weaknesses&lt;/b&gt; (&quot;flaws&quot;) sorted by risk level.&lt;br/&gt;&#xd;
+&lt;a href=&quot;http://192.168.0.28/cdash/&quot;&gt;&lt;b&gt;cdash&lt;/b&gt;&lt;/a&gt;&lt;br/&gt;&#xd;
+&lt;a href=&quot;http://maven.nabla.mobi/cpp/microsoft/index.html&quot;&gt;&lt;b&gt;doc&lt;/b&gt;&lt;/a&gt;&lt;br/&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.model.BuildDiscarderProperty>
@@ -229,7 +231,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
     <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
       <mSites>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://192.168.0.29:7071/CDash/public/</mUrl>
+          <mUrl>http://192.168.0.28/cdash</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
