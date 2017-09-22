@@ -302,16 +302,6 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <includes>**/*</includes>
         </htmlpublisher.HtmlPublisherTarget>
         <htmlpublisher.HtmlPublisherTarget>
-          <reportName>HTML CPPCheck Report</reportName>
-          <reportDir>cppcheck-reports/</reportDir>
-          <reportFiles>cppcheck-result-SAMPLE.html</reportFiles>
-          <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
-          <reportTitles></reportTitles>
-          <keepAll>false</keepAll>
-          <allowMissing>true</allowMissing>
-          <includes>**/*</includes>
-        </htmlpublisher.HtmlPublisherTarget>
-        <htmlpublisher.HtmlPublisherTarget>
           <reportName>HTML Flawfinder Report</reportName>
           <reportDir>flawfinder-reports/</reportDir>
           <reportFiles>flawfinder-result-SAMPLE.html</reportFiles>
@@ -371,12 +361,6 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
@@ -386,6 +370,12 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
