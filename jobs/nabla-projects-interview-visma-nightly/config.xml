@@ -1245,6 +1245,7 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
 #rm -Rf /tmp/cargo
 
 sudo rm -Rf /tmp/.X11-lock || true
+sudo rm -Rf /tmp/.X10-lock || true
 
 echo &quot;SHUTDOWN_PORT : $SHUTDOWN_PORT&quot;
 echo &quot;CARGO_RMI_PORT : $CARGO_RMI_PORT&quot;
