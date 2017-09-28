@@ -316,24 +316,6 @@
         <hudson.views.LastFailureColumn/>
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
-        <org.tomfolga.PomModulesFullColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Full)</columnName>
-          <showGroupId>true</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesFullColumn>
-        <org.tomfolga.PomModulesShortColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Short)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesShortColumn>
-        <org.tomfolga.PomModulesVersionColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Version)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>false</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesVersionColumn>
       </columns>
       <includeRegex>nabla.*nightly</includeRegex>
       <recurse>false</recurse>
@@ -357,18 +339,6 @@
         <hudson.views.LastFailureColumn/>
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
-        <org.tomfolga.PomModulesShortColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Short)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesShortColumn>
-        <org.tomfolga.PomModulesVersionColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Version)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>false</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesVersionColumn>
       </columns>
       <includeRegex>nabla.*continuous</includeRegex>
       <recurse>false</recurse>
@@ -409,24 +379,6 @@
         <hudson.views.LastFailureColumn/>
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
-        <org.tomfolga.PomModulesFullColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Full)</columnName>
-          <showGroupId>true</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesFullColumn>
-        <org.tomfolga.PomModulesShortColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Short)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesShortColumn>
-        <org.tomfolga.PomModulesVersionColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Version)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>false</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesVersionColumn>
       </columns>
       <includeRegex>nabla.*integration</includeRegex>
       <recurse>false</recurse>
@@ -502,7 +454,6 @@
         <hudson.plugins.projectstats.column.NumBuildsColumn plugin="project-stats-plugin@0.4"/>
         <hudson.plugins.nodenamecolumn.NodeNameColumn plugin="nodenamecolumn@1.2"/>
         <hudson.plugins.jobtype__column.JobTypeColumn plugin="jobtype-column@1.3"/>
-        <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.0"/>
       </columns>
       <includeRegex>nabla.*</includeRegex>
       <recurse>false</recurse>
@@ -707,32 +658,6 @@
         <hudson.views.LastFailureColumn/>
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
-        <org.tomfolga.PomDependenciesColumn plugin="maven-info@0.2.0">
-          <onlyWithinGroupId>false</onlyWithinGroupId>
-          <columnName>Maven Dependencies</columnName>
-        </org.tomfolga.PomDependenciesColumn>
-        <org.tomfolga.PomDependenciesWithinGroupIdColumn plugin="maven-info@0.2.0">
-          <onlyWithinGroupId>true</onlyWithinGroupId>
-          <columnName>Maven Dependencies (within groupId)</columnName>
-        </org.tomfolga.PomDependenciesWithinGroupIdColumn>
-        <org.tomfolga.PomModulesFullColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Full)</columnName>
-          <showGroupId>true</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesFullColumn>
-        <org.tomfolga.PomModulesShortColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Short)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesShortColumn>
-        <org.tomfolga.PomModulesVersionColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Version)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>false</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesVersionColumn>
         <com.sonatype.insight.ci.hudson.QualityColumn plugin="insight-ci@2.3.3"/>
       </columns>
       <includeRegex>nabla.*admin</includeRegex>
@@ -759,22 +684,6 @@
         <hudson.views.LastFailureColumn/>
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
-        <org.tomfolga.PomDependenciesColumn plugin="maven-info@0.2.0">
-          <onlyWithinGroupId>false</onlyWithinGroupId>
-          <columnName>Maven Dependencies</columnName>
-        </org.tomfolga.PomDependenciesColumn>
-        <org.tomfolga.PomModulesShortColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Short)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesShortColumn>
-        <org.tomfolga.PomModulesVersionColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Version)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>false</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesVersionColumn>
         <com.sonatype.insight.ci.hudson.QualityColumn plugin="insight-ci@2.3.3"/>
       </columns>
       <recurse>false</recurse>
@@ -797,166 +706,11 @@
         <hudson.views.LastFailureColumn/>
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
-        <org.tomfolga.PomModulesShortColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Short)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>true</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesShortColumn>
-        <org.tomfolga.PomModulesVersionColumn plugin="maven-info@0.2.0">
-          <columnName>Maven Modules (Version)</columnName>
-          <showGroupId>false</showGroupId>
-          <showArtifactId>false</showArtifactId>
-          <showVersion>true</showVersion>
-        </org.tomfolga.PomModulesVersionColumn>
         <com.sonatype.insight.ci.hudson.QualityColumn plugin="insight-ci@2.3.3"/>
       </columns>
       <includeRegex>(nabla-.*)-all.*</includeRegex>
       <recurse>false</recurse>
     </listView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.7.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>nabla-databases-pipeline</name>
-      <description>&lt;b&gt;Pipeline view of nabla databases&lt;/b&gt;</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
-        <firstJob>nabla-databases-nightly</firstJob>
-        <firstJobLink>job/nabla-databases-nightly/</firstJobLink>
-      </gridBuilder>
-      <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
-      <buildViewTitle></buildViewTitle>
-      <triggerOnlyLatestJob>false</triggerOnlyLatestJob>
-      <alwaysAllowManualTrigger>true</alwaysAllowManualTrigger>
-      <showPipelineParameters>true</showPipelineParameters>
-      <rowHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.BuildVariablesHeader"/>
-      <showPipelineParametersInHeaders>false</showPipelineParametersInHeaders>
-      <columnHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.NullColumnHeader"/>
-      <buildCard class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.StandardBuildCard"/>
-      <startsWithParameters>false</startsWithParameters>
-      <refreshFrequency>3</refreshFrequency>
-      <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
-    </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.7.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>andromda-pipeline</name>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
-        <firstJob>andromda-0-maven-config</firstJob>
-        <firstJobLink>job/andromda-0-maven-config/</firstJobLink>
-      </gridBuilder>
-      <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
-      <buildViewTitle></buildViewTitle>
-      <triggerOnlyLatestJob>false</triggerOnlyLatestJob>
-      <alwaysAllowManualTrigger>true</alwaysAllowManualTrigger>
-      <showPipelineParameters>true</showPipelineParameters>
-      <rowHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.BuildVariablesHeader"/>
-      <showPipelineParametersInHeaders>false</showPipelineParametersInHeaders>
-      <columnHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.NullColumnHeader"/>
-      <buildCard class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.StandardBuildCard"/>
-      <startsWithParameters>false</startsWithParameters>
-      <refreshFrequency>3</refreshFrequency>
-      <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
-    </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.7.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>nabla-servers-pipeline</name>
-      <description>&lt;b&gt;Pipeline view of nabla servers&lt;/b&gt;</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
-        <firstJob>nabla-servers-nightly</firstJob>
-        <firstJobLink>job/nabla-servers-nightly/</firstJobLink>
-      </gridBuilder>
-      <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
-      <buildViewTitle></buildViewTitle>
-      <triggerOnlyLatestJob>false</triggerOnlyLatestJob>
-      <alwaysAllowManualTrigger>true</alwaysAllowManualTrigger>
-      <showPipelineParameters>true</showPipelineParameters>
-      <rowHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.BuildVariablesHeader"/>
-      <showPipelineParametersInHeaders>false</showPipelineParametersInHeaders>
-      <columnHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.NullColumnHeader"/>
-      <buildCard class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.StandardBuildCard"/>
-      <startsWithParameters>false</startsWithParameters>
-      <refreshFrequency>3</refreshFrequency>
-      <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
-    </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.7.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>nabla-project-pipeline</name>
-      <description>&lt;b&gt;Pipeline view of nabla project&lt;/b&gt;</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
-        <firstJob>nabla-projects-nightly</firstJob>
-        <firstJobLink>job/nabla-projects-nightly/</firstJobLink>
-      </gridBuilder>
-      <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
-      <buildViewTitle></buildViewTitle>
-      <triggerOnlyLatestJob>false</triggerOnlyLatestJob>
-      <alwaysAllowManualTrigger>true</alwaysAllowManualTrigger>
-      <showPipelineParameters>true</showPipelineParameters>
-      <rowHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.BuildVariablesHeader"/>
-      <showPipelineParametersInHeaders>false</showPipelineParametersInHeaders>
-      <columnHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.NullColumnHeader"/>
-      <buildCard class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.StandardBuildCard"/>
-      <startsWithParameters>false</startsWithParameters>
-      <refreshFrequency>3</refreshFrequency>
-      <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
-    </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.7.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>nabla-uml-pipeline</name>
-      <description>&lt;b&gt;Pipeline view of nabla uml&lt;/b&gt;</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
-        <firstJob>nabla-uml-nightly</firstJob>
-        <firstJobLink>job/nabla-uml-nightly/</firstJobLink>
-      </gridBuilder>
-      <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
-      <buildViewTitle></buildViewTitle>
-      <triggerOnlyLatestJob>false</triggerOnlyLatestJob>
-      <alwaysAllowManualTrigger>true</alwaysAllowManualTrigger>
-      <showPipelineParameters>true</showPipelineParameters>
-      <rowHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.BuildVariablesHeader"/>
-      <showPipelineParametersInHeaders>false</showPipelineParametersInHeaders>
-      <columnHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.NullColumnHeader"/>
-      <buildCard class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.StandardBuildCard"/>
-      <startsWithParameters>false</startsWithParameters>
-      <refreshFrequency>3</refreshFrequency>
-      <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
-    </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.5.7.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>nabla-nabla-pipeline</name>
-      <description>&lt;b&gt;Pipeline view of nabla nabla&lt;/b&gt;</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
-        <firstJob>nabla-andromda-nightly</firstJob>
-        <firstJobLink>job/nabla-andromda-nightly/</firstJobLink>
-      </gridBuilder>
-      <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
-      <buildViewTitle></buildViewTitle>
-      <triggerOnlyLatestJob>false</triggerOnlyLatestJob>
-      <alwaysAllowManualTrigger>true</alwaysAllowManualTrigger>
-      <showPipelineParameters>true</showPipelineParameters>
-      <rowHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.BuildVariablesHeader"/>
-      <showPipelineParametersInHeaders>false</showPipelineParametersInHeaders>
-      <columnHeaders class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.NullColumnHeader"/>
-      <buildCard class="au.com.centrumsystems.hudson.plugin.buildpipeline.extension.StandardBuildCard"/>
-      <startsWithParameters>false</startsWithParameters>
-      <refreshFrequency>3</refreshFrequency>
-      <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
-    </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
     <listView>
       <owner class="hudson" reference="../../.."/>
       <name>ZZZ</name>
@@ -986,7 +740,6 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
         <de.fspengler.hudson.pview.ConsoleViewColumn plugin="hudson-pview-plugin@1.8"/>
-        <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.0"/>
         <hudson.plugins.jobtype__column.JobTypeColumn plugin="jobtype-column@1.3"/>
         <hudson.plugins.lastfailureversioncolumn.LastFailureVersionColumn plugin="lastfailureversioncolumn@1.1"/>
         <hudson.plugins.lastsuccessversioncolumn.LastSuccessVersionColumn plugin="lastsuccessversioncolumn@1.1"/>
