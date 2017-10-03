@@ -54,14 +54,12 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:80</mUrl>
+          <mUrl>http://home.nabla.mobi:80/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:9000/</mUrl>
-          <successResponseCodes>
-            <int>102</int>
-          </successResponseCodes>
+          <mUrl>http://nabla.freeboxos.fr:80/</mUrl>
+          <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>http://192.168.0.29:7072/phpmyadmin/</mUrl>
@@ -120,19 +118,13 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:7073/CDash</mUrl>
+          <mUrl>http://home.nabla.mobi:84/cdash/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
     </hudson.plugins.sitemonitor.SiteMonitorRecorder>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
-      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
-        <timeoutMinutes>10</timeoutMinutes>
-      </strategy>
-      <operationList/>
-    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
