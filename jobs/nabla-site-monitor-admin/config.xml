@@ -54,11 +54,11 @@ sudo /usr/share/awstats/tools/update.sh || exit 1</command>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:80/</mUrl>
+          <mUrl>http://home.nabla.mobi:8381/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://nabla.freeboxos.fr:80/</mUrl>
+          <mUrl>http://home.nabla.mobi:82/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
