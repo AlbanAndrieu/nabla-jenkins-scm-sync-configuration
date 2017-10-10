@@ -90,7 +90,7 @@ This build check that all reports can still be generated and is doing sone addit
     <groupId>com.nabla.project.uml</groupId>
     <artifactId>nabla</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Parq-jbossas-managed,integration</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle cobertura:cobertura -Parq-jbossas-managed,integration</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
