@@ -258,7 +258,7 @@
           <nodeProperties/>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
-      <dockerHost plugin="docker-commons@1.8">
+      <dockerHost plugin="docker-commons@1.9">
         <uri>unix:///var/run/docker.sock</uri>
       </dockerHost>
       <connectTimeout>5</connectTimeout>
