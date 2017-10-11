@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.17">
+<maven2-moduleset plugin="maven-plugin@3.0">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Visma&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -64,14 +64,6 @@ mvn codenarc:codenarc&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
-      <mainModulePattern></mainModulePattern>
-      <dependenciesPattern></dependenciesPattern>
-      <assignName>false</assignName>
-      <nameTemplate></nameTemplate>
-      <assignDescription>false</assignDescription>
-      <descriptionTemplate></descriptionTemplate>
-    </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>365</daysToKeep>
@@ -81,10 +73,6 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
-      <projectUrl>https://github.com/AlbanAndrieu/nabla-projects-interview-visma/</projectUrl>
-      <displayName></displayName>
-    </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
@@ -109,7 +97,7 @@ mvn codenarc:codenarc&#xd;
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -164,9 +152,6 @@ mvn codenarc:codenarc&#xd;
     <hudson.triggers.TimerTrigger>
       <spec>H H(0-6) H/7 * 1-5</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.28.0">
-      <spec></spec>
-    </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
       <spec>@daily</spec>
       <ignorePostCommitHooks>false</ignorePostCommitHooks>
@@ -671,7 +656,7 @@ mvn codenarc:codenarc&#xd;
       <isFindBugsDeactivated>false</isFindBugsDeactivated>
       <isPmdDeactivated>false</isPmdDeactivated>
       <isOpenTasksDeactivated>false</isOpenTasksDeactivated>
-      <isWarningsDeactivated>false</isWarningsDeactivated>
+      <isWarningsDeactivated>true</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
     <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
@@ -680,189 +665,6 @@ mvn codenarc:codenarc&#xd;
     <hudson.plugins.disk__usage.project.DiskUsagePostBuildCalculation plugin="disk-usage@0.28"/>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <jenkins.plugins.displayupstreamchanges.DisplayUpstreamChangesRecorder plugin="display-upstream-changes@0.3.2"/>
-    <org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder plugin="git-changelog@1.52">
-      <config>
-        <configFile>git-changelog-settings.json</configFile>
-        <createFileTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
-
-&lt;p&gt;
-Changelog of Git Changelog.
-&lt;/p&gt;
-
-{{#tags}}
-&lt;h2&gt; {{name}} &lt;/h2&gt;
- {{#issues}}
-  {{#hasIssue}}
-   {{#hasLink}}
-&lt;h2&gt; {{name}} &lt;a href=&quot;{{link}}&quot;&gt;{{issue}}&lt;/a&gt; {{title}} &lt;/h2&gt;
-   {{/hasLink}}
-   {{^hasLink}}
-&lt;h2&gt; {{name}} {{issue}} {{title}} &lt;/h2&gt;
-   {{/hasLink}}
-  {{/hasIssue}}
-  {{^hasIssue}}
-&lt;h2&gt; {{name}} &lt;/h2&gt;
-  {{/hasIssue}}
-
-
-   {{#commits}}
-&lt;a href=&quot;https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}&quot;&gt;{{hash}}&lt;/a&gt; {{authorName}} &lt;i&gt;{{commitTime}}&lt;/i&gt;
-&lt;p&gt;
-&lt;h3&gt;{{{messageTitle}}}&lt;/h3&gt;
-
-{{#messageBodyItems}}
- &lt;li&gt; {{.}}&lt;/li&gt; 
-{{/messageBodyItems}}
-&lt;/p&gt;
-  {{/commits}}
-
- {{/issues}}
-{{/tags}}
-</createFileTemplateContent>
-        <createFileTemplateFile></createFileTemplateFile>
-        <createFileUseTemplateContent>true</createFileUseTemplateContent>
-        <createFileUseTemplateFile>false</createFileUseTemplateFile>
-        <customIssues>
-          <org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
-            <link></link>
-            <name></name>
-            <pattern></pattern>
-            <title></title>
-          </org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
-          <org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
-            <link></link>
-            <name></name>
-            <pattern></pattern>
-            <title></title>
-          </org.jenkinsci.plugins.gitchangelog.config.CustomIssue>
-        </customIssues>
-        <dateFormat>YYYY-MM-dd HH:mm:ss</dateFormat>
-        <file>CHANGELOG.html</file>
-        <fromReference>v1.0.0</fromReference>
-        <fromType>ref</fromType>
-        <gitHubApi></gitHubApi>
-        <gitHubIssuePattern>#([0-9]+)</gitHubIssuePattern>
-        <gitHubToken></gitHubToken>
-        <gitLabServer></gitLabServer>
-        <gitLabProjectName></gitLabProjectName>
-        <gitLabToken></gitLabToken>
-        <useGitLab>false</useGitLab>
-        <ignoreCommitsIfMessageMatches>^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*</ignoreCommitsIfMessageMatches>
-        <ignoreCommitsWithoutIssue>false</ignoreCommitsWithoutIssue>
-        <ignoreTagsIfNameMatches></ignoreTagsIfNameMatches>
-        <jiraIssuePattern>\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b</jiraIssuePattern>
-        <jiraPassword></jiraPassword>
-        <jiraServer></jiraServer>
-        <jiraUsername></jiraUsername>
-        <jiraUsernamePasswordCredentialsId></jiraUsernamePasswordCredentialsId>
-        <useJiraUsernamePasswordCredentialsId>false</useJiraUsernamePasswordCredentialsId>
-        <mediaWikiPassword></mediaWikiPassword>
-        <mediaWikiTemplateContent>__NOTOC__
-
-= Git Changelog changelog =
-Changelog of Git Changelog.
-
-{{#tags}}
-== {{name}} ==
- {{#issues}}
-  {{#hasIssue}}
-   {{#hasLink}}
-=== {{name}} [{{link}} {{issue}}] {{title}} ===
-   {{/hasLink}}
-   {{^hasLink}}
-=== {{name}} {{issue}} {{title}} ===
-   {{/hasLink}}
-  {{/hasIssue}}
-  {{^hasIssue}}
-=== {{name}} ===
-  {{/hasIssue}}
-
-   {{#commits}}
-[https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}} {{hash}}] {{authorName}} {{commitTime}}
-
-&apos;&apos;&apos;{{{messageTitle}}}&apos;&apos;&apos;
-
-{{#messageBodyItems}}
- * {{.}} 
-{{/messageBodyItems}}
-
-  {{/commits}}
-
- {{/issues}}
-{{/tags}}
-</mediaWikiTemplateContent>
-        <mediaWikiTemplateFile></mediaWikiTemplateFile>
-        <mediaWikiTitle></mediaWikiTitle>
-        <mediaWikiUrl></mediaWikiUrl>
-        <mediaWikiUsername></mediaWikiUsername>
-        <mediaWikiUseTemplateContent>false</mediaWikiUseTemplateContent>
-        <mediaWikiUseTemplateFile>false</mediaWikiUseTemplateFile>
-        <noIssueName>No issue</noIssueName>
-        <readableTagName>/([^/]+?)$</readableTagName>
-        <showSummary>true</showSummary>
-        <showSummaryTemplateContent>&lt;h1&gt; Git Changelog changelog &lt;/h1&gt;
-
-&lt;p&gt;
-Changelog of Git Changelog.
-&lt;/p&gt;
-
-{{#tags}}
-&lt;h2&gt; {{name}} &lt;/h2&gt;
- {{#issues}}
-  {{#hasIssue}}
-   {{#hasLink}}
-&lt;h2&gt; {{name}} &lt;a href=&quot;{{link}}&quot;&gt;{{issue}}&lt;/a&gt; {{title}} &lt;/h2&gt;
-   {{/hasLink}}
-   {{^hasLink}}
-&lt;h2&gt; {{name}} {{issue}} {{title}} &lt;/h2&gt;
-   {{/hasLink}}
-  {{/hasIssue}}
-  {{^hasIssue}}
-&lt;h2&gt; {{name}} &lt;/h2&gt;
-  {{/hasIssue}}
-
-
-   {{#commits}}
-&lt;a href=&quot;https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}&quot;&gt;{{hash}}&lt;/a&gt; {{authorName}} &lt;i&gt;{{commitTime}}&lt;/i&gt;
-&lt;p&gt;
-&lt;h3&gt;{{{messageTitle}}}&lt;/h3&gt;
-
-{{#messageBodyItems}}
- &lt;li&gt; {{.}}&lt;/li&gt; 
-{{/messageBodyItems}}
-&lt;/p&gt;
-
-
-  {{/commits}}
-
- {{/issues}}
-{{/tags}}
-</showSummaryTemplateContent>
-        <showSummaryTemplateFile></showSummaryTemplateFile>
-        <showSummaryUseTemplateContent>true</showSummaryUseTemplateContent>
-        <showSummaryUseTemplateFile>false</showSummaryUseTemplateFile>
-        <subDirectory></subDirectory>
-        <timeZone>UTC</timeZone>
-        <toReference></toReference>
-        <toType>master</toType>
-        <untaggedName>Unreleased</untaggedName>
-        <useConfigFile>false</useConfigFile>
-        <useFile>true</useFile>
-        <useGitHub>false</useGitHub>
-        <useIgnoreTagsIfNameMatches>false</useIgnoreTagsIfNameMatches>
-        <useJira>false</useJira>
-        <useMediaWiki>false</useMediaWiki>
-        <useReadableTagName>false</useReadableTagName>
-        <useSubDirectory>false</useSubDirectory>
-        <gitHubApiTokenCredentialsId></gitHubApiTokenCredentialsId>
-        <useGitHubApiTokenCredentials>false</useGitHubApiTokenCredentials>
-        <useGitLabApiTokenCredentials>false</useGitLabApiTokenCredentials>
-        <gitLabApiTokenCredentialsId></gitLabApiTokenCredentialsId>
-      </config>
-    </org.jenkinsci.plugins.gitchangelog.GitChangelogRecorder>
-    <hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder plugin="maven-deployment-linker@1.5.1">
-      <regexp>.war</regexp>
-    </hudson.plugins.mavendeploymentlinker.MavenDeploymentLinkerRecorder>
     <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.14">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
@@ -1032,21 +834,6 @@ Changelog of Git Changelog.
       <persistConstraintLog>false</persistConstraintLog>
       <sourceDataFiles>**/TEST-*.xml;gui/target/jmeter/results/*.jtl</sourceDataFiles>
     </hudson.plugins.performance.PerformancePublisher>
-    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@3.10.1">
-      <fileIncludePattern>cucumber.json</fileIncludePattern>
-      <fileExcludePattern>**/classes/**</fileExcludePattern>
-      <jsonReportDirectory>gui/target</jsonReportDirectory>
-      <failedStepsNumber>0</failedStepsNumber>
-      <skippedStepsNumber>0</skippedStepsNumber>
-      <pendingStepsNumber>0</pendingStepsNumber>
-      <undefinedStepsNumber>0</undefinedStepsNumber>
-      <failedScenariosNumber>0</failedScenariosNumber>
-      <failedFeaturesNumber>0</failedFeaturesNumber>
-      <trendsLimit>0</trendsLimit>
-      <parallelTesting>false</parallelTesting>
-      <sortingMethod>ALPHABETICAL</sortingMethod>
-      <classifications class="empty-list"/>
-    </net.masterthought.jenkins.CucumberReportPublisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
       <execPattern>**/**-it.exec</execPattern>
       <classPattern>**/classes</classPattern>
@@ -1131,11 +918,6 @@ Changelog of Git Changelog.
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <de.wellnerbou.jenkins.gitchangelog.publish.GitLogBasicChangelogPostPublisher plugin="git-changelog@1.52">
-      <outputfile></outputfile>
-      <toRev>v1.0.0</toRev>
-      <fromRev>master</fromRev>
-    </de.wellnerbou.jenkins.gitchangelog.publish.GitLogBasicChangelogPostPublisher>
     <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
       <patterns>
@@ -1178,14 +960,6 @@ Changelog of Git Changelog.
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
-      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
-        <timeoutMinutes>500</timeoutMinutes>
-      </strategy>
-      <operationList>
-        <hudson.plugins.build__timeout.operations.FailOperation/>
-      </operationList>
-    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
@@ -1209,7 +983,7 @@ Changelog of Git Changelog.
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <EnvInjectBuildWrapper plugin="envinject@2.1.3">
+    <EnvInjectBuildWrapper plugin="envinject@2.1.4">
       <info>
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
@@ -1232,11 +1006,6 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
       </multiconfigOptions>
       <convertHomesToUppercase>false</convertHomesToUppercase>
     </com.cloudbees.jenkins.plugins.customtools.CustomToolInstallWrapper>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
-      <template>#${ENV,var=&quot;git.branch&quot;} (${ENV,var=&quot;git.revision&quot;}, build #${BUILD_NUMBER})</template>
-      <runAtStart>true</runAtStart>
-      <runAtEnd>true</runAtEnd>
-    </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Shell>
@@ -1313,7 +1082,7 @@ echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_COMMIT:0:6}&quot; &gt; $FI
 echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch
 </command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@2.1.3">
+    <EnvInjectBuilder plugin="envinject@2.1.4">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
