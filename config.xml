@@ -160,7 +160,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@0.16.2">
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@0.17">
       <name>albandri</name>
       <templates>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
@@ -183,7 +183,7 @@
           <instanceCap>1</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>10</idleMinutes>
+            <idleMinutes>0</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -208,6 +208,7 @@
           </dockerTemplateBase>
           <removeVolumes>false</removeVolumes>
           <pullStrategy>PULL_LATEST</pullStrategy>
+          <nodeProperties/>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
           <configVersion>2</configVersion>
@@ -229,7 +230,7 @@
           <instanceCap>2</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>10</idleMinutes>
+            <idleMinutes>0</idleMinutes>
             <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">10</idleMinutes>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -254,13 +255,15 @@
           </dockerTemplateBase>
           <removeVolumes>false</removeVolumes>
           <pullStrategy>PULL_LATEST</pullStrategy>
+          <nodeProperties/>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
-      <serverUrl>unix:///var/run/docker.sock</serverUrl>
+      <dockerHost plugin="docker-commons@1.8">
+        <uri>unix:///var/run/docker.sock</uri>
+      </dockerHost>
       <connectTimeout>5</connectTimeout>
       <readTimeout>15</readTimeout>
       <version></version>
-      <credentialsId></credentialsId>
       <containerCap>1</containerCap>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
   </clouds>
