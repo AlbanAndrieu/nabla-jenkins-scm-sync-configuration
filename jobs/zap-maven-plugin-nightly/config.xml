@@ -892,8 +892,21 @@ mvn codenarc:codenarc&#xd;
 set -xv
 
 echo &quot;TEST#$BUILD_NUMBER-sha1:${GIT_COMMIT:0:6}&quot;
-echo $?</command>
+echo $?
+
+FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
+echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_COMMIT:0:6}&quot; &gt; $FILENAME
+
+#curl -i -v -k ${SERVER_URL}${SERVER_CONTEXT} --data &quot;username=test&amp;password=microsoft&quot; 
+
+echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch
+</command>
     </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.1.4">
+      <info>
+        <propertiesFilePath>sonar-branch</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
   </postbuilders>
   <runPostStepsIfResult>
     <name>UNSTABLE</name>
