@@ -76,7 +76,7 @@ For selenium to work.&lt;br&gt;&#xd;
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>ubuntu&amp;&amp;java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs</assignedNode>
+  <assignedNode>ubuntu&amp;&amp;java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs&amp;&amp;Firefox-56.0</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
