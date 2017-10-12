@@ -64,6 +64,14 @@ mvn codenarc:codenarc&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
+      <mainModulePattern></mainModulePattern>
+      <dependenciesPattern></dependenciesPattern>
+      <assignName>false</assignName>
+      <nameTemplate></nameTemplate>
+      <assignDescription>false</assignDescription>
+      <descriptionTemplate></descriptionTemplate>
+    </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>365</daysToKeep>
@@ -142,7 +150,7 @@ mvn codenarc:codenarc&#xd;
       </hudson.plugins.git.extensions.impl.PreBuildMerge>
     </extensions>
   </scm>
-  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium</assignedNode>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;Firefox-56.0</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
