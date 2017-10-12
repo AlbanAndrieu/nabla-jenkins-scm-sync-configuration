@@ -99,7 +99,7 @@ cd ./env/scripts/jenkins/jenkinsJobDurationCharts
 
 python -V
 
-sudo pip install pygal cairosvg
+#sudo pip install pygal cairosvg
 
 #python2.7 jenkinsJobDurationCharts.py
 python jenkinsJobDurationCharts.py
