@@ -59,7 +59,7 @@
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -96,8 +96,14 @@
       <command>#!/bin/bash
 
 cd ./env/scripts/jenkins/jenkinsJobDurationCharts
-#sudo pip install pygal cairosvg
-python2.7 jenkinsJobDurationCharts.py</command>
+
+python -V
+
+sudo pip install pygal cairosvg
+
+#python2.7 jenkinsJobDurationCharts.py
+python jenkinsJobDurationCharts.py
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
