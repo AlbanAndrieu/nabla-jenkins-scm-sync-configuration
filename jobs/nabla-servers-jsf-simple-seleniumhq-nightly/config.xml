@@ -96,7 +96,7 @@ cd $WORKSPACE
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://localhost:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
+      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://home.nabla.mobi:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
@@ -107,17 +107,17 @@ cd $WORKSPACE
     </hudson.tasks.Maven>
     <hudson.plugins.seleniumhq.SeleniumhqBuilder plugin="seleniumhq@0.4">
       <browser>*firefox /usr/lib/firefox/firefox</browser>
-      <startURL>http://localhost:8280/welcome/</startURL>
+      <startURL>http://home.nabla.mobi:8280/welcome/</startURL>
       <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
       <resultFile>sample/jsf-simple/target/test-reports/firefox-results.html</resultFile>
       <other>-Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver -port 6666 -timeout 600 -log=/jenkins/selenium.log -debug=true</other>
     </hudson.plugins.seleniumhq.SeleniumhqBuilder>
     <hudson.tasks.Shell>
-      <command>wget --http-user=admin --http-password=microsoft &quot;http://localhost:8280/manager/text/undeploy?path=/welcome&quot; -O -
+      <command>wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:8280/manager/text/undeploy?path=/welcome&quot; -O -
 # -firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://localhost:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
+      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://home.nabla.mobi:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
@@ -128,7 +128,7 @@ cd $WORKSPACE
     </hudson.tasks.Maven>
     <hudson.plugins.seleniumhq.SeleniumhqBuilder plugin="seleniumhq@0.4">
       <browser>*googlechrome</browser>
-      <startURL>http://localhost:8280/welcome/</startURL>
+      <startURL>http://home.nabla.mobi:8280/welcome/</startURL>
       <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
       <resultFile>sample/jsf-simple/target/test-reports/chrome-results.html</resultFile>
       <other>-Dwebdriver.chrome.driver=/var/lib/chromedriver -port 6666 -timeout 600 -log=/jenkins/selenium.log -debug=true</other>
