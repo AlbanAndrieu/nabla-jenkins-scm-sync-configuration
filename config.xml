@@ -638,6 +638,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>nabla-block-jobs-admin</string>
         <string>nabla-jenkins-backup-admin</string>
         <string>nabla-jobs-duration-charts-admin</string>
         <string>nabla-scm-pooling-kill-admin</string>
