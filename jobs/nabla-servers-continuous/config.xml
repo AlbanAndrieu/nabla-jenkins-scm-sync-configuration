@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.17">
+<maven2-moduleset plugin="maven-plugin@3.0">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Servers&lt;/i&gt; continuously during working days.&lt;br&gt;&#xd;
 The main goals of this job is to build fast, often and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -39,7 +39,7 @@ as soon it does not take too long.&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.17">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
@@ -57,7 +57,7 @@ as soon it does not take too long.&#xd;
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -97,7 +97,7 @@ as soon it does not take too long.&#xd;
     <groupId>com.nabla.project</groupId>
     <artifactId>servers</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
@@ -634,16 +634,16 @@ as soon it does not take too long.&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -725,7 +725,7 @@ as soon it does not take too long.&#xd;
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT </targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT </targets>
       <mavenName>(Default)</mavenName>
       <properties>jsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot;</properties>
       <usePrivateRepository>true</usePrivateRepository>
