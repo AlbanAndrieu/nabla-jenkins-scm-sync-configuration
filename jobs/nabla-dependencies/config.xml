@@ -529,7 +529,8 @@ set -xv
 
 cd ${WORKSPACE}/env/scripts/jenkins
 
-sudo ./step-0-1-run-processes-cleaning.sh
+#sudo 
+./step-0-1-run-processes-cleaning.sh
 
 shellcheck *.sh -f checkstyle &gt; checkstyle-result.xml || true
 
