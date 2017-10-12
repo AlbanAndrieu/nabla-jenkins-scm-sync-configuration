@@ -236,7 +236,7 @@ For selenium to work.&lt;br&gt;&#xd;
       <screen>1024x768x24</screen>
       <debug>false</debug>
       <timeout>10</timeout>
-      <displayNameOffset>0</displayNameOffset>
+      <displayNameOffset>11</displayNameOffset>
       <additionalOptions>-extension RANDR -nolisten tcp -extension GLX </additionalOptions>
       <shutdownWithBuild>true</shutdownWithBuild>
       <autoDisplayName>false</autoDisplayName>
