@@ -160,7 +160,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@0.17">
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@0.18">
       <name>albandri</name>
       <templates>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
