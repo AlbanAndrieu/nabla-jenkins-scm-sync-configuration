@@ -22,13 +22,6 @@ Report as much as possible (like the equivalent continuous job):&#xd;
 &lt;/ul&gt;&#xd;
 as soon it does not take too long.&#xd;
 &lt;p&gt;&#xd;
-For clover to work.&lt;br&gt;&#xd;
-&lt;code&gt;&#xd;
-clean clover2:setup clover2:optimize test clover2:snapshot -Psample,arq-jbossas-managed -Dserver=jboss7x&#xd;
--U -Dsurefire.useFile=false clover2:setup install clover2:aggregate clover2:clover pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs -Psample,arq-jbossas-managed -Dserver=jboss7x&#xd;
-&lt;/code&gt;&#xd;
-&lt;/p&gt;&#xd;
-&lt;p&gt;&#xd;
 For jacoco to work.&lt;br&gt;&#xd;
 &lt;code&gt;&#xd;
 do not use org.jacoco:jacoco-maven-plugin:prepare-agent&#xd;
@@ -48,20 +41,7 @@ For integration test to work.&lt;br&gt;&#xd;
 mvn install -Prun-its&#xd;
 mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,arq-weld-ee-embedded&#xd;
 &lt;/code&gt;&#xd;
-&lt;/p&gt;&#xd;
-&lt;p&gt;&#xd;
-For sonargraph test to work.&lt;br&gt;&#xd;
-&lt;code&gt;&#xd;
-package -Dmaven.test.skip=true com.hello2morrow.sonargraph:maven-sonargraph-plugin:7.2.1:architect-report -Dsonargraph.activationCode=2356-F3B2-E2C6-CC70 -Dsonargraph.prepareForJenkins=true -Dsonargraph.reportDirectory=${WORKSPACE}/target/sonargraph-report -Dsonargraph.reportName=sonargraph-report -Dsonargraph.reportType=HTML -Dsonargraph.prepareForSonar=true&#xd;
-&lt;/code&gt;&#xd;
-&lt;/p&gt;&#xd;
-&lt;p&gt;&#xd;
-For codenarc report to work.&lt;br&gt;&#xd;
-&lt;code&gt;&#xd;
-mvn codenarc:codenarc&#xd;
-&lt;/code&gt;&#xd;
-&lt;/p&gt;&#xd;
-</description>
+&lt;/p&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.plugins.maveninfo.config.MavenInfoJobConfig plugin="maven-info@0.2.0">
@@ -81,7 +61,7 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.17">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.18">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
@@ -880,9 +860,9 @@ mvn codenarc:codenarc&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
@@ -892,9 +872,9 @@ mvn codenarc:codenarc&#xd;
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
