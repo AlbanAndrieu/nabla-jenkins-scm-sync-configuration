@@ -292,9 +292,9 @@
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
@@ -304,9 +304,9 @@
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -511,7 +511,7 @@ Changelog of Git Changelog.
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>120</timeoutMinutes>
       </strategy>
@@ -524,16 +524,32 @@ Changelog of Git Changelog.
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
   </buildWrappers>
-  <prebuilders/>
-  <postbuilders>
+  <prebuilders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 set -xv
 
 cd ${WORKSPACE}/env/scripts/jenkins
 
-#sudo 
 ./step-0-1-run-processes-cleaning.sh
+
+./step-2-0-0-build-env.sh
+
+exit 0
+</command>
+    </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.1.4">
+      <info>
+        <propertiesFilePath>env/scripts/jenkins/jenkins-env</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+  </prebuilders>
+  <postbuilders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+set -xv
+
+cd ${WORKSPACE}/env/scripts/jenkins
 
 shellcheck *.sh -f checkstyle &gt; checkstyle-result.xml || true
 
@@ -547,7 +563,9 @@ shellcheck *.sh -f checkstyle &gt; checkstyle-result.xml || true
 
 cd ${WORKSPACE}/env/linux/
 
-shellcheck *.sh -f checkstyle &gt; checkstyle-result.xml || true</command>
+shellcheck *.sh -f checkstyle &gt; checkstyle-result.xml || true
+
+exit 0</command>
     </hudson.tasks.Shell>
   </postbuilders>
   <runPostStepsIfResult>
