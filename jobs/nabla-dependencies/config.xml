@@ -47,11 +47,13 @@
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-    <browser class="hudson.plugins.git.browser.GitWeb">
+    <browser class="hudson.plugins.git.browser.GithubWeb">
       <url>https://github.com/AlbanAndrieu/nabla</url>
     </browser>
     <submoduleCfg class="list"/>
-    <extensions/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.CleanCheckout/>
+    </extensions>
   </scm>
   <assignedNode>java-small&amp;&amp;git</assignedNode>
   <canRoam>false</canRoam>
