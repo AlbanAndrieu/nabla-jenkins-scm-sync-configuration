@@ -14,7 +14,6 @@ Report as much as possible (like the equivalent continuous job):&#xd;
   &lt;li&gt;cpd&lt;/li&gt;&#xd;
   &lt;li&gt;checkstyle&lt;/li&gt;  &#xd;
   &lt;li&gt;findbugs&lt;/li&gt;&#xd;
-  &lt;li&gt;sonargraph&lt;/li&gt;  &#xd;
   &lt;li&gt;javadoc&lt;/li&gt;   &#xd;
   &lt;li&gt;cobertura/clover/jacoco&lt;/li&gt;  &#xd;
   &lt;li&gt;pitest&lt;/li&gt; &#xd;
@@ -942,6 +941,12 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <assignedLabels></assignedLabels>
       <parallelBuild>false</parallelBuild>
     </org.jenkinsci.plugins.xvfb.Xvfb>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>300</timeoutMinutes>
+      </strategy>
+      <operationList/>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
