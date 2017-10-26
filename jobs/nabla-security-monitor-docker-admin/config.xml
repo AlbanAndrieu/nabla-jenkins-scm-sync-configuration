@@ -70,9 +70,9 @@ exit 0
 </command>
     </hudson.tasks.Shell>
     <org.jvnet.hudson.plugins.SSHBuilder plugin="ssh@2.5">
-      <siteName>albandri@albandri:22</siteName>
+      <siteName>albandri@192.168.0.29:22</siteName>
       <command>#!/bin/bash
-set -xv
+#set -xv
 
 echo ########### Check Docker images tree #######
 
