@@ -65,7 +65,9 @@
 #cd ./env/scripts/jenkins/
 
 #./nabla-security-monitor-scap-admin.sh
-	
+
+sudo ./remediation.sh
+
 ./run_tests.sh
 
 exit 0
