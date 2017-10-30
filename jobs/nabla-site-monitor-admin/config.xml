@@ -147,7 +147,7 @@ exit 0
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:7072/download/</mUrl>
+          <mUrl>http://home.nabla.mobi/html/download/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
