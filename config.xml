@@ -166,7 +166,7 @@
       <templates class="empty-list"/>
       <containerCap>50</containerCap>
       <connector>
-        <serverUrl>tcp://82.253.244.162:2376</serverUrl>
+        <serverUrl>tcp://192.168.0.29:2376</serverUrl>
         <credentialsId>jenkins</credentialsId>
         <connectorType>NETTY</connectorType>
       </connector>
