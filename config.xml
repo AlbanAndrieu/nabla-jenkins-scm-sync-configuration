@@ -159,7 +159,19 @@
   </jdks>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
-  <clouds/>
+  <clouds>
+    <com.github.kostyasha.yad.DockerCloud plugin="yet-another-docker-plugin@0.1.0-rc44">
+      <name>test</name>
+      <provisionedImages/>
+      <templates class="empty-list"/>
+      <containerCap>50</containerCap>
+      <connector>
+        <serverUrl>tcp://82.253.244.162:2376</serverUrl>
+        <credentialsId>jenkins</credentialsId>
+        <connectorType>NETTY</connectorType>
+      </connector>
+    </com.github.kostyasha.yad.DockerCloud>
+  </clouds>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
