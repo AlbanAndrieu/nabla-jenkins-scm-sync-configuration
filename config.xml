@@ -164,7 +164,7 @@
       <name>jenkinsslave_1</name>
       <provisionedImages/>
       <templates class="empty-list"/>
-      <containerCap>50</containerCap>
+      <containerCap>2</containerCap>
       <connector>
         <serverUrl>tcp://192.168.0.26:2376</serverUrl>
         <credentialsId>jenkins</credentialsId>
