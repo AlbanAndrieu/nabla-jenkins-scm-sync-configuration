@@ -161,12 +161,12 @@
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
     <com.github.kostyasha.yad.DockerCloud plugin="yet-another-docker-plugin@0.1.0-rc46">
-      <name>test</name>
+      <name>jenkinsslave_1</name>
       <provisionedImages/>
       <templates class="empty-list"/>
       <containerCap>50</containerCap>
       <connector>
-        <serverUrl>tcp://192.168.0.29:2376</serverUrl>
+        <serverUrl>tcp://192.168.0.26:2376</serverUrl>
         <credentialsId>jenkins</credentialsId>
         <connectorType>NETTY</connectorType>
       </connector>
