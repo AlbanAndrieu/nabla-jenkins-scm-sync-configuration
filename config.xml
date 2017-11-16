@@ -160,7 +160,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <com.github.kostyasha.yad.DockerCloud plugin="yet-another-docker-plugin@0.1.0-rc45">
+    <com.github.kostyasha.yad.DockerCloud plugin="yet-another-docker-plugin@0.1.0-rc46">
       <name>test</name>
       <provisionedImages/>
       <templates class="empty-list"/>
@@ -371,7 +371,7 @@
       <leftPortletWidth>50%</leftPortletWidth>
       <rightPortletWidth>50%</rightPortletWidth>
       <leftPortlets>
-        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.11">
+        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.12">
           <id>dashboard_portlet_6769</id>
           <name>Code Coverages(Cobertura)</name>
         </hudson.plugins.cobertura.dashboard.CoverageTablePortlet>
