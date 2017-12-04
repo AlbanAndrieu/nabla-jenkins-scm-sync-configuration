@@ -187,7 +187,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -216,7 +216,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -248,7 +248,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -277,7 +277,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -308,7 +308,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -534,7 +534,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -567,7 +567,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -612,7 +612,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -641,7 +641,7 @@ mvn codenarc:codenarc&#xd;
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.22.2">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.23">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
@@ -831,7 +831,6 @@ mvn codenarc:codenarc&#xd;
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.10"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
       <patterns class="empty-list"/>
       <deleteDirs>false</deleteDirs>
@@ -900,7 +899,7 @@ mvn codenarc:codenarc&#xd;
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.35">
+        <secureGroovyScript plugin="script-security@1.36">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
@@ -985,7 +984,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dsurefire.useFile=false clean -Psample  -Dserver=tomcat8x -Dwebdriver.base.url=http://localhost:$TOMCAT_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT</targets>
       <mavenName>(Default)</mavenName>
-      <usePrivateRepository>true</usePrivateRepository>
+      <usePrivateRepository>false</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
       <injectBuildVariables>true</injectBuildVariables>
