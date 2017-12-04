@@ -136,7 +136,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <hudson.plugins.git.extensions.impl.CleanCheckout/>
     </extensions>
   </scm>
-  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs&amp;&amp;zaproxy</assignedNode>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs&amp;&amp;zaproxy&amp;&amp;freenas</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -185,7 +185,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -214,7 +214,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -246,7 +246,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -275,7 +275,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -306,7 +306,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -560,7 +560,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -593,7 +593,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -638,7 +638,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -667,7 +667,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.22.2">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.23">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <org.jenkinsci.plugins.clamav.ClamAvRecorder plugin="clamav@0.3">
@@ -860,9 +860,9 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
@@ -872,9 +872,9 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -972,7 +972,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.35">
+        <secureGroovyScript plugin="script-security@1.36">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
