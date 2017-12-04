@@ -727,7 +727,7 @@ as soon it does not take too long.&#xd;
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT </targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT </targets>
       <mavenName>(Default)</mavenName>
       <properties>jsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot;</properties>
       <usePrivateRepository>true</usePrivateRepository>
