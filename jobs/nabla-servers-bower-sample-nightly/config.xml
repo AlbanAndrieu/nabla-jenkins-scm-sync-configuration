@@ -860,9 +860,9 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
@@ -872,9 +872,9 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -927,7 +927,6 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
         </hudson.plugins.git.GitPublisher_-TagToPush>
       </tagsToPush>
     </hudson.plugins.git.GitPublisher>
-    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.10"/>
   </publishers>
   <buildWrappers>
     <org.jenkinsci.plugins.xvfb.Xvfb plugin="xvfb@1.1.3">
@@ -1076,7 +1075,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Dserver=jetty9x</targets>
       <mavenName>(Default)</mavenName>
-      <usePrivateRepository>true</usePrivateRepository>
+      <usePrivateRepository>false</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
       <injectBuildVariables>true</injectBuildVariables>
