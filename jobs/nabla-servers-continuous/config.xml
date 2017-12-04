@@ -97,7 +97,7 @@ as soon it does not take too long.&#xd;
     <groupId>com.nabla.project</groupId>
     <artifactId>servers</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
