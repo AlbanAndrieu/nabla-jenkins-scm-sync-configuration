@@ -857,8 +857,16 @@ mvn codenarc:codenarc&#xd;
   <prebuilders>
     <hudson.tasks.Shell>
       <command>#-DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar
-#-DzapApiPath=/zapSource/build/zap/zap-api-v2-4.jar</command>
+#-DzapApiPath=/zapSource/build/zap/zap-api-v2-4.jar
+
+echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch
+</command>
     </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.1.5">
+      <info>
+        <propertiesFilePath>sonar-branch</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar</targets>
       <mavenName>(Default)</mavenName>
@@ -896,20 +904,13 @@ FILENAME=$JOB_NAME&quot;_VERSION.TXT&quot;
 echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_COMMIT:0:6}&quot; &gt; $FILENAME
 
 #curl -i -v -k ${SERVER_URL}${SERVER_CONTEXT} --data &quot;username=test&amp;password=microsoft&quot; 
-
-echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch
 </command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@2.1.5">
-      <info>
-        <propertiesFilePath>sonar-branch</propertiesFilePath>
-      </info>
-    </EnvInjectBuilder>
   </postbuilders>
   <runPostStepsIfResult>
-    <name>UNSTABLE</name>
-    <ordinal>1</ordinal>
-    <color>YELLOW</color>
+    <name>SUCCESS</name>
+    <ordinal>0</ordinal>
+    <color>BLUE</color>
     <completeBuild>true</completeBuild>
   </runPostStepsIfResult>
 </maven2-moduleset>
