@@ -190,7 +190,7 @@ cd $WORKSPACE
       <screen>1024x768x24</screen>
       <debug>false</debug>
       <timeout>10</timeout>
-      <displayNameOffset>2</displayNameOffset>
+      <displayNameOffset>12</displayNameOffset>
       <additionalOptions>-ac</additionalOptions>
       <shutdownWithBuild>true</shutdownWithBuild>
       <autoDisplayName>false</autoDisplayName>
