@@ -120,7 +120,9 @@ cd $WORKSPACE
       <other>-Dwebdriver.chrome.driver=/var/lib/chromedriver -port 6666 -timeout 600 -log=/jenkins/selenium.log -debug=true</other>
     </hudson.plugins.seleniumhq.SeleniumhqBuilder>
     <hudson.tasks.Shell>
-      <command>wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:8280/manager/text/undeploy?path=/welcome&quot; -O -
+      <command>export PATH=/usr/local/bin/:${PATH}
+echo PATH : $PATH
+wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:8280/manager/text/undeploy?path=/welcome&quot; -O -
 # -firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
