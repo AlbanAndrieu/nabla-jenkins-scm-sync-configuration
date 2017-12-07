@@ -88,6 +88,7 @@ firefox -v || true
 /opt/google/chrome/chrome --version || true
 /usr/bin/google-chrome  --version || true
 chromium-browser --version || true
+google-chrome-stable --version || true
 
 \rm -Rf /tmp/.X*-lock
 \rm -Rf /tmp/.X11-unix 
