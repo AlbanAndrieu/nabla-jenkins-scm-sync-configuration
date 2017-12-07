@@ -96,7 +96,7 @@ cd $WORKSPACE
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://home.nabla.mobi:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
+      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.host=home.nabla.mobi -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://home.nabla.mobi:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
@@ -117,7 +117,7 @@ cd $WORKSPACE
 # -firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
-      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://home.nabla.mobi:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
+      <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.host=home.nabla.mobi -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://home.nabla.mobi:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
       <mavenName>(Default)</mavenName>
       <pom>sample/jsf-simple/pom.xml</pom>
       <properties>java.awt.headless=true</properties>
