@@ -81,7 +81,7 @@ env
 #-Dwebdriver.chrome.driver=/var/lib/chromedriver -port 6666 -log=/jenkins/selenium.log -debug=true 
 #-firefoxProfileTemplate /workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/
 # -firefoxProfileTemplate=/workspace/users/albandri10/.mozilla/firefox/xhvt8rwp.selenium/
-wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:8280/manager/text/undeploy?path=/welcome&quot; -O -
+/usr/local/bin/wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:8280/manager/text/undeploy?path=/welcome&quot; -O -
 
 /usr/bin/firefox --version || true
 firefox -v || true
