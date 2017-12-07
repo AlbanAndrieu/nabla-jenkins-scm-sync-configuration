@@ -89,6 +89,10 @@ firefox -v || true
 /usr/bin/google-chrome  --version || true
 chromium-browser --version || true
 
+\rm -Rf /tmp/.X*-lock
+\rm -Rf /tmp/.X11-unix 
+
+
 cd ~/.mozilla
 find . -name &apos;.parentlock&apos; -exec rm {} \;
 cd $WORKSPACE
