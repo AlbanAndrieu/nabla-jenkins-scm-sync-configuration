@@ -88,6 +88,7 @@ firefox -v || true
 /opt/google/chrome/chrome --version || true
 /usr/bin/google-chrome  --version || true
 chromium-browser --version || true
+google-chrome-stable --version || true
 
 \rm -Rf /tmp/.X*-lock
 \rm -Rf /tmp/.X11-unix 
@@ -114,7 +115,7 @@ cd $WORKSPACE
       <startURL>http://home.nabla.mobi:8280/welcome/</startURL>
       <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
       <resultFile>sample/jsf-simple/target/test-reports/firefox-results.html</resultFile>
-      <other>-Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver -port 6666 -timeout 600 -log=/jenkins/selenium.log -debug=true</other>
+      <other>-Dwebdriver.chrome.driver=/var/lib/chromedriver -port 6666 -timeout 600 -log=/jenkins/selenium.log -debug=true</other>
     </hudson.plugins.seleniumhq.SeleniumhqBuilder>
     <hudson.tasks.Shell>
       <command>wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:8280/manager/text/undeploy?path=/welcome&quot; -O -
