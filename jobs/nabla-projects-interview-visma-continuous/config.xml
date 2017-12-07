@@ -135,7 +135,7 @@ mvn codenarc:codenarc&#xd;
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;firefox-57</assignedNode>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;firefox-57&amp;&amp;google-chrome-stable-62</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
