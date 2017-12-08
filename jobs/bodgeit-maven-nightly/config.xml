@@ -752,10 +752,10 @@ mvn codenarc:codenarc&#xd;
     <org.jenkinsci.plugins.xvfb.Xvfb plugin="xvfb@1.1.3">
       <installationName>Xvfb</installationName>
       <screen>1024x768x24</screen>
-      <debug>false</debug>
+      <debug>true</debug>
       <timeout>10</timeout>
       <displayNameOffset>22</displayNameOffset>
-      <additionalOptions>-extension RANDR -nolisten tcp -extension GLX </additionalOptions>
+      <additionalOptions>-extension RANDR -nolisten tcp -extension GLX --auto-servernum --server-num=1</additionalOptions>
       <shutdownWithBuild>true</shutdownWithBuild>
       <autoDisplayName>false</autoDisplayName>
       <assignedLabels></assignedLabels>
