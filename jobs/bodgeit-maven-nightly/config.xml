@@ -718,16 +718,16 @@ mvn codenarc:codenarc&#xd;
       <deltaClassCoverage>0</deltaClassCoverage>
       <buildOverBuild>false</buildOverBuild>
     </hudson.plugins.jacoco.JacocoPublisher>
-    <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
-      <analyzer>Cobertura</analyzer>
-      <verbose>false</verbose>
-      <excludeGetterSetter>false</excludeGetterSetter>
-      <locateTopMost>true</locateTopMost>
-    </hudson.plugins.covcomplplot.CovComplPlotPublisher>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
       <daysToKeep>365</daysToKeep>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
@@ -739,12 +739,6 @@ mvn codenarc:codenarc&#xd;
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
