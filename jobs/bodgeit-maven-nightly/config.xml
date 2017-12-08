@@ -155,7 +155,7 @@ mvn codenarc:codenarc&#xd;
     <groupId>com.nabla.project.servers.sample</groupId>
     <artifactId>thebodgeitstore</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true site -DzapProgram=/workspace/divers/zaproxy-read-only/build/zap/zap.sh  -DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar -Dzap.proxy=8091 -Djacoco.outputDir=${WORKSPACE}/target</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=hsqldb -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true site -DzapProgram=/workspace/divers/zaproxy-read-only/build/zap/zap.sh  -DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar -Dzap.proxy=8091 -Djacoco.outputDir=${WORKSPACE}/target</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
@@ -830,7 +830,7 @@ chrome --version || true</command>
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false javadoc:javadoc -Psample,integration -Dserver=jetty9x -Ddatabase=derby</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false javadoc:javadoc -Psample,integration -Dserver=jetty9x -Ddatabase=hsqldb </targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -838,7 +838,7 @@ chrome --version || true</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false javadoc:aggregate -Psample,integration -Dserver=jetty9x -Ddatabase=derby</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false javadoc:aggregate -Psample,integration -Dserver=jetty9x -Ddatabase=hsqldb </targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -854,9 +854,9 @@ echo $?</command>
     </hudson.tasks.Shell>
   </postbuilders>
   <runPostStepsIfResult>
-    <name>UNSTABLE</name>
-    <ordinal>1</ordinal>
-    <color>YELLOW</color>
+    <name>SUCCESS</name>
+    <ordinal>0</ordinal>
+    <color>BLUE</color>
     <completeBuild>true</completeBuild>
   </runPostStepsIfResult>
 </maven2-moduleset>
