@@ -155,7 +155,7 @@ mvn codenarc:codenarc&#xd;
     <groupId>com.nabla.project.servers.sample</groupId>
     <artifactId>thebodgeitstore</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=hsqldb -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true site -DzapProgram=/workspace/divers/zaproxy-read-only/build/zap/zap.sh  -DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar -Dzap.proxy=8091 -Djacoco.outputDir=${WORKSPACE}/target</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=hsqldb -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true site -DzapProgram=/workspace/divers/zaproxy-read-only/build/zap/zap.sh  -DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar -Dzap.proxy=8091 -Djacoco.outputDir=${WORKSPACE}/target</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
