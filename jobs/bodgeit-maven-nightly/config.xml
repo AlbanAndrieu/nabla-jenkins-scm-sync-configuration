@@ -755,9 +755,9 @@ mvn codenarc:codenarc&#xd;
       <debug>true</debug>
       <timeout>10</timeout>
       <displayNameOffset>22</displayNameOffset>
-      <additionalOptions>-extension RANDR -nolisten tcp -extension GLX --auto-servernum --server-num=1</additionalOptions>
+      <additionalOptions>-extension RANDR -nolisten tcp -extension GLX </additionalOptions>
       <shutdownWithBuild>true</shutdownWithBuild>
-      <autoDisplayName>false</autoDisplayName>
+      <autoDisplayName>true</autoDisplayName>
       <assignedLabels></assignedLabels>
       <parallelBuild>false</parallelBuild>
     </org.jenkinsci.plugins.xvfb.Xvfb>
