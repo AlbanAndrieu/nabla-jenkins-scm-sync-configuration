@@ -160,7 +160,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.0.4">
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1">
       <name>albandri</name>
       <templates>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
@@ -176,12 +176,10 @@
               </workDirSettings>
             </jnlpLauncher>
           </connector>
-          <remoteFsMapping>/home/jenkins</remoteFsMapping>
           <remoteFs>/home/jenkins</remoteFs>
           <instanceCap>1</instanceCap>
           <mode>NORMAL</mode>
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
-            <idleMinutes>10</idleMinutes>
             <timeout>10</timeout>
           </retentionStrategy>
           <numExecutors>1</numExecutors>
@@ -189,7 +187,6 @@
             <image>nabla/ansible-jenkins-slave-docker</image>
             <pullCredentialsId></pullCredentialsId>
             <dockerCommand></dockerCommand>
-            <lxcConfString></lxcConfString>
             <hostname></hostname>
             <dnsHosts/>
             <network></network>
@@ -207,13 +204,14 @@
           <nodeProperties/>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
-      <dockerHost plugin="docker-commons@1.9">
-        <uri>tcp://192.168.0.29:2376</uri>
-      </dockerHost>
-      <connectTimeout>60</connectTimeout>
-      <readTimeout>60</readTimeout>
-      <version></version>
-      <dockerHostname></dockerHostname>
+      <dockerApi>
+        <dockerHost plugin="docker-commons@1.9">
+          <uri>tcp://192.168.0.29:2376</uri>
+        </dockerHost>
+        <connectTimeout>60</connectTimeout>
+        <apiVersion></apiVersion>
+        <hostname></hostname>
+      </dockerApi>
       <containerCap>100</containerCap>
       <exposeDockerHost>true</exposeDockerHost>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
