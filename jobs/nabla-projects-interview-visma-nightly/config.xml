@@ -108,7 +108,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
         <localBranch>master</localBranch>
       </hudson.plugins.git.extensions.impl.LocalBranch>
       <hudson.plugins.git.extensions.impl.CloneOption>
-        <shallow>true</shallow>
+        <shallow>false</shallow>
         <noTags>false</noTags>
         <reference></reference>
         <timeout>10</timeout>
