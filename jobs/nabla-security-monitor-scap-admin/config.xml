@@ -25,7 +25,7 @@
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.2">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.3">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -62,9 +62,13 @@
       <command>#!/bin/bash
 #set -xve
 
-cd ./env/scripts/jenkins/
+#cd ./env/scripts/jenkins/
 
-./nabla-security-monitor-scap-admin.sh
+#./nabla-security-monitor-scap-admin.sh
+
+sudo ./remediation.sh
+
+./run_tests.sh
 
 exit 0
 </command>

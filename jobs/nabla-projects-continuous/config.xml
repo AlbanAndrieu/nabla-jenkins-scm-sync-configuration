@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.17">
+<maven2-moduleset plugin="maven-plugin@3.0">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Project&lt;/i&gt; continuously during working days.&lt;br&gt;&#xd;
 The main goals of this job is to build fast, often and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -37,25 +37,25 @@ as soon it does not take too long.</description>
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.0.4">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-projects/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.27">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -99,6 +99,7 @@ as soon it does not take too long.</description>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
+  <localRepository class="hudson.maven.local_repo.DefaultLocalRepositoryLocator"/>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
   <ignoreUnsuccessfulUpstreams>false</ignoreUnsuccessfulUpstreams>
   <archivingDisabled>false</archivingDisabled>
@@ -543,11 +544,11 @@ as soon it does not take too long.</description>
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.22.2">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
-    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.11">
+    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.12">
       <coberturaReportFile>**/target/site/cobertura/coverage.xml</coberturaReportFile>
       <onlyStable>false</onlyStable>
       <failUnhealthy>false</failUnhealthy>
@@ -557,6 +558,8 @@ as soon it does not take too long.</description>
       <zoomCoverageChart>false</zoomCoverageChart>
       <maxNumberOfBuilds>0</maxNumberOfBuilds>
       <failNoReports>false</failNoReports>
+      <lineCoverageTargets>80, 0, 0</lineCoverageTargets>
+      <conditionalCoverageTargets>70, 0, 0</conditionalCoverageTargets>
       <healthyTarget>
         <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
           <entry>
@@ -595,7 +598,7 @@ as soon it does not take too long.</description>
       </failingTarget>
       <sourceEncoding>ASCII</sourceEncoding>
     </hudson.plugins.cobertura.CoberturaPublisher>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.2">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.3">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>50</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -604,7 +607,6 @@ as soon it does not take too long.</description>
       <relativeUnstableThresholdPositive>25.0</relativeUnstableThresholdPositive>
       <relativeUnstableThresholdNegative>25.0</relativeUnstableThresholdNegative>
       <nthBuildNumber>0</nthBuildNumber>
-      <modeRelativeThresholds>false</modeRelativeThresholds>
       <configType>ART</configType>
       <graphType>ART</graphType>
       <modeOfThreshold>false</modeOfThreshold>
@@ -613,6 +615,7 @@ as soon it does not take too long.</description>
       <optionType>ART</optionType>
       <xml></xml>
       <modePerformancePerTestCase>true</modePerformancePerTestCase>
+      <excludeResponseTime>false</excludeResponseTime>
       <modeThroughput>false</modeThroughput>
       <modeEvaluation>false</modeEvaluation>
       <ignoreFailedBuilds>false</ignoreFailedBuilds>
@@ -645,6 +648,12 @@ as soon it does not take too long.</description>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
@@ -654,12 +663,6 @@ as soon it does not take too long.</description>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -682,7 +685,6 @@ as soon it does not take too long.</description>
       <configs/>
       <downstreamProjectNames>nabla-projects-interview-javascript, nabla-projects-interview-visma-continuous, nabla-projects-interview-performance, nabla-projects-mutation-testing</downstreamProjectNames>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
-    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
       <patterns class="empty-list"/>
       <deleteDirs>false</deleteDirs>
@@ -703,7 +705,7 @@ as soon it does not take too long.</description>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>300</timeoutMinutes>
       </strategy>

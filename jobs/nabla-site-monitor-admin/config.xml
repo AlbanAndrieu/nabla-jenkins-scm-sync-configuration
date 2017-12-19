@@ -13,7 +13,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.18">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.0.3">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
@@ -22,12 +22,12 @@
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.27">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.3">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -99,7 +99,7 @@ exit 0
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://192.168.0.29:7072/phpmyadmin/</mUrl>
+          <mUrl>http://home.nabla.mobi:84/phpmyadmin</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
@@ -147,7 +147,7 @@ exit 0
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:7072/download/</mUrl>
+          <mUrl>http://home.nabla.mobi/html/download/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>

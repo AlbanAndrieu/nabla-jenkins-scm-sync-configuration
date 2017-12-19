@@ -81,7 +81,7 @@ mvn codenarc:codenarc&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.1">
       <projectUrl>https://github.com/AlbanAndrieu/bodgeit-maven/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -104,12 +104,12 @@ mvn codenarc:codenarc&#xd;
         </com.tikal.hudson.plugins.notification.Endpoint>
       </endpoints>
     </com.tikal.hudson.plugins.notification.HudsonNotificationProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.27">
       <autoRebuild>true</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -155,7 +155,7 @@ mvn codenarc:codenarc&#xd;
     <groupId>com.nabla.project.servers.sample</groupId>
     <artifactId>thebodgeitstore</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true site -DzapProgram=/workspace/divers/zaproxy-read-only/build/zap/zap.sh  -DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar -Dzap.proxy=8091 -Djacoco.outputDir=${WORKSPACE}/target</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Djacoco.outputDir=${WORKSPACE}/target -Dserver=jetty9x -Ddatabase=hsqldb -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -DzapProgram=/workspace/divers/zaproxy-read-only/build/zap/zap.sh  -DzapApiPath=/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar -Dzap.proxy=8091 -Djacoco.outputDir=${WORKSPACE}/target</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
@@ -181,7 +181,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -210,7 +210,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -242,7 +242,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -271,7 +271,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -302,7 +302,7 @@ mvn codenarc:codenarc&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -518,7 +518,7 @@ mvn codenarc:codenarc&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@2.1.1">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@3.0.2">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -528,7 +528,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -561,7 +561,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -606,7 +606,7 @@ mvn codenarc:codenarc&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -635,7 +635,7 @@ mvn codenarc:codenarc&#xd;
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.23">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -646,7 +646,6 @@ mvn codenarc:codenarc&#xd;
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
       <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
@@ -719,12 +718,6 @@ mvn codenarc:codenarc&#xd;
       <deltaClassCoverage>0</deltaClassCoverage>
       <buildOverBuild>false</buildOverBuild>
     </hudson.plugins.jacoco.JacocoPublisher>
-    <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
-      <analyzer>Cobertura</analyzer>
-      <verbose>false</verbose>
-      <excludeGetterSetter>false</excludeGetterSetter>
-      <locateTopMost>true</locateTopMost>
-    </hudson.plugins.covcomplplot.CovComplPlotPublisher>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
       <daysToKeep>365</daysToKeep>
       <numToKeep>-1</numToKeep>
@@ -754,18 +747,17 @@ mvn codenarc:codenarc&#xd;
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
   </publishers>
   <buildWrappers>
     <org.jenkinsci.plugins.xvfb.Xvfb plugin="xvfb@1.1.3">
       <installationName>Xvfb</installationName>
       <screen>1024x768x24</screen>
-      <debug>false</debug>
+      <debug>true</debug>
       <timeout>10</timeout>
-      <displayNameOffset>2</displayNameOffset>
+      <displayNameOffset>22</displayNameOffset>
       <additionalOptions>-extension RANDR -nolisten tcp -extension GLX </additionalOptions>
       <shutdownWithBuild>true</shutdownWithBuild>
-      <autoDisplayName>false</autoDisplayName>
+      <autoDisplayName>true</autoDisplayName>
       <assignedLabels></assignedLabels>
       <parallelBuild>false</parallelBuild>
     </org.jenkinsci.plugins.xvfb.Xvfb>
@@ -774,7 +766,7 @@ mvn codenarc:codenarc&#xd;
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>300</timeoutMinutes>
       </strategy>
@@ -838,7 +830,7 @@ chrome --version || true</command>
   </prebuilders>
   <postbuilders>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false javadoc:javadoc -Psample,integration -Dserver=jetty9x -Ddatabase=derby</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false javadoc:javadoc -Psample,integration -Dserver=jetty9x -Ddatabase=hsqldb </targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -846,7 +838,7 @@ chrome --version || true</command>
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false javadoc:aggregate -Psample,integration -Dserver=jetty9x -Ddatabase=derby</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false javadoc:aggregate -Psample,integration -Dserver=jetty9x -Ddatabase=hsqldb </targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
@@ -862,9 +854,9 @@ echo $?</command>
     </hudson.tasks.Shell>
   </postbuilders>
   <runPostStepsIfResult>
-    <name>UNSTABLE</name>
-    <ordinal>1</ordinal>
-    <color>YELLOW</color>
+    <name>SUCCESS</name>
+    <ordinal>0</ordinal>
+    <color>BLUE</color>
     <completeBuild>true</completeBuild>
   </runPostStepsIfResult>
 </maven2-moduleset>

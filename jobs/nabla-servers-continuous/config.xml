@@ -39,25 +39,25 @@ as soon it does not take too long.&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.17">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.0.4">
       <tagOnCompletion>false</tagOnCompletion>
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
     </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.1">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-servers/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.27">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -77,7 +77,7 @@ as soon it does not take too long.&#xd;
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium</assignedNode>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;chrome</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -97,7 +97,7 @@ as soon it does not take too long.&#xd;
     <groupId>com.nabla.project</groupId>
     <artifactId>servers</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install pmd:pmd pmd:cpd checkstyle:checkstyle findbugs:findbugs cobertura:cobertura -Psample,jacoco,jmeter,run-its,with-test -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT -Djsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot; -Dcargo.rmi.port=$CARGO_RMI_PORT -Derrai.devel.debugCacheDir=target/errai</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
@@ -124,7 +124,7 @@ as soon it does not take too long.&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -153,7 +153,7 @@ as soon it does not take too long.&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -185,7 +185,7 @@ as soon it does not take too long.&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -214,7 +214,7 @@ as soon it does not take too long.&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -245,7 +245,7 @@ as soon it does not take too long.&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -471,7 +471,7 @@ as soon it does not take too long.&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -516,7 +516,7 @@ as soon it does not take too long.&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.93">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -545,11 +545,11 @@ as soon it does not take too long.&#xd;
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.23">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
-    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.11">
+    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.12">
       <coberturaReportFile>**/target/site/cobertura/coverage.xml</coberturaReportFile>
       <onlyStable>false</onlyStable>
       <failUnhealthy>false</failUnhealthy>
@@ -559,6 +559,9 @@ as soon it does not take too long.&#xd;
       <zoomCoverageChart>false</zoomCoverageChart>
       <maxNumberOfBuilds>0</maxNumberOfBuilds>
       <failNoReports>false</failNoReports>
+      <lineCoverageTargets>80, 0, 0</lineCoverageTargets>
+      <methodCoverageTargets>80, 0, 0</methodCoverageTargets>
+      <conditionalCoverageTargets>70, 0, 0</conditionalCoverageTargets>
       <healthyTarget>
         <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
           <entry>
@@ -634,16 +637,16 @@ as soon it does not take too long.&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>SUCCESS</name>
-          <ordinal>0</ordinal>
-          <color>BLUE</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
           <name>ABORTED</name>
@@ -667,7 +670,6 @@ as soon it does not take too long.&#xd;
         <completeBuild>true</completeBuild>
       </threshold>
     </hudson.tasks.BuildTrigger>
-    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.9"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
       <patterns class="empty-list"/>
       <deleteDirs>false</deleteDirs>
@@ -700,7 +702,7 @@ as soon it does not take too long.&#xd;
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>300</timeoutMinutes>
       </strategy>
@@ -725,7 +727,7 @@ as soon it does not take too long.&#xd;
   </buildWrappers>
   <prebuilders>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT </targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean validate -Psample -Dserver=jetty9x -Ddatabase=derby -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djetty.port=$JETTY_PORT </targets>
       <mavenName>(Default)</mavenName>
       <properties>jsf-simple-saucelabs.test.excludes=&quot;**/*SimpleRemoteWebDriverSTest.java&quot;</properties>
       <usePrivateRepository>true</usePrivateRepository>
