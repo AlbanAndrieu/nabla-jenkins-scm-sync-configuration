@@ -104,8 +104,10 @@ exit 0
     <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
       <mSites>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:7072/</mUrl>
-          <successResponseCodes/>
+          <mUrl>http://home.nabla.mobi/download/</mUrl>
+          <successResponseCodes>
+            <int>403</int>
+          </successResponseCodes>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
     </hudson.plugins.sitemonitor.SiteMonitorRecorder>
