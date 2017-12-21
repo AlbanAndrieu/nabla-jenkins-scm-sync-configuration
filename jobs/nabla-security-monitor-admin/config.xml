@@ -44,7 +44,7 @@
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.2">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -96,7 +96,7 @@ exit 0
     </org.jenkinsci.plugins.clamav.ClamAvRecorder>
     <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.0">
       <unstableOnWarning>true</unstableOnWarning>
-      <failBuildOnError>true</failBuildOnError>
+      <failBuildOnError>false</failBuildOnError>
       <showGraphs>true</showGraphs>
       <parsingRulesPath>/workspace/zfs-log_parsing_rules</parsingRulesPath>
       <useProjectRule>false</useProjectRule>
@@ -109,6 +109,20 @@ exit 0
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
     </hudson.plugins.sitemonitor.SiteMonitorRecorder>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.14">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Hardware HTML Report</reportName>
+          <reportDir>env/scripts/jenkins/lshw/lshw.html</reportDir>
+          <reportFiles>lshw.html</reportFiles>
+          <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>false</keepAll>
+          <allowMissing>false</allowMissing>
+          <includes>**/*</includes>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
   </publishers>
   <buildWrappers>
     <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
