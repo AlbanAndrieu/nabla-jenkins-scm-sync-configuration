@@ -1072,7 +1072,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       </info>
     </EnvInjectBuilder>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Dserver=jetty9x -Dskip.npm</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Dserver=jetty9x -Dskip.npm -Dskip.grunt -Dskip.bower -Dskip.yarn</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>false</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
