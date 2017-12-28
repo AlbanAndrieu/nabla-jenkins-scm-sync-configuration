@@ -44,7 +44,7 @@
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.7.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -113,7 +113,7 @@ exit 0
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Hardware HTML Report</reportName>
-          <reportDir>env/scripts/jenkins/lshw/lshw.html</reportDir>
+          <reportDir>env/scripts/jenkins/</reportDir>
           <reportFiles>lshw.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <reportTitles></reportTitles>
@@ -131,7 +131,7 @@ exit 0
       </strategy>
       <operationList/>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
