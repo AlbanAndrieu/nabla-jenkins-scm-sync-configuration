@@ -160,7 +160,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1">
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.2">
       <name>albandri</name>
       <templates>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
@@ -182,7 +182,6 @@
           <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
             <timeout>10</timeout>
           </retentionStrategy>
-          <numExecutors>1</numExecutors>
           <dockerTemplateBase>
             <image>nabla/ansible-jenkins-slave-docker</image>
             <pullCredentialsId></pullCredentialsId>
@@ -208,7 +207,7 @@
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <dockerApi>
-        <dockerHost plugin="docker-commons@1.9">
+        <dockerHost plugin="docker-commons@1.10">
           <uri>tcp://192.168.0.29:2376</uri>
         </dockerHost>
         <connectTimeout>60</connectTimeout>
