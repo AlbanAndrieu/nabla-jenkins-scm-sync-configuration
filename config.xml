@@ -207,7 +207,7 @@
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <dockerApi>
-        <dockerHost plugin="docker-commons@1.10">
+        <dockerHost plugin="docker-commons@1.11">
           <uri>tcp://192.168.0.29:2376</uri>
         </dockerHost>
         <connectTimeout>60</connectTimeout>
