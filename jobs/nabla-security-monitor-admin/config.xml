@@ -44,7 +44,7 @@
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.2">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.7.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -96,7 +96,7 @@ exit 0
     </org.jenkinsci.plugins.clamav.ClamAvRecorder>
     <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.0">
       <unstableOnWarning>true</unstableOnWarning>
-      <failBuildOnError>true</failBuildOnError>
+      <failBuildOnError>false</failBuildOnError>
       <showGraphs>true</showGraphs>
       <parsingRulesPath>/workspace/zfs-log_parsing_rules</parsingRulesPath>
       <useProjectRule>false</useProjectRule>
@@ -104,11 +104,25 @@ exit 0
     <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
       <mSites>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:7072/</mUrl>
+          <mUrl>http://home.nabla.mobi/html/download/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
     </hudson.plugins.sitemonitor.SiteMonitorRecorder>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.14">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Hardware HTML Report</reportName>
+          <reportDir>env/scripts/jenkins/</reportDir>
+          <reportFiles>lshw.html</reportFiles>
+          <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>false</keepAll>
+          <allowMissing>false</allowMissing>
+          <includes>**/*</includes>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
   </publishers>
   <buildWrappers>
     <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
@@ -117,7 +131,7 @@ exit 0
       </strategy>
       <operationList/>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
