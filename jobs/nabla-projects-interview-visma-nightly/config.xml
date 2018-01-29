@@ -85,7 +85,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.7.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -150,7 +150,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
     <groupId>com.nabla.project.sample.interview.visma</groupId>
     <artifactId>visma</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar site -Psample,jacoco,integration,jmeter,run-its,arq-weld-ee-embedded,!arq-jbossas-managed -Dsonar.branch=${SONAR_BRANCH} -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=jetty9x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar site -Psample,jacoco,integration,jmeter,run-its,arq-weld-ee-embedded,!arq-jbossas-managed -Dsonar.branch.name=${SONAR_BRANCH} -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=jetty9x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx512m -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc.log -XX:+HeapDumpOnOutOfMemoryError</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -530,7 +530,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <war>gui/target/visma.war</war>
       <onFailure>false</onFailure>
     </hudson.plugins.deploy.DeployPublisher>
-    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@3.0.2">
+    <org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher plugin="dependency-check-jenkins-plugin@3.1.0">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -563,7 +563,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern>gui/target/dependency-check-report.xml</pattern>
     </org.jenkinsci.plugins.DependencyCheck.DependencyCheckPublisher>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.63">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.64">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -796,7 +796,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
-    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.3">
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@3.4">
       <errorFailedThreshold>100</errorFailedThreshold>
       <errorUnstableThreshold>80</errorUnstableThreshold>
       <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
@@ -820,6 +820,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <ignoreUnstableBuilds>false</ignoreUnstableBuilds>
       <persistConstraintLog>false</persistConstraintLog>
       <sourceDataFiles>**/TEST-*.xml;gui/target/jmeter/results/*.jtl</sourceDataFiles>
+      <junitOutput></junitOutput>
     </hudson.plugins.performance.PerformancePublisher>
     <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
       <execPattern>**/**-it.exec</execPattern>
@@ -863,7 +864,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@17.11.4">
+    <org.whitesource.jenkins.WhiteSourcePublisher plugin="whitesource@17.12.1">
       <jobCheckPolicies>global</jobCheckPolicies>
       <jobForceUpdate>global</jobForceUpdate>
       <jobApiToken></jobApiToken>
@@ -952,7 +953,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       </strategy>
       <operationList/>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
@@ -980,7 +981,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.36">
+        <secureGroovyScript plugin="script-security@1.39">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
