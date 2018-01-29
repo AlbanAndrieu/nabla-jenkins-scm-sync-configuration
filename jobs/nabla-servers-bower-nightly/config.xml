@@ -160,7 +160,7 @@ mvn codenarc:codenarc&#xd;
     <groupId>com.nabla.project.servers.sample</groupId>
     <artifactId>bower-pom</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install -Psample,jacoco site deploy -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch=${SONAR_BRANCH} sonar:sonar -Dsonar.jdbc.url=jdbc:h2:tcp://home.nabla.mobi:9092/sonar -Dsonar.jdbc.driver=org.h2.Driver site</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install -Psample,jacoco site deploy -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch=${SONAR_BRANCH} sonar:sonar -Dsonar.jdbc.url=jdbc:h2:tcp://home.nabla.mobi:9092/sonar -Dsonar.jdbc.driver=org.h2.Driver</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
@@ -868,6 +868,16 @@ bower --version || true
 rm -Rf .node_cache/ .node_tmp/  .tmp/ .bower/ node node_modules/ package-lock.json yarn.lock components/*/package-lock.json components/*/yarn.lock
 </command>
     </hudson.tasks.Shell>
+    <hudson.tasks.Maven>
+      <targets>site -Dskip.npm -Dskip.grunt -Dskip.bower -Dskip.yarn</targets>
+      <mavenName>Maven</mavenName>
+      <usePrivateRepository>true</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="org.jenkinsci.plugins.configfiles.maven.job.MvnGlobalSettingsProvider" plugin="config-file-provider@2.16.4">
+        <settingsConfigId>nabla-default</settingsConfigId>
+      </globalSettings>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
   </postbuilders>
   <runPostStepsIfResult>
     <name>SUCCESS</name>
