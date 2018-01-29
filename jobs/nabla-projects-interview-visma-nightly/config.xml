@@ -150,7 +150,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
     <groupId>com.nabla.project.sample.interview.visma</groupId>
     <artifactId>visma</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar site -Psample,jacoco,integration,jmeter,run-its,arq-weld-ee-embedded,!arq-jbossas-managed -Dsonar.branch.name=${SONAR_BRANCH} -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=jetty9x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Psample,jacoco,integration,jmeter,run-its,arq-weld-ee-embedded,!arq-jbossas-managed -Dsonar.branch.name=${SONAR_BRANCH} -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=jetty9x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx512m -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc.log -XX:+HeapDumpOnOutOfMemoryError</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
@@ -906,6 +906,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
+    <hudson.plugins.claim.ClaimPublisher plugin="claim@2.10"/>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
       <patterns>
         <hudson.plugins.ws__cleanup.Pattern>
@@ -1191,6 +1192,16 @@ echo &quot;$JOB_NAME: BUILD: $BUILD_NUMBER SHA1:${GIT_LATEST_SUCCESSFUL_COMMIT}&
       <zapProxyHost>localhost</zapProxyHost>
       <zapProxyPort>8094</zapProxyPort>
     </fr.novia.zaproxyplugin.ZAProxyBuilder>
+    <hudson.tasks.Maven>
+      <targets>site  -Dskip.npm -Dskip.grunt -Dskip.bower -Dskip.yarn</targets>
+      <mavenName>Maven</mavenName>
+      <usePrivateRepository>true</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="org.jenkinsci.plugins.configfiles.maven.job.MvnGlobalSettingsProvider" plugin="config-file-provider@2.16.4">
+        <settingsConfigId>nabla-default</settingsConfigId>
+      </globalSettings>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
   </postbuilders>
   <runPostStepsIfResult>
     <name>SUCCESS</name>
