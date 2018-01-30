@@ -882,12 +882,6 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>SUCCESS</name>
-          <ordinal>0</ordinal>
-          <color>BLUE</color>
-          <completeBuild>true</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
@@ -898,6 +892,12 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -1069,7 +1069,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       </info>
     </EnvInjectBuilder>
     <hudson.tasks.Maven>
-      <targets>-B -U -e -Dsurefire.useFile=false clean -Psample  -Dserver=jetty9x -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT</targets>
+      <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Dserver=jetty9x -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT</targets>
       <mavenName>(Default)</mavenName>
       <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
