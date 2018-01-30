@@ -144,7 +144,7 @@ mvn codenarc:codenarc&#xd;
       <hudson.plugins.git.extensions.impl.CleanCheckout/>
     </extensions>
   </scm>
-  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs&amp;&amp;zaproxy&amp;&amp;ubuntu-legacy</assignedNode>
+  <assignedNode>java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;nodejs&amp;&amp;zaproxy&amp;&amp;!ubuntu-legacy</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
