@@ -150,7 +150,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
     <groupId>com.nabla.project.servers.sample</groupId>
     <artifactId>bower-sample</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install -Pjacoco,run-its -Dcargo.rmi.port=$CARGO_RMI_PORT -Djetty.port=$JETTY_PORT -Dserver=jetty9x -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch=${SONAR_BRANCH} sonar:sonar -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dreport.type=executive</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install -Pjacoco,run-its -Dcargo.rmi.port=$CARGO_RMI_PORT -Djetty.port=$JETTY_PORT -Dserver=jetty9x -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch.name=${SONAR_BRANCH} sonar:sonar -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dreport.type=executive</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx1024m -Djava.awt.headless=true -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc.log -XX:+HeapDumpOnOutOfMemoryError</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
