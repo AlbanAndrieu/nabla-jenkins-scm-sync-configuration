@@ -39,6 +39,26 @@ examines &lt;b&gt;C/C++ source code&lt;/b&gt; and reports possible &lt;b&gt;secu
           <description></description>
           <defaultValue>skip</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ENABLE_MEMCHECK</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>UNIT_TESTS</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>CHECK_FORMATTING</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ENABLE_CLANG</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
