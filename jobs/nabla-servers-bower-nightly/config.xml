@@ -160,7 +160,7 @@ mvn codenarc:codenarc&#xd;
     <groupId>com.nabla.project.servers.sample</groupId>
     <artifactId>bower-pom</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install -Psample,jacoco site deploy -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch.name=${SONAR_BRANCH} sonar:sonar -Dsonar.jdbc.url=jdbc:h2:tcp://home.nabla.mobi:9092/sonar -Dsonar.jdbc.driver=org.h2.Driver</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false -Psample,jacoco site deploy -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.branch.name=${SONAR_BRANCH} sonar:sonar -Dsonar.jdbc.url=jdbc:h2:tcp://home.nabla.mobi:9092/sonar -Dsonar.jdbc.driver=org.h2.Driver</goals>
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
