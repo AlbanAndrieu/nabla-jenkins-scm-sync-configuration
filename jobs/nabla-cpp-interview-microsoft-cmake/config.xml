@@ -70,9 +70,9 @@ examines &lt;b&gt;C/C++ source code&lt;/b&gt; and reports possible &lt;b&gt;secu
           <defaultValue>target=local --cache-disable gcc_version=5 CC=&quot;${CC}&quot; CXX=&quot;${CXX}&quot; color=True package</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>SONAR_CMD</name>
+          <name>SONAR_CMD_TODO</name>
           <description></description>
-          <defaultValue>${HOME}/build-wrapper-linux-x86/build-wrapper-linux-x86-32</defaultValue>
+          <defaultValue>${HOME}/build-wrapper-linux-x86/build-wrapper-linux-x86-32  --out-dir ${WORKSPACE}/bw-outputs/</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
