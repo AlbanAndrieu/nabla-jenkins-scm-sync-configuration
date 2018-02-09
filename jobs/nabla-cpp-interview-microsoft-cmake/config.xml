@@ -72,7 +72,7 @@ examines &lt;b&gt;C/C++ source code&lt;/b&gt; and reports possible &lt;b&gt;secu
         <hudson.model.StringParameterDefinition>
           <name>SONAR_CMD</name>
           <description></description>
-          <defaultValue>${HOME}/build-wrapper-linux-x86/build-wrapper-linux-${SONAR_PROCESSOR}</defaultValue>
+          <defaultValue>${HOME}/build-wrapper-linux-x86/build-wrapper-linux-x86-32</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
