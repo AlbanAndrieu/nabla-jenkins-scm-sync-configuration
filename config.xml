@@ -655,6 +655,11 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>nabla-cpp-interview-microsoft-cmake</string>
+        <string>nabla-databases-continuous</string>
+        <string>nabla-installer-fronter</string>
+        <string>nabla-projects-continuous</string>
+        <string>nabla-security-monitor-lynis-admin</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -666,10 +671,52 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
-      <recurse>false</recurse>
+      <includeRegex>nabla.*</includeRegex>
+      <recurse>true</recurse>
       <groupingRules/>
       <regexToIgnoreOnColorComputing></regexToIgnoreOnColorComputing>
-      <categorizationCriteria/>
+      <categorizationCriteria>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>andromda</groupRegex>
+          <namingRule>andromda</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>cpp</groupRegex>
+          <namingRule>cpp</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>databases</groupRegex>
+          <namingRule>databases</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>installer</groupRegex>
+          <namingRule>installer</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>projects</groupRegex>
+          <namingRule>projects</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>security</groupRegex>
+          <namingRule>security</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>servers</groupRegex>
+          <namingRule>servers</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+        <org.jenkinsci.plugins.categorizedview.GroupingRule>
+          <groupRegex>uml</groupRegex>
+          <namingRule>uml</namingRule>
+          <useDisplayName>true</useDisplayName>
+        </org.jenkinsci.plugins.categorizedview.GroupingRule>
+      </categorizationCriteria>
     </org.jenkinsci.plugins.categorizedview.CategorizedJobsView>
   </views>
   <primaryView>nabla-dashboard</primaryView>
