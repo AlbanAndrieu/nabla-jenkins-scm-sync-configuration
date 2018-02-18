@@ -527,7 +527,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <war>target/test.war</war>
       <onFailure>false</onFailure>
     </hudson.plugins.deploy.DeployPublisher>
-    <org.tap4j.plugin.TapPublisher plugin="tap@2.2">
+    <org.tap4j.plugin.TapPublisher plugin="tap@2.2.1">
       <testResults>target/yslow*.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
       <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
@@ -862,15 +862,15 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -968,7 +968,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
         <scriptContent>cd $WORKSPACE
 echo &quot;git.revision=$(git rev-parse --short HEAD)&quot;
 echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///;s/[),].*//&apos;)&quot; </scriptContent>
-        <secureGroovyScript plugin="script-security@1.40">
+        <secureGroovyScript plugin="script-security@1.41">
           <script></script>
           <sandbox>false</sandbox>
         </secureGroovyScript>
@@ -979,8 +979,8 @@ echo &quot;git.branch=$(git log -n 1 --pretty=%d HEAD | sed &apos;s/.*origin\///
       <scmUserEnvVar></scmUserEnvVar>
       <scmPasswordEnvVar></scmPasswordEnvVar>
       <releaseEnvVar>IS_M2RELEASEBUILD</releaseEnvVar>
-      <releaseGoals>-Dresume=false release:prepare release:perform -Dserver=jetty9x -DignoreSnapshots=true</releaseGoals>
-      <dryRunGoals>-Dresume=false -DdryRun=true release:prepare -Dserver=jetty9x -DignoreSnapshots=true</dryRunGoals>
+      <releaseGoals>-Dresume=false release:prepare release:perform -Dserver=jetty9x -DignoreSnapshots=true  -Dskip.npm -Dskip.grunt -Dskip.bower -Dskip.yarn</releaseGoals>
+      <dryRunGoals>-Dresume=false -DdryRun=true release:prepare -Dserver=jetty9x -DignoreSnapshots=true  -Dskip.npm -Dskip.grunt -Dskip.bower -Dskip.yarn</dryRunGoals>
       <selectCustomScmCommentPrefix>false</selectCustomScmCommentPrefix>
       <selectAppendHudsonUsername>false</selectAppendHudsonUsername>
       <selectScmCredentials>false</selectScmCredentials>
