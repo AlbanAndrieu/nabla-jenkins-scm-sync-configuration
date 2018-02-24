@@ -363,14 +363,14 @@
           <id>dashboard_portlet_6769</id>
           <name>Code Coverages(Cobertura)</name>
         </hudson.plugins.cobertura.dashboard.CoverageTablePortlet>
-        <hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart plugin="jacoco@2.2.1">
+        <hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart plugin="jacoco@3.0.1">
           <id>dashboard_portlet_21242</id>
           <name>JaCoCo Coverage Trend Chart</name>
           <width>500</width>
           <height>250</height>
           <daysNumber>30</daysNumber>
         </hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart>
-        <hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid plugin="jacoco@2.2.1">
+        <hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid plugin="jacoco@3.0.1">
           <id>dashboard_portlet_3071</id>
           <name>JaCoCo Coverage Statistics Grid</name>
         </hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid>
