@@ -855,7 +855,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
       <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
-      <uniqueVersion>true</uniqueVersion>
+      <uniqueVersion>false</uniqueVersion>
       <evenIfUnstable>true</evenIfUnstable>
     </hudson.maven.RedeployPublisher>
     <hudson.tasks.ArtifactArchiver>
