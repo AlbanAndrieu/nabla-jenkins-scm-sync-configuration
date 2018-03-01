@@ -84,7 +84,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.7.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -664,10 +664,6 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
     <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.24">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
-    <org.jenkinsci.plugins.clamav.ClamAvRecorder plugin="clamav@0.3">
-      <includes>**/target/**</includes>
-      <excludes>.git/**/,**/target/**/*.war,**/target/**/*-*.jar</excludes>
-    </org.jenkinsci.plugins.clamav.ClamAvRecorder>
     <hudson.maven.RedeployPublisher>
       <id>nexus-snapshots</id>
       <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
@@ -856,6 +852,12 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>FAILURE</name>
           <ordinal>2</ordinal>
           <color>RED</color>
@@ -867,12 +869,6 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
-        <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
       <maxLogFileSize>10000000</maxLogFileSize>
@@ -880,7 +876,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <intervalNumToKeep>15</intervalNumToKeep>
       <regexp></regexp>
     </org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher>
-    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
+    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@3.0.1">
       <execPattern>**/**-it.exec</execPattern>
       <classPattern>**/classes</classPattern>
       <sourcePattern>**/src/main/java</sourcePattern>
@@ -908,7 +904,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
       <deltaClassCoverage>0</deltaClassCoverage>
       <buildOverBuild>false</buildOverBuild>
     </hudson.plugins.jacoco.JacocoPublisher>
-    <hudson.plugins.git.GitPublisher plugin="git@3.7.0">
+    <hudson.plugins.git.GitPublisher plugin="git@3.8.0">
       <configVersion>2</configVersion>
       <pushMerge>false</pushMerge>
       <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
