@@ -150,7 +150,7 @@ mvn install -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true -Prun-its,
     <groupId>com.nabla.project.sample.interview.visma</groupId>
     <artifactId>visma</artifactId>
   </rootModule>
-  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Psample,jacoco,integration,jmeter,run-its,arq-jetty-embedded,!arq-weld-ee-embedded,!arq-jbossas-managed -Dsonar.projectKey=&quot;com.nabla.project.sample.interview.visma:visma:master&quot; -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=jetty9x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
+  <goals>-B -U -e -Dsurefire.useFile=false install sonar:sonar -Psample,jacoco,integration,jmeter,run-its,arq-jetty-embedded,!arq-weld-ee-embedded,!arq-jbossas-managed -Dserver=jetty9x -Dsonar.projectKey=&quot;com.nabla.project.sample.interview.visma:visma:master&quot; -Djacoco.outputDir=${WORKSPACE}/target -Ddatabase=derby -Dserver=jetty9x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:$JETTY_PORT -Djboss.port=$JBOSS_PORT -Dtomcat.port=$TOMCAT_PORT -Djetty.port=$JETTY_PORT -Dcargo.rmi.port=$CARGO_RMI_PORT -Dcargo.tomcat.ajp.port=$CARGO_AJP_PORT -Dlog4j.configuration=log4j.properties -Dlog4j.debug=true</goals>
   <defaultGoals>install</defaultGoals>
   <mavenOpts>-Xms256m -Xmx512m -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc.log -XX:+HeapDumpOnOutOfMemoryError</mavenOpts>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
