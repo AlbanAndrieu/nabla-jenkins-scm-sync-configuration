@@ -4,11 +4,6 @@
   <description>Check sites availability</description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.1">
-      <additionalTag></additionalTag>
-      <pushOnSuccess>false</pushOnSuccess>
-      <cleanImages>true</cleanImages>
-    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>365</daysToKeep>
@@ -26,7 +21,7 @@
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.7.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -148,7 +143,7 @@ exit 0
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi/html/download/</mUrl>
+          <mUrl>http://home.nabla.mobi/html/download/phantomjs/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
@@ -169,7 +164,7 @@ exit 0
       </strategy>
       <operationList/>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
