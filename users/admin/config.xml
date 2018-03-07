@@ -4,26 +4,31 @@
   <description></description>
   <properties>
     <jenkins.security.ApiTokenProperty>
-      <apiToken>5jyAaGbtCXEYxffHoMzeNdWSsustAwqh8fPDcHu/h7T8H4OEAjI4HloApjQp7MwB</apiToken>
+      <apiToken>{AQAAABAAAAAws2vQPgMAjlajoC8MYTBLIBOXzuRgDdOL5FAhz+n7aeBmk+wJRrUj01c8GiCoKURxiEhi7RvRJwdHmTdalMr4/Q==}</apiToken>
     </jenkins.security.ApiTokenProperty>
     <hudson.plugins.greenballs.ColorBlindProperty plugin="greenballs@1.15">
       <enabledColorBlindSupport>false</enabledColorBlindSupport>
     </hudson.plugins.greenballs.ColorBlindProperty>
-    <hudson.plugins.cigame.UserScoreProperty plugin="ci-game@1.24">
+    <hudson.plugins.cigame.UserScoreProperty plugin="ci-game@1.26">
       <score>0.0</score>
       <isNotParticipatingInGame>false</isNotParticipatingInGame>
     </hudson.plugins.cigame.UserScoreProperty>
-    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.4">
+    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.16">
       <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
     </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
-    <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.17">
+    <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.20">
       <emailAddress>alban.andrieu@free.fr</emailAddress>
     </hudson.tasks.Mailer_-UserProperty>
-    <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.44">
+    <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.61">
       <triggers/>
     </hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty>
-    <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@1.16">
-      <favorites/>
+    <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@2.3.1">
+      <data class="concurrent-hash-map">
+        <entry>
+          <string>nabla-servers-bower-sample-nightly-branch-TODELETE</string>
+          <boolean>true</boolean>
+        </entry>
+      </data>
     </hudson.plugins.favorite.user.FavoriteUserProperty>
     <hudson.model.MyViewsProperty>
       <primaryViewName></primaryViewName>
@@ -66,5 +71,14 @@
       <treePosition>0</treePosition>
       <stepInNumberJobs>10</stepInNumberJobs>
     </de.fspengler.hudson.pview.UserPersonalViewProperty>
+    <io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty plugin="blueocean-autofavorite@1.2.1">
+      <autofavoriteEnabled>true</autofavoriteEnabled>
+    </io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty>
+    <org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty plugin="display-url-api@2.2.0">
+      <providerId>default</providerId>
+    </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
+    <org.jenkinsci.plugins.readonly.UserConfiguration plugin="read-only-configurations@1.10">
+      <displayForReadOnlyPermission>true</displayForReadOnlyPermission>
+    </org.jenkinsci.plugins.readonly.UserConfiguration>
   </properties>
 </user>

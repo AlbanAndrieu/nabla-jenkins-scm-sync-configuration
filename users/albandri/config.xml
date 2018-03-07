@@ -4,71 +4,41 @@
   <description></description>
   <properties>
     <jenkins.security.ApiTokenProperty>
-      <apiToken>CxtZKINRLdUUrgoD7ah7n0oPupp8QxlI+IW1AvKBeeL8H4OEAjI4HloApjQp7MwB</apiToken>
+      <apiToken>{AQAAABAAAAAwCnq6jBynZtzrK0U5PolZcHwUrORjIcjcaXjZeoju2cXC03VVadBwiuUgYvu9lTK52Zp8wkwxm+x6gLpY4Xu6kg==}</apiToken>
     </jenkins.security.ApiTokenProperty>
-    <hudson.plugins.greenballs.ColorBlindProperty plugin="greenballs@1.14">
+    <hudson.plugins.greenballs.ColorBlindProperty plugin="greenballs@1.15">
       <enabledColorBlindSupport>false</enabledColorBlindSupport>
     </hudson.plugins.greenballs.ColorBlindProperty>
-    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@1.22">
+    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.16">
       <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash">
         <entry>
           <com.cloudbees.plugins.credentials.domains.Domain>
             <specifications/>
           </com.cloudbees.plugins.credentials.domains.Domain>
           <java.util.concurrent.CopyOnWriteArrayList>
-            <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey plugin="ssh-credentials@1.11">
+            <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey plugin="ssh-credentials@1.13">
               <id>09b4f465-aed3-42fb-be22-c7f9f58e2469</id>
               <description></description>
               <username>albandri</username>
-              <passphrase>/B+DhAIyOB5aAKY0KezMAQ==</passphrase>
               <privateKeySource class="com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey$DirectEntryPrivateKeySource">
-                <privateKey>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
-xTmG2xCBgrStF9jV/PEyruo=</privateKey>
+                <privateKey>{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}</privateKey>
               </privateKeySource>
             </com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
           </java.util.concurrent.CopyOnWriteArrayList>
         </entry>
       </domainCredentialsMap>
     </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
-    <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@1.16">
-      <favorites>
-        <string>nabla-projects-interview-visma-nightly</string>
-      </favorites>
+    <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@2.3.1">
+      <data class="concurrent-hash-map">
+        <entry>
+          <string>nabla-projects-interview-visma-nightly</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>nabla-servers-bower-sample-nightly-branch-TODELETE</string>
+          <boolean>true</boolean>
+        </entry>
+      </data>
     </hudson.plugins.favorite.user.FavoriteUserProperty>
     <hudson.model.MyViewsProperty>
       <primaryViewName></primaryViewName>
@@ -111,8 +81,20 @@ hQkKv8M=</authorizedKeys>
     <hudson.security.HudsonPrivateSecurityRealm_-Details>
       <passwordHash>#jbcrypt:$2a$10$WILA5nfEtDKnI/U7yjQ4XemFA0xtW4AmVPUGkarS.Jpvp9sk7pfV2</passwordHash>
     </hudson.security.HudsonPrivateSecurityRealm_-Details>
-    <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.15">
+    <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.20">
       <emailAddress>alban.andrieu@free.fr</emailAddress>
     </hudson.tasks.Mailer_-UserProperty>
+    <io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty plugin="blueocean-autofavorite@1.2.1">
+      <autofavoriteEnabled>true</autofavoriteEnabled>
+    </io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty>
+    <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.61">
+      <triggers/>
+    </hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty>
+    <org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty plugin="display-url-api@2.2.0">
+      <providerId>default</providerId>
+    </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
+    <org.jenkinsci.plugins.readonly.UserConfiguration plugin="read-only-configurations@1.10">
+      <displayForReadOnlyPermission>true</displayForReadOnlyPermission>
+    </org.jenkinsci.plugins.readonly.UserConfiguration>
   </properties>
 </user>
