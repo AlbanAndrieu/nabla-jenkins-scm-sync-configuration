@@ -673,7 +673,7 @@ This build check that all reports can still be generated and is doing sone addit
       <skipWhenFailed>false</skipWhenFailed>
       <cleanWhenSuccess>true</cleanWhenSuccess>
       <cleanWhenUnstable>true</cleanWhenUnstable>
-      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenFailure>false</cleanWhenFailure>
       <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
       <cleanWhenAborted>true</cleanWhenAborted>
       <notFailBuild>false</notFailBuild>
@@ -706,7 +706,7 @@ This build check that all reports can still be generated and is doing sone addit
     <hudson.tasks.Maven>
       <targets>-B -U -e -Dsurefire.useFile=false clean -Psample -Ddatabase=derby</targets>
       <mavenName>(Default)</mavenName>
-      <usePrivateRepository>true</usePrivateRepository>
+      <usePrivateRepository>false</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
       <injectBuildVariables>true</injectBuildVariables>
@@ -718,7 +718,7 @@ This build check that all reports can still be generated and is doing sone addit
       <mavenName>(Default)</mavenName>
       <jvmOptions>-Xms256m -Xmx512m -XX:PermSize=80M -XX:MaxPermSize=256M</jvmOptions>
       <properties>java.awt.headless=true</properties>
-      <usePrivateRepository>true</usePrivateRepository>
+      <usePrivateRepository>false</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
       <injectBuildVariables>true</injectBuildVariables>
@@ -728,7 +728,7 @@ This build check that all reports can still be generated and is doing sone addit
       <mavenName>(Default)</mavenName>
       <jvmOptions>-Xms256m -Xmx512m -XX:PermSize=80M -XX:MaxPermSize=256M</jvmOptions>
       <properties>java.awt.headless=true</properties>
-      <usePrivateRepository>true</usePrivateRepository>
+      <usePrivateRepository>false</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
       <injectBuildVariables>true</injectBuildVariables>
