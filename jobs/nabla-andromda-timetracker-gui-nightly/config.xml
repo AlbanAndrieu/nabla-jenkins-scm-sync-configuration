@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.17">
+<maven2-moduleset plugin="maven-plugin@3.1">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;Andromda Timetracker GUI&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -44,6 +44,11 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <assignDescription>false</assignDescription>
       <descriptionTemplate></descriptionTemplate>
     </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.1.3">
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>365</daysToKeep>
@@ -53,25 +58,19 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@0.16.2">
-      <tagOnCompletion>false</tagOnCompletion>
-      <additionalTag></additionalTag>
-      <pushOnSuccess>false</pushOnSuccess>
-      <cleanImages>true</cleanImages>
-    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-andromda/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.27">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -141,14 +140,14 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters>
-    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.71">
+    <hudson.plugins.findbugs.FindBugsReporter plugin="findbugs@4.72">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[FINDBUGS] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.94">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -173,14 +172,14 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <excludePattern></excludePattern>
       <includePattern></includePattern>
     </hudson.plugins.findbugs.FindBugsReporter>
-    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.49">
+    <hudson.plugins.pmd.PmdReporter plugin="pmd@3.50">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[PMD] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.94">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -202,14 +201,14 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
     </hudson.plugins.pmd.PmdReporter>
-    <hudson.plugins.dry.DryReporter plugin="dry@2.49">
+    <hudson.plugins.dry.DryReporter plugin="dry@2.50">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <pluginName>[DRY] </pluginName>
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.94">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -240,7 +239,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <thresholdLimit>low</thresholdLimit>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.94">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -456,7 +455,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
     </hudson.plugins.violations.hudson.maven.ViolationsMavenReporter>
   </reporters>
   <publishers>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.63">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.65">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -466,7 +465,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.94">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -511,7 +510,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
       <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds plugin="analysis-core@1.92">
+      <thresholds plugin="analysis-core@1.94">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -540,7 +539,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <isWarningsDeactivated>false</isWarningsDeactivated>
       <isAndroidLintDeactivated>false</isAndroidLintDeactivated>
     </hudson.plugins.analysis.collector.AnalysisPublisher>
-    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.21">
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.24">
       <includeFailedBuilds>false</includeFailedBuilds>
     </hudson.tasks.test.AggregatedTestResultPublisher>
     <hudson.tasks.ArtifactArchiver>
@@ -551,11 +550,16 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <hudson.plugins.dependencyanalyzer.DependencyAnalyzerPublisher plugin="dependencyanalyzer@0.7"/>
     <org.jenkinsci.plugins.discardbuild.DiscardBuildPublisher plugin="discard-old-build@1.05">
       <daysToKeep>365</daysToKeep>
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
+        <hudson.model.Result>
+          <name>FAILURE</name>
+          <ordinal>2</ordinal>
+          <color>RED</color>
+          <completeBuild>true</completeBuild>
+        </hudson.model.Result>
         <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
@@ -567,12 +571,6 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
           <ordinal>4</ordinal>
           <color>ABORTED</color>
           <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>FAILURE</name>
-          <ordinal>2</ordinal>
-          <color>RED</color>
-          <completeBuild>true</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -593,7 +591,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <failedFails>100</failedFails>
       <thresholdMode>2</thresholdMode>
     </hudson.plugins.testng.Publisher>
-    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
+    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@3.0.1">
       <execPattern>**/**.exec</execPattern>
       <classPattern>**/classes</classPattern>
       <sourcePattern>**/src/main/java</sourcePattern>
@@ -641,7 +639,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
       <skipWhenFailed>false</skipWhenFailed>
       <cleanWhenSuccess>true</cleanWhenSuccess>
       <cleanWhenUnstable>true</cleanWhenUnstable>
-      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenFailure>false</cleanWhenFailure>
       <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
       <cleanWhenAborted>true</cleanWhenAborted>
       <notFailBuild>false</notFailBuild>
@@ -650,7 +648,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
     </hudson.plugins.ws__cleanup.WsCleanup>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
       <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
         <timeoutMinutes>300</timeoutMinutes>
       </strategy>
@@ -658,11 +656,11 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.7">
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.8">
       <template>#${GIT_BRANCH}-${BUILD_NUMBER}</template>
       <runAtStart>true</runAtStart>
       <runAtEnd>true</runAtEnd>
@@ -672,7 +670,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
     <hudson.tasks.Shell>
       <command>echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@2.1.3">
+    <EnvInjectBuilder plugin="envinject@2.1.5">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
