@@ -124,6 +124,7 @@ mvn verify -Pcoverage -Djacoco.outputDir=${WORKSPACE}/target&#xd;
   <defaultGoals>install</defaultGoals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
+  <localRepository class="hudson.maven.local_repo.DefaultLocalRepositoryLocator"/>
   <ignoreUpstremChanges>true</ignoreUpstremChanges>
   <ignoreUnsuccessfulUpstreams>false</ignoreUnsuccessfulUpstreams>
   <archivingDisabled>true</archivingDisabled>
