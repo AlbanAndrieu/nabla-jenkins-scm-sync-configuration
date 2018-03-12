@@ -10,7 +10,7 @@
     <isSetupComplete>true</isSetupComplete>
     <name>RESTART</name>
   </installState>
-  <numExecutors>1</numExecutors>
+  <numExecutors>0</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
