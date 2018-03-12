@@ -4,6 +4,11 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.1.3">
+      <additionalTag></additionalTag>
+      <pushOnSuccess>false</pushOnSuccess>
+      <cleanImages>true</cleanImages>
+    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>365</daysToKeep>
@@ -13,13 +18,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.0.4">
-      <tagOnCompletion>false</tagOnCompletion>
-      <additionalTag></additionalTag>
-      <pushOnSuccess>false</pushOnSuccess>
-      <cleanImages>true</cleanImages>
-    </com.nirima.jenkins.plugins.docker.DockerJobProperty>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.1">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.0">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-servers/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -31,7 +30,7 @@
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -92,12 +91,11 @@ firefox -v || true
 chromium-browser --version || true
 google-chrome-stable --version || true
 
-\rm -Rf /tmp/.X*-lock
-\rm -Rf /tmp/.X11-unix 
-
+sudo rm -Rf /tmp/.X*-lock || true
+sudo rm -Rf /tmp/.X11-unix || true
 
 cd ~/.mozilla
-find . -name &apos;.parentlock&apos; -exec rm {} \;
+sudo find . -name &apos;.parentlock&apos; -exec rm {} \;
 cd $WORKSPACE
 
 </command>
@@ -155,16 +153,16 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -219,7 +217,7 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
