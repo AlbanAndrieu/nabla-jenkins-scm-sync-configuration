@@ -777,7 +777,7 @@
           <string>/workspace/jboss-as-7.1.1.Final</string>
           <string>JRE_HOME</string>
           <string>/usr/local/openjdk8/jre</string>
-          <string>MAVEN_OPTS</string>
+          <string>MAVEN_OPTS-TODO</string>
           <string>-Xms128m -Xmx1024m</string>
           <string>PATH</string>
           <string>$PATH:$ZAPROXY_HOME</string>
