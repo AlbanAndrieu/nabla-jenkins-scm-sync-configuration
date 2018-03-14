@@ -3,7 +3,7 @@
   <installations>
     <hudson.plugins.sonar.SonarInstallation>
       <name>Default</name>
-      <serverUrl>https://sonarcloud.io/</serverUrl>
+      <serverUrl>https://sonarcloud.io</serverUrl>
       <serverVersion>5.3</serverVersion>
       <serverAuthenticationToken>50cb615252d00e68f3678b321335a8d1f13a9145</serverAuthenticationToken>
       <mojoVersion></mojoVersion>
@@ -17,8 +17,8 @@
         <envVar></envVar>
       </triggers>
       <sonarLogin></sonarLogin>
-      <databaseSecret>{AQAAABAAAAAQOKKLQj9WJkEX//Kd+OjAlSNacU9+q6k0ZtCvrNF3MWo=}</databaseSecret>
-      <sonarSecret>{AQAAABAAAAAQzp7N7J/GdrC+1/XV+jsBZSXFFI0FBegvEKkekO47C1I=}</sonarSecret>
+      <databaseSecret>{AQAAABAAAAAQRfpwW9odVpEeftjWXWp5vgvFfEbFNY9WstibQCcOjVo=}</databaseSecret>
+      <sonarSecret>{AQAAABAAAAAQEN+BNte3NTEq4cBBOX+On87GBchDVIy0hHDZ+spVsoI=}</sonarSecret>
     </hudson.plugins.sonar.SonarInstallation>
   </installations>
   <buildWrapperEnabled>false</buildWrapperEnabled>
