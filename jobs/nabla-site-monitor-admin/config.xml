@@ -21,7 +21,7 @@
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.7.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -43,8 +43,7 @@
       <hudson.plugins.git.extensions.impl.CleanCheckout/>
     </extensions>
   </scm>
-  <assignedNode>ubuntu&amp;&amp;security</assignedNode>
-  <canRoam>false</canRoam>
+  <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
@@ -112,14 +111,6 @@ exit 0
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>http://192.168.0.29:80/cgi-bin/awstats.pl?config=home.nabla.mobi</mUrl>
-          <successResponseCodes/>
-        </hudson.plugins.sitemonitor.model.Site>
-        <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://192.168.0.29:7071/</mUrl>
-          <successResponseCodes/>
-        </hudson.plugins.sitemonitor.model.Site>
-        <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://192.168.0.29:7072/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
