@@ -134,7 +134,7 @@ exit 0
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi/html/download/phantomjs/</mUrl>
+          <mUrl>http://home.nabla.mobi:86/html/download/phantomjs/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
