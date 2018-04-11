@@ -439,7 +439,7 @@
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.65">
+        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.66">
           <id>dashboard_portlet_27756</id>
           <name>Compiler warnings trend graph (totals)</name>
           <width>500</width>
