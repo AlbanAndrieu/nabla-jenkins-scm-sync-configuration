@@ -325,10 +325,10 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <displayPortabilitySeverity>false</displayPortabilitySeverity>
         </configGraph>
       </cppcheckConfig>
-      <pattern>cppcheck-reports/**/cppcheck-result-*.xml</pattern>
+      <pattern></pattern>
       <ignoreBlankFiles>false</ignoreBlankFiles>
       <threshold></threshold>
-      <allowNoReport>true</allowNoReport>
+      <allowNoReport>false</allowNoReport>
       <newThreshold></newThreshold>
       <failureThreshold></failureThreshold>
       <newFailureThreshold></newFailureThreshold>
@@ -425,12 +425,6 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
@@ -440,6 +434,12 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
