@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <hudson>
   <disabledAdministrativeMonitors>
     <string>hudson.diagnosis.UpdateCenterChooser</string>
@@ -6,8 +6,7 @@
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
   <version>2.89.4</version>
-  <installState class="jenkins.install.InstallState$5">
-    <isSetupComplete>true</isSetupComplete>
+  <installState class="jenkins.install.InstallState$Restart">
     <name>RESTART</name>
   </installState>
   <numExecutors>0</numExecutors>
@@ -138,7 +137,7 @@
       <properties>
         <hudson.tools.InstallSourceProperty>
           <installers>
-            <hudson.tools.JDKInstaller>
+            <hudson.tools.JDKInstaller plugin="jdk-tool@1.0">
               <id>jdk-8u131-oth-JPR</id>
               <acceptLicense>true</acceptLicense>
             </hudson.tools.JDKInstaller>
@@ -152,7 +151,7 @@
       <properties>
         <hudson.tools.InstallSourceProperty>
           <installers>
-            <hudson.tools.JDKInstaller>
+            <hudson.tools.JDKInstaller plugin="jdk-tool@1.0">
               <id>jdk-7u80-oth-JPR</id>
               <acceptLicense>true</acceptLicense>
             </hudson.tools.JDKInstaller>
