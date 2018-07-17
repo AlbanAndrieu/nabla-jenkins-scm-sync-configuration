@@ -159,7 +159,7 @@ cd $WORKSPACE
 
 echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@2.1.5">
+    <EnvInjectBuilder plugin="envinject@2.1.6">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
@@ -284,7 +284,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
     <hudson.plugins.sitemonitor.SiteMonitorRecorder plugin="sitemonitor@0.5">
       <mSites>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://192.168.0.28/cdash</mUrl>
+          <mUrl>https://home.nabla.mobi/cdash/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
@@ -433,6 +433,12 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
@@ -442,12 +448,6 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
