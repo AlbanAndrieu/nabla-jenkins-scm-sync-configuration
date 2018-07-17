@@ -165,7 +165,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       </info>
     </EnvInjectBuilder>
     <hudson.plugins.sonar.SonarRunnerBuilder plugin="sonar@2.7.1">
-      <project>sonar-runner.properties</project>
+      <project>sonar-project.properties</project>
       <properties></properties>
       <javaOpts></javaOpts>
       <additionalArguments></additionalArguments>
