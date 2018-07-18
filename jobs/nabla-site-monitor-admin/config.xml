@@ -95,7 +95,9 @@ exit 0
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>http://home.nabla.mobi:84/phpmyadmin</mUrl>
-          <successResponseCodes/>
+          <successResponseCodes>
+            <int>301</int>
+          </successResponseCodes>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>http://mafreebox.free.fr/</mUrl>
