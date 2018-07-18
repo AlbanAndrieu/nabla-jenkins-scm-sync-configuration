@@ -88,9 +88,9 @@ exit 0
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>http://home.nabla.mobi:82/</mUrl>
+          <mUrl>http://nabla.freeboxos.fr:82/</mUrl>
           <successResponseCodes>
-            <int>307</int>
+            <int>200</int>
           </successResponseCodes>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
@@ -147,6 +147,10 @@ exit 0
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
           <mUrl>https://home.nabla.mobi/cdash/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>https://nabla.freeboxos.fr:20726/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
       </mSites>
