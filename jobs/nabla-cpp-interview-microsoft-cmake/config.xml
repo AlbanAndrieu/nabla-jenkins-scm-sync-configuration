@@ -296,7 +296,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
       <markBuildUnstableWhenThresholdIsExceeded>false</markBuildUnstableWhenThresholdIsExceeded>
     </jenkins.plugins.clangscanbuild.publisher.ClangScanBuildPublisher>
     <hudson.plugins.cppncss.CppNCSSPublisher plugin="cppncss@1.2">
-      <reportFilenamePattern>cppncss-reports/**/cppncss-result-*.xml</reportFilenamePattern>
+      <reportFilenamePattern>reports/**/cppncss-result-*.xml</reportFilenamePattern>
       <targets/>
     </hudson.plugins.cppncss.CppNCSSPublisher>
     <org.jenkinsci.plugins.cppcheck.CppcheckPublisher plugin="cppcheck@1.22">
@@ -333,7 +333,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <displayPortabilitySeverity>false</displayPortabilitySeverity>
         </configGraph>
       </cppcheckConfig>
-      <pattern></pattern>
+      <pattern>reports/**/cppcheck-result-SAMPLE.xml</pattern>
       <ignoreBlankFiles>false</ignoreBlankFiles>
       <threshold></threshold>
       <allowNoReport>false</allowNoReport>
