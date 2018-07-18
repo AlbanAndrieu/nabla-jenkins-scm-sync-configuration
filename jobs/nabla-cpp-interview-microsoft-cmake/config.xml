@@ -333,10 +333,10 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
           <displayPortabilitySeverity>false</displayPortabilitySeverity>
         </configGraph>
       </cppcheckConfig>
-      <pattern>reports/cppcheck-result-SAMPLE.xml</pattern>
+      <pattern></pattern>
       <ignoreBlankFiles>false</ignoreBlankFiles>
       <threshold></threshold>
-      <allowNoReport>true</allowNoReport>
+      <allowNoReport>false</allowNoReport>
       <newThreshold></newThreshold>
       <failureThreshold></failureThreshold>
       <newFailureThreshold></newFailureThreshold>
@@ -376,7 +376,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>HTML RATS Report</reportName>
           <reportDir>reports/</reportDir>
-          <reportFiles>rats-result-SAMPLE.html</reportFiles>
+          <reportFiles>rats-result.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <reportTitles></reportTitles>
           <keepAll>false</keepAll>
@@ -386,7 +386,7 @@ echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>HTML Flawfinder Report</reportName>
           <reportDir>reports/</reportDir>
-          <reportFiles>flawfinder-result-SAMPLE.html</reportFiles>
+          <reportFiles>flawfinder-result.html</reportFiles>
           <alwaysLinkToLastBuild>true</alwaysLinkToLastBuild>
           <reportTitles></reportTitles>
           <keepAll>false</keepAll>
