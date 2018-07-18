@@ -736,7 +736,7 @@
   </views>
   <primaryView>nabla-dashboard</primaryView>
   <slaveAgentPort>33224</slaveAgentPort>
-  <label>ubuntu java java-small java-medium groovy jboss7x jboss5x subversion git selenium zaproxy-TODO firefox firefox-57 firefox-57.0.1 google-chrome-stable google-chrome-stable-62 google-chrome-stable-62.0.3202.94</label>
+  <label>java java-small java-medium groovy jboss7x jboss5x subversion git selenium zaproxy-TODO firefox firefox-57 firefox-57.0.1 google-chrome-stable google-chrome-stable-62 google-chrome-stable-62.0.3202.94</label>
   <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
     <excludeClientIPFromCrumb>true</excludeClientIPFromCrumb>
   </crumbIssuer>
