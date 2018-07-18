@@ -50,7 +50,7 @@
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>ubuntu&amp;&amp;java-medium&amp;&amp;git&amp;&amp;selenium</assignedNode>
+  <assignedNode>ubuntu&amp;&amp;java-medium&amp;&amp;git&amp;&amp;selenium&amp;&amp;firefox-58</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
