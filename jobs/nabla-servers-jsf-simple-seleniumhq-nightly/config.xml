@@ -134,7 +134,7 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
       <injectBuildVariables>true</injectBuildVariables>
     </hudson.tasks.Maven>
     <hudson.plugins.seleniumhq.SeleniumhqBuilder plugin="seleniumhq@0.4">
-      <browser>*chrome</browser>
+      <browser>*googlechrome</browser>
       <startURL>http://home.nabla.mobi:8280/welcome/</startURL>
       <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
       <resultFile>sample/jsf-simple/target/test-reports/chrome-results.html</resultFile>
