@@ -98,7 +98,7 @@ cd ~/.mozilla
 sudo find . -name &apos;.parentlock&apos; -exec rm {} \; || true
 cd $WORKSPACE
 
-</command>
+java -jar ./selenium-server-standalone-3.13.0.jar --version || true</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Maven>
       <targets>-B -U -e tomcat7:redeploy -Psample -Dserver=tomcat7x -Ddatabase=derby -Dcargo.host=home.nabla.mobi -Dcargo.rmi.port=$CARGO_RMI_PORT -Dtomcat.port=8280 -Dwebdriver.base.url=http://home.nabla.mobi:8280 -Dwebdriver.chrome.driver=/var/lib/chromedriver -Djacoco.outputDir=${WORKSPACE}/target</targets>
@@ -153,16 +153,16 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>SUCCESS</name>
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
