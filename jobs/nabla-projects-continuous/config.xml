@@ -730,7 +730,7 @@ as soon it does not take too long.</description>
     <hudson.tasks.Maven>
       <targets>javadoc:javadoc -Psample</targets>
       <mavenName>(Default)</mavenName>
-      <usePrivateRepository>false</usePrivateRepository>
+      <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
       <injectBuildVariables>true</injectBuildVariables>
@@ -739,7 +739,7 @@ as soon it does not take too long.</description>
       <targets>javadoc:aggregate -Psample</targets>
       <mavenName>(Default)</mavenName>
       <jvmOptions>-Xms256m -Xmx512m</jvmOptions>
-      <usePrivateRepository>false</usePrivateRepository>
+      <usePrivateRepository>true</usePrivateRepository>
       <settings class="jenkins.mvn.DefaultSettingsProvider"/>
       <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
       <injectBuildVariables>true</injectBuildVariables>
