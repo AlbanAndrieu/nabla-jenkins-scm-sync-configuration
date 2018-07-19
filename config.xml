@@ -172,6 +172,9 @@
       </dockerApi>
       <containerCap>1</containerCap>
       <exposeDockerHost>true</exposeDockerHost>
+      <disabled>
+        <disabledByChoice>false</disabledByChoice>
+      </disabled>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
   </clouds>
   <quietPeriod>5</quietPeriod>

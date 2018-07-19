@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <hudson.plugins.seleniumhq.SeleniumhqBuilder_-DescriptorImpl plugin="seleniumhq@0.4">
-  <seleniumRunner>/workspace/selenium-server-standalone-2.52.0.jar</seleniumRunner>
+  <seleniumRunner>/workspace/selenium-html-runner-3.13.0.jar</seleniumRunner>
 </hudson.plugins.seleniumhq.SeleniumhqBuilder_-DescriptorImpl>
