@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@3.1">
+<?xml version='1.1' encoding='UTF-8'?>
+<maven2-moduleset plugin="maven-plugin@3.1.2">
   <actions/>
   <description>Build &lt;b&gt;Nabla&lt;/b&gt; &lt;i&gt;UML&lt;/i&gt; nightly at midnight.&lt;br&gt;&#xd;
 The main goals of this job is to do clean build fast, every day and provide quick feedback to developer.&lt;br&gt;&#xd;
@@ -51,7 +51,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <assignDescription>false</assignDescription>
       <descriptionTemplate></descriptionTemplate>
     </jenkins.plugins.maveninfo.config.MavenInfoJobConfig>
-    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.1.3">
+    <com.nirima.jenkins.plugins.docker.DockerJobProperty plugin="docker-plugin@1.1.4">
       <additionalTag></additionalTag>
       <pushOnSuccess>false</pushOnSuccess>
       <cleanImages>true</cleanImages>
@@ -65,19 +65,20 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.2">
       <projectUrl>https://github.com/AlbanAndrieu/nabla-uml/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl plugin="html5-notifier-plugin@1.5">
       <skip>false</skip>
     </org.jenkins.ci.plugins.html5__notifier.JobPropertyImpl>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.27">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.28">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
+    <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -297,7 +298,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
     </hudson.plugins.tasks.TasksReporter>
   </reporters>
   <publishers>
-    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.65">
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.68">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
@@ -392,7 +393,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
-    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.6.1">
+    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.7.1">
       <branch></branch>
       <mavenOpts></mavenOpts>
       <jobAdditionalProperties>-Psample,arq-jbossas-managed,run-its,jmeter -Dserver=jetty9x -Dwebdriver.chrome.driver=/var/lib/chromedriver -Dwebdriver.base.url=http://localhost:9090 -Djsf-simple-saucelabs.test.excludes=&quot;**/*STest.java&quot; -Djacoco.outputDir=${WORKSPACE}/target  -Dorg.sonar.plugins.jmeter.jtlpath=${WORKSPACE}/sample/jsf-simple/target/jmeter/results/jmeter.jtl</jobAdditionalProperties>
@@ -439,12 +440,6 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
       <numToKeep>-1</numToKeep>
       <resultsToDiscard>
         <hudson.model.Result>
-          <name>ABORTED</name>
-          <ordinal>4</ordinal>
-          <color>ABORTED</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>NOT_BUILT</name>
           <ordinal>3</ordinal>
           <color>NOTBUILT</color>
@@ -455,6 +450,12 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
           <ordinal>0</ordinal>
           <color>BLUE</color>
           <completeBuild>true</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>ABORTED</name>
+          <ordinal>4</ordinal>
+          <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
       <minLogFileSize>0</minLogFileSize>
@@ -503,7 +504,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
         <hudson.plugins.build__timeout.operations.FailOperation/>
       </operationList>
     </hudson.plugins.build__timeout.BuildTimeoutWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.10"/>
     <org.jvnet.hudson.plugins.port__allocator.PortAllocator plugin="port-allocator@1.8">
       <ports>
         <org.jvnet.hudson.plugins.port__allocator.PooledPortType>
@@ -530,7 +531,7 @@ mvn install org.pitest:pitest-maven:mutationCoverage&#xd;
     <hudson.tasks.Shell>
       <command>echo SONAR_BRANCH=$(printf &apos;%s&apos; $GIT_BRANCH | cut -d&apos;/&apos; -f 2- | sed s/[^0-9a-zA-Z:_.\-]/&apos;_&apos;/g) &gt; sonar-branch</command>
     </hudson.tasks.Shell>
-    <EnvInjectBuilder plugin="envinject@2.1.5">
+    <EnvInjectBuilder plugin="envinject@2.1.6">
       <info>
         <propertiesFilePath>sonar-branch</propertiesFilePath>
       </info>
