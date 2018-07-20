@@ -115,7 +115,7 @@ java -jar ./selenium-server-standalone-3.13.0.jar --version || true</command>
       <startURL>http://home.nabla.mobi:8280/welcome/</startURL>
       <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
       <resultFile>sample/jsf-simple/target/test-reports/firefox-results.html</resultFile>
-      <other>-timeout 600 </other>
+      <other>-timeout 600</other>
     </hudson.plugins.seleniumhq.SeleniumhqBuilder>
     <hudson.tasks.Shell>
       <command>export PATH=/usr/local/bin/:${PATH}
@@ -138,7 +138,7 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
       <startURL>http://home.nabla.mobi:8280/welcome/</startURL>
       <suiteFile>sample/jsf-simple/src/test/selenium/SimpleSTestSuite.html</suiteFile>
       <resultFile>sample/jsf-simple/target/test-reports/chrome-results.html</resultFile>
-      <other> -timeout 600</other>
+      <other>-timeout 600</other>
     </hudson.plugins.seleniumhq.SeleniumhqBuilder>
   </builders>
   <publishers>
