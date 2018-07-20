@@ -7,7 +7,7 @@
   </disabledAdministrativeMonitors>
   <version>2.121.1</version>
   <installStateName>RESTART</installStateName>
-  <numExecutors>0</numExecutors>
+  <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
@@ -764,7 +764,7 @@
         <unserializable-parents/>
         <tree-map>
           <default>
-            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../../../../nodeProperties/hudson.slaves.EnvironmentVariablesNodeProperty/envVars/tree-map/default/comparator"/>
           </default>
           <int>11</int>
           <string>DISPLAY</string>
