@@ -154,15 +154,15 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
           <completeBuild>true</completeBuild>
         </hudson.model.Result>
         <hudson.model.Result>
-          <name>NOT_BUILT</name>
-          <ordinal>3</ordinal>
-          <color>NOTBUILT</color>
-          <completeBuild>false</completeBuild>
-        </hudson.model.Result>
-        <hudson.model.Result>
           <name>ABORTED</name>
           <ordinal>4</ordinal>
           <color>ABORTED</color>
+          <completeBuild>false</completeBuild>
+        </hudson.model.Result>
+        <hudson.model.Result>
+          <name>NOT_BUILT</name>
+          <ordinal>3</ordinal>
+          <color>NOTBUILT</color>
           <completeBuild>false</completeBuild>
         </hudson.model.Result>
       </resultsToDiscard>
@@ -197,10 +197,6 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
         </htmlpublisher.HtmlPublisherTarget>
       </reportTargets>
     </htmlpublisher.HtmlPublisher>
-    <hudson.plugins.seleniumhq.SeleniumhqPublisher plugin="seleniumhq@0.4">
-      <testResults>sample/jsf-simple/target/test-reports/*.html</testResults>
-      <useTestCommands>true</useTestCommands>
-    </hudson.plugins.seleniumhq.SeleniumhqPublisher>
   </publishers>
   <buildWrappers>
     <org.jenkinsci.plugins.xvfb.Xvfb plugin="xvfb@1.1.3">
