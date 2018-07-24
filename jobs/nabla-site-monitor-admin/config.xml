@@ -143,10 +143,6 @@ exit 0
           </successResponseCodes>
         </hudson.plugins.sitemonitor.model.Site>
         <hudson.plugins.sitemonitor.model.Site>
-          <mUrl>https://home.nabla.mobi:7000/</mUrl>
-          <successResponseCodes/>
-        </hudson.plugins.sitemonitor.model.Site>
-        <hudson.plugins.sitemonitor.model.Site>
           <mUrl>https://home.nabla.mobi/cdash/</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
