@@ -154,6 +154,26 @@ exit 0
           <mUrl>http://home.nabla.mobi:4444/grid/console</mUrl>
           <successResponseCodes/>
         </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://alban-andrieu.eu/#/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://alban-andrieu.fr/#/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>http://alban-andrieu.com/#/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>https://bababou.eu/#/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
+        <hudson.plugins.sitemonitor.model.Site>
+          <mUrl>https://bababou.fr/#/</mUrl>
+          <successResponseCodes/>
+        </hudson.plugins.sitemonitor.model.Site>
       </mSites>
     </hudson.plugins.sitemonitor.SiteMonitorRecorder>
   </publishers>
