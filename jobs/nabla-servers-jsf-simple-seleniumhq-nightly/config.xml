@@ -178,7 +178,7 @@ wget --http-user=admin --http-password=microsoft &quot;http://home.nabla.mobi:82
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Selenium HTML Reports</reportName>
           <reportDir>sample/jsf-simple/target/test-reports/</reportDir>
-          <reportFiles>googlechrome.results.html firefox-results.html</reportFiles>
+          <reportFiles>googlechrome.results.html, firefox-results.html</reportFiles>
           <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
           <reportTitles></reportTitles>
           <keepAll>true</keepAll>
