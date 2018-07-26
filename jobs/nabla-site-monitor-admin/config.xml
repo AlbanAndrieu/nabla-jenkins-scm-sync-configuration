@@ -44,7 +44,7 @@
       <hudson.plugins.git.extensions.impl.CleanCheckout/>
     </extensions>
   </scm>
-  <assignedNode>ubuntu&amp;&amp;git&amp;&amp;selenium</assignedNode>
+  <assignedNode>ubuntu-legacy&amp;&amp;selenium</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
