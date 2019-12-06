@@ -4,7 +4,7 @@
   <stickyByDefault>true</stickyByDefault>
   <propagateToFollowingBuildsByDefault>false</propagateToFollowingBuildsByDefault>
   <sortUsersByFullName>false</sortUsersByFullName>
-  <groovyTrigger plugin="script-security@1.44">
+  <groovyTrigger plugin="script-security@1.46">
     <script></script>
     <sandbox>true</sandbox>
   </groovyTrigger>
