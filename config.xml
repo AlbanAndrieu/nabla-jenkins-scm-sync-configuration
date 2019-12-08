@@ -5,7 +5,7 @@
     <string>OldData</string>
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>2.150.1</version>
+  <version>2.190.3</version>
   <installStateName>RESTART</installStateName>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
@@ -125,7 +125,7 @@
     &lt;/td&gt;&#xd;
   &lt;/tr&gt;&#xd;
 &lt;/table&gt;</systemMessage>
-  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.5">
+  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.6">
     <disableSyntaxHighlighting>false</disableSyntaxHighlighting>
   </markupFormatter>
   <jdks>
@@ -135,7 +135,7 @@
       <properties>
         <hudson.tools.InstallSourceProperty>
           <installers>
-            <hudson.tools.JDKInstaller plugin="jdk-tool@1.1">
+            <hudson.tools.JDKInstaller plugin="jdk-tool@1.4">
               <id>jdk-8u131-oth-JPR</id>
               <acceptLicense>true</acceptLicense>
             </hudson.tools.JDKInstaller>
@@ -149,7 +149,7 @@
       <properties>
         <hudson.tools.InstallSourceProperty>
           <installers>
-            <hudson.tools.JDKInstaller plugin="jdk-tool@1.1">
+            <hudson.tools.JDKInstaller plugin="jdk-tool@1.4">
               <id>jdk-7u80-oth-JPR</id>
               <acceptLicense>true</acceptLicense>
             </hudson.tools.JDKInstaller>
@@ -161,10 +161,10 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.5">
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.9">
       <name>albandri-wifi</name>
       <dockerApi>
-        <dockerHost plugin="docker-commons@1.13">
+        <dockerHost plugin="docker-commons@1.15">
           <uri>tcp://192.168.0.62:2376</uri>
         </dockerHost>
         <connectTimeout>60</connectTimeout>
@@ -296,7 +296,7 @@
       <includeRegex>nabla.*integration</includeRegex>
       <recurse>false</recurse>
     </listView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.11">
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.12">
       <owner class="hudson" reference="../../.."/>
       <name>nabla-dashboard</name>
       <filterExecutors>false</filterExecutors>
@@ -350,7 +350,7 @@
         <hudson.views.BuildButtonColumn/>
         <org.jenkins.ci.plugins.progress__bar.ProgressBarColumn plugin="progress-bar-column-plugin@1.0"/>
         <org.jenkinsci.plugins.violationcolumns.FailedTestsColumn plugin="violation-columns@1.6"/>
-        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@1.52">
+        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@2.0.0">
           <warningsAggregator>
             <isCheckStyleActivated>true</isCheckStyleActivated>
             <isDryActivated>true</isDryActivated>
@@ -377,36 +377,31 @@
       <leftPortletWidth>50%</leftPortletWidth>
       <rightPortletWidth>50%</rightPortletWidth>
       <leftPortlets>
-        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.13">
-          <id>dashboard_portlet_6769</id>
+        <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.15">
           <name>Code Coverages(Cobertura)</name>
         </hudson.plugins.cobertura.dashboard.CoverageTablePortlet>
-        <hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart plugin="jacoco@3.0.3">
-          <id>dashboard_portlet_21242</id>
+        <hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart plugin="jacoco@3.0.4">
           <name>JaCoCo Coverage Trend Chart</name>
           <width>500</width>
           <height>250</height>
           <daysNumber>30</daysNumber>
         </hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart>
-        <hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid plugin="jacoco@3.0.3">
-          <id>dashboard_portlet_3071</id>
+        <hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid plugin="jacoco@3.0.4">
           <name>JaCoCo Coverage Statistics Grid</name>
         </hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid>
         <hudson.plugins.view.dashboard.test.TestStatisticsPortlet>
-          <id>dashboard_portlet_11473</id>
           <name>Test Statistics Grid</name>
           <useBackgroundColors>false</useBackgroundColors>
           <skippedColor>FDB813</skippedColor>
           <successColor>71E66D</successColor>
           <failureColor>E86850</failureColor>
           <hideZeroTestProjects>false</hideZeroTestProjects>
+          <useAlternatePercentagesOnLimits>false</useAlternatePercentagesOnLimits>
         </hudson.plugins.view.dashboard.test.TestStatisticsPortlet>
         <hudson.plugins.view.dashboard.test.TestStatisticsChart>
-          <id>dashboard_portlet_28561</id>
           <name>Test Statistics Chart</name>
         </hudson.plugins.view.dashboard.test.TestStatisticsChart>
         <hudson.plugins.view.dashboard.test.TestTrendChart>
-          <id>dashboard_portlet_19682</id>
           <name>Test Trend Chart</name>
           <graphWidth>300</graphWidth>
           <graphHeight>220</graphHeight>
@@ -414,8 +409,7 @@
           <dateShift>0</dateShift>
           <displayStatus>ALL</displayStatus>
         </hudson.plugins.view.dashboard.test.TestTrendChart>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet plugin="analysis-collector@1.52">
-          <id>dashboard_portlet_24505</id>
+        <hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet plugin="analysis-collector@2.0.0">
           <name>Warnings per project</name>
           <canHideZeroWarningsProjects>false</canHideZeroWarningsProjects>
           <useImages>true</useImages>
@@ -432,15 +426,13 @@
         </hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet>
       </leftPortlets>
       <rightPortlets>
-        <hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet plugin="checkstyle@3.50">
-          <id>dashboard_portlet_1233</id>
+        <hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet plugin="checkstyle@4.0.0">
           <name>Checkstyle warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@4.68">
-          <id>dashboard_portlet_27756</id>
+        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@5.0.1">
           <name>Compiler warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
@@ -449,36 +441,31 @@
             <parserName>AcuCobol Compiler</parserName>
           </actionSelector>
         </hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@2.50">
-          <id>dashboard_portlet_19073</id>
+        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@3.0.0">
           <name>Duplicate code trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet plugin="findbugs@4.72">
-          <id>dashboard_portlet_4305</id>
+        <hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet plugin="findbugs@5.0.0">
           <name>FindBugs warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet plugin="tasks@4.52">
-          <id>dashboard_portlet_8924</id>
+        <hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet plugin="tasks@4.53">
           <name>Open tasks trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet plugin="pmd@3.50">
-          <id>dashboard_portlet_6428</id>
+        <hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet plugin="pmd@4.0.0">
           <name>PMD warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
           <dayCountString>30</dayCountString>
         </hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet plugin="analysis-collector@1.52">
-          <id>dashboard_portlet_4342</id>
+        <hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet plugin="analysis-collector@2.0.0">
           <name>Warnings trend graph (totals)</name>
           <width>500</width>
           <height>200</height>
@@ -487,11 +474,9 @@
       </rightPortlets>
       <topPortlets>
         <hudson.plugins.view.dashboard.core.HudsonStdJobsPortlet>
-          <id>dashboard_portlet_23102</id>
           <name>Jenkins jobs list</name>
         </hudson.plugins.view.dashboard.core.HudsonStdJobsPortlet>
         <hudson.plugins.view.dashboard.core.UnstableJobsPortlet>
-          <id>dashboard_portlet_30322</id>
           <name>Unstable Jobs</name>
           <showOnlyFailedJobs>false</showOnlyFailedJobs>
           <recurse>false</recurse>
@@ -499,15 +484,12 @@
       </topPortlets>
       <bottomPortlets>
         <hudson.plugins.view.dashboard.stats.StatJobs>
-          <id>dashboard_portlet_30590</id>
           <name>Job statistics</name>
         </hudson.plugins.view.dashboard.stats.StatJobs>
         <hudson.plugins.view.dashboard.stats.StatBuilds>
-          <id>dashboard_portlet_30098</id>
           <name>Build statistics</name>
         </hudson.plugins.view.dashboard.stats.StatBuilds>
         <hudson.plugins.view.dashboard.stats.StatSlaves>
-          <id>dashboard_portlet_9518</id>
           <name>Slaves statistics</name>
         </hudson.plugins.view.dashboard.stats.StatSlaves>
       </bottomPortlets>
@@ -637,7 +619,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
       </jobNames>
       <jobFilters>
-        <hudson.views.JobStatusFilter plugin="view-job-filters@2.0.2">
+        <hudson.views.JobStatusFilter plugin="view-job-filters@2.1.1">
           <includeExcludeTypeString>includeMatched</includeExcludeTypeString>
           <unstable>true</unstable>
           <failed>true</failed>
