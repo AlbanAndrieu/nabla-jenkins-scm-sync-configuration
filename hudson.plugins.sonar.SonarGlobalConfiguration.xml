@@ -1,10 +1,11 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<hudson.plugins.sonar.SonarGlobalConfiguration plugin="sonar@2.8.1">
+<hudson.plugins.sonar.SonarGlobalConfiguration plugin="sonar@2.10">
+  <jenkinsSupplier class="hudson.plugins.sonar.SonarGlobalConfiguration$$Lambda$88/1987131409"/>
   <installations>
     <hudson.plugins.sonar.SonarInstallation>
       <name>Default</name>
       <serverUrl>https://sonarcloud.io</serverUrl>
-      <serverAuthenticationToken>{AQAAABAAAAAwn+J6rR4z+a9EbBZ04MZe+VhThoouDPJXda1Hk6Fcs9J+FYHTuW8DfBYT1KOrf4Q8A9dZ4D743y8XQK/hE3ZnFg==}</serverAuthenticationToken>
+      <credentialsId>e6dabb6f-c8ad-49eb-951f-c6fb5e900aca</credentialsId>
       <mojoVersion></mojoVersion>
       <additionalProperties>-Dsonar.forceAnalysis=true -Djacoco.outputDir=${WORKSPACE}/target -Dsonar.build-stability.url=Jenkins:${BUILD_URL}/.. -Dsonar.branch=${SONAR_BRANCH} -Dsonar.scm.disabled=true -Dsonar.organization=albanandrieu-github</additionalProperties>
       <additionalAnalysisProperties></additionalAnalysisProperties>
@@ -17,4 +18,5 @@
   </installations>
   <buildWrapperEnabled>false</buildWrapperEnabled>
   <dataMigrated>true</dataMigrated>
+  <credentialsMigrated>true</credentialsMigrated>
 </hudson.plugins.sonar.SonarGlobalConfiguration>
