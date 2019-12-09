@@ -426,12 +426,6 @@
         </hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet>
       </leftPortlets>
       <rightPortlets>
-        <hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet plugin="checkstyle@4.0.0">
-          <name>Checkstyle warnings trend graph (totals)</name>
-          <width>500</width>
-          <height>200</height>
-          <dayCountString>30</dayCountString>
-        </hudson.plugins.checkstyle.dashboard.WarningsTotalsGraphPortlet>
         <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@5.0.1">
           <name>Compiler warnings trend graph (totals)</name>
           <width>500</width>
