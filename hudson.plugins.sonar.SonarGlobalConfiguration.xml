@@ -1,6 +1,6 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <hudson.plugins.sonar.SonarGlobalConfiguration plugin="sonar@2.10">
-  <jenkinsSupplier class="hudson.plugins.sonar.SonarGlobalConfiguration$$Lambda$91/1019339439"/>
+  <jenkinsSupplier class="hudson.plugins.sonar.SonarGlobalConfiguration$$Lambda$116/1557383589"/>
   <installations>
     <hudson.plugins.sonar.SonarInstallation>
       <name>Default</name>

@@ -1,6 +1,6 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.29">
-  <defaultSuffix>@nabla.mobi</defaultSuffix>
+  <defaultSuffix>@albandrieu.com</defaultSuffix>
   <hudsonUrl>http://nabla.mobi:8280/jenkins/</hudsonUrl>
   <authentication>
     <username>alban.andrieu@nabla.mobi</username>

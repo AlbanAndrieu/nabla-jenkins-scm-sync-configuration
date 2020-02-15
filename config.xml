@@ -5,108 +5,13 @@
     <string>OldData</string>
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>2.190.3</version>
+  <version>2.204.2</version>
   <installStateName>RESTART</installStateName>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:admin</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:admin</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:admin</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:albandri</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:admin</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:albandri</permission>
-    <permission>hudson.model.Computer.Build:admin</permission>
-    <permission>hudson.model.Computer.Build:albandri</permission>
-    <permission>hudson.model.Computer.Build:anonymous</permission>
-    <permission>hudson.model.Computer.Configure:albandri</permission>
-    <permission>hudson.model.Computer.Connect:admin</permission>
-    <permission>hudson.model.Computer.Connect:albandri</permission>
-    <permission>hudson.model.Computer.Connect:anonymous</permission>
-    <permission>hudson.model.Computer.Create:albandri</permission>
-    <permission>hudson.model.Computer.Delete:albandri</permission>
-    <permission>hudson.model.Computer.Disconnect:admin</permission>
-    <permission>hudson.model.Computer.Disconnect:albandri</permission>
-    <permission>hudson.model.Computer.Disconnect:anonymous</permission>
-    <permission>hudson.model.Hudson.Administer:admin</permission>
-    <permission>hudson.model.Hudson.Administer:albandri</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:admin</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:albandri</permission>
-    <permission>hudson.model.Hudson.Read:admin</permission>
-    <permission>hudson.model.Hudson.Read:albandri</permission>
-    <permission>hudson.model.Hudson.Read:anonymous</permission>
-    <permission>hudson.model.Hudson.RunScripts:admin</permission>
-    <permission>hudson.model.Hudson.RunScripts:albandri</permission>
-    <permission>hudson.model.Hudson.UploadPlugins:admin</permission>
-    <permission>hudson.model.Hudson.UploadPlugins:albandri</permission>
-    <permission>hudson.model.Item.Build:admin</permission>
-    <permission>hudson.model.Item.Build:albandri</permission>
-    <permission>hudson.model.Item.Build:anonymous</permission>
-    <permission>hudson.model.Item.Cancel:admin</permission>
-    <permission>hudson.model.Item.Cancel:albandri</permission>
-    <permission>hudson.model.Item.Cancel:anonymous</permission>
-    <permission>hudson.model.Item.Configure:admin</permission>
-    <permission>hudson.model.Item.Configure:albandri</permission>
-    <permission>hudson.model.Item.Create:admin</permission>
-    <permission>hudson.model.Item.Create:albandri</permission>
-    <permission>hudson.model.Item.Delete:admin</permission>
-    <permission>hudson.model.Item.Delete:albandri</permission>
-    <permission>hudson.model.Item.Discover:admin</permission>
-    <permission>hudson.model.Item.Discover:albandri</permission>
-    <permission>hudson.model.Item.Discover:anonymous</permission>
-    <permission>hudson.model.Item.Move:admin</permission>
-    <permission>hudson.model.Item.Move:albandri</permission>
-    <permission>hudson.model.Item.Read:admin</permission>
-    <permission>hudson.model.Item.Read:albandri</permission>
-    <permission>hudson.model.Item.Read:anonymous</permission>
-    <permission>hudson.model.Item.Release:admin</permission>
-    <permission>hudson.model.Item.Release:albandri</permission>
-    <permission>hudson.model.Item.ViewStatus:admin</permission>
-    <permission>hudson.model.Item.ViewStatus:albandri</permission>
-    <permission>hudson.model.Item.ViewStatus:anonymous</permission>
-    <permission>hudson.model.Item.Workspace:admin</permission>
-    <permission>hudson.model.Item.Workspace:albandri</permission>
-    <permission>hudson.model.Item.Workspace:anonymous</permission>
-    <permission>hudson.model.Run.Delete:admin</permission>
-    <permission>hudson.model.Run.Delete:albandri</permission>
-    <permission>hudson.model.Run.Replay:admin</permission>
-    <permission>hudson.model.Run.Replay:albandri</permission>
-    <permission>hudson.model.Run.Replay:anonymous</permission>
-    <permission>hudson.model.Run.Update:admin</permission>
-    <permission>hudson.model.Run.Update:albandri</permission>
-    <permission>hudson.model.Run.Update:anonymous</permission>
-    <permission>hudson.model.View.Configure:admin</permission>
-    <permission>hudson.model.View.Configure:albandri</permission>
-    <permission>hudson.model.View.Create:admin</permission>
-    <permission>hudson.model.View.Create:albandri</permission>
-    <permission>hudson.model.View.Delete:admin</permission>
-    <permission>hudson.model.View.Delete:albandri</permission>
-    <permission>hudson.model.View.Read:admin</permission>
-    <permission>hudson.model.View.Read:albandri</permission>
-    <permission>hudson.model.View.Read:anonymous</permission>
-    <permission>hudson.plugins.promoted_builds.Promotion.Promote:admin</permission>
-    <permission>hudson.plugins.promoted_builds.Promotion.Promote:albandri</permission>
-    <permission>hudson.scm.SCM.Tag:admin</permission>
-    <permission>hudson.scm.SCM.Tag:albandri</permission>
-    <permission>hudson.scm.SCM.Tag:anonymous</permission>
-    <permission>jenkins.metrics.api.Metrics.HealthCheck:admin</permission>
-    <permission>jenkins.metrics.api.Metrics.HealthCheck:albandri</permission>
-    <permission>jenkins.metrics.api.Metrics.HealthCheck:anonymous</permission>
-    <permission>jenkins.metrics.api.Metrics.ThreadDump:admin</permission>
-    <permission>jenkins.metrics.api.Metrics.ThreadDump:albandri</permission>
-    <permission>jenkins.metrics.api.Metrics.ThreadDump:anonymous</permission>
-    <permission>jenkins.metrics.api.Metrics.View:admin</permission>
-    <permission>jenkins.metrics.api.Metrics.View:albandri</permission>
-    <permission>jenkins.metrics.api.Metrics.View:anonymous</permission>
-  </authorizationStrategy>
-  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
-    <disableSignup>false</disableSignup>
-    <enableCaptcha>false</enableCaptcha>
-  </securityRealm>
+  <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
+  <securityRealm class="hudson.security.SecurityRealm$None"/>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
@@ -121,11 +26,11 @@
       or e-mail us: &lt;a href=&quot;mailto:alban.andrieu@free.fr&quot; target=&quot;_top&quot;&gt;Nabla Build Masters mailbox&lt;/a&gt;&#xd;
     &lt;/td&gt;&#xd;
     &lt;td style=&quot;width:50%;text-align:center;&quot;&gt;&#xd;
-      &lt;img width=&quot;100px&quot; height=&quot;100px&quot; src=&quot;http://home.nabla.mobi:8381/userContent/pinguin-icon.jpg&quot; /&gt;&#xd;
+      &lt;img width=&quot;100px&quot; height=&quot;100px&quot; src=&quot;http://albandrieu.com:8380/userContent/pinguin-icon.jpg&quot; /&gt;&#xd;
     &lt;/td&gt;&#xd;
   &lt;/tr&gt;&#xd;
 &lt;/table&gt;</systemMessage>
-  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.6">
+  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.8">
     <disableSyntaxHighlighting>false</disableSyntaxHighlighting>
   </markupFormatter>
   <jdks>
@@ -160,23 +65,7 @@
   </jdks>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
-  <clouds>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.9">
-      <name>albandri-wifi</name>
-      <dockerApi>
-        <dockerHost plugin="docker-commons@1.15">
-          <uri>tcp://192.168.0.62:2376</uri>
-        </dockerHost>
-        <connectTimeout>60</connectTimeout>
-        <readTimeout>60</readTimeout>
-      </dockerApi>
-      <containerCap>1</containerCap>
-      <exposeDockerHost>true</exposeDockerHost>
-      <disabled>
-        <disabledByChoice>false</disabledByChoice>
-      </disabled>
-    </com.nirima.jenkins.plugins.docker.DockerCloud>
-  </clouds>
+  <clouds/>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
@@ -349,19 +238,6 @@
         </com.robestone.hudson.compactcolumns.AllStatusesColumn>
         <hudson.views.BuildButtonColumn/>
         <org.jenkins.ci.plugins.progress__bar.ProgressBarColumn plugin="progress-bar-column-plugin@1.0"/>
-        <org.jenkinsci.plugins.violationcolumns.FailedTestsColumn plugin="violation-columns@1.6"/>
-        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@2.0.0">
-          <warningsAggregator>
-            <isCheckStyleActivated>true</isCheckStyleActivated>
-            <isDryActivated>true</isDryActivated>
-            <isFindBugsActivated>true</isFindBugsActivated>
-            <isPmdActivated>true</isPmdActivated>
-            <isOpenTasksActivated>true</isOpenTasksActivated>
-            <isWarningsActivated>true</isWarningsActivated>
-            <isAndroidLintActivated>false</isAndroidLintActivated>
-            <hideJobPrefix>false</hideJobPrefix>
-          </warningsAggregator>
-        </hudson.plugins.analysis.collector.WarningsCountColumn>
         <hudson.views.LastDurationColumn/>
         <hudson.views.LastStableColumn/>
         <com.sonatype.insight.ci.hudson.QualityColumn plugin="insight-ci@2.3.3"/>
@@ -380,13 +256,13 @@
         <hudson.plugins.cobertura.dashboard.CoverageTablePortlet plugin="cobertura@1.15">
           <name>Code Coverages(Cobertura)</name>
         </hudson.plugins.cobertura.dashboard.CoverageTablePortlet>
-        <hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart plugin="jacoco@3.0.4">
+        <hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart plugin="jacoco@3.0.5">
           <name>JaCoCo Coverage Trend Chart</name>
           <width>500</width>
           <height>250</height>
           <daysNumber>30</daysNumber>
         </hudson.plugins.jacoco.portlet.chart.JacocoBuilderTrendChart>
-        <hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid plugin="jacoco@3.0.4">
+        <hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid plugin="jacoco@3.0.5">
           <name>JaCoCo Coverage Statistics Grid</name>
         </hudson.plugins.jacoco.portlet.grid.JacocoBuilderGrid>
         <hudson.plugins.view.dashboard.test.TestStatisticsPortlet>
@@ -409,63 +285,8 @@
           <dateShift>0</dateShift>
           <displayStatus>ALL</displayStatus>
         </hudson.plugins.view.dashboard.test.TestTrendChart>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet plugin="analysis-collector@2.0.0">
-          <name>Warnings per project</name>
-          <canHideZeroWarningsProjects>false</canHideZeroWarningsProjects>
-          <useImages>true</useImages>
-          <warningsAggregator>
-            <isCheckStyleActivated>true</isCheckStyleActivated>
-            <isDryActivated>true</isDryActivated>
-            <isFindBugsActivated>true</isFindBugsActivated>
-            <isPmdActivated>true</isPmdActivated>
-            <isOpenTasksActivated>true</isOpenTasksActivated>
-            <isWarningsActivated>true</isWarningsActivated>
-            <isAndroidLintActivated>false</isAndroidLintActivated>
-            <hideJobPrefix>false</hideJobPrefix>
-          </warningsAggregator>
-        </hudson.plugins.analysis.collector.dashboard.WarningsTablePortlet>
       </leftPortlets>
-      <rightPortlets>
-        <hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet plugin="warnings@5.0.1">
-          <name>Compiler warnings trend graph (totals)</name>
-          <width>500</width>
-          <height>200</height>
-          <dayCountString>30</dayCountString>
-          <actionSelector>
-            <parserName>AcuCobol Compiler</parserName>
-          </actionSelector>
-        </hudson.plugins.warnings.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet plugin="dry@3.0.0">
-          <name>Duplicate code trend graph (totals)</name>
-          <width>500</width>
-          <height>200</height>
-          <dayCountString>30</dayCountString>
-        </hudson.plugins.dry.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet plugin="findbugs@5.0.0">
-          <name>FindBugs warnings trend graph (totals)</name>
-          <width>500</width>
-          <height>200</height>
-          <dayCountString>30</dayCountString>
-        </hudson.plugins.findbugs.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet plugin="tasks@4.53">
-          <name>Open tasks trend graph (totals)</name>
-          <width>500</width>
-          <height>200</height>
-          <dayCountString>30</dayCountString>
-        </hudson.plugins.tasks.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet plugin="pmd@4.0.0">
-          <name>PMD warnings trend graph (totals)</name>
-          <width>500</width>
-          <height>200</height>
-          <dayCountString>30</dayCountString>
-        </hudson.plugins.pmd.dashboard.WarningsTotalsGraphPortlet>
-        <hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet plugin="analysis-collector@2.0.0">
-          <name>Warnings trend graph (totals)</name>
-          <width>500</width>
-          <height>200</height>
-          <dayCountString>30</dayCountString>
-        </hudson.plugins.analysis.collector.dashboard.WarningsTotalsGraphPortlet>
-      </rightPortlets>
+      <rightPortlets/>
       <topPortlets>
         <hudson.plugins.view.dashboard.core.HudsonStdJobsPortlet>
           <name>Jenkins jobs list</name>
@@ -742,19 +563,17 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>11</int>
+          <int>10</int>
           <string>DISPLAY</string>
           <string>:99</string>
           <string>JAVA_HOME</string>
           <string>/usr/local/openjdk8</string>
           <string>JAVA_OPTS</string>
           <string>-Xms128m -Xmx1024m</string>
-          <string>JBOSS_HOME</string>
+          <string>JBOSS_HOME-TODELETE</string>
           <string>/workspace/jboss-as-7.1.1.Final</string>
           <string>JRE_HOME</string>
           <string>/usr/local/openjdk8/jre</string>
-          <string>MAVEN_OPTS-TODO</string>
-          <string>-Xms128m -Xmx1024m</string>
           <string>PATH</string>
           <string>$PATH:$ZAPROXY_HOME</string>
           <string>PROJECT_DEV</string>

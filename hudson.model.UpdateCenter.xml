@@ -4,13 +4,4 @@
     <id>default</id>
     <url>http://updates.jenkins-ci.org/stable/update-center.json</url>
   </site>
-  <jp.ikedam.jenkins.plugins.updatesitesmanager.ManagedUpdateSite plugin="update-sites-manager@2.0.0">
-    <id>BlackDuckPublicUpdateSite</id>
-    <url>https://form.blackducksoftware.com/bdosvr-jenkins-update/update-center.json</url>
-    <caCertificate>-----BEGIN CERTIFICATE-----
-MIIC5jCCAk+gAwIBAgIJAKRNB0Vf3pKyMA0GCSqGSIb3DQEBBQUAMIGLMQswCQYDVQQGEwJVUzEWMBQGA1UECAwNTUFTU0FDSFVTRVRUUzETMBEGA1UEBwwKQlVSTElOR1RPTjEcMBoGA1UECgwTQkxBQ0sgRFVDSyBTT0ZUV0FSRTEUMBIGA1UECwwLSU5URUdSQVRJT04xGzAZBgNVBAMMEmVuZy1qZW5raW5zLXVwZGF0ZTAeFw0xNTA0MzAxMzU1MDJaFw0xODA0MjkxMzU1MDJaMIGLMQswCQYDVQQGEwJVUzEWMBQGA1UECAwNTUFTU0FDSFVTRVRUUzETMBEGA1UEBwwKQlVSTElOR1RPTjEcMBoGA1UECgwTQkxBQ0sgRFVDSyBTT0ZUV0FSRTEUMBIGA1UECwwLSU5URUdSQVRJT04xGzAZBgNVBAMMEmVuZy1qZW5raW5zLXVwZGF0ZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEArCfHVKCc2qSUcgBLPTA/hBQGkJiNsK7ju9CpHdNZHInGMzXeolsczqCOYQkW8/+LZ5z/88L3Kmhfvmm1m/yqjNq+TErcmOCnnqXde5qSSD/jSO5xQCTFSzvlJxxc8qoSVeKbrrAjo1vIdVogofPkq0cz2+XTCT9qJwP77zpB3f0CAwEAAaNQME4wHQYDVR0OBBYEFBJP3Y7+WxcWhN7ciq+4pIYxwWRVMB8GA1UdIwQYMBaAFBJP3Y7+WxcWhN7ciq+4pIYxwWRVMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAWkZ+qfOIxcC8CZDtzCgbzJULjyoaRCY3eSLgd7EQvX59hOQF1TbMC4jdkKth+cFWdMFjDxzEdRLJnHMyRJnVIfdWv0M7K+cF0DzdHSn5ICWBnxKRJCeWDexdc0XdsTqPLeoMJYSatYpGmLCk6tAHX5s6QXbEQfjyYv5DTZARV/M=
------END CERTIFICATE-----</caCertificate>
-    <disabled>true</disabled>
-    <note>BlackDuck Plug-ins</note>
-  </jp.ikedam.jenkins.plugins.updatesitesmanager.ManagedUpdateSite>
 </sites>
